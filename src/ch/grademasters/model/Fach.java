@@ -55,19 +55,33 @@ public class Fach {
 		
 	//Methode	
 	/**
-	* @return ZeugnisNote
+	 * Rechnet Durchschnitts Note vom Fach
+	* @return berechneZeugnisNote
 	*/
-	public float berechneZeugnisNote(float note) {
-		return 0;
+	public float berechneZeugnisNote() {
+		float summe = 0;
+		float anzahlNoten = 0;
+		
+		//Summe aller Noten berechnen
+		for (Pruefung pruefung : this.getPruefung() ){
+			summe = summe + (pruefung.getNote() * pruefung.getGewichtung());
+		}
+		//Anzahl Noten Berechnen mit Gewichtung
+		for (Pruefung pruefung : this.getPruefung() ){
+			anzahlNoten = anzahlNoten + pruefung.getGewichtung();
+		}
+		return (summe / anzahlNoten);
 	}
 	
 	/**
+	 * Fuegt eine Pruefung hinzu
 	* @param addPruefung
 	*/	
 	public void addPruefung(Pruefung addPruefung) {
 		this.getPruefung().add(addPruefung);
 	}
 	/**
+	 * löscht eine Prüfung
 	* @param removePruefung
 	*/	
 	public void removePruefung(Pruefung removePruefung) {
@@ -75,11 +89,16 @@ public class Fach {
 	}
 		
 	/**
+	 * To String Methode
 	* @return toString
 	*/
 	public String toString() {
 		String s = null;
-		s = this.getFach() + "\n" + this.getPruefung();
+		s = this.getFach() + "\n"; 
+		for (Pruefung pruefung : this.getPruefung() ) {
+			s = s + pruefung;
+		}
+		s = s + "\nDurchschnitt: " + this.berechneZeugnisNote() + "\n\n";
 		return s;
 	}
 	

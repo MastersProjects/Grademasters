@@ -64,11 +64,12 @@ public class Pruefung {
 	
 	//Methode
 	/**
+	 * To String Methode
 	* @return toString
 	*/
 	public String toString() {
 		String s = null;
-		s = this.getBezeichnung() + "\nNote: " + this.getNote() + "\nGewichtung: " + this.getGewichtung() + "\n";
+		s = "\n" + this.getBezeichnung() + "\nNote: " + this.getNote() + "\nGewichtung: " + this.getGewichtung() + "\n";
 		return s;
 	}
 
