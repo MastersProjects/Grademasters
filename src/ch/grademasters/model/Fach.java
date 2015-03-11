@@ -94,7 +94,7 @@ public class Fach {
 	*/
 	public String toString() {
 		String s = null;
-		s = this.getFach() + "\n"; 
+		s = "********************\n" + "Fach: " + this.getFach() + "\n"; 
 		for (Pruefung pruefung : this.getPruefung() ) {
 			s = s + pruefung;
 		}

@@ -7,14 +7,14 @@ package ch.grademasters.model;
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
 
-public class Lehrer{
+public class KlassenLehrer{
 
 	// Instanzvariablen
 	private String name;
 	private String vorname;
 	private String email;
 
-	public Lehrer(String name, String vorname, String email) {
+	public KlassenLehrer(String name, String vorname, String email) {
 		this.setName(name);
 		this.setVorname(vorname);
 		this.setEmail(email);
