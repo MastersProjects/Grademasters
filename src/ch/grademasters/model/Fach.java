@@ -18,7 +18,6 @@ public class Fach {
 		this.setFach(fach);
 	}
 	
-
 	
 	//Getter und Setter
 	/**
@@ -48,16 +47,15 @@ public class Fach {
 		this.pruefung = pruefung;
 	}
 	
-	//Methode
-	
+		
+	//Methode	
 	/**
 	* @return ZeugnisNote
 	*/
 	public float berechneZeugnisNote(float note) {
 		return this.getPruefung().getNote();
 	}
-	
-	
+		
 	/**
 	* @return toString
 	*/
