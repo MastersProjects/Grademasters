@@ -6,7 +6,7 @@ package ch.grademasters.model;
  *         Copyright Berufsbildungscenter GradeMasters 2015
  */
 
-public class Lehrer {
+public class Lehrer extends Klasse{
 
 	// Instanzvariablen
 	private String name;
@@ -63,6 +63,7 @@ public class Lehrer {
 	 */
 	public String toString() {
 		String s = "";
+		s = super.toString();
 		s = s + vorname + " " + name + "\n";
 		s = s + email;
 		return s; 
