@@ -1,9 +1,11 @@
 package ch.grademasters.model;
 /**
- * 
- * @author Chiramet Phong Penglerd, ICT Berufsbildungscenter AG, chirametphong.penglerd@bbcag.ch
- *
+ * @description
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * Fach.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
  */
+
 public class Fach {
 	
 	//Instanzvariablen
