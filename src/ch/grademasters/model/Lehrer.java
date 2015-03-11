@@ -58,8 +58,7 @@ public class Lehrer extends Klasse{
 	}
 
 	/**
-	 * return String s
-	 * return Vorname, Nachname, Email
+	 * @return String s mit Vorname, Nachname, Email
 	 */
 	public String toString() {
 		String s = "";
