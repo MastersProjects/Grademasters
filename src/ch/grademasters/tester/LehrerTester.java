@@ -1,6 +1,5 @@
 package ch.grademasters.tester;
 
-import ch.grademasters.model.Klasse;
 import ch.grademasters.model.Lehrer;
 
 /**
