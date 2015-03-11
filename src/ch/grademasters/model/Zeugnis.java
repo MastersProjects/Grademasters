@@ -2,7 +2,7 @@ package ch.grademasters.model;
 /**
  * @description Diese lasse wird dazu bennötigt, ein Zeugniss zu berechnen
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * Zeugnis.java
+ * @file Zeugnis.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
 

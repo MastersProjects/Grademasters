@@ -5,7 +5,7 @@ import ch.grademasters.model.Zeugnis;
 /**
  * @description Dies ist die Testerklasse für die Rundungsfunktion in der Klasse Zeugnis
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * ZeugnisNoteRundenTester.java
+ * @file ZeugnisNoteRundenTester.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
 
