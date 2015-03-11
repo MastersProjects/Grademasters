@@ -10,7 +10,13 @@ public class Fach {
 	
 	//Instanzvariablen
 	private String fach;
-	private Pruefung pruefung = new Pruefung();
+	private Pruefung pruefung;
+	
+	
+	//Kontruktor
+	public Fach (String fach) {
+		this.setFach(fach);
+	}
 	
 
 	
@@ -50,4 +56,15 @@ public class Fach {
 	public float berechneZeugnisNote(float note) {
 		return this.getPruefung().getNote();
 	}
+	
+	
+	/**
+	* @return toString
+	*/
+	public String toString() {
+		String s = null;
+		s = this.getFach() + "\n" + this.getPruefung();
+		return s;
+	}
+	
 }

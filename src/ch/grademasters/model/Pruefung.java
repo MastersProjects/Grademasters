@@ -11,6 +11,14 @@ public class Pruefung {
 	//Instanzvariablen
 	private float note;
 	private float gewichtung;
+	private String bezeichnung;
+	
+	//Konstruktor
+	public Pruefung (String bezeichnung, float note, float gewichtung) {
+		this.setNote(note);
+		this.setGewichtung(gewichtung);
+		this.setBezeichnung(bezeichnung);
+	}
 	
 	//Getter und Setter
 	/**
@@ -38,6 +46,31 @@ public class Pruefung {
 	public void setGewichtung(float gewichtung) {
 		this.gewichtung = gewichtung;
 	}
+	
+	/**
+	 * @return bezeichnung
+	 */
+	public String getBezeichnung() {
+		return bezeichnung;
+	}
+	
+	/**
+	 * @param bezeichnung
+	 */
+	public void setBezeichnung(String bezeichnung) {
+		this.bezeichnung = bezeichnung;
+	}
+	
+	//Methode
+	/**
+	* @return toString
+	*/
+	public String toString() {
+		String s = null;
+		s = this.getBezeichnung() + "\nNote: " + this.getNote() + "\nGewichtung: " + this.getGewichtung();
+		return s;
+	}
+
 	
 	
 }
