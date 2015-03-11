@@ -1,4 +1,8 @@
 package ch.grademasters.model;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * @description
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
@@ -10,7 +14,7 @@ public class Fach {
 	
 	//Instanzvariablen
 	private String fach;
-	private Pruefung pruefung;
+	private Collection<Pruefung> pruefung = new ArrayList<Pruefung>();
 	
 	
 	//Kontruktor
@@ -37,13 +41,14 @@ public class Fach {
 	/**
 	* @return pruefung
 	*/
-	public Pruefung getPruefung() {
+	public Collection<Pruefung> getPruefung() {
 		return pruefung;
 	}
+	
 	/**
 	 * @param pruefung
 	 */
-	public void setPruefung(Pruefung pruefung) {
+	public void setPruefung(Collection<Pruefung> pruefung) {
 		this.pruefung = pruefung;
 	}
 	
@@ -53,7 +58,20 @@ public class Fach {
 	* @return ZeugnisNote
 	*/
 	public float berechneZeugnisNote(float note) {
-		return this.getPruefung().getNote();
+		return 0;
+	}
+	
+	/**
+	* @param addPruefung
+	*/	
+	public void addPruefung(Pruefung addPruefung) {
+		this.getPruefung().add(addPruefung);
+	}
+	/**
+	* @param removePruefung
+	*/	
+	public void removePruefung(Pruefung removePruefung) {
+		this.getPruefung().remove(removePruefung);
 	}
 		
 	/**
@@ -64,5 +82,12 @@ public class Fach {
 		s = this.getFach() + "\n" + this.getPruefung();
 		return s;
 	}
+	
+	
+
+	
+
+
+	
 	
 }

@@ -20,6 +20,7 @@ public class Pruefung {
 		this.setBezeichnung(bezeichnung);
 	}
 	
+	
 	//Getter und Setter
 	/**
 	 * @return note
@@ -67,7 +68,7 @@ public class Pruefung {
 	*/
 	public String toString() {
 		String s = null;
-		s = this.getBezeichnung() + "\nNote: " + this.getNote() + "\nGewichtung: " + this.getGewichtung();
+		s = this.getBezeichnung() + "\nNote: " + this.getNote() + "\nGewichtung: " + this.getGewichtung() + "\n";
 		return s;
 	}
 
