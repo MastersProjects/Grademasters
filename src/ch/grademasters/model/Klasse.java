@@ -2,8 +2,9 @@ package ch.grademasters.model;
 
 /**
  * @description
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin Klasse.java
- *         Copyright Berufsbildungscenter GradeMasters 2015
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * @file Klasse.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
  */
 
 public class Klasse {

@@ -1,9 +1,10 @@
 package ch.grademasters.model;
 
 /**
- * @description
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin Lehrer.java
- *         Copyright Berufsbildungscenter GradeMasters 2015
+ * @description Klasse Lehrer enthaelt alle Informationen ueber eine Lehrer einer Klasse
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * @file Lehrer.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
  */
 
 public class Lehrer extends Klasse{

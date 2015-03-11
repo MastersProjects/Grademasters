@@ -28,7 +28,7 @@ public class ZeugnisNoteRundenTester {
 		/**
 		 * Aufruf der Funktion noteRunden mit Daten aus Liste zahlen resultate in Liste zahlenNeu
 		 * @param Noten aus Liste zahlen
-		 * @return gerundete Note auf 0.5 in Liste zahlenNeu
+		 * @return gerundete Note auf 0.5
 		 */
 		for(int i = 0; i < 5; i++){
 		zahlenNeu[i] = z.noteRunden(zahlen[i]);
