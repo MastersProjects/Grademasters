@@ -7,14 +7,19 @@ package ch.grademasters.model;
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
 
-public class Lehrer extends Klasse{
+public class Lehrer{
 
 	// Instanzvariablen
 	private String name;
 	private String vorname;
 	private String email;
-	Klasse l;
 
+	public Lehrer(String name, String vorname, String email) {
+		this.setName(name);
+		this.setVorname(vorname);
+		this.setEmail(email);
+	}
+	
 	// Getter und Setter
 	/**
 	 * @return name
@@ -62,10 +67,9 @@ public class Lehrer extends Klasse{
 	 * @return String s mit Vorname, Nachname, Email
 	 */
 	public String toString() {
-		String s = "";
-		s = super.toString();
-		s = s + vorname + " " + name + "\n";
-		s = s + email;
+		String s = null;		
+		s = this.getVorname() + " " + this.getName() + "\n";
+		s = s + this.getEmail();
 		return s; 
 	}
 

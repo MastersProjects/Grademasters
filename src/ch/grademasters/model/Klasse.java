@@ -2,9 +2,8 @@ package ch.grademasters.model;
 
 /**
  * @description
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * @file Klasse.java
- * Copyright Berufsbildungscenter GradeMasters 2015
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin
+ * @file Klasse.java Copyright Berufsbildungscenter GradeMasters 2015
  */
 
 public class Klasse {
@@ -12,8 +11,23 @@ public class Klasse {
 	// Instanzvariablen
 	private String klassenname;
 	private String schule;
-	private String klassenlehrer;
-	private int Semester;
+	private int semester;
+	private Lehrer klassenLehrer;
+
+	public Klasse(Lehrer lehrer, String klassenname, String schule, int semester) {
+		if (lehrer != null) {
+			this.setKlassenLehrer(lehrer);
+			this.setKlassenname(klassenname);
+			this.setSchule(schule);
+			this.setSemester(semester);
+
+		}
+		else {
+			// this.setKlassenLehrer(new Lehrer("","",""));
+		}
+	}
+
+	// Getter und Setter
 
 	/**
 	 * @return klassenname
@@ -23,7 +37,6 @@ public class Klasse {
 	}
 
 	/**
-	 * 
 	 * @param klassenname
 	 */
 	public void setKlassenname(String klassenname) {
@@ -31,7 +44,6 @@ public class Klasse {
 	}
 
 	/**
-	 * 
 	 * @return schule
 	 */
 	public String getSchule() {
@@ -39,7 +51,6 @@ public class Klasse {
 	}
 
 	/**
-	 * 
 	 * @param schule
 	 */
 	public void setSchule(String schule) {
@@ -47,44 +58,39 @@ public class Klasse {
 	}
 
 	/**
-	 * 
-	 * @return Klassenlehrer
+	 * @return klassenLehrer
 	 */
-	public String getKlassenlehrer() {
-		return klassenlehrer;
+	public Lehrer getKlassenLehrer() {
+		return klassenLehrer;
 	}
 
 	/**
-	 * 
-	 * @param klassenlehrer
+	 * @param klassenLehrer
 	 */
-	public void setKlassenlehrer(String klassenlehrer) {
-		this.klassenlehrer = klassenlehrer;
+	public void setKlassenLehrer(Lehrer klassenLehrer) {
+		this.klassenLehrer = klassenLehrer;
 	}
 
 	/**
-	 * 
 	 * @return semester
 	 */
 	public int getSemester() {
-		return Semester;
+		return semester;
 	}
 
 	/**
-	 * 
 	 * @param semester
 	 */
 	public void setSemester(int semester) {
-		Semester = semester;
+		this.semester = semester;
 	}
-	
-	public String toString(){
+
+	public String toString() {
 		String l = "";
-		l =     "Klasse: " + "       "  + klassenname + "\n";
-		l = l + "Semester: " + "     " + Semester + "\n";
-		l = l + "Schule: " + "       " + schule + "\n";
-		l = l + "********************************************** \n" ;
-		l = l + "Klassenlehrer: " +  "\n";
+		l = "Klasse: " + "       " + this.getKlassenname() + "\n";
+		l = l + "Semester: " + "     " + this.getSemester() + "\n";
+		l = l + "Schule: " + "       " + this.getSchule() + "\n";
+		l = l + this.getKlassenLehrer().toString() + "\n";
 		return l;
 	}
 }
