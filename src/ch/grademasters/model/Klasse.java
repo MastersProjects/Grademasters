@@ -104,13 +104,18 @@ public class Klasse {
 	}
 	
 
+	//Methode	
+	/**
+	 * To String Methode
+	* @return toString
+	*/	
 	public String toString() {
 		String l = "";
 		l = "Klasse: " + "       " + this.getKlassenname() + "\n";
 		l = l + "Semester: " + "     " + this.getSemester() + "\n";
 		l = l + "Schule: " + "       " + this.getSchule() + "\n";
 		l = l + this.getKlassenLehrer().toString() + "\n\n";
-		for (Fach fach : this.getFach() ) {
+		for (Fach fach : this.getFach()) {
 			l = l + fach;
 		}
 		return l;

@@ -95,7 +95,7 @@ public class Fach {
 	public String toString() {
 		String s = null;
 		s = "********************\n" + "Fach: " + this.getFach() + "\n"; 
-		for (Pruefung pruefung : this.getPruefung() ) {
+		for (Pruefung pruefung : this.getPruefung()) {
 			s = s + pruefung;
 		}
 		s = s + "\nDurchschnitt: " + this.berechneZeugnisNote() + "\n\n";

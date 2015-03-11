@@ -14,8 +14,7 @@ import ch.grademasters.model.Pruefung;
 public class KlasseTester {
 	public static void main(String[] args) {
 
-		KlassenLehrer lehrer = new KlassenLehrer("Guenther", "Schneider",
-				"Guenter.Schneider@Access.tbz");
+		KlassenLehrer lehrer = new KlassenLehrer("Guenther", "Schneider", "Guenter.Schneider@Access.tbz");
 		Klasse klasse = new Klasse(lehrer, "AP14a", "TBZ", 2);
 
 		Fach mathe = new Fach("Mathe");
