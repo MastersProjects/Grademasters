@@ -10,10 +10,10 @@ import java.util.Collection;
  */
 
 public class Zeugnis {
-	
+
 	private Collection<Fach> fach = new ArrayList<Fach>();
-	
-	//Getter und Setter
+
+	// Getter und Setter
 	/**
 	 * @return fach
 	 */
@@ -28,33 +28,34 @@ public class Zeugnis {
 		this.fach = fach;
 	}
 
-	
-	
-	//Methode
+	// Methode
 	/**
 	 * Diese Methode rundet die Note in eine Zeugnisnote also auf 0.5 genau
+	 * 
 	 * @param durchschnitt
 	 * @return gerundete Note auf 0.5
 	 */
 	public float noteRunden(float durchschnitt) {
 		durchschnitt = durchschnitt * 2;
-		durchschnitt = (float) Math.ceil(durchschnitt);
+		durchschnitt = (float) Math.round(durchschnitt);
 		durchschnitt = durchschnitt / 2;
 		return durchschnitt;
 	}
-	
+
 	/**
 	 * To String Methode
+	 * 
 	 * @return toString
 	 */
 	public String toString() {
 		String s = null;
 		s = "Zeugnis\n\n";
 		for (Fach fach : this.getFach()) {
-			s = s + fach.getFach() + ": " + this.noteRunden(fach.berechneZeugnisNote()) + "\n";
+			s = s + fach.getFach() + ": "
+					+ this.noteRunden(fach.berechneZeugnisNote()) + "\n";
 		}
 		return s;
-		
+
 	}
 
 	/**
@@ -75,6 +76,4 @@ public class Zeugnis {
 		this.getFach().remove(removeFach);
 	}
 
-	
-	
 }
