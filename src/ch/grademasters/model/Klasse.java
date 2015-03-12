@@ -1,8 +1,5 @@
 package ch.grademasters.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 /**
  * @description
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin
@@ -16,7 +13,8 @@ public class Klasse {
 	private String schule;
 	private int semester;
 	private KlassenLehrer klassenLehrer;
-	private Collection<Fach> fach = new ArrayList<Fach>();
+	private Zeugnis zeugnis = new Zeugnis();
+	
 
 	public Klasse(KlassenLehrer lehrer, String klassenname, String schule,
 			int semester) {
@@ -83,25 +81,24 @@ public class Klasse {
 	}
 
 	/**
-	 * @param semester
+	 * @param zeugnis
 	 */
 	public void setSemester(int semester) {
 		this.semester = semester;
 	}
-
+	
+	public Zeugnis getZeugnis() {
+		return zeugnis;
+	}
+	
 	/**
-	 * @return fach
+	 * @param zeugnis
 	 */
-	public Collection<Fach> getFach() {
-		return fach;
+	public void setZeugnis(Zeugnis zeugnis) {
+		this.zeugnis = zeugnis;
 	}
 
-	/**
-	 * @param fach
-	 */
-	public void setFach(Collection<Fach> fach) {
-		this.fach = fach;
-	}
+	
 
 	// Methode
 	/**
@@ -115,27 +112,16 @@ public class Klasse {
 		l = l + "Semester: " + "     " + this.getSemester() + "\n";
 		l = l + "Schule: " + "       " + this.getSchule() + "\n";
 		l = l + this.getKlassenLehrer().toString() + "\n\n";
-		for (Fach fach : this.getFach()) {
+		for (Fach fach : this.getZeugnis().getFach()) {
 			l = l + fach;
 		}
+		l = l + "\n" + this.getZeugnis();
 		return l;
 	}
 
-	/**
-	 * Fuegt eine Fach hinzu
-	 * 
-	 * @param addFach
-	 */
-	public void addFach(Fach addFach) {
-		this.getFach().add(addFach);
-	}
+	
 
-	/**
-	 * löscht eine Fach
-	 * 
-	 * @param removeFach
-	 */
-	public void removeFach(Fach removeFach) {
-		this.getFach().remove(removeFach);
-	}
+	
+
+	
 }
