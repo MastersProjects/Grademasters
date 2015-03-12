@@ -12,22 +12,29 @@ import javax.swing.JToolBar;
 
 public class GradeMastersView extends JFrame {
 	
+	
+	
+	//Toolbar
+	protected final JToolBar mainToolBar = new JToolBar();
+	
 	//Bilder & Button fuer Toolbar laden
 	private static final Icon addNoteIconLarge = loadIcon("add.png");
 	protected final JButton addButton = new JButton(addNoteIconLarge);
 	
-	//Toolbar
-	protected final JToolBar maintoolBar = new JToolBar();
-	
-
-	//Buttons an Toolbar anhaengen
-	addButton.setToolTipText("Ein neues Camper Arrangement erstellen...");
-
-	// Add buttons to tool bar
-	mainToolBar.add(addButton);
 	
 	
-	
+	public GradeMastersView () {
+		
+		setTitle("GradeMasters");
+		
+		// Add buttons to tool bar
+		addButton.setToolTipText("Ein neues Camper Arrangement erstellen...");
+		mainToolBar.add(addButton);
+		
+		//Toolbar ins Fenster
+		add(mainToolBar, BorderLayout.NORTH);
+		
+	}
 	
 	
 	
@@ -58,5 +65,6 @@ public class GradeMastersView extends JFrame {
 		gui.setSize(500, 300);
 		gui.setVisible(true);
 	}
-
+	
+	
 }
