@@ -14,6 +14,7 @@ import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -22,6 +23,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
+import ch.grademasters.listener.ButtonListener;
 import ch.grademasters.model.Fach;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.KlassenLehrer;
@@ -30,7 +32,17 @@ import ch.grademasters.model.Pruefung;
 public class GradeMastersView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	
+	//HAUPT PANELS
+	protected JPanel startPanel = new JPanel();
+	protected JPanel addKlassePanel = new JPanel();
+	protected JPanel addFachPanel = new JPanel();
+	protected JPanel addNotePanel = new JPanel();
 
+	
+	/*
+	 * startPanel
+	 */
 	// Toolbar
 	protected final JToolBar mainToolBar = new JToolBar();
 
@@ -47,31 +59,65 @@ public class GradeMastersView extends JFrame {
 
 	// Bilder & Button fuer Toolbar laden
 	private static final Icon addNoteIconLarge = loadIcon("add.png");
-	protected final JButton addNote = new JButton("Note hinzufügen",
-			addNoteIconLarge);
+	protected final JButton addNote = new JButton("Note hinzufügen", addNoteIconLarge);
+	
 
 	private static final Icon addKlasseIconLarge = loadIcon("klasse.png");
-	protected final JButton addKlasse = new JButton("Klasse hinzufügen",
-			addKlasseIconLarge);
+	protected final JButton addKlasse = new JButton("Klasse hinzufügen",addKlasseIconLarge);
 
 	private static final Icon addFachIconLarge = loadIcon("fach.png");
-	protected final JButton addFach = new JButton("Fach hinzufügen",
-			addFachIconLarge);
+	protected final JButton addFach = new JButton("Fach hinzufügen",addFachIconLarge);
 
 	private static final Icon addZeugnisIconLarge = loadIcon("zeugnis.png");
-	protected final JButton addZeugnis = new JButton("Zeugnis erstellen",
-			addZeugnisIconLarge);
+	protected final JButton addZeugnis = new JButton("Zeugnis erstellen",addZeugnisIconLarge);
 
 	private static final Icon addDiagrammIconLarge = loadIcon("diagramm.png");
-	protected final JButton addDiagramm = new JButton("Diagramm erstellen",
-			addDiagrammIconLarge);
+	protected final JButton addDiagramm = new JButton("Diagramm erstellen",addDiagrammIconLarge);
 
 	private static final Icon addNoteIconLittle = loadIcon("add_little.png");
-	protected final JButton addNoteLittle = new JButton("Note hinzufügen",
-			addNoteIconLittle);
+	protected final JButton addNoteLittle = new JButton("Note hinzufügen",addNoteIconLittle);
+	
+	
+	/*
+	 * addKlassePanel
+	 */
+	// Toolbar
+	protected final JToolBar klasseToolBar = new JToolBar();
+	
+	//Formular
+	protected JPanel klasseFormular = new JPanel(new GridLayout(1, 3));
+
+	// Bilder & Button fuer Toolbar laden
+	//Verlassen
+	private static final Icon verlassenIconLarge = GradeMastersView
+			.loadIcon(".png");
+	protected final JButton verlassen = new JButton(
+			"Verlassen",
+			verlassenIconLarge);
+	
+	//Speichern
+	private static final Icon speichernIconLarge = GradeMastersView
+			.loadIcon(".png");
+	protected final JButton speichern = new JButton("Speichern",
+			speichernIconLarge);
+	
+	//TextField fuer erfassen der Klasse
+	private JTextField klasseName = new JTextField();
+	private JTextField schuleName = new JTextField();
+	private JTextField semester = new JFormattedTextField(
+	        /*new MaskFormatter("##.##.####")*/); //Nur Zahlen sind gültige eingabe
+	
 
 	public GradeMastersView() {
 
+		startPanel.setVisible(true);
+		
+		addKlasse.addActionListener(new ButtonListener(startPanel, addKlassePanel, addFachPanel, addNotePanel));
+
+		
+		/*
+		 * startPanel
+		 */
 		mainToolBar.setFloatable(false);
 
 		setTitle("GradeMasters");
@@ -93,7 +139,7 @@ public class GradeMastersView extends JFrame {
 		mainToolBar.add(addDiagramm);
 
 		// Toolbar ins Fenster
-		add(mainToolBar, BorderLayout.NORTH);
+		startPanel.add(mainToolBar, BorderLayout.NORTH);
 
 		/* ######## SCROLLFIELD & SCROLLBAR ######## */
 
@@ -154,7 +200,7 @@ public class GradeMastersView extends JFrame {
 		klasseGrid.add(scrollpaneFach);
 
 		// KlassenGrid dem Borderlayout hinzufuegen (muss nur 1 Mal passieren)
-		add(klasseGrid, BorderLayout.WEST);
+		startPanel.add(klasseGrid, BorderLayout.WEST);
 
 		// Textfield 3 | Right
 
@@ -172,7 +218,7 @@ public class GradeMastersView extends JFrame {
 		noteGrid.add(klassenInfo);
 
 		// NoteGrid dem Borderlayout hinzufuegen (muss nur 1 Mal passieren)
-		add(noteGrid, BorderLayout.CENTER);
+		startPanel.add(noteGrid, BorderLayout.CENTER);
 		
 		// Button hinzufuegen
 		addFach.setToolTipText("Fach hinzufügen");
@@ -186,6 +232,40 @@ public class GradeMastersView extends JFrame {
 		
 		// ScrollField hinzufuegen
 		noteGrid.add(scrollpaneNote);
+		
+		this.add(startPanel, BorderLayout.NORTH);
+		
+		
+		
+		/*
+		 * addKlassePanel
+		 */
+		klasseToolBar.setFloatable(false);
+
+		// Buttons fuer Toolbar
+		verlassen.setToolTipText("Achtung Informationen werden nicht gespeichert");
+		klasseToolBar.add(verlassen);
+
+		speichern.setToolTipText("Klasse wird hinzugefuegt");
+		klasseToolBar.add(speichern);
+		
+		//Textfield fuer Klasse
+		klasseName.setText("Klassen Name");
+		klasseFormular.add(klasseName);
+		schuleName.setText("Schule");
+		klasseFormular.add(schuleName);
+		semester.setText("Semester");
+		klasseFormular.add(semester);
+		
+		// Toolbar ins Fenster
+		addKlassePanel.add(klasseToolBar, BorderLayout.NORTH);
+		
+		//Textfelder ins Fenster
+		addKlassePanel.add(klasseFormular, BorderLayout.WEST);
+		
+		this.add(addKlassePanel);
+		
+		
 	}
 
 	/**
