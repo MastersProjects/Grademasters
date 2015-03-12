@@ -5,28 +5,25 @@ import java.util.Collection;
 
 /**
  * @description
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * Fach.java
- * Copyright Berufsbildungscenter GradeMasters 2015
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin Fach.java
+ *         Copyright Berufsbildungscenter GradeMasters 2015
  */
 
 public class Fach {
-	
-	//Instanzvariablen
+
+	// Instanzvariablen
 	private String fach;
 	private Collection<Pruefung> pruefung = new ArrayList<Pruefung>();
-	
-	
-	//Kontruktor
-	public Fach (String fach) {
+
+	// Kontruktor
+	public Fach(String fach) {
 		this.setFach(fach);
 	}
-	
-	
-	//Getter und Setter
+
+	// Getter und Setter
 	/**
-	* @return fach
-	*/
+	 * @return fach
+	 */
 	public String getFach() {
 		return fach;
 	}
@@ -39,74 +36,71 @@ public class Fach {
 	}
 
 	/**
-	* @return pruefung
-	*/
+	 * @return pruefung
+	 */
 	public Collection<Pruefung> getPruefung() {
 		return pruefung;
 	}
-	
+
 	/**
 	 * @param pruefung
 	 */
 	public void setPruefung(Collection<Pruefung> pruefung) {
 		this.pruefung = pruefung;
 	}
-	
-		
-	//Methode	
+
+	// Methode
 	/**
 	 * Rechnet Durchschnitts Note vom Fach
-	* @return berechneZeugnisNote
-	*/
+	 * 
+	 * @return berechneZeugnisNote
+	 */
 	public float berechneZeugnisNote() {
 		float summe = 0;
 		float anzahlNoten = 0;
-		
-		//Summe aller Noten berechnen
-		for (Pruefung pruefung : this.getPruefung() ){
+
+		// Summe aller Noten berechnen
+		for (Pruefung pruefung : this.getPruefung()) {
 			summe = summe + (pruefung.getNote() * pruefung.getGewichtung());
 		}
-		//Anzahl Noten Berechnen mit Gewichtung
-		for (Pruefung pruefung : this.getPruefung() ){
+		// Anzahl Noten Berechnen mit Gewichtung
+		for (Pruefung pruefung : this.getPruefung()) {
 			anzahlNoten = anzahlNoten + pruefung.getGewichtung();
 		}
 		return (summe / anzahlNoten);
 	}
-	
+
 	/**
 	 * Fuegt eine Pruefung hinzu
-	* @param addPruefung
-	*/	
+	 * 
+	 * @param addPruefung
+	 */
 	public void addPruefung(Pruefung addPruefung) {
 		this.getPruefung().add(addPruefung);
 	}
+
 	/**
-	 * löscht eine Prüfung
-	* @param removePruefung
-	*/	
+	 * Loescht eine Prüfung
+	 * 
+	 * @param removePruefung
+	 */
 	public void removePruefung(Pruefung removePruefung) {
 		this.getPruefung().remove(removePruefung);
 	}
-		
+
 	/**
 	 * To String Methode
-	* @return toString
-	*/
+	 * 
+	 * @return toString
+	 */
 	public String toString() {
 		String s = null;
-		s = "********************\n" + "Fach: " + this.getFach() + "\n"; 
+		s = "********************\n" + "Fach: " + this.getFach() + "\n";
 		for (Pruefung pruefung : this.getPruefung()) {
 			s = s + pruefung;
 		}
 		s = s + "\nDurchschnitt: " + this.berechneZeugnisNote() + "\n\n";
 		return s;
 	}
-	
-	
 
-	
-
-
-	
-	
 }

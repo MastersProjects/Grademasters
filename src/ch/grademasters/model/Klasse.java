@@ -18,7 +18,8 @@ public class Klasse {
 	private KlassenLehrer klassenLehrer;
 	private Collection<Fach> fach = new ArrayList<Fach>();
 
-	public Klasse(KlassenLehrer lehrer, String klassenname, String schule, int semester) {
+	public Klasse(KlassenLehrer lehrer, String klassenname, String schule,
+			int semester) {
 		if (lehrer != null) {
 			this.setKlassenLehrer(lehrer);
 			this.setKlassenname(klassenname);
@@ -87,27 +88,27 @@ public class Klasse {
 	public void setSemester(int semester) {
 		this.semester = semester;
 	}
-	
+
 	/**
 	 * @return fach
 	 */
 	public Collection<Fach> getFach() {
 		return fach;
 	}
-	
+
 	/**
 	 * @param fach
 	 */
 	public void setFach(Collection<Fach> fach) {
 		this.fach = fach;
 	}
-	
 
-	//Methode	
+	// Methode
 	/**
 	 * To String Methode
-	* @return toString
-	*/	
+	 * 
+	 * @return toString
+	 */
 	public String toString() {
 		String l = "";
 		l = "Klasse: " + "       " + this.getKlassenname() + "\n";
@@ -119,19 +120,22 @@ public class Klasse {
 		}
 		return l;
 	}
-	
+
 	/**
 	 * Fuegt eine Fach hinzu
-	* @param addFach
-	*/	
+	 * 
+	 * @param addFach
+	 */
 	public void addFach(Fach addFach) {
 		this.getFach().add(addFach);
 	}
+
 	/**
 	 * löscht eine Fach
-	* @param removeFach
-	*/	
+	 * 
+	 * @param removeFach
+	 */
 	public void removeFach(Fach removeFach) {
 		this.getFach().remove(removeFach);
-	}	
+	}
 }

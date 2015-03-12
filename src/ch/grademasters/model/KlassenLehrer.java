@@ -1,13 +1,13 @@
 package ch.grademasters.model;
 
 /**
- * @description Klasse Lehrer enthaelt alle Informationen ueber eine Lehrer einer Klasse
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * @file Lehrer.java
- * Copyright Berufsbildungscenter GradeMasters 2015
+ * @description Klasse Lehrer enthaelt alle Informationen ueber eine Lehrer
+ *              einer Klasse
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin
+ * @file Lehrer.java Copyright Berufsbildungscenter GradeMasters 2015
  */
 
-public class KlassenLehrer{
+public class KlassenLehrer {
 
 	// Instanzvariablen
 	private String name;
@@ -19,7 +19,7 @@ public class KlassenLehrer{
 		this.setVorname(vorname);
 		this.setEmail(email);
 	}
-	
+
 	// Getter und Setter
 	/**
 	 * @return name
@@ -67,10 +67,10 @@ public class KlassenLehrer{
 	 * @return String s mit Vorname, Nachname, Email
 	 */
 	public String toString() {
-		String s = null;		
+		String s = null;
 		s = this.getVorname() + " " + this.getName() + "\n";
 		s = s + this.getEmail();
-		return s; 
+		return s;
 	}
 
 }
