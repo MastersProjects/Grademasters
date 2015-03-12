@@ -108,14 +108,14 @@ public class Klasse {
 	 */
 	public String toString() {
 		String l = "";
-		l = "Klasse: " + "       " + this.getKlassenname() + "\n";
-		l = l + "Semester: " + "     " + this.getSemester() + "\n";
-		l = l + "Schule: " + "       " + this.getSchule() + "\n";
-		l = l + this.getKlassenLehrer().toString() + "\n\n";
-		for (Fach fach : this.getZeugnis().getFach()) {
-			l = l + fach;
-		}
-		l = l + "\n" + this.getZeugnis();
+		l = "Klasse: " + this.getKlassenname() + "  |  ";
+		l = l + "Semester: " + this.getSemester() + "  |  ";
+		l = l + "Schule: " + this.getSchule() + "   ";
+//		l = l + this.getKlassenLehrer().toString() + "\n\n";
+//		for (Fach fach : this.getZeugnis().getFach()) {
+//			l = l + fach;
+//		}
+//		l = l + "\n" + this.getZeugnis();
 		return l;
 	}
 
