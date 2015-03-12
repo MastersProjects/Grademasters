@@ -1,5 +1,12 @@
 package ch.grademasters.view;
 
+/**
+ * @description GUI 
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin
+ * @file GradeMastersView.java 
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.net.URL;
@@ -16,6 +23,7 @@ import javax.swing.JToolBar;
 
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.KlassenLehrer;
+
 
 public class GradeMastersView extends JFrame {
 
