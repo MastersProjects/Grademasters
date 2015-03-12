@@ -13,38 +13,32 @@ import javax.swing.JMenuBar;
 import javax.swing.JToolBar;
 
 public class GradeMastersView extends JFrame {
-	
 
 	protected JMenuBar mainMenuBar = new JMenuBar();
-	
+
 	protected final JToolBar mainToolBar = new JToolBar();
-	
+
 	// Bilder laden
 	protected static Icon noteLarge = loadIcon("add.png");
 	protected static Icon fachLarge = loadIcon("fach.png");
 	protected static Icon klasseLarge = loadIcon("klasse.png");
 	protected static Icon zeugnisLarge = loadIcon("zeugnis.png");
 	protected static Icon diagrammLarge = loadIcon("diagramm.png");
-	
+
 	// Bilder zu Button hinzufuegen
 	protected final JButton addButton = new JButton(noteLarge);
 	protected final JButton fachButton = new JButton(fachLarge);
 	protected final JButton klasseButton = new JButton(klasseLarge);
 	protected final JButton zeugnisButton = new JButton(zeugnisLarge);
 	protected final JButton diagrammButton = new JButton(diagrammLarge);
-	
-	
-	
-	
+
 	// Buttons hinzufuegen
-//	mainToolBar.add(addButton);
-//	mainToolBar.add(fachButton);
-//	mainToolBar.add(klasseButton);
-//	mainToolBar.add(printButton);
-//	mainToolBar.add(exitButton);
-	
-	
-	
+	// mainToolBar.add(addButton);
+	// mainToolBar.add(fachButton);
+	// mainToolBar.add(klasseButton);
+	// mainToolBar.add(printButton);
+	// mainToolBar.add(exitButton);
+
 	/**
 	 * Laedt ein Bild aus dem Ordner images.
 	 * 
@@ -53,8 +47,7 @@ public class GradeMastersView extends JFrame {
 	 * @return Das Icon.
 	 */
 	private static Icon loadIcon(String iconName) {
-		final URL resource = GradeMastersView.class
-				.getResource("/images/" + iconName);
+		final URL resource = GradeMastersView.class.getResource("/images/" + iconName);
 
 		if (resource == null) {
 			// TODO Replace by logger
@@ -64,10 +57,9 @@ public class GradeMastersView extends JFrame {
 		}
 		return new ImageIcon(resource);
 	}
-	
+
 	public static void main(String[] args) {
 
-		
 	}
 
 }
