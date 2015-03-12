@@ -1,4 +1,5 @@
 package ch.grademasters.model;
+
 /**
  * @description
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 

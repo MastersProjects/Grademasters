@@ -24,7 +24,6 @@ public class Klasse {
 			this.setKlassenname(klassenname);
 			this.setSchule(schule);
 			this.setSemester(semester);
-
 		}
 		else {
 			// this.setKlassenLehrer(new Lehrer("","",""));
@@ -134,13 +133,5 @@ public class Klasse {
 	*/	
 	public void removeFach(Fach removeFach) {
 		this.getFach().remove(removeFach);
-	}
-
-
-
-	
-
-	
-
-	
+	}	
 }
