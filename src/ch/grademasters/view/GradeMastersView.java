@@ -27,7 +27,6 @@ import ch.grademasters.model.Klasse;
 import ch.grademasters.model.KlassenLehrer;
 import ch.grademasters.model.Pruefung;
 
-
 public class GradeMastersView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -38,14 +37,14 @@ public class GradeMastersView extends JFrame {
 	// Scrollfield
 	JScrollPane scrollpaneKlasse;
 	JScrollPane scrollpaneFach;
+	JScrollPane scrollpaneNote;
 
 	// GridLayout |Links| erstellen
 	protected JPanel klasseGrid = new JPanel(new GridLayout(4, 1));
 
 	// GridLayout |CENTER| erstellen
-	protected JPanel NoteGrid = new JPanel(new GridLayout(4, 1));
+	protected JPanel noteGrid = new JPanel(new GridLayout(4, 1));
 
-	
 	// Bilder & Button fuer Toolbar laden
 	private static final Icon addNoteIconLarge = loadIcon("add.png");
 	protected final JButton addNote = new JButton("Note hinzufügen",
@@ -54,7 +53,7 @@ public class GradeMastersView extends JFrame {
 	private static final Icon addKlasseIconLarge = loadIcon("klasse.png");
 	protected final JButton addKlasse = new JButton("Klasse hinzufügen",
 			addKlasseIconLarge);
-	
+
 	private static final Icon addFachIconLarge = loadIcon("fach.png");
 	protected final JButton addFach = new JButton("Fach hinzufügen",
 			addFachIconLarge);
@@ -66,10 +65,10 @@ public class GradeMastersView extends JFrame {
 	private static final Icon addDiagrammIconLarge = loadIcon("diagramm.png");
 	protected final JButton addDiagramm = new JButton("Diagramm erstellen",
 			addDiagrammIconLarge);
-	
+
 	private static final Icon addNoteIconLittle = loadIcon("add_little.png");
 	protected final JButton addNoteLittle = new JButton("Note hinzufügen",
-			addNoteIconLarge);
+			addNoteIconLittle);
 
 	public GradeMastersView() {
 
@@ -80,10 +79,10 @@ public class GradeMastersView extends JFrame {
 		// Add buttons to tool bar
 		addKlasse.setToolTipText("Klasse hinzufügen");
 		mainToolBar.add(addKlasse);
-		
+
 		addFach.setToolTipText("Fach hinzufügen");
 		mainToolBar.add(addFach);
-		
+
 		addNote.setToolTipText("Note hinzufügen");
 		mainToolBar.add(addNote);
 
@@ -96,46 +95,45 @@ public class GradeMastersView extends JFrame {
 		// Toolbar ins Fenster
 		add(mainToolBar, BorderLayout.NORTH);
 
-		
 		/* ######## SCROLLFIELD & SCROLLBAR ######## */
-		
-		//Lehrer erstellen
-		KlassenLehrer lehrer = new KlassenLehrer("Guenther", "Schneider", "Guenter.Schneider@Access.tbz");
+
+		// Lehrer erstellen
+		KlassenLehrer lehrer = new KlassenLehrer("Guenther", "Schneider",
+				"Guenter.Schneider@Access.tbz");
 		Klasse klasse = new Klasse(lehrer, "AP14a", "TBZ", 2);
-		//Erstes Beispiel 
-				Fach mathe = new Fach("Mathe");
-				
-				klasse.getZeugnis().addFach(mathe);
-				Pruefung pruefung1 = new Pruefung("Gleichungen", 6f, 1f);
-				Pruefung pruefung2 = new Pruefung("Eins mal Eins", 5.76f, 0.5f);		
-				mathe.addPruefung(pruefung1);
-				mathe.addPruefung(pruefung2);
-				
-				//Zweites Beispiel 
-				Fach deutsch = new Fach("Deutsch");
-				
-				klasse.getZeugnis().addFach(deutsch);
-				Pruefung pruefung3 = new Pruefung("Gramatik", 4.25f, 1f);
-				Pruefung pruefung4 = new Pruefung("Nomen", 5.25f, 0.5f);
-				Pruefung pruefung5 = new Pruefung("Verben", 4.8f, 0.5f);		
-				deutsch.addPruefung(pruefung3);
-				deutsch.addPruefung(pruefung4);
-				deutsch.addPruefung(pruefung5);
-		
+		// Erstes Beispiel
+		Fach mathe = new Fach("Mathe");
+
+		klasse.getZeugnis().addFach(mathe);
+		Pruefung pruefung1 = new Pruefung("Gleichungen", 6f, 1f);
+		Pruefung pruefung2 = new Pruefung("Eins mal Eins", 5.76f, 0.5f);
+		mathe.addPruefung(pruefung1);
+		mathe.addPruefung(pruefung2);
+
+		// Zweites Beispiel
+		Fach deutsch = new Fach("Deutsch");
+
+		klasse.getZeugnis().addFach(deutsch);
+		Pruefung pruefung3 = new Pruefung("Gramatik", 4.25f, 1f);
+		Pruefung pruefung4 = new Pruefung("Nomen", 5.25f, 0.5f);
+		Pruefung pruefung5 = new Pruefung("Verben", 4.8f, 0.5f);
+		deutsch.addPruefung(pruefung3);
+		deutsch.addPruefung(pruefung4);
+		deutsch.addPruefung(pruefung5);
+
 		// Text Fach
-				JLabel fachLabel = new JLabel("Bitte wähle dein Fach aus: ");
-				
+		JLabel fachLabel = new JLabel("Bitte wähle dein Fach aus: ");
+
 		// Text Fach
 		JLabel klasseLabel = new JLabel("Bitte wähle deine Klasse aus: ");
-		
+
 		// Text Klasse
 		klasseGrid.add(klasseLabel);
-		
+
 		// Scrollbar 1
-		String schulKlasse[] = { "Klasse: " + klasse.getKlassenname() + "  |  " 
-								+ "Semester: " + klasse.getSemester() + "  |  " 
-								+ "Schule: " + klasse.getSchule() 
-		};
+		String schulKlasse[] = { "Klasse: " + klasse.getKlassenname() + "  |  "
+				+ "Semester: " + klasse.getSemester() + "  |  " + "Schule: "
+				+ klasse.getSchule() };
 
 		JList<?> list = new JList<Object>(schulKlasse);
 		scrollpaneKlasse = new JScrollPane(list);
@@ -144,29 +142,50 @@ public class GradeMastersView extends JFrame {
 		klasseGrid.add(scrollpaneKlasse);
 
 		klasseGrid.add(fachLabel);
-				
+
 		// Scrollbar 2
-		String faecher[] = {"Mathe", "Englisch", "Französisch", "Deutsch", "Sport"};
-		
+		String faecher[] = { "Mathe", "Englisch", "Französisch", "Deutsch",
+				"Sport" };
+
 		JList<?> list2 = new JList<Object>(faecher);
 		scrollpaneFach = new JScrollPane(list2);
 
 		// Scroll Panel hinzufügen
 		klasseGrid.add(scrollpaneFach);
 
-		
-		
-		// Textfield 3 | Right
-		
-		JTextField klassenInfo = new JTextField("Kürzel: AP14a \n "
-				+ "Semester: 2 \n"
-				+ "Lehrer: Günther Access \n");
-		// Textfield hinzufuegen
-		klasseGrid.add(klassenInfo);
-		
 		// KlassenGrid dem Borderlayout hinzufuegen (muss nur 1 Mal passieren)
-				add(klasseGrid, BorderLayout.WEST);
+		add(klasseGrid, BorderLayout.WEST);
 
+		// Textfield 3 | Right
+
+		// Text Fach
+		JLabel klassenInfoDarstellen = new JLabel("Klassen-Information: ");
+
+		// BEschreibung hinzufuegen
+		noteGrid.add(klassenInfoDarstellen);
+
+		JTextField klassenInfo = new JTextField("Kürzel: AP14a" + "\n "
+				+ "Semester: 2 \n" + "Lehrer: Günther Access \n", 20);
+		klassenInfo.setEditable(false);
+
+		// Textfield hinzufuegen
+		noteGrid.add(klassenInfo);
+
+		// NoteGrid dem Borderlayout hinzufuegen (muss nur 1 Mal passieren)
+		add(noteGrid, BorderLayout.CENTER);
+		
+		// Button hinzufuegen
+		addFach.setToolTipText("Fach hinzufügen");
+		noteGrid.add(addNoteLittle);
+
+		// Scrollbar 3 | Right
+		String notenListe[] = { "Ein mal Eins: 5", "Brüche: 4.5", "Runden: 5.5"};
+
+		JList<?> list3 = new JList<Object>(notenListe);
+		scrollpaneNote = new JScrollPane(list3);
+		
+		// ScrollField hinzufuegen
+		noteGrid.add(scrollpaneNote);
 	}
 
 	/**
