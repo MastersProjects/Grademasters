@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
 import ch.grademasters.model.Fach;
@@ -28,6 +29,8 @@ import ch.grademasters.model.Pruefung;
 
 
 public class GradeMastersView extends JFrame {
+
+	private static final long serialVersionUID = 1L;
 
 	// Toolbar
 	protected final JToolBar mainToolBar = new JToolBar();
@@ -40,7 +43,7 @@ public class GradeMastersView extends JFrame {
 	protected JPanel klasseGrid = new JPanel(new GridLayout(4, 1));
 
 	// GridLayout |CENTER| erstellen
-	protected JPanel NoteGrid = new JPanel(new GridLayout(2, 2));
+	protected JPanel NoteGrid = new JPanel(new GridLayout(4, 1));
 
 	
 	// Bilder & Button fuer Toolbar laden
@@ -63,6 +66,10 @@ public class GradeMastersView extends JFrame {
 	private static final Icon addDiagrammIconLarge = loadIcon("diagramm.png");
 	protected final JButton addDiagramm = new JButton("Diagramm erstellen",
 			addDiagrammIconLarge);
+	
+	private static final Icon addNoteIconLittle = loadIcon("add_little.png");
+	protected final JButton addNoteLittle = new JButton("Note hinzufügen",
+			addNoteIconLarge);
 
 	public GradeMastersView() {
 
@@ -139,18 +146,26 @@ public class GradeMastersView extends JFrame {
 		klasseGrid.add(fachLabel);
 				
 		// Scrollbar 2
-		String faecher[] = {};
+		String faecher[] = {"Mathe", "Englisch", "Französisch", "Deutsch", "Sport"};
 		
-		
-
 		JList<?> list2 = new JList<Object>(faecher);
 		scrollpaneFach = new JScrollPane(list2);
 
 		// Scroll Panel hinzufügen
 		klasseGrid.add(scrollpaneFach);
 
-		// KlassenGrid dem Borderlayout hinzufuegen
-		add(klasseGrid, BorderLayout.WEST);
+		
+		
+		// Textfield 3 | Right
+		
+		JTextField klassenInfo = new JTextField("Kürzel: AP14a \n "
+				+ "Semester: 2 \n"
+				+ "Lehrer: Günther Access \n");
+		// Textfield hinzufuegen
+		klasseGrid.add(klassenInfo);
+		
+		// KlassenGrid dem Borderlayout hinzufuegen (muss nur 1 Mal passieren)
+				add(klasseGrid, BorderLayout.WEST);
 
 	}
 
@@ -161,7 +176,7 @@ public class GradeMastersView extends JFrame {
 	 *            Name of the icon to load
 	 * @return The icon.
 	 */
-	private static Icon loadIcon(String iconName) {
+	static Icon loadIcon(String iconName) {
 		final URL resource = GradeMastersView.class.getResource("/images/"
 				+ iconName);
 
