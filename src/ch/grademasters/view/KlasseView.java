@@ -21,6 +21,8 @@ import javax.swing.text.MaskFormatter;
 
 public class KlasseView extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+
 	// Toolbar
 	protected final JToolBar klasseToolBar = new JToolBar();
 	
@@ -30,14 +32,14 @@ public class KlasseView extends JFrame {
 	// Bilder & Button fuer Toolbar laden
 	//Verlassen
 	private static final Icon verlassenIconLarge = GradeMastersView
-			.loadIcon(".png");
+			.loadIcon("verlassen.png");
 	protected final JButton verlassen = new JButton(
 			"Verlassen",
 			verlassenIconLarge);
 	
 	//Speichern
 	private static final Icon speichernIconLarge = GradeMastersView
-			.loadIcon(".png");
+			.loadIcon("speichern.png");
 	protected final JButton speichern = new JButton("Speichern",
 			speichernIconLarge);
 	

@@ -85,15 +85,16 @@ public class GradeMastersView extends JFrame {
 	protected final JToolBar klasseToolBar = new JToolBar();
 	
 	//Formular
-	protected JPanel klasseFormular = new JPanel(new GridLayout(1, 3));
+	protected JPanel klasseFormular = new JPanel(new GridLayout(3, 1));
+	protected JPanel lehrerFormular = new JPanel(new GridLayout(3, 1));
 
 	// Bilder & Button fuer Toolbar laden
 	//Verlassen
-	private static final Icon verlassenIconLarge = GradeMastersView.loadIcon(".png");
+	private static final Icon verlassenIconLarge = GradeMastersView.loadIcon("verlassen.png");
 	protected final JButton verlassen = new JButton("Verlassen",verlassenIconLarge);
 	
 	//Speichern
-	private static final Icon speichernIconLarge = GradeMastersView.loadIcon(".png");
+	private static final Icon speichernIconLarge = GradeMastersView.loadIcon("speichern.png");
 	protected final JButton speichern = new JButton("Speichern",speichernIconLarge);
 	
 	//TextField fuer erfassen der Klasse
@@ -102,10 +103,20 @@ public class GradeMastersView extends JFrame {
 	private JTextField semester = new JFormattedTextField(
 	        /*new MaskFormatter("##.##.####")*/); //Nur Zahlen sind gültige eingabe
 	
+	//TextField fuer erfassen von Lehrer
+	private JTextField lehrerVorname = new JTextField();
+	private JTextField lehrerNachname = new JTextField();
+	private JTextField lehrerEmail	= new JTextField();
 
+	
+	
+	
 	public GradeMastersView() {
 
 		startPanel.setVisible(true);
+		addKlassePanel.setVisible(false);
+		addFachPanel.setVisible(false);
+		addNotePanel.setVisible(false);
 		
 		addKlasse.addActionListener(new ButtonListener(startPanel, addKlassePanel, addFachPanel, addNotePanel));
 		addFach.addActionListener(new ButtonListener(startPanel, addKlassePanel, addFachPanel, addNotePanel));
@@ -248,23 +259,28 @@ public class GradeMastersView extends JFrame {
 		speichern.setToolTipText("Klasse wird hinzugefuegt");
 		klasseToolBar.add(speichern);
 		
-		//Textfield fuer Klasse
-		klasseName.setText("Klassen Name");
-		klasseFormular.add(klasseName);
-		schuleName.setText("Schule");
-		klasseFormular.add(schuleName);
-		semester.setText("Semester");
-		klasseFormular.add(semester);
+		//Textfield fuer Klasse hinzufuegen
+		this.klasseName.setText("Klassen Name");
+		klasseFormular.add(this.klasseName);
+		this.schuleName.setText("Schule");
+		klasseFormular.add(this.schuleName);
+		this.semester.setText("Semester");
+		klasseFormular.add(this.semester);
+		
+		//Texfield fuer Lehrer hinzufuegen
+		lehrerFormular.add(this.lehrerNachname);
+		lehrerFormular.add(this.lehrerVorname);
+		lehrerFormular.add(this.lehrerEmail);
 		
 		// Toolbar ins Fenster
 		addKlassePanel.add(klasseToolBar, BorderLayout.NORTH);
 		
 		//Textfelder ins Fenster
 		addKlassePanel.add(klasseFormular, BorderLayout.WEST);
-		
+		addKlassePanel.add(lehrerFormular, BorderLayout.WEST);
+
 		this.add(addKlassePanel);
-		
-		
+
 	}
 
 	/**
@@ -274,12 +290,11 @@ public class GradeMastersView extends JFrame {
 	 *            Name of the icon to load
 	 * @return The icon.
 	 */
-	static Icon loadIcon(String iconName) {
+	private static Icon loadIcon(String iconName) {
 		final URL resource = GradeMastersView.class.getResource("/images/"
 				+ iconName);
 
 		if (resource == null) {
-			// TODO Replace by logger
 			System.err.println("Error in " + GradeMastersView.class.getName()
 					+ ": Icon /images/" + iconName + " could not be loaded.");
 			return new ImageIcon();

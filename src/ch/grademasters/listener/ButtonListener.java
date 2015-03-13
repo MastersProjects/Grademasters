@@ -79,7 +79,6 @@ public class ButtonListener implements ActionListener  {
 	}
 
 	/**
-	 * 
 	 * @param start Panel
 	 */
 	public void setStartPanel(JPanel startPanel) {
