@@ -89,17 +89,12 @@ public class GradeMastersView extends JFrame {
 
 	// Bilder & Button fuer Toolbar laden
 	//Verlassen
-	private static final Icon verlassenIconLarge = GradeMastersView
-			.loadIcon(".png");
-	protected final JButton verlassen = new JButton(
-			"Verlassen",
-			verlassenIconLarge);
+	private static final Icon verlassenIconLarge = GradeMastersView.loadIcon(".png");
+	protected final JButton verlassen = new JButton("Verlassen",verlassenIconLarge);
 	
 	//Speichern
-	private static final Icon speichernIconLarge = GradeMastersView
-			.loadIcon(".png");
-	protected final JButton speichern = new JButton("Speichern",
-			speichernIconLarge);
+	private static final Icon speichernIconLarge = GradeMastersView.loadIcon(".png");
+	protected final JButton speichern = new JButton("Speichern",speichernIconLarge);
 	
 	//TextField fuer erfassen der Klasse
 	private JTextField klasseName = new JTextField();
@@ -113,6 +108,10 @@ public class GradeMastersView extends JFrame {
 		startPanel.setVisible(true);
 		
 		addKlasse.addActionListener(new ButtonListener(startPanel, addKlassePanel, addFachPanel, addNotePanel));
+		addFach.addActionListener(new ButtonListener(startPanel, addKlassePanel, addFachPanel, addNotePanel));
+		addNote.addActionListener(new ButtonListener(startPanel, addKlassePanel, addFachPanel, addNotePanel));
+		verlassen.addActionListener(new ButtonListener(startPanel, addKlassePanel, addFachPanel, addNotePanel));
+		addNoteLittle.addActionListener(new ButtonListener(startPanel, addKlassePanel, addFachPanel, addNotePanel));
 
 		
 		/*
@@ -221,7 +220,7 @@ public class GradeMastersView extends JFrame {
 		startPanel.add(noteGrid, BorderLayout.CENTER);
 		
 		// Button hinzufuegen
-		addFach.setToolTipText("Fach hinzufügen");
+		addNoteLittle.setToolTipText("Note hinzufügen");
 		noteGrid.add(addNoteLittle);
 
 		// Scrollbar 3 | Right
