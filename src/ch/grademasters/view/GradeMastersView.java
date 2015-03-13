@@ -290,7 +290,7 @@ public class GradeMastersView extends JFrame {
 	 *            Name of the icon to load
 	 * @return The icon.
 	 */
-	private static Icon loadIcon(String iconName) {
+	static Icon loadIcon(String iconName) {
 		final URL resource = GradeMastersView.class.getResource("/images/"
 				+ iconName);
 
