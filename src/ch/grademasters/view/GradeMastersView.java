@@ -8,6 +8,7 @@ package ch.grademasters.view;
  */
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -39,6 +40,8 @@ public class GradeMastersView extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	// HAUPT PANELS
+	protected JPanel card = new JPanel(new CardLayout());
+	
 	protected JPanel startPanel = new JPanel();
 	protected JPanel addKlassePanel = new JPanel();
 	protected JPanel addFachPanel = new JPanel();
@@ -317,23 +320,23 @@ public class GradeMastersView extends JFrame {
 		// Textfelder ins Fenster
 		addFachPanel.add(fachFormular, BorderLayout.WEST);
 
-		this.add(addFachPanel);
 		
-		startPanel.setVisible(true);
-		addKlassePanel.setVisible(false);
-		addFachPanel.setVisible(false);
-		addNotePanel.setVisible(false);
+		/*
+		 * panels zu card hinzufügen
+		 */
+		card.add(startPanel, "Start Panel");
+		card.add(addKlassePanel, "Add Klasse Panel");
+		card.add(addFachPanel, "Add Fach Panel");
+		card.add(addNotePanel, "Add Note Panel");
+		
 
-		addKlasse.addActionListener(new ButtonListener(startPanel,
-				addKlassePanel, addFachPanel, addNotePanel));
-		addFach.addActionListener(new ButtonListener(startPanel,
-				addKlassePanel, addFachPanel, addNotePanel));
-		addNote.addActionListener(new ButtonListener(startPanel,
-				addKlassePanel, addFachPanel, addNotePanel));
-		verlassen.addActionListener(new ButtonListener(startPanel,
-				addKlassePanel, addFachPanel, addNotePanel));
-		addNoteLittle.addActionListener(new ButtonListener(startPanel,
-				addKlassePanel, addFachPanel, addNotePanel));
+		addKlasse.addActionListener(new ButtonListener(addKlasse, card));
+		addFach.addActionListener(new ButtonListener(addFach, card));
+		addNote.addActionListener(new ButtonListener(addNote, card));
+		verlassen.addActionListener(new ButtonListener(verlassen, card));
+		addNoteLittle.addActionListener(new ButtonListener(addNote, card));
+		
+		this.add(card);
 
 	}
 

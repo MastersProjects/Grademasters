@@ -1,5 +1,6 @@
 package ch.grademasters.listener;
 
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,107 +9,78 @@ import javax.swing.JPanel;
 
 public class ButtonListener implements ActionListener  {
 	
-	private JPanel startPanel;
-	private JPanel addKlassePanel;
-	private JPanel addFachPanel;
-	private JPanel addNotePanel;
+	private JButton button;
+	private JPanel card;
+
 	
 
-	public ButtonListener(JPanel startPanel, JPanel addKlassePanel, JPanel addFachPanel, JPanel addNotePanel) {
-	    
-		this.setStartPanel(startPanel);
-		this.setAddKlassePanel(addKlassePanel);
-		this.setAddFachPanel(addFachPanel);
-		this.setAddNotePanel(addNotePanel);
+	
+	public ButtonListener(JButton button, JPanel card) {
 		
-	 }
+		this.setButton(button);
+		this.setCard(card);
+	}
 
-	
+
+
+
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		getStartPanel().setVisible(false);
-		getAddKlassePanel().setVisible(false);
-		getAddFachPanel().setVisible(false);
-		getAddNotePanel().setVisible(false);
-		
 		if (e.getActionCommand().equals("Klasse hinzufügen")) {
-			getAddKlassePanel().setVisible(true);
+			CardLayout cardLayout = (CardLayout) getCard().getLayout();
+        	cardLayout.show(card, "Add Klasse Panel");
 		}
-		else if (e.getActionCommand().equals("Fach hinzufügen")){
-			getAddFachPanel().setVisible(true);
+		else if (e.getActionCommand().equals("Fach hinzufügen")) {
+			CardLayout cardLayout = (CardLayout) getCard().getLayout();
+        	cardLayout.show(card, "Add Fach Panel");
 		}
-		else if (e.getActionCommand().equals("Note hinzufügen")){
-			getAddNotePanel().setVisible(true);
+		else if (e.getActionCommand().equals("Note hinzufügen")) {
+			CardLayout cardLayout = (CardLayout) getCard().getLayout();
+        	cardLayout.show(card, "Add Note Panel");
 		}
-		else if (e.getActionCommand().equals("Verlassen")){
-			getStartPanel().setVisible(true);
+		else if (e.getActionCommand().equals("Verlassen")) {
+			CardLayout cardLayout = (CardLayout) getCard().getLayout();
+        	cardLayout.show(card, "Start Panel");
 		}
 		
 	}
+
+
+	
 
 
 	//Getter und Setter
 	
-	/**
-	 * @return StartPanel
-	 */
-	public JPanel getStartPanel() {
-		return startPanel;
+	public JButton getButton() {
+		return button;
 	}
 
-	/**
-	 * @return add Klasse Panel
-	 */
-	public JPanel getAddKlassePanel() {
-		return addKlassePanel;
+
+	public void setButton(JButton button) {
+		this.button = button;
 	}
 
-	/**
-	 * @return add Fach Panel
-	 */
-	public JPanel getAddFachPanel() {
-		return addFachPanel;
+
+
+
+	public JPanel getCard() {
+		return card;
 	}
 
-	/**
-	 * @return add Note Panel
-	 */
-	public JPanel getAddNotePanel() {
-		return addNotePanel;
+
+
+
+
+	public void setCard(JPanel card) {
+		this.card = card;
 	}
 
-	/**
-	 * @param start Panel
-	 */
-	public void setStartPanel(JPanel startPanel) {
-		this.startPanel = startPanel;
-	}
 
-	/**
-	 * 
-	 * @param add Klasse Panel
-	 */
-	public void setAddKlassePanel(JPanel addKlassePanel) {
-		this.addKlassePanel = addKlassePanel;
-	}
 
-	/**
-	 * 
-	 * @param add Fach Panel
-	 */
-	public void setAddFachPanel(JPanel addFachPanel) {
-		this.addFachPanel = addFachPanel;
-	}
 
-	/**
-	 * 
-	 * @param add Note Panel
-	 */
-	public void setAddNotePanel(JPanel addNotePanel) {
-		this.addNotePanel = addNotePanel;
-	}
 
+	
 
 
 	
