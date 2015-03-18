@@ -31,14 +31,14 @@ public class KlasseView extends JFrame {
 
 	// Bilder & Button fuer Toolbar laden
 	//Verlassen
-	private static final Icon verlassenIconLarge = GradeMastersView
+	private static final Icon verlassenIconLarge = GradeMastersViewAlt
 			.loadIcon("verlassen.png");
 	protected final JButton verlassen = new JButton(
 			"Verlassen",
 			verlassenIconLarge);
 	
 	//Speichern
-	private static final Icon speichernIconLarge = GradeMastersView
+	private static final Icon speichernIconLarge = GradeMastersViewAlt
 			.loadIcon("speichern.png");
 	protected final JButton speichern = new JButton("Speichern",
 			speichernIconLarge);
