@@ -14,7 +14,8 @@ public class Anfrage3 extends Frame implements ActionListener{
       public Anfrage3() {
             setLayout(new FlowLayout()); // muss
             add(l);
-            add(b); b.addActionListener(this);
+            add(b); 
+            b.addActionListener(this);
             add(textAus);
             setSize(500,300); 
             setVisible(true);

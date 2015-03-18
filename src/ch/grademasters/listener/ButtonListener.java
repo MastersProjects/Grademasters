@@ -15,9 +15,9 @@ public class ButtonListener implements ActionListener  {
 	
 
 	
-	public ButtonListener(JButton button, JPanel card) {
+	public ButtonListener(JPanel card) {
 		
-		this.setButton(button);
+		
 		this.setCard(card);
 	}
 
@@ -51,19 +51,6 @@ public class ButtonListener implements ActionListener  {
 
 
 	//Getter und Setter
-	
-	public JButton getButton() {
-		return button;
-	}
-
-
-	public void setButton(JButton button) {
-		this.button = button;
-	}
-
-
-
-
 	public JPanel getCard() {
 		return card;
 	}

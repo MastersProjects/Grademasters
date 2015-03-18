@@ -1,9 +1,15 @@
 package test.labor;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Date;
  
+
+
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import javax.swing.JSpinner.DateEditor;
@@ -17,33 +23,23 @@ public class datumTest extends JFrame
 
 	public datumTest()
 	{
-		final SpinnerDateModel sdm = new SpinnerDateModel();
-		final JSpinner spinner = new JSpinner(sdm);
-		spinner.setEditor(new DateEditor(spinner,"dd.MM.yyyy"));
- 
-		spinner.addChangeListener(new ChangeListener(){
- 
-			public void stateChanged(ChangeEvent arg0)
-			{
-				Date fromSpinner = (Date) spinner.getValue();
-				Date fromModel = sdm.getDate();
-				System.out.println(fromSpinner + " or " + fromModel);
-			}
- 
-		});
- 
-		setPreferredSize(new Dimension(100,100));
-		add(spinner);
- 
-		pack();
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
+		final JLabel label = new JLabel();
+		label.setText("Choose Date by selecting below.");
+		 
+		final JXDatePicker datePicker = new JXDatePicker(System.currentTimeMillis());
+		datePicker.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				label.setText(datePicker.getDate().toString());
+			
 	}
- 
+		}
+	}
+}
+		
 	public static void main(String[] args)
 	{
 		new datumTest();
  
 	}
-}
+	
+	}
