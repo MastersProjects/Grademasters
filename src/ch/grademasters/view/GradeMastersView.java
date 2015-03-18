@@ -9,9 +9,7 @@ package ch.grademasters.view;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.net.URL;
 
 import javax.swing.Icon;
@@ -24,10 +22,9 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
-
-import com.sun.javafx.tk.Toolkit;
 
 import ch.grademasters.listener.ButtonListener;
 import ch.grademasters.model.Fach;
@@ -41,7 +38,7 @@ public class GradeMastersView extends JFrame {
 
 	// HAUPT PANELS
 	protected JPanel card = new JPanel(new CardLayout());
-	
+
 	protected JPanel startPanel = new JPanel();
 	protected JPanel addKlassePanel = new JPanel();
 	protected JPanel addFachPanel = new JPanel();
@@ -136,9 +133,21 @@ public class GradeMastersView extends JFrame {
 	private JTextField fachName = new JTextField();
 	private JComboBox schuleListe = new JComboBox();
 
+	/*
+	 * AddFachPanel
+	 */
+	
+	//Formular
+	protected JPanel addNoteFormular = new JPanel(new GridLayout(5,2));
+	
+	//Texfelder fuer eintragen der Note
+	protected JTextField note = new JTextField();
+	protected JTextField durchschnitt = new JTextField();
+	protected JTextArea beschreibung = new JTextArea(); 
+	
+	
+	
 	public GradeMastersView() {
-
-		
 
 		/*
 		 * startPanel
@@ -320,7 +329,6 @@ public class GradeMastersView extends JFrame {
 		// Textfelder ins Fenster
 		addFachPanel.add(fachFormular, BorderLayout.WEST);
 
-		
 		/*
 		 * panels zu card hinzufügen
 		 */
@@ -328,14 +336,13 @@ public class GradeMastersView extends JFrame {
 		card.add(addKlassePanel, "Add Klasse Panel");
 		card.add(addFachPanel, "Add Fach Panel");
 		card.add(addNotePanel, "Add Note Panel");
-		
 
 		addKlasse.addActionListener(new ButtonListener(addKlasse, card));
 		addFach.addActionListener(new ButtonListener(addFach, card));
 		addNote.addActionListener(new ButtonListener(addNote, card));
 		verlassen.addActionListener(new ButtonListener(verlassen, card));
 		addNoteLittle.addActionListener(new ButtonListener(addNote, card));
-		
+
 		this.add(card);
 
 	}
