@@ -3,6 +3,8 @@ package ch.grademasters.view;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.net.URL;
 
@@ -56,8 +58,14 @@ public class GradeMastersView extends JFrame {
 	protected JPanel startRightBottom = new JPanel(new BorderLayout());
 	
 	//addKlasseCard
-	protected JPanel klasseFormular = new JPanel(new GridLayout(3, 1));
-	protected JPanel lehrerFormular = new JPanel(new GridLayout(3, 1));
+	protected JPanel klasseFormular = new JPanel(new FlowLayout());
+	protected JPanel lehrerFormular = new JPanel(new FlowLayout());
+	protected JPanel klasseNamePanel = new JPanel(new GridLayout(2,1));
+	protected JPanel schuleNamePanel = new JPanel(new GridLayout(2,1));
+	protected JPanel semesterPanel = new JPanel(new GridLayout(2,1));
+	protected JPanel lehrerVornamePanel = new JPanel(new GridLayout(2,1));
+	protected JPanel lehrerNachnamePanel = new JPanel(new GridLayout(2,1));
+	protected JPanel lehrerEmailPanel = new JPanel(new GridLayout(2,1));
 	
 	//addFachCard
 	protected JPanel fachFormular = new JPanel(new GridLayout(1, 2));
@@ -197,12 +205,6 @@ public class GradeMastersView extends JFrame {
 		startToolBar.add(addNote);
 		startToolBar.add(addZeugnis);
 		startToolBar.add(addDiagramm);
-				
-//		//Colors for Test
-//		startLeftTop.setBackground(Color.yellow);
-//		startLeftBottom.setBackground(Color.red);
-//		startRightTop.setBackground(Color.green);
-//		startRightBottom.setBackground(Color.blue);
 
 		//Left startCenter
 		startLeftTop.add(scrollpaneKlasseLabel, BorderLayout.NORTH);
@@ -230,7 +232,14 @@ public class GradeMastersView extends JFrame {
 		startCard.add(startToolBar, BorderLayout.NORTH);
 		startCard.add(startCenter, BorderLayout.CENTER);
 		
+		//Add in Cards
 		cards.add(startCard, "Start Card");
+				
+		////Colors for Test
+		//startLeftTop.setBackground(Color.yellow);
+		//startLeftBottom.setBackground(Color.red);
+		//startRightTop.setBackground(Color.green);
+		//startRightBottom.setBackground(Color.blue);
 		
 		
 		/*
@@ -241,29 +250,49 @@ public class GradeMastersView extends JFrame {
 		addKlasseToolBar.add(verlassen);
 		addKlasseToolBar.add(klasseSpeichern);
 		
-		//klassenFormular
-		klasseFormular.add(klasseName);
-		klasseFormular.add(schuleName);
-		klasseFormular.add(semester);
+		//klassenFormular				
+		klasseNamePanel.add(klasseNameLabel);
+		klasseNamePanel.add(klasseName);
+		
+		schuleNamePanel.add(schuleNameLabel);
+		schuleNamePanel.add(schuleName);
+		
+		semesterPanel.add(semesterLabel);
+		semesterPanel.add(semester);
+		
+		klasseFormular.add(klasseNamePanel);
+		klasseFormular.add(schuleNamePanel);
+		klasseFormular.add(semesterPanel);
 				
 		//lehrerFormular
-		lehrerFormular.add(lehrerVornameLabel);
-		lehrerFormular.add(lehrerNachname);
-		lehrerFormular.add(lehrerEmailLabel);
+		lehrerVornamePanel.add(lehrerVornameLabel);
+		lehrerVornamePanel.add(lehrerVorname);
+		
+		lehrerNachnamePanel.add(lehrerNachnameLabel);
+		lehrerNachnamePanel.add(lehrerNachname);
+		
+		lehrerEmailPanel.add(lehrerEmailLabel);
+		lehrerEmailPanel.add(lehrerEmail);	
+		
+		lehrerFormular.add(lehrerVornamePanel);
+		lehrerFormular.add(lehrerNachnamePanel);
+		lehrerFormular.add(lehrerEmailPanel);
 		
 		//Alle ins addKlasseCard
 		addKlasseCard.add(addKlasseToolBar, BorderLayout.NORTH);
-		addKlasseCard.add(klasseFormular, BorderLayout.WEST);
-		addKlasseCard.add(lehrerFormular, BorderLayout.EAST);
+		addKlasseCard.add(klasseFormular, BorderLayout.CENTER);
+		addKlasseCard.add(lehrerFormular, BorderLayout.SOUTH);
 		
-		//In Cards
+		
+		//Add in Cards
 		cards.add(addKlasseCard, "Add Klasse Card");
 		
+//		//Colors for Test
+//		addKlasseToolBar.setBackground(Color.yellow);
+//		klasseFormular.setBackground(Color.blue);
+//		lehrerFormular.setBackground(Color.red);
 		
-		
-		
-		
-		
+				
 		/*
 		 * BUTTON COMMANDS
 		 */
