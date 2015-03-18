@@ -8,9 +8,9 @@ public class Anfrage3 extends Frame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	
-	Label l = new Label("Suchen in DB weine"); 
+	Label l = new Label("Note anzeigen"); 
       TextArea textAus = new TextArea("",10,60); // Zeilen, Spalten
-      Button b = new Button("Los!");
+      Button b = new Button("Suchen");
       public Anfrage3() {
             setLayout(new FlowLayout()); // muss
             add(l);
@@ -22,16 +22,19 @@ public class Anfrage3 extends Frame implements ActionListener{
       public void actionPerformed(ActionEvent e) {
          Connection con = null;
          try {
-            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-            con=java.sql.DriverManager.getConnection
-("jdbc:odbc:weine","","");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/GRADEMASTERS","root","1234");
             Statement s= con.createStatement();
-            ResultSet res= s.executeQuery("select * from rotweine where Preis > 30");
+            ResultSet res= s.executeQuery("select * from pruefung where FACH_ID = '1'");
             String t; double p;
             while (res.next()) {
-                  t=res.getString("Name"); textAus.append(t+"\t");
-                  t=res.getString("Anbaugebiet"); textAus.append(t+"\t");
-                  p=res.getDouble("Preis"); textAus.append(""+p+"\n");
+                  t=res.getString("Pruefung"); 
+                  textAus.append(t+"\t");
+                  
+                  t=res.getString("Note"); 
+                  textAus.append(t+"\t");
+                  
+                  p=res.getDouble("Gewichtung"); 
+                  textAus.append(""+p+"\n");
             }
             res.close(); s.close(); con.close(); 
          }
