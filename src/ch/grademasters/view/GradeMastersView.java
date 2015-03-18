@@ -9,6 +9,7 @@ package ch.grademasters.view;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.net.URL;
 
@@ -39,10 +40,10 @@ public class GradeMastersView extends JFrame {
 	// HAUPT PANELS
 	protected JPanel card = new JPanel(new CardLayout());
 
-	protected JPanel startPanel = new JPanel();
-	protected JPanel addKlassePanel = new JPanel();
-	protected JPanel addFachPanel = new JPanel();
-	protected JPanel addNotePanel = new JPanel();
+	protected JPanel startCard = new JPanel();
+	protected JPanel addKlasseCard = new JPanel();
+	protected JPanel addFachCard = new JPanel();
+	protected JPanel addNoteCard = new JPanel();
 
 	/*
 	 * startPanel
@@ -63,28 +64,22 @@ public class GradeMastersView extends JFrame {
 
 	// Bilder & Button fuer Toolbar laden
 	private static final Icon addNoteIconLarge = loadIcon("add.png");
-	protected final JButton addNote = new JButton("Note hinzufügen",
-			addNoteIconLarge);
+	protected final JButton addNote = new JButton("Note hinzufügen",addNoteIconLarge);
 
 	private static final Icon addKlasseIconLarge = loadIcon("klasse.png");
-	protected final JButton addKlasse = new JButton("Klasse hinzufügen",
-			addKlasseIconLarge);
+	protected final JButton addKlasse = new JButton("Klasse hinzufügen",addKlasseIconLarge);
 
 	private static final Icon addFachIconLarge = loadIcon("fach.png");
-	protected final JButton addFach = new JButton("Fach hinzufügen",
-			addFachIconLarge);
+	protected final JButton addFach = new JButton("Fach hinzufügen",addFachIconLarge);
 
 	private static final Icon addZeugnisIconLarge = loadIcon("zeugnis.png");
-	protected final JButton addZeugnis = new JButton("Zeugnis erstellen",
-			addZeugnisIconLarge);
+	protected final JButton addZeugnis = new JButton("Zeugnis erstellen",addZeugnisIconLarge);
 
 	private static final Icon addDiagrammIconLarge = loadIcon("diagramm.png");
-	protected final JButton addDiagramm = new JButton("Diagramm erstellen",
-			addDiagrammIconLarge);
+	protected final JButton addDiagramm = new JButton("Diagramm erstellen",addDiagrammIconLarge);
 
 	private static final Icon addNoteIconLittle = loadIcon("add_little.png");
-	protected final JButton addNoteLittle = new JButton("Note hinzufügen",
-			addNoteIconLittle);
+	protected final JButton addNoteLittle = new JButton("Note hinzufügen",addNoteIconLittle);
 
 	/*
 	 * addKlassePanel
@@ -156,7 +151,7 @@ public class GradeMastersView extends JFrame {
 
 		setTitle("GradeMasters");
 
-		// Add buttons to tool bar
+		// Add buttons to maintoolbar
 		addKlasse.setToolTipText("Klasse hinzufügen");
 		mainToolBar.add(addKlasse);
 
@@ -173,7 +168,7 @@ public class GradeMastersView extends JFrame {
 		mainToolBar.add(addDiagramm);
 
 		// Toolbar ins Fenster
-		startPanel.add(mainToolBar, BorderLayout.NORTH);
+		startCard.add(mainToolBar, BorderLayout.NORTH);
 
 		/* ######## SCROLLFIELD & SCROLLBAR ######## */
 
@@ -234,7 +229,7 @@ public class GradeMastersView extends JFrame {
 		klasseGrid.add(scrollpaneFach);
 
 		// KlassenGrid dem Borderlayout hinzufuegen (muss nur 1 Mal passieren)
-		startPanel.add(klasseGrid, BorderLayout.WEST);
+		startCard.add(klasseGrid, BorderLayout.WEST);
 
 		// Textfield 3 | Right
 
@@ -252,7 +247,7 @@ public class GradeMastersView extends JFrame {
 		noteGrid.add(klassenInfo);
 
 		// NoteGrid dem Borderlayout hinzufuegen (muss nur 1 Mal passieren)
-		startPanel.add(noteGrid, BorderLayout.CENTER);
+		startCard.add(noteGrid, BorderLayout.CENTER);
 
 		// Button hinzufuegen
 		addNoteLittle.setToolTipText("Note hinzufügen");
@@ -267,7 +262,7 @@ public class GradeMastersView extends JFrame {
 		// ScrollField hinzufuegen
 		noteGrid.add(scrollpaneNote);
 
-		this.add(startPanel, BorderLayout.NORTH);
+		
 
 		/*
 		 * addKlassePanel
@@ -275,12 +270,12 @@ public class GradeMastersView extends JFrame {
 		klasseToolBar.setFloatable(false);
 
 		// Buttons fuer Toolbar
-		verlassen
-				.setToolTipText("Achtung Informationen werden nicht gespeichert");
+		verlassen.setToolTipText("Achtung Informationen werden nicht gespeichert");
 		klasseToolBar.add(verlassen);
 
 		speichern.setToolTipText("Klasse wird hinzugefuegt");
 		klasseToolBar.add(speichern);
+		
 
 		// Textfield fuer Klasse hinzufuegen
 		this.klasseName.setText("Klassen Name");
@@ -299,13 +294,14 @@ public class GradeMastersView extends JFrame {
 		lehrerFormular.add(this.lehrerEmail);
 
 		// Toolbar ins Fenster
-		addKlassePanel.add(klasseToolBar, BorderLayout.NORTH);
+		
+		addKlasseCard.add(klasseToolBar, BorderLayout.NORTH);
 
 		// Textfelder ins Fenster
-		addKlassePanel.add(klasseFormular, BorderLayout.WEST);
-		addKlassePanel.add(lehrerFormular, BorderLayout.WEST);
+		addKlasseCard.add(klasseFormular, BorderLayout.WEST);
+		addKlasseCard.add(lehrerFormular, BorderLayout.EAST);
 
-		this.add(addKlassePanel);
+		
 
 		/*
 		 * AddFachPanel
@@ -324,24 +320,27 @@ public class GradeMastersView extends JFrame {
 		schuleListe.addItem("TEST");
 		fachFormular.add(this.schuleListe);
 
-		addFachPanel.add(fachToolBar, BorderLayout.NORTH);
+		addFachCard.add(fachToolBar, BorderLayout.NORTH);
 
 		// Textfelder ins Fenster
-		addFachPanel.add(fachFormular, BorderLayout.WEST);
+		addFachCard.add(fachFormular, BorderLayout.WEST);
 
 		/*
 		 * panels zu card hinzufügen
 		 */
-		card.add(startPanel, "Start Panel");
-		card.add(addKlassePanel, "Add Klasse Panel");
-		card.add(addFachPanel, "Add Fach Panel");
-		card.add(addNotePanel, "Add Note Panel");
+		startCard.setBackground(Color.yellow);
+		addKlasseCard.setBackground(Color.yellow);
+		addFachCard.setBackground(Color.yellow);
+		card.add(startCard, "Start Panel");
+		card.add(addKlasseCard, "Add Klasse Panel");
+		card.add(addFachCard, "Add Fach Panel");
+		card.add(addNoteCard, "Add Note Panel");
 
-		addKlasse.addActionListener(new ButtonListener(addKlasse, card));
-		addFach.addActionListener(new ButtonListener(addFach, card));
-		addNote.addActionListener(new ButtonListener(addNote, card));
-		verlassen.addActionListener(new ButtonListener(verlassen, card));
-		addNoteLittle.addActionListener(new ButtonListener(addNote, card));
+		addKlasse.addActionListener(new ButtonListener(card));
+		addFach.addActionListener(new ButtonListener(card));
+		addNote.addActionListener(new ButtonListener(card));
+		verlassen.addActionListener(new ButtonListener(card));
+		addNoteLittle.addActionListener(new ButtonListener(card));
 
 		this.add(card);
 
