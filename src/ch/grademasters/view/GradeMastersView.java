@@ -236,6 +236,31 @@ public class GradeMastersView extends JFrame {
 		/*
 		 * addKlasseCard
 		 */
+		//Toolbar
+		addKlasseToolBar.setFloatable(false);
+		addKlasseToolBar.add(verlassen);
+		addKlasseToolBar.add(klasseSpeichern);
+		
+		//klassenFormular
+		klasseFormular.add(klasseName);
+		klasseFormular.add(schuleName);
+		klasseFormular.add(semester);
+				
+		//lehrerFormular
+		lehrerFormular.add(lehrerVornameLabel);
+		lehrerFormular.add(lehrerNachname);
+		lehrerFormular.add(lehrerEmailLabel);
+		
+		//Alle ins addKlasseCard
+		addKlasseCard.add(addKlasseToolBar, BorderLayout.NORTH);
+		addKlasseCard.add(klasseFormular, BorderLayout.WEST);
+		addKlasseCard.add(lehrerFormular, BorderLayout.EAST);
+		
+		//In Cards
+		cards.add(addKlasseCard, "Add Klasse Card");
+		
+		
+		
 		
 		
 		
@@ -267,7 +292,7 @@ public class GradeMastersView extends JFrame {
 	 *            Name of the icon to load
 	 * @return The icon.
 	 */
-	static Icon loadIcon(String iconName) {
+	public static Icon loadIcon(String iconName) {
 		final URL resource = GradeMastersViewAlt.class.getResource("/images/"
 				+ iconName);
 	
