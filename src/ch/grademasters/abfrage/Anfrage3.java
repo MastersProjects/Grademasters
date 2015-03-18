@@ -16,7 +16,8 @@ public class Anfrage3 extends Frame implements ActionListener{
             add(l);
             add(b); b.addActionListener(this);
             add(textAus);
-            setSize(500,300); setVisible(true);
+            setSize(500,300); 
+            setVisible(true);
             addWindowListener(new FensterLauscher());
       }
       public void actionPerformed(ActionEvent e) {
