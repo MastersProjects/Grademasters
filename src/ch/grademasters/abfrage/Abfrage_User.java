@@ -4,7 +4,6 @@ import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Label;
-import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -14,82 +13,100 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class Abfrage_User extends Frame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
-	Label l = new Label("Username");
-	Label l2 = new Label("Passwort");
-	JTextField Text_User = new JTextField(); // Zeilen, Spalten
-	JTextField Text_PW = new JTextField(); // Zeilen, Spalten
-	Button b = new Button("Login");
+	Label LabelUsername = new Label("Username");
+	Label LabelPasswort = new Label("Passwort");
+	JTextField TextUsername = new JTextField(20); // Laenge angeben
+	JPasswordField FieldPasswort = new JPasswordField(20); // Laenge angeben
+	Button ButtonLogin = new Button("Login");
+	Label LabelRegistration = new Label("Noch keinen Account? Hier Registrieren");
+	Button ButtonRegistration = new Button("Registrieren");
+
 
 	public Abfrage_User() {
-		this.Text_User.setSize(300, 100);
-		setLayout(new FlowLayout()); // muss
-		add(l);
-		add(Text_User);
-		add(l2);
-		add(Text_PW);
-		add(b);
-		b.addActionListener(this);
-		setSize(500, 300);
+		setLayout(new FlowLayout()); //Layout definieren
+		add(LabelUsername);
+		add(TextUsername);
+		add(LabelPasswort);
+		add(FieldPasswort);
+		add(ButtonLogin);
+		add(LabelRegistration);
+		add(ButtonRegistration);
+		ButtonLogin.addActionListener(this);
+		ButtonRegistration.addActionListener(this);
+		setSize(275, 250);
 		setVisible(true);
-		addWindowListener(new FensterLauscher());
+		addWindowListener(new WindowListener());
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		// Variablen deklarieren
 		Connection con = null;
-		String UsernameDb;
-		String PasswortDb;
-		String user = null;
-		String passwort;
-		String userdb;
-		String pwdb;
-		boolean login = false;
-	
+		 
+		//### Datenbank ###
+		String UsernameDb; //String für Username aus DB
+		String PasswortDb; //String für PW aus DB
+		String UserLocal = TextUsername.getText(); //Username von Eingabefeld auslesen
+		@SuppressWarnings("deprecation")
+		String PasswortLocal = FieldPasswort.getText(); //Passwort von Eingabefeld auslesen
+		boolean login = false; //Setzt Login auf false
 
 		try {
 			con = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/GRADEMASTERS", "root", "1234");
+					"jdbc:mysql://localhost:3306/GRADEMASTERS", "root", "1234"); //Baut die Verbindung auf 
 			Statement s = con.createStatement();
 			ResultSet rs = s
-					.executeQuery("select * from USER where Username = 'zmartl'");
+					.executeQuery("select * from USER"); //Query ausführen 
 
 			while (rs.next()) {
 				// if ()
-				UsernameDb = rs.getString("Username");
-				PasswortDb = rs.getString("Passwort");
-				userdb = (user + "\t");
-
-				passwort = rs.getString("Passwort");
-				pwdb = (passwort + "\t");
-
-				if ((user == userdb) && (passwort == pwdb)) {
-					System.out.println("Hei! It works!");
-				} else {
-					System.out.println("Fail");
+				UsernameDb = rs.getString("Username"); //Username aus DB lesen
+				PasswortDb = rs.getString("Passwort"); // PW aus DB lesen
+				login = false; //Login auf false setzen. 
+				if ((!UserLocal.equals("")) || (!PasswortLocal.equals(""))) { //Ueberprueft, ob die TextFiels nicht leer sind
+					if ((UsernameDb.equals(UserLocal)) //Ueberprueft, ob die Usernamen gleich sind mit .equals()
+							&& (PasswortDb.equals(PasswortLocal))) { //Ueberprueft, ob die PWs gleich sind mit .equals()
+						
+						System.out.println("Herzlich Willkommen " + UserLocal + ", Du bist nun angemeldet!"); //Gibt den String aus
+						login = true; //Setzt login auf true
+					} 
+					else if (login = false) { //Wenn login false ist, dann gibt es den String aus
+						System.err.println("Fehler! Bitte Programm erneut starten");
+					} 
+					else if(!(UsernameDb.equals(UserLocal))){ //Wenn die Usernamen nicht uebereinstimmen, dann gibt es den String aus
+						System.err.println("Benutzername und/oder Passwort stimmen nicht!");
+					} 
+					else if(!PasswortDb.equals(PasswortLocal)) { //Wenn die PWs nicht uebereinstimmen, dann gitb es den String aus 
+						System.err.println("Benutzername und/oder Passwort stimmen nicht!");
+					}
+				} 
+				else if((UserLocal.equals("")) && (PasswortLocal.equals(""))){ //Ueberprueft, ob nichts eingegeben wurde
+					System.err.println("Felder müssen ausgefüllt sein!");
 				}
 			}
+			//Alles wieder schliessen
 			rs.close();
 			s.close();
 			con.close();
-		} catch (Exception ex) {
-			Text_User.append("" + ex.getMessage());
+		} catch (Exception ex) { //Exception behandeln
+			String ErrorMessage = ex.getMessage(); //Message ausgeben
+			StackTraceElement[] StackTrace = ex.getStackTrace(); //Message ausgeben
 		}
 	}
 
-	class FensterLauscher extends WindowAdapter {
+	class WindowListener extends WindowAdapter {
 		public void windowClosing(WindowEvent e) {
 			System.exit(0);
 		}
 	}
 
 	public static void main(String[] args) {
-		new Abfrage_User();
+		new Abfrage_User(); //Abfrage_User aufrufen
 	}
 }
