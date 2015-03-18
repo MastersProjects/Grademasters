@@ -14,6 +14,8 @@ public class UserJDBCDao implements UserDao {
 	private Connection con = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
+	User user = new User();
+	User currentUser;
 
 	@Override
 	public void insertUser(User user) throws SQLException {
@@ -28,15 +30,14 @@ public class UserJDBCDao implements UserDao {
 
 	@Override
 	public List<User> findAllUsers() throws SQLException {
+		String sql = "SELECT * FROM USER ";
 		List<User> p = null;
-		String sql = "SELECT Username, Passwort FROM USER";
 		con = getCon();
 		ps = con.prepareStatement(sql);
 		rs = ps.executeQuery();
 
 		while (rs.next()) {
 			p = new ArrayList<User>();
-			User user = new User();
 			user.setUsername(rs.getString("Username"));
 			user.setPasswort(rs.getString("Passwort"));
 			p.add(user);
@@ -54,7 +55,6 @@ public class UserJDBCDao implements UserDao {
 			if (ps != null) {
 				ps.close();
 			}
-
 			if (con != null) {
 				con.close();
 			}

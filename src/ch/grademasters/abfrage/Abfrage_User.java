@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -30,7 +31,7 @@ public class Abfrage_User extends Frame implements ActionListener {
 	static Button ButtonLogin = new Button("Login");
 	Label LabelRegistration = new Label(
 			"Noch keinen Account? Hier Registrieren");
-	Button ButtonRegistration = new Button("Registrieren");
+	static Button ButtonRegistration = new Button("Registrieren");
 
 	public Abfrage_User() {
 		setLayout(new FlowLayout()); // Layout definieren
@@ -58,7 +59,26 @@ public class Abfrage_User extends Frame implements ActionListener {
 	public static void main(String[] args) {
 		new Abfrage_User(); // Abfrage_User aufrufen
 
+		//Action Listener erstellen
 		ButtonLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				final String username = TextUsername.getText();
+				final String passwort = new String(FieldPasswort.getPassword());
+				try {
+					User currentUser = new User();
+					currentUser.setUsername(username);
+					currentUser.setPasswort(passwort);
+					GMController.getInstance().login(currentUser);
+				}
+				catch (Exception e1) {
+					e1.printStackTrace();
+				}
+
+			}
+		});
+		
+		ButtonRegistration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				final String username = TextUsername.getText();
