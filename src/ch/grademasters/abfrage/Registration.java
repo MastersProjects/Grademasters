@@ -25,19 +25,24 @@ public class Registration extends Frame implements ActionListener {
 	Label LabelUsername = new Label("Username");
 	Label LabelPasswort = new Label("Passwort");
 	Label LabelPasswortBest = new Label("Passwort bestätigen");
-	JTextField TextUsername = new JTextField(20); // Laenge angeben
-	JPasswordField FieldPasswort = new JPasswordField(20); // Laenge angeben
-	JPasswordField FieldPasswortBest = new JPasswordField(20); // Laenge angeben
+	// Laenge angeben
+	JTextField TextUsername = new JTextField(20);
+	// Laenge angeben
+	JPasswordField FieldPasswort = new JPasswordField(20);
+	// Laenge angeben
+	JPasswordField FieldPasswortBest = new JPasswordField(20);
 	Button ButtonRegistration = new Button("Registrieren");
 
 	public Registration() {
-		setLayout(new FlowLayout()); // Layout definieren
+		// Layout definieren
+		setLayout(new FlowLayout());
 		add(LabelUsername);
 		add(TextUsername);
 		add(LabelPasswort);
 		add(FieldPasswort);
-		add(LabelPasswortBest); // Best = Bestaetigung
-		add(FieldPasswortBest); // Best = Bestaetigung
+		// Best = Bestaetigung
+		add(LabelPasswortBest);
+		add(FieldPasswortBest);
 		add(ButtonRegistration);
 		ButtonRegistration.addActionListener(this);
 		setSize(275, 250);
@@ -50,53 +55,70 @@ public class Registration extends Frame implements ActionListener {
 		// Variablen deklarieren
 		Connection con = null;
 		Connection select = null;
-		String UsernameDb; //String für Username aus DB
-		
-		//### Datenbank ###
-		String UserLocal = TextUsername.getText(); //Username von Eingabefeld auslesen
+		// String für Username aus DB
+		String UsernameDb;
+
+		// ### Datenbank ###
+		// Username von Eingabefeld auslesen
+		String UserLocal = TextUsername.getText();
 		@SuppressWarnings("deprecation")
-		String PasswortLocal = FieldPasswort.getText(); //Passwort von Eingabefeld auslesen
+		// Passwort von Eingabefeld auslesen
+		char[] PasswortLocal = FieldPasswort.getPassword();
 		@SuppressWarnings("deprecation")
-		String PasswortLocalBest = FieldPasswortBest.getText(); //Passwort von Eingabefeld auslesen
-		
+		// Passwort von Eingabefeld auslesen
+		char[] PasswortLocalBest = FieldPasswortBest.getPassword();
+		Statement s = null;
+		ResultSet rs = null;
+
 		try {
 			select = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/GRADEMASTERS", "root", "1234"); //Baut die Verbindung auf 
-			Statement sel = select.createStatement();
-			ResultSet result = sel
-					.executeQuery("Select * From User"); //Query ausführen
-			
-			while (result.next()) {
-				UsernameDb = result.getString("Username");//Username aus DB lesen
-			}
-				if (!UsernameDb.equals(UserLocal)){
+			// Baut die Verbindung auf
+					"jdbc:mysql://localhost:3306/GRADEMASTERS", "root", "1234");
+			s = select.createStatement();
+			// Query ausführen
+			rs = s.executeQuery("Select * From User");
+
+			while (rs.next()) {
+				// Username aus DB lesen
+				UsernameDb = rs.getString("Username");
+
+				if (!UsernameDb.equals(UserLocal)) {
 					System.out.println("Passt!");
-					if ((!UserLocal.equals("")) || (!PasswortLocal.equals(""))) { //Ueberprueft, ob die TextFiels nicht leer sind
-						if (PasswortLocal.equals(PasswortLocalBest)){
-					
-						try {
-						con = DriverManager.getConnection(
-								"jdbc:mysql://localhost:3306/GRADEMASTERS", "root", "1234"); //Baut die Verbindung auf 
-						Statement s = con.createStatement();
-						ResultSet rs = s
-								.executeQuery("INSERT INTO USER (Username, Passwort) VALUES (UserLocal, PasswortLocal)"); //Query ausführen
-					}	finally {
-						result.close();
-						sel.close();
-						con.close();
-						rs.close();
-						s.close();
+
+					// Ueberprueft, ob die TextFiels nicht leer sind
+					if ((!UserLocal.equals("")) || (!PasswortLocal.equals(""))) {
+						if (PasswortLocal.equals(PasswortLocalBest)) {
+
+							try {
+								s = con.createStatement();
+								// Query ausführen
+								rs = s.executeQuery("INSERT INTO USER (Username, Passwort) VALUES (UserLocal, PasswortLocal)");
+							} finally {
+								if (rs != null) {
+									rs.close();
+								}
+								if (s != null) {
+									s.close();
+								}
+								if (con != null) {
+									con.close();
+								}
+
+							}
+						}
 					}
-				}
 
 				}
-					
-				}
-			} finally {
-				
+
 			}
-		
 		}
+		catch (Exception ex) { // Exception behandeln
+			String ErrorMessage = ex.getMessage(); // Message ausgeben
+			StackTraceElement[] StackTrace = ex.getStackTrace(); // Message
+																	// ausgeben
+		}
+
+	}
 
 	public static void main(String[] args) {
 		new Registration(); // Abfrage_User aufrufen
