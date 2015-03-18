@@ -9,14 +9,14 @@ import javax.swing.JPanel;
 
 public class ButtonListener implements ActionListener  {
 	
-	private JPanel card;
+	private JPanel cards;
 
 	
 
 	
-	public ButtonListener(JPanel card) {
+	public ButtonListener(JPanel cards) {
 				
-		this.setCard(card);
+		this.setCard(cards);
 	}
 
 
@@ -27,19 +27,19 @@ public class ButtonListener implements ActionListener  {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("Klasse hinzufügen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
-        	cardLayout.show(card, "Add Klasse Card");
+        	cardLayout.show(cards, "Add Klasse Card");
 		}
 		else if (e.getActionCommand().equals("Fach hinzufügen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
-        	cardLayout.show(card, "Add Fach Card");
+        	cardLayout.show(cards, "Add Fach Card");
 		}
 		else if (e.getActionCommand().equals("Note hinzufügen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
-        	cardLayout.show(card, "Add Note Card");
+        	cardLayout.show(cards, "Add Note Card");
 		}
 		else if (e.getActionCommand().equals("Verlassen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
-        	cardLayout.show(card, "Start Card");
+        	cardLayout.show(cards, "Start Card");
 		}
 		
 	}
@@ -50,15 +50,15 @@ public class ButtonListener implements ActionListener  {
 
 	//Getter und Setter
 	public JPanel getCard() {
-		return card;
+		return cards;
 	}
 
 
 
 
 
-	public void setCard(JPanel card) {
-		this.card = card;
+	public void setCard(JPanel cards) {
+		this.cards = cards;
 	}
 
 
