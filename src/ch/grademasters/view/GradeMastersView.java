@@ -151,8 +151,7 @@ public class GradeMastersView extends JFrame {
 	
 	//addNoteCard
 	protected JTextField note = new JTextField();
-	protected JTextField durchschnitt = new JTextField();
-	
+
 	
 	/*
 	 * JLABELS
@@ -335,7 +334,6 @@ public class GradeMastersView extends JFrame {
 		
 		//NoteFormular
 		addNoteFormular.add(note);
-		addNoteFormular.add(durchschnitt);
 		addNoteFormular.add(beschreibung);
 		addNoteFormular.add(datum);
 		
@@ -349,11 +347,13 @@ public class GradeMastersView extends JFrame {
 		/*
 		 * BUTTON COMMANDS
 		 */
+		//Cards wechseln
 		addKlasse.addActionListener(new ButtonListener(cards));
 		addFach.addActionListener(new ButtonListener(cards));
 		addNote.addActionListener(new ButtonListener(cards));
 		klasseVerlassen.addActionListener(new ButtonListener(cards));
 		fachVerlassen.addActionListener(new ButtonListener(cards));
+		noteVerlassen.addActionListener(new ButtonListener(cards));
 
 		this.add(cards);
 		
