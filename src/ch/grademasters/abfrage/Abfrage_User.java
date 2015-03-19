@@ -79,19 +79,7 @@ public class Abfrage_User extends Frame implements ActionListener {
 
 		ButtonRegistration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				final String username = TextUsername.getText();
-				final String passwort = new String(FieldPasswort.getPassword());
-				try {
-					User currentUser = new User();
-					currentUser.setUsername(username);
-					currentUser.setPasswort(passwort);
-					GMController.getInstance().login(currentUser);
-				}
-				catch (Exception e1) {
-
-				}
-
+				new Registr();
 			}
 		});
 	}
