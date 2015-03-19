@@ -111,30 +111,38 @@ public class GMController {
 				}
 				else if (!passwortLocal.equals(passwortDb)) {
 					if (i < 2) {
-						new LoginError();
+						LoginError loginError = new LoginError();
+						loginError.setLocationRelativeTo(null);
 						i = i + 1;
+						login = false;
 					}
 				}
 				else if (StringUtils.isBlank(passwortLocal)) {
 					if (i < 2) {
-						new PasswortError();
+						PasswortError passwortError = new PasswortError();
+						passwortError.setLocationRelativeTo(null);
 						i = i + 1;
+						login = false;
 					}
 					break;
 				}
 			}
 			else if (StringUtils.isBlank(usernameLocal)) {
 				if (i < 2) {
-					new UserError();
+					UserError userError = new UserError();
+					userError.setLocationRelativeTo(null);
 					i = i + 1;
+					login = false;
 				}
 				break;
 			}
 
 			if (!login) {
 				if (i < 2) {
-					new LoginError();
+					LoginError loginError = new LoginError();
+					loginError.setLocationRelativeTo(null);
 					i = i + 1;
+					login = false;
 				}
 			}
 

@@ -41,7 +41,7 @@ public class UserFail extends JDialog {
 	protected JLabel sqlErrorLabel = new JLabel("Bitte Username oder Passwort eingeben");
 	
 	public UserFail(){
-			
+	
 		setSize(250,150);
 		setVisible(true);
 		setResizable(false);

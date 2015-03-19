@@ -41,7 +41,7 @@ public class PasswortError extends JDialog {
 	protected JLabel sqlErrorLabel = new JLabel("Bitte Passwort eingeben");
 	
 	public PasswortError(){
-			
+
 		setSize(200,135);
 		setVisible(true);
 		setResizable(false);

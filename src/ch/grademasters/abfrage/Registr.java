@@ -17,7 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 import ch.grademasters.controller.GMController;
 import ch.grademasters.exception.SQLError;
 import ch.grademasters.exception.UserFail;
-import ch.grademasters.exception.UserSucess;
+import ch.grademasters.exception.UserSuccess;
 import ch.grademasters.model.User;
 import ch.grademasters.util.EncryptUtils;
 
@@ -35,6 +35,8 @@ public class Registr extends JDialog implements ActionListener {
 	static Button ButtonRegistr = new Button("Registrieren");
 
 	public Registr() {
+		
+		setLocationRelativeTo(null);
 		setLayout(new FlowLayout()); // Layout definieren
 		add(LabelBeschreibung);
 		add(LabelUsername);
@@ -46,15 +48,15 @@ public class Registr extends JDialog implements ActionListener {
 
 		setSize(275, 250);
 		setVisible(true);
-		addWindowListener(new WindowListener());
+//		addWindowListener(new WindowListener());
 
 	}
 
-	class WindowListener extends WindowAdapter {
-		public void windowClosing(WindowEvent e) {
-			System.exit(0);
-		}
-	}
+//	class WindowListener extends WindowAdapter {
+//		public void windowClosing(WindowEvent e) {
+//			System.exit(0);
+//		}
+//	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -63,7 +65,8 @@ public class Registr extends JDialog implements ActionListener {
 		String passwort = new String(FieldPasswort.getPassword());
 
 		if (StringUtils.isBlank(username) || StringUtils.isBlank(passwort)) {
-			new UserFail();
+			UserFail userFail = new UserFail();
+			userFail.setLocationRelativeTo(null);
 		}
 		else {
 			passwort = EncryptUtils.base64encode(passwort);
@@ -75,11 +78,13 @@ public class Registr extends JDialog implements ActionListener {
 				GMController.getInstance().insert(currentUser);
 				setVisible(false);
 				setAlwaysOnTop(true);
-				new UserSucess();
+				UserSuccess userSuccess = new UserSuccess();
+				userSuccess.setLocationRelativeTo(null);
 
 			}
 			catch (Exception e1) {
-				new SQLError();
+				SQLError sqlError = new SQLError();
+				sqlError.setLocationRelativeTo(null);
 			}
 
 		}

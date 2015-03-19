@@ -32,6 +32,7 @@ public class Abfrage_User extends JDialog implements ActionListener {
 	static Button ButtonRegistration = new Button("Registrieren");
 
 	public Abfrage_User() {
+
 		setLayout(new FlowLayout()); // Layout definieren
 		add(LabelUsername);
 		add(TextUsername);
@@ -57,7 +58,7 @@ public class Abfrage_User extends JDialog implements ActionListener {
 
 	public static void main(String[] args) {
 		Abfrage_User gui = new Abfrage_User(); // Abfrage_User aufrufen
-
+		gui.setLocationRelativeTo(null);
 		// Action Listener erstellen
 		ButtonLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -69,11 +70,13 @@ public class Abfrage_User extends JDialog implements ActionListener {
 					currentUser.setPasswort(passwort);
 					if (GMController.getInstance().login(currentUser) == true) {
 						gui.setVisible(false);
-						new GradeMastersView();
+						GradeMastersView gradeMastersView = new GradeMastersView();
+						gradeMastersView.setLocationRelativeTo(null);
 					}
 				}
 				catch (Exception e1) {
-					new SQLError();
+					SQLError qulError = new SQLError();
+					qulError.setLocationRelativeTo(null);
 				}
 				
 
@@ -82,7 +85,8 @@ public class Abfrage_User extends JDialog implements ActionListener {
 
 		ButtonRegistration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Registr();
+				Registr registr = new Registr();
+				registr.setLocationRelativeTo(null);
 			}
 		});
 	}

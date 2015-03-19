@@ -41,7 +41,7 @@ public class UserError extends JDialog {
 	protected JLabel sqlErrorLabel = new JLabel("Bitte Username eingeben");
 	
 	public UserError(){
-			
+	
 		setSize(200,115);
 		setVisible(true);
 		setResizable(false);

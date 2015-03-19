@@ -221,7 +221,8 @@ public class GradeMastersView extends JFrame {
 
 	
 	
-	public GradeMastersView() {		
+	public GradeMastersView() {	
+		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setName("GradeMasters");
 		setSize(760, 500);

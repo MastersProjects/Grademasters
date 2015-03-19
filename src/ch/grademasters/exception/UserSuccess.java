@@ -21,7 +21,7 @@ import ch.grademasters.view.GradeMastersView;
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
 
-public class UserSucess extends JDialog {
+public class UserSuccess extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -40,8 +40,8 @@ public class UserSucess extends JDialog {
 	 */
 	protected JLabel sucessText = new JLabel("Sie wurden erfolgreich registriert!");
 	
-	public UserSucess(){
-			
+	public UserSuccess(){
+	
 		setSize(240,150);
 		setVisible(true);
 		setResizable(false);

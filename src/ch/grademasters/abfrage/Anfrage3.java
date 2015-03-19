@@ -12,6 +12,7 @@ public class Anfrage3 extends Frame implements ActionListener{
       TextArea textAus = new TextArea("",10,60); // Zeilen, Spalten
       Button b = new Button("Suchen");
       public Anfrage3() {
+    	  	
             setLayout(new FlowLayout()); // muss
             add(l);
             add(b); 
@@ -49,6 +50,8 @@ public class Anfrage3 extends Frame implements ActionListener{
       }
 
       public static void main(String[] args) {
-            new Anfrage3();
+            Anfrage3 anfrage3 = new Anfrage3();
+            anfrage3.setLocationRelativeTo(null);
+            
       }
 }

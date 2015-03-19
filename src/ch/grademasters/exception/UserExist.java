@@ -41,7 +41,7 @@ public class UserExist extends JDialog {
 	protected JLabel sqlErrorLabel = new JLabel("Dieser Username ist bereits vorhanden");
 	
 	public UserExist(){
-			
+
 		setSize(250,115);
 		setVisible(true);
 		setResizable(false);

@@ -41,7 +41,7 @@ public class SQLError extends JDialog {
 	protected JLabel sqlErrorLabel = new JLabel("Keine Verbindung zur Datenbank");
 	
 	public SQLError(){
-			
+
 		setSize(220,135);
 		setVisible(true);
 		setResizable(false);
