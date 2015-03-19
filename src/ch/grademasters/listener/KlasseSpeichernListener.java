@@ -5,9 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
-import ch.grademasters.model.Klasse;
-import ch.grademasters.model.KlassenLehrer;
-
 public class KlasseSpeichernListener implements ActionListener {
 
 	private JTextField klasse;
@@ -20,7 +17,7 @@ public class KlasseSpeichernListener implements ActionListener {
 
 	public KlasseSpeichernListener(JTextField klasse, JTextField schule, JTextField semester, JTextField lehrerVorname, JTextField lehrerNachname, JTextField lehrerEmail ){
 		this.setKlasse(klasse);
-		this.setSchule(schule);
+		this.setKlasse(schule);
 		this.setSemester(semester);
 		this.setLehrerVorname(lehrerVorname);
 		this.setLehrerNachname(lehrerNachname);
@@ -28,19 +25,33 @@ public class KlasseSpeichernListener implements ActionListener {
 	}
 		
 	public void actionPerformed(ActionEvent e) {
-		String lehrerVorname = getLehrerVorname().getText();
-		String lehrerNachname = getLehrerNachname().getText();
-		String lehrerEmail = getLehrerEmail().getText();	
+		String lehrerVorname = this.getLehrerVorname().getText();
+		String lehrerNachname = this.getLehrerNachname().getText();
+		String lehrerEmail = this.getLehrerEmail().getText();	
 		KlassenLehrer lehrer = new KlassenLehrer(lehrerVorname, lehrerNachname, lehrerEmail);
 		
-		String klassenName = getKlasse().getText();
-		String schule = getSchule().getText();
-		int semester = Integer.parseInt(getSemester().getText());
+		String klassenName = this.getKlasse().getText();
+		String schule = this.getSchule().getText();
+		int semester = Integer.parseInt(this.getSemester().getText());
 		Klasse klasse = new Klasse(lehrer, klassenName, schule, semester);
 		
 		System.out.println(klasse);
 		
-		
+		//clear textfield
+		this.getLehrerVorname().setText("");
+		this.getLehrerNachname().setText("");
+		this.getLehrerEmail().setText("");
+		this.getKlasse().setText("");
+		this.getSchule().setText("");
+		this.getSemester().setText("");
+		//clear textfield
+		this.getLehrerVorname().setText("");
+		this.getLehrerNachname().setText("");
+		this.getLehrerEmail().setText("");
+		this.getKlasse().setText("");
+		this.getSchule().setText("");
+		this.getSemester().setText("");
+			
 	}
 
 	public JTextField getKlasse() {

@@ -14,8 +14,10 @@ import ch.grademasters.exception.LoginError;
 import ch.grademasters.exception.PasswortError;
 import ch.grademasters.exception.UserError;
 import ch.grademasters.exception.UserExist;
+import ch.grademasters.model.Klasse;
 import ch.grademasters.model.User;
 import ch.grademasters.util.EncryptUtils;
+import ch.grademasters.view.GradeMastersView;
 
 /**
  * @author Luca Marti, ICT Berufsbildungscenter AG, luca.marti@bbcag.ch
