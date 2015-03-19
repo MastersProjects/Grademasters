@@ -76,7 +76,7 @@ public class GMController {
 
 	}
 
-	public void login(User currentUser) {
+	public boolean login(User currentUser) {
 		List<User> dbUsers = null;
 
 		try {
@@ -106,7 +106,7 @@ public class GMController {
 						&& StringUtils.isNotBlank(passwortDb)
 						&& passwortLocal.equals(passwortDb)) {
 					login = true;
-					new GradeMastersView();
+					
 
 				}
 				else if (!passwortLocal.equals(passwortDb)) {
@@ -139,6 +139,6 @@ public class GMController {
 			}
 
 		}
-
+		return login;
 	}
 }

@@ -56,7 +56,7 @@ public class Abfrage_User extends JDialog implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		new Abfrage_User(); // Abfrage_User aufrufen
+		Abfrage_User gui = new Abfrage_User(); // Abfrage_User aufrufen
 
 		// Action Listener erstellen
 		ButtonLogin.addActionListener(new ActionListener() {
@@ -67,7 +67,10 @@ public class Abfrage_User extends JDialog implements ActionListener {
 					User currentUser = new User();
 					currentUser.setUsername(username);
 					currentUser.setPasswort(passwort);
-					GMController.getInstance().login(currentUser);
+					if (GMController.getInstance().login(currentUser) == true) {
+						gui.setVisible(false);
+						new GradeMastersView();
+					}
 				}
 				catch (Exception e1) {
 					new SQLError();
