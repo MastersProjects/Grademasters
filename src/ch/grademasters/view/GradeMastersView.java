@@ -29,6 +29,13 @@ import ch.grademasters.model.KlassenLehrer;
 import ch.grademasters.model.Pruefung;
 import ch.grademasters.model.Zeugnis;
 
+/**
+ * @description Das ganze GUI befindet sich in dieser Klasse
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * GradeMastersView.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
+
 public class GradeMastersView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
