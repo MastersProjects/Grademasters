@@ -21,7 +21,7 @@ public class datumTest extends JFrame {
     Date today = new Date();
     JSpinner datum = new JSpinner(new SpinnerDateModel(today, null, null, Calendar.MONTH));
     JSpinner.DateEditor datumformatiert = new JSpinner.DateEditor(datum, "dd/MM/yyyy");
-    datum.setEditor(datumformatiert);
+    datum.setEditor(datumformatiert); //hbvjdasbfbsibf 
     add(datum);
 
     setVisible(true);

@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -22,6 +24,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
+import javax.swing.SpinnerDateModel;
 
 import test.labor.datumTest;
 import ch.grademasters.listener.ButtonListener;
@@ -77,10 +80,19 @@ public class GradeMastersView extends JFrame {
 	protected JPanel lehrerEmailPanel = new JPanel(new GridLayout(2,1));
 	
 	//addFachCard
-	protected JPanel fachFormular = new JPanel(new GridLayout(1, 2));
+	protected JPanel fachFormular = new JPanel(new FlowLayout());
+	protected JPanel fachNamePanel = new JPanel(new GridLayout(2,1));
+	protected JPanel addFachklasseListePanel = new JPanel(new GridLayout(2,1));
 	
 	//addNoteCard
-	protected JPanel addNoteFormular = new JPanel(new GridLayout(5,2));
+	protected JPanel addNoteFormular = new JPanel(new FlowLayout());
+	protected JPanel notePanel = new JPanel(new GridLayout(2,1));
+	protected JPanel gewichtungPanel = new JPanel(new GridLayout(2,1));
+	protected JPanel addNoteKlasseListePanel = new JPanel(new GridLayout(2,1));
+	protected JPanel addNoteFachListePanel = new JPanel(new GridLayout(2,1));
+	protected JPanel benennungPanel = new JPanel(new GridLayout(2,1));
+	protected JPanel datumPanel = new JPanel(new GridLayout(2,1));
+
 	
 	
 	/*
@@ -151,6 +163,8 @@ public class GradeMastersView extends JFrame {
 	
 	//addNoteCard
 	protected JTextField note = new JTextField();
+	protected JTextField gewichtung = new JTextField();
+	protected JTextField benennung = new JTextField(); 
 
 	
 	/*
@@ -171,12 +185,19 @@ public class GradeMastersView extends JFrame {
 	protected JLabel lehrerNachnameLabel = new JLabel("Lehrer Nachname: ");
 	protected JLabel lehrerEmailLabel = new JLabel("Lehrer E-mail: ");
 	
+	//addFachCard
+	protected JLabel fachNameLabel = new JLabel("Name: ");
+	protected JLabel addFachKlasseListeLabel = new JLabel ("Schule: ");
 	
-	/*
-	 * TEXTAREAS
-	 */
 	//addNoteCard
-	protected JTextArea beschreibung = new JTextArea(); 
+	protected JLabel noteLabel = new JLabel ("Note: ");
+	protected JLabel gewichtungLabel = new JLabel ("Gewichtung: ");
+	protected JLabel addNoteKlasseListeLabel = new JLabel ("Klasse: ");
+	protected JLabel addNoteFachListeLabel = new JLabel ("Fach: ");
+	protected JLabel benennungLabel = new JLabel ("Benennung: ");
+	protected JLabel datumSpinnerLabel = new JLabel ("Datum: ");
+
+	
 	
 	
 	/*
@@ -192,14 +213,21 @@ public class GradeMastersView extends JFrame {
 	 * COMBOXES
 	 */
 	//addFachCard
-	protected JComboBox<?> schuleListe = new JComboBox<Object>();
+	protected JComboBox<?> addFachKlasseListe = new JComboBox<Object>();
+	
+	//addNoteCard
+	protected JComboBox<?> addNoteKlasseListe = new JComboBox<Object>();
+	protected JComboBox<?> addNoteFachListe = new JComboBox<Object>();
 	
 	
 	/*
-	 * Andere
+	 * JSPINNER
 	 */
 	//addNoteCard
-	protected JSpinner datum = new JSpinner();
+	Date today = new Date();
+    JSpinner datumSpinner = new JSpinner(new SpinnerDateModel(today, null, null, Calendar.MONTH));
+    JSpinner.DateEditor datumformatiert = new JSpinner.DateEditor(datumSpinner, "dd/MM/yyyy");
+
 	
 	
 	public GradeMastersView() {		
@@ -312,10 +340,16 @@ public class GradeMastersView extends JFrame {
 		addFachToolBar.setFloatable(false);
 		addFachToolBar.add(fachVerlassen);
 		addFachToolBar.add(fachSpeichern);
-		
+				
 		//fachFormular
-		fachFormular.add(fachName);
-		fachFormular.add(schuleListe);
+		fachNamePanel.add(fachNameLabel);
+		fachNamePanel.add(fachName);
+		
+		addFachklasseListePanel.add(addFachKlasseListeLabel);
+		addFachklasseListePanel.add(addFachKlasseListe);
+				
+		fachFormular.add(fachNamePanel);
+		fachFormular.add(addFachklasseListePanel);
 		
 		//addFachCard
 		addFachCard.add(addFachToolBar, BorderLayout.NORTH);
@@ -324,25 +358,61 @@ public class GradeMastersView extends JFrame {
 		//Add in Card
 		cards.add(addFachCard, "Add Fach Card");
 		
+		
 		/*
-		 * AddNoteCard
+		 * addNoteCard
 		 */
 		//Toolbar
 		addNoteToolBar.setFloatable(false);
 		addNoteToolBar.add(noteVerlassen);
 		addNoteToolBar.add(noteSpeichern);
 		
-		//NoteFormular
-		addNoteFormular.add(note);
-		addNoteFormular.add(beschreibung);
-		addNoteFormular.add(datum);
+		//notePanel
+		notePanel.add(noteLabel);
+		notePanel.add(note);		
+		notePanel.setPreferredSize(new Dimension(90,40));
 		
+		//gewichtungPanel
+		gewichtungPanel.add(gewichtungLabel);
+		gewichtungPanel.add(gewichtung);
+		gewichtungPanel.setPreferredSize(new Dimension(90,40));
+				
+		//addNoteListePanel
+		addNoteKlasseListePanel.add(addNoteKlasseListeLabel);
+		addNoteKlasseListePanel.add(addNoteKlasseListe);
+		addNoteKlasseListePanel.setPreferredSize(new Dimension(90,40));
+		
+		//addFachListePanel
+		addNoteFachListePanel.add(addNoteFachListeLabel);
+		addNoteFachListePanel.add(addNoteFachListe);
+		addNoteFachListePanel.setPreferredSize(new Dimension(90,40));
+		
+		//benennungPanel
+		benennungPanel.add(benennungLabel);
+		benennungPanel.add(benennung);
+		benennungPanel.setPreferredSize(new Dimension(90,40));
+		
+		//datumPanel
+		datumSpinner.setEditor(datumformatiert);
+		datumPanel.add(datumSpinnerLabel);
+		datumPanel.add(datumSpinner);
+		datumPanel.setPreferredSize(new Dimension(90,40));
+		
+		//addNoteFormular
+		addNoteFormular.add(notePanel);
+		addNoteFormular.add(gewichtungPanel);		
+		addNoteFormular.add(addNoteKlasseListePanel);
+		addNoteFormular.add(addNoteFachListePanel);
+		addNoteFormular.add(benennungPanel);
+		addNoteFormular.add(datumPanel);
+	
 		//addNoteCard
 		addNoteCard.add(addNoteToolBar, BorderLayout.NORTH);
 		addNoteCard.add(addNoteFormular, BorderLayout.CENTER);
 		
 		//Add in Card
 		cards.add(addNoteCard, "Add Note Card");
+		
 		
 		/*
 		 * BUTTON COMMANDS
@@ -365,8 +435,7 @@ public class GradeMastersView extends JFrame {
 		gui.setVisible(true);
 	}
 	
-	
-	
+		
 	
 	/**
 	 * Lädt das Bild
