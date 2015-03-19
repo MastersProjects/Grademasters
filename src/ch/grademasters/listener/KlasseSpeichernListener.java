@@ -5,6 +5,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
+import ch.grademasters.model.Klasse;
+import ch.grademasters.model.KlassenLehrer;
+
 public class KlasseSpeichernListener implements ActionListener {
 
 	private JTextField klasse;
@@ -17,7 +20,7 @@ public class KlasseSpeichernListener implements ActionListener {
 
 	public KlasseSpeichernListener(JTextField klasse, JTextField schule, JTextField semester, JTextField lehrerVorname, JTextField lehrerNachname, JTextField lehrerEmail ){
 		this.setKlasse(klasse);
-		this.setKlasse(schule);
+		this.setSchule(schule);
 		this.setSemester(semester);
 		this.setLehrerVorname(lehrerVorname);
 		this.setLehrerNachname(lehrerNachname);
@@ -25,7 +28,19 @@ public class KlasseSpeichernListener implements ActionListener {
 	}
 		
 	public void actionPerformed(ActionEvent e) {
-	
+		String lehrerVorname = getLehrerVorname().getText();
+		String lehrerNachname = getLehrerNachname().getText();
+		String lehrerEmail = getLehrerEmail().getText();	
+		KlassenLehrer lehrer = new KlassenLehrer(lehrerVorname, lehrerNachname, lehrerEmail);
+		
+		String klassenName = getKlasse().getText();
+		String schule = getSchule().getText();
+		int semester = Integer.parseInt(getSemester().getText());
+		Klasse klasse = new Klasse(lehrer, klassenName, schule, semester);
+		
+		System.out.println(klasse);
+		
+		
 	}
 
 	public JTextField getKlasse() {

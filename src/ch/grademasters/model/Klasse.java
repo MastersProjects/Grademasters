@@ -10,11 +10,11 @@ package ch.grademasters.model;
 public class Klasse {
 
 	// Instanzvariablen
-	private String klassenname;
+	private String klassenName;
 	private String schule;
 	private int semester;
 	private KlassenLehrer klassenLehrer;
-	private Zeugnis zeugnis = new Zeugnis();
+	private Zeugnis zeugnis /*= new Zeugnis()*/;
 	
 
 	public Klasse(KlassenLehrer lehrer, String klassenname, String schule,
@@ -36,14 +36,14 @@ public class Klasse {
 	 * @return klassenname
 	 */
 	public String getKlassenname() {
-		return klassenname;
+		return klassenName;
 	}
 
 	/**
 	 * @param klassenname
 	 */
-	public void setKlassenname(String klassenname) {
-		this.klassenname = klassenname;
+	public void setKlassenname(String klassenName) {
+		this.klassenName = klassenName;
 	}
 
 	/**
@@ -112,11 +112,11 @@ public class Klasse {
 		l = "Klasse: " + this.getKlassenname() + "\n";
 		l = l + "Semester: " + this.getSemester() + "\n";
 		l = l + "Schule: " + this.getSchule() + "\n";
-		l = l + this.getKlassenLehrer().toString() + "\n\n";
-		for (Fach fach : this.getZeugnis().getFach()) {
-			l = l + fach;
-		}
-		l = l + "\n" + this.getZeugnis();
+		l = l + "Lehrer: \n" + this.getKlassenLehrer().toString() + "\n\n";
+//		for (Fach fach : this.getZeugnis().getFach()) {
+//			l = l + fach;
+//		}
+//		l = l + "\n" + this.getZeugnis();
 		return l;
 	}
 

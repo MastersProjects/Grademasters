@@ -423,7 +423,9 @@ public class GradeMastersView extends JFrame {
 		noteVerlassen.addActionListener(new CardButtonListener(cards));
 		
 		//Speichern
-		addKlasse.addActionListener (new KlasseSpeichernListener (klasseName, schuleName, semester, lehrerVorname, lehrerNachname, lehrerEmail));
+		klasseSpeichern.addActionListener (new KlasseSpeichernListener (klasseName, schuleName, 
+																semester, lehrerVorname, 
+																lehrerNachname, lehrerEmail));
 		
 		
 	}

@@ -21,24 +21,24 @@ public class KlasseTester {
 
 		
 		//Erstes Beispiel 
-		Fach mathe = new Fach("Mathe");
-		
-		klasse.getZeugnis().addFach(mathe);
-		Pruefung pruefung1 = new Pruefung("Gleichungen", 6f, 1f);
-		Pruefung pruefung2 = new Pruefung("Eins mal Eins", 5.76f, 0.5f);		
-		mathe.addPruefung(pruefung1);
-		mathe.addPruefung(pruefung2);
-		
-		//Zweites Beispiel 
-		Fach deutsch = new Fach("Deutsch");
-		
-		klasse.getZeugnis().addFach(deutsch);
-		Pruefung pruefung3 = new Pruefung("Gramatik", 4.25f, 1f);
-		Pruefung pruefung4 = new Pruefung("Nomen", 5.25f, 0.5f);
-		Pruefung pruefung5 = new Pruefung("Verben", 4.8f, 0.5f);		
-		deutsch.addPruefung(pruefung3);
-		deutsch.addPruefung(pruefung4);
-		deutsch.addPruefung(pruefung5);
+//		Fach mathe = new Fach("Mathe");
+//		
+//		klasse.getZeugnis().addFach(mathe);
+//		Pruefung pruefung1 = new Pruefung("Gleichungen", 6f, 1f);
+//		Pruefung pruefung2 = new Pruefung("Eins mal Eins", 5.76f, 0.5f);		
+//		mathe.addPruefung(pruefung1);
+//		mathe.addPruefung(pruefung2);
+//		
+//		//Zweites Beispiel 
+//		Fach deutsch = new Fach("Deutsch");
+//		
+//		klasse.getZeugnis().addFach(deutsch);
+//		Pruefung pruefung3 = new Pruefung("Gramatik", 4.25f, 1f);
+//		Pruefung pruefung4 = new Pruefung("Nomen", 5.25f, 0.5f);
+//		Pruefung pruefung5 = new Pruefung("Verben", 4.8f, 0.5f);		
+//		deutsch.addPruefung(pruefung3);
+//		deutsch.addPruefung(pruefung4);
+//		deutsch.addPruefung(pruefung5);
 		
 		//Ausgabe alles Informationen
 		System.out.println(klasse);
