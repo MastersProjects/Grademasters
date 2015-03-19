@@ -169,7 +169,7 @@ public class GradeMastersView extends JFrame {
 	protected JLabel klassenInfo = new JLabel();
 
 	//addKlasseCard
-	protected JLabel klasseNameLabel = new JLabel("KLasse Name: ");
+	protected JLabel klasseNameLabel = new JLabel("Klasse Name: ");
 	protected JLabel schuleNameLabel = new JLabel("Schul Name: ");
 	protected JLabel semesterLabel = new JLabel("Semester: ");
 	protected JLabel lehrerVornameLabel = new JLabel("Lehrer Vorname: ");
