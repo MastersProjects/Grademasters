@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.JDialog;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -16,10 +17,13 @@ import org.apache.commons.lang3.StringUtils;
 
 import ch.grademasters.controller.GMController;
 import ch.grademasters.exception.SQLError;
+import ch.grademasters.exception.UserError;
+import ch.grademasters.exception.UserFail;
+import ch.grademasters.exception.UserSucess;
 import ch.grademasters.model.User;
 import ch.grademasters.util.EncryptUtils;
 
-public class Registr extends Frame implements ActionListener {
+public class Registr extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
@@ -61,7 +65,7 @@ public class Registr extends Frame implements ActionListener {
 		String passwort = new String(FieldPasswort.getPassword());
 
 		if (StringUtils.isBlank(username) || StringUtils.isBlank(passwort)) {
-
+			new UserFail();
 		}
 		else {
 			passwort = EncryptUtils.base64encode(passwort);
@@ -72,6 +76,8 @@ public class Registr extends Frame implements ActionListener {
 				currentUser.setUsername(username);
 				currentUser.setPasswort(passwort);
 				GMController.getInstance().insert(currentUser);
+				setVisible(false);
+				new UserSucess();
 
 			}
 			catch (Exception e1) {
