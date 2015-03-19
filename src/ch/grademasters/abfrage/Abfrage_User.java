@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 import ch.grademasters.controller.GMController;
 import ch.grademasters.dao.UserDao;
 import ch.grademasters.dao.UserJDBCDao;
-
+import ch.grademasters.exception.SQLError;
 import ch.grademasters.model.User;
 
 public class Abfrage_User extends Frame implements ActionListener {
@@ -72,7 +72,7 @@ public class Abfrage_User extends Frame implements ActionListener {
 					GMController.getInstance().login(currentUser);
 				}
 				catch (Exception e1) {
-					e1.printStackTrace();
+					new SQLError();
 				}
 
 			}

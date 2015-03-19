@@ -18,10 +18,12 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
+import test.labor.datumTest;
 import ch.grademasters.listener.ButtonListener;
 import ch.grademasters.model.Fach;
 import ch.grademasters.model.Klasse;
@@ -131,9 +133,6 @@ public class GradeMastersView extends JFrame {
 	protected final JButton noteSpeichern = new JButton("Note speichern",speichernIconLarge);
 	protected final JButton noteVerlassen = new JButton("Verlassen",verlassenIconLarge);
 	
-	//verlassen
-	
-	
 	
 	/*
 	 * TEXTFIELDS
@@ -189,15 +188,19 @@ public class GradeMastersView extends JFrame {
 	protected JScrollPane scrollpaneFach = new JScrollPane();
 	protected JScrollPane scrollpaneNote = new JScrollPane();
 	
-	
-	
-	
+
 	/*
 	 * COMBOXES
 	 */
 	//addFachCard
 	protected JComboBox<?> schuleListe = new JComboBox<Object>();
 	
+	
+	/*
+	 * Andere
+	 */
+	//addNoteCard
+	protected JSpinner datum = new JSpinner();
 	
 	
 	public GradeMastersView() {		
@@ -322,9 +325,27 @@ public class GradeMastersView extends JFrame {
 		//Add in Card
 		cards.add(addFachCard, "Add Fach Card");
 		
+		/*
+		 * AddNoteCard
+		 */
+		//Toolbar
+		addNoteToolBar.setFloatable(false);
+		addNoteToolBar.add(noteVerlassen);
+		addNoteToolBar.add(noteSpeichern);
 		
+		//NoteFormular
+		addNoteFormular.add(note);
+		addNoteFormular.add(durchschnitt);
+		addNoteFormular.add(beschreibung);
+		addNoteFormular.add(datum);
 		
-				
+		//addNoteCard
+		addNoteCard.add(addNoteToolBar, BorderLayout.NORTH);
+		addNoteCard.add(addNoteFormular, BorderLayout.CENTER);
+		
+		//Add in Card
+		cards.add(addNoteCard, "Add Note Card");
+		
 		/*
 		 * BUTTON COMMANDS
 		 */
