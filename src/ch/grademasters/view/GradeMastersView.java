@@ -26,8 +26,7 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SpinnerDateModel;
 
-import test.labor.datumTest;
-import ch.grademasters.listener.ButtonListener;
+import ch.grademasters.listener.CardButtonListener;
 import ch.grademasters.model.Fach;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.KlassenLehrer;
@@ -415,17 +414,25 @@ public class GradeMastersView extends JFrame {
 		
 		
 		/*
+		 * CardLayout zu Frame adden
+		 */
+		this.add(cards);
+		
+		
+		/*
 		 * BUTTON COMMANDS
 		 */
 		//Cards wechseln
-		addKlasse.addActionListener(new ButtonListener(cards));
-		addFach.addActionListener(new ButtonListener(cards));
-		addNote.addActionListener(new ButtonListener(cards));
-		klasseVerlassen.addActionListener(new ButtonListener(cards));
-		fachVerlassen.addActionListener(new ButtonListener(cards));
-		noteVerlassen.addActionListener(new ButtonListener(cards));
-
-		this.add(cards);
+		addKlasse.addActionListener(new CardButtonListener(cards));
+		addFach.addActionListener(new CardButtonListener(cards));
+		addNote.addActionListener(new CardButtonListener(cards));
+		klasseVerlassen.addActionListener(new CardButtonListener(cards));
+		fachVerlassen.addActionListener(new CardButtonListener(cards));
+		noteVerlassen.addActionListener(new CardButtonListener(cards));
+		
+		//Speichern
+		
+		
 		
 	}
 	

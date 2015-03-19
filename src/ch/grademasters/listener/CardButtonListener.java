@@ -14,11 +14,11 @@ import javax.swing.JPanel;
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
  
-public class ButtonListener implements ActionListener {
+public class CardButtonListener implements ActionListener {
 
 	private JPanel cards;
 
-	public ButtonListener(JPanel cards) {
+	public CardButtonListener(JPanel cards) {
 
 		this.setCard(cards);
 	}
