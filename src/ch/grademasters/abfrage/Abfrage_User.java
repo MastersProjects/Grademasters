@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.sql.SQLException;
 
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -16,6 +15,7 @@ import javax.swing.JTextField;
 import ch.grademasters.controller.GMController;
 import ch.grademasters.dao.UserDao;
 import ch.grademasters.dao.UserJDBCDao;
+import ch.grademasters.exception.SQLError;
 import ch.grademasters.model.User;
 
 public class Abfrage_User extends Frame implements ActionListener {
@@ -72,7 +72,7 @@ public class Abfrage_User extends Frame implements ActionListener {
 					GMController.getInstance().login(currentUser);
 				}
 				catch (Exception e1) {
-					e1.printStackTrace();
+					new SQLError();
 				}
 
 			}
@@ -90,7 +90,7 @@ public class Abfrage_User extends Frame implements ActionListener {
 					GMController.getInstance().login(currentUser);
 				}
 				catch (Exception e1) {
-					System.err.println("Hello :(");
+
 				}
 
 			}

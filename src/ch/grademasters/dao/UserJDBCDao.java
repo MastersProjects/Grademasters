@@ -8,7 +8,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ch.grademasters.exception.SQLError;
 import ch.grademasters.model.User;
+
+/**
+ * @description
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * UserJDBCDao.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
 
 public class UserJDBCDao implements UserDao {
 	private Connection con = null;

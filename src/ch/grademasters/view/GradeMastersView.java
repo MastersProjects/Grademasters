@@ -18,16 +18,25 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
+import test.labor.datumTest;
 import ch.grademasters.listener.ButtonListener;
 import ch.grademasters.model.Fach;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.KlassenLehrer;
 import ch.grademasters.model.Pruefung;
 import ch.grademasters.model.Zeugnis;
+
+/**
+ * @description Das ganze GUI befindet sich in dieser Klasse
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * GradeMastersView.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
 
 public class GradeMastersView extends JFrame {
 
@@ -114,15 +123,15 @@ public class GradeMastersView extends JFrame {
 
 	//addKlasseToolBar	
 	protected final JButton klasseSpeichern = new JButton("Klasse speichern",speichernIconLarge);
+	protected final JButton klasseVerlassen = new JButton("Verlassen",verlassenIconLarge);
 	
 	//addFachToolBar
 	protected final JButton fachSpeichern = new JButton("Fach speichern",speichernIconLarge);
+	protected final JButton fachVerlassen = new JButton("Verlassen",verlassenIconLarge);
 	
 	//addNoteToolBar
 	protected final JButton noteSpeichern = new JButton("Note speichern",speichernIconLarge);
-	
-	//verlassen
-	protected final JButton verlassen = new JButton("Verlassen",verlassenIconLarge);
+	protected final JButton noteVerlassen = new JButton("Verlassen",verlassenIconLarge);
 	
 	
 	/*
@@ -179,15 +188,19 @@ public class GradeMastersView extends JFrame {
 	protected JScrollPane scrollpaneFach = new JScrollPane();
 	protected JScrollPane scrollpaneNote = new JScrollPane();
 	
-	
-	
-	
+
 	/*
 	 * COMBOXES
 	 */
 	//addFachCard
-	protected JComboBox schuleListe = new JComboBox();
+	protected JComboBox<?> schuleListe = new JComboBox<Object>();
 	
+	
+	/*
+	 * Andere
+	 */
+	//addNoteCard
+	protected JSpinner datum = new JSpinner();
 	
 	
 	public GradeMastersView() {		
@@ -235,11 +248,11 @@ public class GradeMastersView extends JFrame {
 		//Add in Cards
 		cards.add(startCard, "Start Card");
 				
-		////Colors for Test
-		//startLeftTop.setBackground(Color.yellow);
-		//startLeftBottom.setBackground(Color.red);
-		//startRightTop.setBackground(Color.green);
-		//startRightBottom.setBackground(Color.blue);
+//		//Colors for Test
+//		startLeftTop.setBackground(Color.yellow);
+//		startLeftBottom.setBackground(Color.red);
+//		startRightTop.setBackground(Color.green);
+//		startRightBottom.setBackground(Color.blue);
 		
 		
 		/*
@@ -247,7 +260,7 @@ public class GradeMastersView extends JFrame {
 		 */
 		//Toolbar
 		addKlasseToolBar.setFloatable(false);
-		addKlasseToolBar.add(verlassen);
+		addKlasseToolBar.add(klasseVerlassen);
 		addKlasseToolBar.add(klasseSpeichern);
 		
 		//klassenFormular				
@@ -292,14 +305,55 @@ public class GradeMastersView extends JFrame {
 //		klasseFormular.setBackground(Color.blue);
 //		lehrerFormular.setBackground(Color.red);
 		
-				
+		
+		/*
+		 * addFachCard
+		 */
+		//Toolbar
+		addFachToolBar.setFloatable(false);
+		addFachToolBar.add(fachVerlassen);
+		addFachToolBar.add(fachSpeichern);
+		
+		//fachFormular
+		fachFormular.add(fachName);
+		fachFormular.add(schuleListe);
+		
+		//addFachCard
+		addFachCard.add(addFachToolBar, BorderLayout.NORTH);
+		addFachCard.add(fachFormular, BorderLayout.CENTER);
+		
+		//Add in Card
+		cards.add(addFachCard, "Add Fach Card");
+		
+		/*
+		 * AddNoteCard
+		 */
+		//Toolbar
+		addNoteToolBar.setFloatable(false);
+		addNoteToolBar.add(noteVerlassen);
+		addNoteToolBar.add(noteSpeichern);
+		
+		//NoteFormular
+		addNoteFormular.add(note);
+		addNoteFormular.add(durchschnitt);
+		addNoteFormular.add(beschreibung);
+		addNoteFormular.add(datum);
+		
+		//addNoteCard
+		addNoteCard.add(addNoteToolBar, BorderLayout.NORTH);
+		addNoteCard.add(addNoteFormular, BorderLayout.CENTER);
+		
+		//Add in Card
+		cards.add(addNoteCard, "Add Note Card");
+		
 		/*
 		 * BUTTON COMMANDS
 		 */
 		addKlasse.addActionListener(new ButtonListener(cards));
 		addFach.addActionListener(new ButtonListener(cards));
 		addNote.addActionListener(new ButtonListener(cards));
-		verlassen.addActionListener(new ButtonListener(cards));
+		klasseVerlassen.addActionListener(new ButtonListener(cards));
+		fachVerlassen.addActionListener(new ButtonListener(cards));
 
 		this.add(cards);
 		
