@@ -25,6 +25,7 @@ import javax.swing.SpinnerDateModel;
 
 import test.labor.SpeichernListener;
 import ch.grademasters.listener.CardButtonListener;
+import ch.grademasters.listener.KlasseSpeichernListener;
 
 /**
  * @description Das ganze GUI befindet sich in dieser Klasse
@@ -423,7 +424,7 @@ public class GradeMastersView extends JFrame {
 		noteVerlassen.addActionListener(new CardButtonListener(cards));
 		
 		//Speichern
-		addKlasse.addActionListener (new KlasseSpeichernListener ());
+		addKlasse.addActionListener (new KlasseSpeichernListener (klasseName, schuleName, semester, lehrerVorname, lehrerNachname, lehrerEmail));
 		
 		
 	}
