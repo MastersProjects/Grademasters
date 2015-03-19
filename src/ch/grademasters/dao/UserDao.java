@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import ch.grademasters.model.User;
-import ch.grademasters.model.UserRegistration;
 
 /**
  * @description
@@ -16,7 +15,6 @@ public interface UserDao {
 
 	public abstract List<User> findAllUsers() throws SQLException;
 
-	public abstract void insertUser(UserRegistration userRegistration)
-			throws SQLException;
+	public abstract void insertUser(User user) throws SQLException;
 
 }

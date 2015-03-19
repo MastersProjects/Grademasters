@@ -12,8 +12,6 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import ch.grademasters.controller.GMController;
-import ch.grademasters.model.User;
 import ch.grademasters.view.GradeMastersView;
 
 /**

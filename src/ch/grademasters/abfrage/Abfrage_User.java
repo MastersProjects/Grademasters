@@ -13,15 +13,12 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import ch.grademasters.controller.GMController;
-import ch.grademasters.dao.UserDao;
-import ch.grademasters.dao.UserJDBCDao;
 import ch.grademasters.exception.SQLError;
 import ch.grademasters.model.User;
 
 public class Abfrage_User extends Frame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private static final UserDao USER_DAO = new UserJDBCDao();
 
 	Label LabelUsername = new Label("Username");
 	Label LabelPasswort = new Label("Passwort");
