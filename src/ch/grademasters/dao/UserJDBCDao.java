@@ -38,14 +38,13 @@ public class UserJDBCDao implements UserDao {
 
 	@Override
 	public List<User> findAllUsers() throws SQLException {
-		String sql = "SELECT * FROM USER ";
-		List<User> p = null;
+		String sql = "SELECT * FROM USER";
+		List<User> p = new ArrayList<User>();
 		con = getCon();
 		ps = con.prepareStatement(sql);
 		rs = ps.executeQuery();
 
 		while (rs.next()) {
-			p = new ArrayList<User>();
 			user.setUsername(rs.getString("Username"));
 			user.setPasswort(rs.getString("Passwort"));
 			p.add(user);
