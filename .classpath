@@ -4,5 +4,16 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="T:/Public/Software/Tools/Java/Lib/mysql-connector-java-5.1.30.jar"/>
 	<classpathentry kind="lib" path="T:/Public/Software/Tools/Java/Lib/commons-lang3-3.3.1.jar"/>
+	<classpathentry kind="lib" path="D:/Users/zperee/Downloads/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="D:/Users/zperee/Downloads/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="D:/Users/zperee/Downloads/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="D:/Users/zperee/Downloads/jfreechart-1.0.19-experimental.jar"/>
+	<classpathentry kind="lib" path="D:/Users/zperee/Downloads/jfreechart-1.0.19-swt.jar"/>
+	<classpathentry kind="lib" path="D:/Users/zperee/Downloads/jfreesvg-2.0.jar"/>
+	<classpathentry kind="lib" path="D:/Users/zperee/Downloads/junit-4.11.jar"/>
+	<classpathentry kind="lib" path="D:/Users/zperee/Downloads/orsoncharts-1.4-eval-nofx.jar"/>
+	<classpathentry kind="lib" path="D:/Users/zperee/Downloads/orsonpdf-1.6-eval.jar"/>
+	<classpathentry kind="lib" path="D:/Users/zperee/Downloads/servlet.jar"/>
+	<classpathentry kind="lib" path="D:/Users/zperee/Downloads/swtgraphics2d.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
