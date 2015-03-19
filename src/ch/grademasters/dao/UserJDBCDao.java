@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ch.grademasters.exception.SQLError;
 import ch.grademasters.model.User;
 
 /**
@@ -22,8 +21,6 @@ public class UserJDBCDao implements UserDao {
 	private Connection con = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
-	User user = new User();
-	User currentUser;
 
 	@Override
 	public void insertUser(User user) throws SQLException {
@@ -45,6 +42,7 @@ public class UserJDBCDao implements UserDao {
 		rs = ps.executeQuery();
 
 		while (rs.next()) {
+			User user = new User();
 			user.setUsername(rs.getString("Username"));
 			user.setPasswort(rs.getString("Passwort"));
 			p.add(user);
@@ -64,6 +62,7 @@ public class UserJDBCDao implements UserDao {
 			}
 			if (con != null) {
 				con.close();
+				con = null;
 			}
 		}
 		catch (SQLException e) {
@@ -82,5 +81,4 @@ public class UserJDBCDao implements UserDao {
 	private void setCon(Connection con) {
 		this.con = con;
 	}
-
 }

@@ -59,10 +59,9 @@ public class Abfrage_User extends Frame implements ActionListener {
 	public static void main(String[] args) {
 		new Abfrage_User(); // Abfrage_User aufrufen
 
-		//Action Listener erstellen
+		// Action Listener erstellen
 		ButtonLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				final String username = TextUsername.getText();
 				final String passwort = new String(FieldPasswort.getPassword());
 				try {
@@ -77,7 +76,7 @@ public class Abfrage_User extends Frame implements ActionListener {
 
 			}
 		});
-		
+
 		ButtonRegistration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
