@@ -139,8 +139,7 @@ public class GradeMastersView extends JFrame {
 	
 	/*
 	 * TEXTFIELDS
-	 */
-	
+	 */	
 	//addKlasseCard
 	protected JTextField klasseName = new JTextField();
 	protected JTextField schuleName = new JTextField();
