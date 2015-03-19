@@ -15,6 +15,11 @@ import org.jfree.ui.RefineryUtilities;
 public class Diagramm extends ApplicationFrame {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Neue Instanz
      *
      * @param Name des Frames
