@@ -44,6 +44,7 @@ public class Abfrage_User extends JDialog implements ActionListener {
 		ButtonRegistration.addActionListener(this);
 		setSize(275, 250);
 		setVisible(true);
+		setResizable(false);
 		addWindowListener(new WindowListener());
 
 	}

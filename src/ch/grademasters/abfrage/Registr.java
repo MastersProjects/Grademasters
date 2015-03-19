@@ -11,6 +11,7 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JDialog;
 import javax.swing.JPasswordField;
+import javax.swing.JProgressBar;
 import javax.swing.JTextField;
 
 import org.apache.commons.lang3.StringUtils;
@@ -27,13 +28,13 @@ public class Registr extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
+	JProgressBar progressbar = new JProgressBar();
 	Label LabelBeschreibung = new Label(
 			"Hier registrieren und gleich loslegen:");
 	Label LabelUsername = new Label("Username");
 	Label LabelPasswort = new Label("Passwort");
 	static JTextField TextUsername = new JTextField(20); // Laenge angeben
 	static JPasswordField FieldPasswort = new JPasswordField(20); // Laenge
-																	// angeben
 	static Button ButtonRegistr = new Button("Registrieren");
 
 	public Registr() {
@@ -61,29 +62,37 @@ public class Registr extends JDialog implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 
-		final String username = TextUsername.getText();
-		String passwort = new String(FieldPasswort.getPassword());
+		Runnable runnable = new Runnable() {
 
-		if (StringUtils.isBlank(username) || StringUtils.isBlank(passwort)) {
-			new UserFail();
-		}
-		else {
-			passwort = EncryptUtils.base64encode(passwort);
-			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
 
-			try {
-				User currentUser = new User();
-				currentUser.setUsername(username);
-				currentUser.setPasswort(passwort);
-				GMController.getInstance().insert(currentUser);
-				setVisible(false);
-				new UserSucess();
+				final String username = TextUsername.getText();
+				String passwort = new String(FieldPasswort.getPassword());
 
+				if (StringUtils.isBlank(username)
+						|| StringUtils.isBlank(passwort)) {
+					new UserFail();
+				}
+				else {
+					passwort = EncryptUtils.base64encode(passwort);
+
+					try {
+
+						User currentUser = new User();
+						currentUser.setUsername(username);
+						currentUser.setPasswort(passwort);
+						GMController.getInstance().insert(currentUser);
+						setVisible(false);
+						setAlwaysOnTop(true);
+						new UserSucess();
+					}
+					catch (Exception e1) {
+						new SQLError();
+					}
+				}
 			}
-			catch (Exception e1) {
-				new SQLError();
-			}
-
-		}
+		};
 	}
 }
