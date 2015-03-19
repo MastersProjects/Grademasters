@@ -9,17 +9,18 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.JDialog;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import ch.grademasters.controller.GMController;
 import ch.grademasters.exception.SQLError;
 import ch.grademasters.model.User;
+import ch.grademasters.view.GradeMastersView;
 
-public class Abfrage_User extends Frame implements ActionListener {
+public class Abfrage_User extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-
 	Label LabelUsername = new Label("Username");
 	Label LabelPasswort = new Label("Passwort");
 	static JTextField TextUsername = new JTextField(20); // Laenge angeben
@@ -66,6 +67,7 @@ public class Abfrage_User extends Frame implements ActionListener {
 					currentUser.setUsername(username);
 					currentUser.setPasswort(passwort);
 					GMController.getInstance().login(currentUser);
+					new GradeMastersView();
 				}
 				catch (Exception e1) {
 					new SQLError();
