@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ch.grademasters.model.User;
-import ch.grademasters.model.UserRegistration;
 
 /**
  * @description
@@ -23,13 +22,12 @@ public class UserJDBCDao implements UserDao {
 	private ResultSet rs = null;
 
 	@Override
-	public void insertUser(UserRegistration userRegistration)
-			throws SQLException {
+	public void insertUser(User user) throws SQLException {
 		String sql = "INSERT INTO USER (Username, Passwort) VALUES (?, ?)";
 		con = getCon();
 		ps = con.prepareStatement(sql);
-		ps.setString(1, userRegistration.getUsername());
-		ps.setString(2, new String(userRegistration.getPasswort()));
+		ps.setString(1, user.getUsername());
+		ps.setString(2, user.getPasswort());
 		ps.executeUpdate();
 		closeCon();
 	}

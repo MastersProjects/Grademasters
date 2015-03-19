@@ -8,12 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 
-import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -21,7 +16,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import ch.grademasters.controller.GMController;
 import ch.grademasters.exception.SQLError;
-import ch.grademasters.model.UserRegistration;
+import ch.grademasters.model.User;
+import ch.grademasters.util.EncryptUtils;
 
 public class Registr extends Frame implements ActionListener {
 
@@ -68,34 +64,14 @@ public class Registr extends Frame implements ActionListener {
 
 		}
 		else {
-			byte[] key = null;
-			try {
-				key = (passwort).getBytes("UTF-8");
-			}
-			catch (UnsupportedEncodingException e3) {
-				// TODO Auto-generated catch block
-				e3.printStackTrace();
-			}
-
-			MessageDigest sha = null;
-			try {
-				sha = MessageDigest.getInstance("SHA");
-			}
-			catch (NoSuchAlgorithmException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
-			}
-			key = sha.digest(key);
-
-			key = Arrays.copyOf(key, 16);
-
-			SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");
+			passwort = EncryptUtils.base64encode(passwort);
+			
 
 			try {
-				UserRegistration currentUser = new UserRegistration();
+				User currentUser = new User();
 				currentUser.setUsername(username);
-				currentUser.setPasswort(key);
-				GMController.getInstance(secretKeySpec).insert(currentUser);
+				currentUser.setPasswort(passwort);
+				GMController.getInstance().insert(currentUser);
 
 			}
 			catch (Exception e1) {
