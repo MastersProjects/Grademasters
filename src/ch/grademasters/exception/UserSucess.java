@@ -42,7 +42,7 @@ public class UserSucess extends JDialog {
 	
 	public UserSucess(){
 			
-		setSize(250,150);
+		setSize(240,150);
 		setVisible(true);
 		setResizable(false);
 

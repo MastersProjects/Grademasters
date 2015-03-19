@@ -68,11 +68,11 @@ public class Abfrage_User extends JDialog implements ActionListener {
 					currentUser.setUsername(username);
 					currentUser.setPasswort(passwort);
 					GMController.getInstance().login(currentUser);
-					new GradeMastersView();
 				}
 				catch (Exception e1) {
 					new SQLError();
 				}
+				
 
 			}
 		});

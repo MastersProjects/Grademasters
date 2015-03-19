@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
+import ch.grademasters.abfrage.Abfrage_User;
+import ch.grademasters.abfrage.Registr;
 import ch.grademasters.dao.UserDao;
 import ch.grademasters.dao.UserJDBCDao;
 import ch.grademasters.exception.LoginError;
@@ -103,15 +105,13 @@ public class GMController {
 				if (StringUtils.isNotBlank(passwortLocal)
 						&& StringUtils.isNotBlank(passwortDb)
 						&& passwortLocal.equals(passwortDb)) {
-					System.out.println("Herzlich Willkommen " + usernameLocal
-							+ ", Du bist nun angemeldet!");
 					login = true;
+					new GradeMastersView();
 
 				}
 				else if (!passwortLocal.equals(passwortDb)) {
 					if (i < 2) {
 						new LoginError();
-						// System.out.println("Come on!");
 						i = i + 1;
 					}
 				}
@@ -133,7 +133,6 @@ public class GMController {
 
 			if (!login) {
 				if (i < 2) {
-					// System.out.println("Come on!!!!!!");
 					new LoginError();
 					i = i + 1;
 				}

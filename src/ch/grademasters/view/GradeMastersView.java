@@ -224,7 +224,8 @@ public class GradeMastersView extends JFrame {
 	public GradeMastersView() {		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setName("GradeMasters");
-
+		setSize(760, 500);
+		setVisible(true);
 		
 		/*
 		 *startCard 
@@ -429,13 +430,6 @@ public class GradeMastersView extends JFrame {
 		
 		
 	}
-	
-	public static void main(String[] args) {
-		GradeMastersView gui = new GradeMastersView();
-		gui.setSize(760, 500);
-		gui.setVisible(true);
-	}
-	
 		
 	
 	/**
