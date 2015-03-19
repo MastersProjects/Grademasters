@@ -2,7 +2,6 @@ package ch.grademasters.view;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -17,21 +16,15 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SpinnerDateModel;
 
+import test.labor.SpeichernListener;
 import ch.grademasters.listener.CardButtonListener;
-import ch.grademasters.model.Fach;
-import ch.grademasters.model.Klasse;
-import ch.grademasters.model.KlassenLehrer;
-import ch.grademasters.model.Pruefung;
-import ch.grademasters.model.Zeugnis;
 
 /**
  * @description Das ganze GUI befindet sich in dieser Klasse
@@ -147,8 +140,7 @@ public class GradeMastersView extends JFrame {
 	
 	/*
 	 * TEXTFIELDS
-	 */
-	
+	 */	
 	//addKlasseCard
 	protected JTextField klasseName = new JTextField();
 	protected JTextField schuleName = new JTextField();
@@ -431,7 +423,7 @@ public class GradeMastersView extends JFrame {
 		noteVerlassen.addActionListener(new CardButtonListener(cards));
 		
 		//Speichern
-		
+		addKlasse.addActionListener (new KlasseSpeichernListener ());
 		
 		
 	}
