@@ -23,7 +23,6 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SpinnerDateModel;
 
-import test.labor.SpeichernListener;
 import ch.grademasters.listener.CardButtonListener;
 import ch.grademasters.listener.KlasseSpeichernListener;
 
