@@ -10,6 +10,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import ch.grademasters.dao.UserDao;
 import ch.grademasters.dao.UserJDBCDao;
+import ch.grademasters.exception.LoginError;
+import ch.grademasters.exception.PasswortError;
+import ch.grademasters.exception.UserError;
 import ch.grademasters.model.User;
 
 /**
@@ -35,7 +38,6 @@ public class GMController {
 			dbUsers = USER_DAO.findAllUsers();
 		}
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -43,6 +45,7 @@ public class GMController {
 		String passwortLocal = user.getPasswort();
 
 		boolean login = false;
+		int i = 1;
 
 		for (User dbUser : dbUsers) {
 			String usernameDb = dbUser.getUsername();
@@ -61,22 +64,34 @@ public class GMController {
 
 				}
 				else if (!passwortLocal.equals(passwortDb)) {
-					System.out
-							.println("Benutzername und/oder Passwort stimmen nicht!");
+					if (i < 2) {
+						new LoginError();
+//						System.out.println("Come on!");
+						i = i+1;
+					}
 				}
 				else if (StringUtils.isBlank(passwortLocal)) {
-					System.out.println("Bitte Passwort eingeben");
+					if (i < 2) {
+						new PasswortError();
+						i = i+1;
+					}
 					break;
 				}
 			}
 			else if (StringUtils.isBlank(usernameLocal)) {
-				System.out.println("Bitte Username eingeben");
+				if (i < 2) {
+					new UserError();
+					i = i+1;
+				}
 				break;
 			}
 
 			if (!login) {
-				System.out
-						.println("Benutzername und/oder Passwort stimmen nicht!");
+				if (i < 2) {
+//					System.out.println("Come on!!!!!!");
+					new LoginError();
+					i = i+1;
+				}
 			}
 
 		}

@@ -17,11 +17,11 @@ import ch.grademasters.view.GradeMastersView;
 /**
  * @description Exceptionklasse wenn keine VErbindung zur Datenbank besteht.
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * SQLException.java
+ * PasswortError.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
 
-public class SQLError extends JDialog {
+public class PasswortError extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -38,11 +38,11 @@ public class SQLError extends JDialog {
 	/*
 	 * JLabel
 	 */
-	protected JLabel sqlErrorLabel = new JLabel("Keine Verbindung zur Datenbank");
+	protected JLabel sqlErrorLabel = new JLabel("Bitte Passwort eingeben");
 	
-	public SQLError(){
+	public PasswortError(){
 			
-		setSize(220,135);
+		setSize(200,135);
 		setVisible(true);
 		setResizable(false);
 
