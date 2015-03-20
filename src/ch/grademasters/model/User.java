@@ -1,8 +1,8 @@
 package ch.grademasters.model;
 
 public class User {
-	private String Username;
-	private String Passwort;
+	private String Username = null;
+	private String Passwort = null;
 
 	public String getUsername() {
 		return Username;

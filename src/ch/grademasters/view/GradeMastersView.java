@@ -8,7 +8,6 @@ import java.awt.GridLayout;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Vector;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -24,7 +23,6 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SpinnerDateModel;
 
-import ch.grademasters.controller.GMController;
 import ch.grademasters.listener.CardButtonListener;
 import ch.grademasters.listener.KlasseSpeichernListener;
 
@@ -38,7 +36,6 @@ import ch.grademasters.listener.KlasseSpeichernListener;
 public class GradeMastersView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	GMController gmController = new GMController();
 
 	
 	/*
@@ -207,8 +204,7 @@ public class GradeMastersView extends JFrame {
 	 * COMBOXES
 	 */
 	//addFachCard
-	Vector model = gmController.klassenAnzeigen();
-	protected JComboBox addFachKlasseListe = new JComboBox(model);
+	protected JComboBox<?> addFachKlasseListe = new JComboBox<Object>();
 	
 	//addNoteCard
 	protected JComboBox<?> addNoteKlasseListe = new JComboBox<Object>();
@@ -343,9 +339,7 @@ public class GradeMastersView extends JFrame {
 		fachNamePanel.add(fachName);
 		
 		addFachklasseListePanel.add(addFachKlasseListeLabel);
-		addFachKlasseListe.setEnabled(true);
 		addFachklasseListePanel.add(addFachKlasseListe);
-		
 				
 		fachFormular.add(fachNamePanel);
 		fachFormular.add(addFachklasseListePanel);
