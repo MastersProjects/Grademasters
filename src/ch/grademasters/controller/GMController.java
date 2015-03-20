@@ -10,6 +10,10 @@ import org.apache.commons.lang3.StringUtils;
 
 import ch.grademasters.abfrage.Abfrage_User;
 import ch.grademasters.abfrage.Registr;
+import ch.grademasters.dao.KlasseDao;
+import ch.grademasters.dao.KlasseJDBCDao;
+import ch.grademasters.dao.LehrerDao;
+import ch.grademasters.dao.LehrerJDBCDao;
 import ch.grademasters.dao.UserDao;
 import ch.grademasters.dao.UserJDBCDao;
 import ch.grademasters.exception.LoginError;
@@ -29,12 +33,25 @@ import ch.grademasters.view.GradeMastersView;
 public class GMController {
 	private static GMController instance = new GMController();
 	private static final UserDao USER_DAO = new UserJDBCDao();
-
+	private static final LehrerDao LEHRER_DAO = new LehrerJDBCDao();
+	private static final KlasseDao KLASSE_DAO = new KlasseJDBCDao();
+	
 	private GMController() {
 	}
 
 	public static GMController getInstance() {
 		return GMController.instance;
+	}
+	
+	public void klasseSpeichern(Klasse klasse) {
+		
+		try {
+			int Lehrer_ID = LEHRER_DAO.addLehrer(klasse);
+			KLASSE_DAO.addKlasse(klasse, Lehrer_ID);
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void insert(User currentUser) {
@@ -149,4 +166,6 @@ public class GMController {
 		}
 		return login;
 	}
+
+
 }

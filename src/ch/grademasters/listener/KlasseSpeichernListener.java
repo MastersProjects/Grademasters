@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
+import ch.grademasters.controller.GMController;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.KlassenLehrer;
 
@@ -37,6 +38,7 @@ public class KlasseSpeichernListener implements ActionListener {
 		String schule = this.getSchule().getText();
 		int semester = Integer.parseInt(this.getSemester().getText());
 		Klasse klasse = new Klasse(lehrer, klassenName, schule, semester);
+		GMController.getInstance().klasseSpeichern(klasse);
 		
 		System.out.println(klasse);
 		

@@ -1,10 +1,11 @@
 package ch.grademasters.dao;
 
 import java.sql.SQLException;
+
 import ch.grademasters.model.Klasse;
 
-public interface KlasseSpeichernDao {
+public interface LehrerDao {
 	
-	public abstract void addKlasse(Klasse klasse) throws SQLException;
+	public abstract int addLehrer(Klasse klasse) throws SQLException;
 	
 }
