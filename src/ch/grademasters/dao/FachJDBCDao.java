@@ -5,10 +5,21 @@ import java.sql.SQLException;
 
 import ch.grademasters.model.Fach;
 
+/**
+ * @description Implementierte Methoden des Interfaces FachDao
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * @file FachJDBCDao.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
 public class FachJDBCDao extends Database implements FachDao {
+	//Variable fuer Verbindung
 	private Connection con = null;
 	
-	@Override
+	/**
+	 * @description Methode fuer eintragen eines neuen Faches
+	 * @param ID_Klasse, fachName
+	 * @throws SQLException
+	 */
 	public void addFach(int ID_Klasse, String fachName) throws SQLException {
 		String sql ="INSERT INTO FACH (Fach, Klasse_ID) VALUES (?, ?)";
 		con = getCon();

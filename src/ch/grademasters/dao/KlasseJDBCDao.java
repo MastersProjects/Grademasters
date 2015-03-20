@@ -6,13 +6,21 @@ import java.util.Vector;
 
 import ch.grademasters.model.Klasse;
 
-public class KlasseJDBCDao extends Database implements
-		KlasseDao {
+/**
+ * @description Implementierte Methoden des Interfaces KlasseDao
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * @file KlasseJDBCDao.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
+public class KlasseJDBCDao extends Database implements KlasseDao {
+	//Variable fuer Verbindung
 	private Connection con = null;
 
-	@Override
+	/**
+	 * @description Eintragen einer neuen Klasse in die DB
+	 * @param klasse, Lehrer_ID
+	 */
 	public void addKlasse(Klasse klasse, int Lehrer_ID) throws SQLException {
-		
 		String sql = "INSERT INTO KLASSE (Klasse, Schule, Semester, Klassenlehrer_ID) VALUES (?, ?, ?, ?)";
 		con = getCon();
 		ps = con.prepareStatement(sql);
@@ -24,27 +32,33 @@ public class KlasseJDBCDao extends Database implements
 		closeCon();
 	}
 
-	@Override
+	/**
+	 * @description Auslesen aller Klassen
+	 * @return Map mit allen Klassen
+	 */
 	public Vector getKlasse() throws SQLException {
 		String sql = "SELECT * FROM KLASSE";
 		con = getCon();
 		ps = con.prepareStatement(sql);
 		rs = ps.executeQuery();
 		
+		//Map fuer alle Klassen
 		Vector klasseModel = new Vector();
-		while(rs.next()) {
+		
+		//While lauft ueber alle Datensaezte
+		while (rs.next()) {
 			int klasse_ID = 0;
 			String klasse = null;
 			
+			//Fuegt alles zusammen
 			klasse_ID = rs.getInt("ID_Klasse");
 			klasse = rs.getString("Klasse");
 			klasse = klasse + " Semester: " + rs.getString("semester");
 			
-			klasseModel.addElement(new Item(klasse_ID, klasse ));
+			//Added alles an die Map
+			klasseModel.addElement(new Item(klasse_ID, klasse));
 		}
 		return klasseModel;
 	}
-	
-	
 
 }
