@@ -14,53 +14,57 @@ import ch.grademasters.model.User;
  */
 
 public class UserJDBCDao extends Database implements UserDao {
-	//Connection con auf null setzen
+	// Connection con auf null setzen
 	private Connection con = null;
 
+	/**
+	 * User wird in DB eingefuegt
+	 */
 	@Override
 	public void insertUser(User user) throws SQLException {
-		//SQL Query
+		// SQL Query
 		String sql = "INSERT INTO USER (Username, Passwort) VALUES (?, ?)";
-		//Connection
+		// Connection
 		con = getCon();
 		ps = con.prepareStatement(sql);
 		ps.setString(1, user.getUsername());
 		ps.setString(2, user.getPasswort());
-		//Query ausfuehren
+		// Query ausfuehren
 		ps.executeUpdate();
-		//Connection schliessen (methode)
+		// Connection schliessen (methode)
 		closeCon();
 	}
 
+	/**
+	 * Alle User aus der DB werden ausgelesen
+	 */
 	@Override
 	public List<User> findAllUsers() throws SQLException {
-		//SQL Query
+		// SQL Query
 		String sql = "SELECT * FROM USER";
-		//User p ArrayList
+		// User p ArrayList
 		List<User> p = new ArrayList<User>();
-		//Connection con
+		// Connection con
 		con = getCon();
 		ps = con.prepareStatement(sql);
-		//Query ausfuehren
+		// Query ausfuehren
 		rs = ps.executeQuery();
 
-		//Macht es solange Datensaetze vorhande
+		// Macht es solange Datensaetze vorhande
 		while (rs.next()) {
-			//Neuer User anlegen
+			// Neuer User anlegen
 			User user = new User();
-			//Usernamen setzen
+			// Usernamen setzen
 			user.setUsername(rs.getString("Username"));
-			//Passwort setzen
+			// Passwort setzen
 			user.setPasswort(rs.getString("Passwort"));
-			//User zu ArrayList hinzufuegen
+			// User zu ArrayList hinzufuegen
 			p.add(user);
 		}
-		//Connection schliessen
+		// Connection schliessen
 		closeCon();
-		//return p
+		// return p
 		return p;
 
 	}
 }
-
-	

@@ -37,6 +37,9 @@ public class Abfrage_User extends JDialog implements ActionListener {
 	static Button ButtonLogin = new Button("Login");
 	static Button ButtonRegistration = new Button("Registrieren");
 
+	/**
+	 * Gui erstellen
+	 */
 	public Abfrage_User() {
 		//Layout definieren
 		setLayout(new FlowLayout());
