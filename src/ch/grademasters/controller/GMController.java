@@ -5,6 +5,7 @@ package ch.grademasters.controller;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Vector;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -54,6 +55,18 @@ public class GMController {
 		}
 	}
 
+	public Vector getKlasse() {
+		Vector klasse = null;
+		try {
+			klasse = KLASSE_DAO.getKlasse();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return klasse;
+		
+	}
+	
 	public void insert(User currentUser) {
 
 		String newUsername = null;
