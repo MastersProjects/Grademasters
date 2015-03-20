@@ -3,8 +3,6 @@ package ch.grademasters.dao;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import ch.grademasters.model.Fach;
-
 /**
  * @description Implementierte Methoden des Interfaces FachDao
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin FachJDBCDao.java

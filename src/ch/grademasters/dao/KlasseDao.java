@@ -25,6 +25,6 @@ public interface KlasseDao {
 	 * @return Map mit allen Klassen
 	 * @throws SQLException
 	 */
-	public abstract Vector getKlasse() throws SQLException;
+	public abstract Vector<?> getKlasse() throws SQLException;
 	
 }

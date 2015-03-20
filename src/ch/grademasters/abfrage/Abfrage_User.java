@@ -78,7 +78,7 @@ public class Abfrage_User extends JDialog implements ActionListener {
 		}
 	}
 	
-	public static void creatQuizMastersView() {
+	public static void creatGradeMastersView() {
 		setGradeMastersView(new GradeMastersView());
 		getGradeMastersView().setLocationRelativeTo(null);
 	}
@@ -111,7 +111,7 @@ public class Abfrage_User extends JDialog implements ActionListener {
 						//Login GUI nicht sichbar machen
 						gui.setVisible(false);
 						//Neue GradeMastersView()
-						creatQuizMastersView();
+						creatGradeMastersView();
 					}
 				}
 				//Exception auffange

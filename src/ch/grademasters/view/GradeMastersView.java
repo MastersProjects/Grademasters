@@ -40,7 +40,7 @@ public class GradeMastersView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	
-	Vector klasseModel = GMController.getInstance().getKlasse();
+	Vector<?> klasseModel = GMController.getInstance().getKlasse();
 
 	
 	/*
@@ -209,7 +209,7 @@ public class GradeMastersView extends JFrame {
 	 * COMBOXES
 	 */
 	//addFachCard
-	protected JComboBox addFachKlasseListe = new JComboBox(klasseModel);
+	protected JComboBox<?> addFachKlasseListe = new JComboBox<>(klasseModel);
 	
 	//addNoteCard
 	protected JComboBox<?> addNoteKlasseListe = new JComboBox<Object>();

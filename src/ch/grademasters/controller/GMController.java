@@ -9,8 +9,6 @@ import java.util.Vector;
 
 import org.apache.commons.lang3.StringUtils;
 
-import ch.grademasters.abfrage.Abfrage_User;
-import ch.grademasters.abfrage.Registr;
 import ch.grademasters.dao.FachDao;
 import ch.grademasters.dao.FachJDBCDao;
 import ch.grademasters.dao.KlasseDao;
@@ -26,7 +24,6 @@ import ch.grademasters.exception.UserExist;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.User;
 import ch.grademasters.util.EncryptUtils;
-import ch.grademasters.view.GradeMastersView;
 
 /**
  * @description
@@ -60,8 +57,8 @@ public class GMController {
 		}
 	}
 
-	public Vector getKlasse() {
-		Vector klasse = null;
+	public Vector<?> getKlasse() {
+		Vector<?> klasse = null;
 		try {
 			klasse = KLASSE_DAO.getKlasse();
 		} catch (SQLException e) {

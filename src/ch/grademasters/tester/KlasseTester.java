@@ -1,9 +1,7 @@
 package ch.grademasters.tester;
 
-import ch.grademasters.model.Fach;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.KlassenLehrer;
-import ch.grademasters.model.Pruefung;
 
 /**
  * @description Dies ist die Testkalsse fuer die Klasse Lehrer

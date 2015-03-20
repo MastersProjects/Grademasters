@@ -2,8 +2,6 @@ package ch.grademasters.dao;
 
 import java.sql.SQLException;
 
-import ch.grademasters.model.Fach;
-
 /**
  * @description Interface fuer die Tabelle Fach
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin FachDao.java

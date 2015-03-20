@@ -8,13 +8,12 @@ import javax.swing.JTextField;
 
 import ch.grademasters.controller.GMController;
 import ch.grademasters.dao.Item;
-import ch.grademasters.model.Fach;
 
 public class FachSpeichernListener implements ActionListener {
 	private JTextField fach;
-	private JComboBox klasse;
+	private JComboBox<?> klasse;
 
-	public FachSpeichernListener(JTextField fach, JComboBox klasse) {
+	public FachSpeichernListener(JTextField fach, JComboBox<?> klasse) {
 		this.setFach(fach);
 		this.setKlasse(klasse);
 
@@ -39,11 +38,11 @@ public class FachSpeichernListener implements ActionListener {
 		this.fach = fach;
 	}
 
-	public JComboBox getKlasse() {
+	public JComboBox<?> getKlasse() {
 		return klasse;
 	}
 
-	public void setKlasse(JComboBox klasse) {
+	public void setKlasse(JComboBox<?> klasse) {
 		this.klasse = klasse;
 	}
 }
