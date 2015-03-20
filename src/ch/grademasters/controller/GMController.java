@@ -5,11 +5,10 @@ package ch.grademasters.controller;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Vector;
 
 import org.apache.commons.lang3.StringUtils;
 
-import ch.grademasters.abfrage.Abfrage_User;
-import ch.grademasters.abfrage.Registr;
 import ch.grademasters.dao.KlasseDao;
 import ch.grademasters.dao.KlasseJDBCDao;
 import ch.grademasters.dao.LehrerDao;
@@ -18,12 +17,12 @@ import ch.grademasters.dao.UserDao;
 import ch.grademasters.dao.UserJDBCDao;
 import ch.grademasters.exception.LoginError;
 import ch.grademasters.exception.PasswortError;
+import ch.grademasters.exception.SQLError;
 import ch.grademasters.exception.UserError;
 import ch.grademasters.exception.UserExist;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.User;
 import ch.grademasters.util.EncryptUtils;
-import ch.grademasters.view.GradeMastersView;
 
 /**
  * @author Luca Marti, ICT Berufsbildungscenter AG, luca.marti@bbcag.ch
@@ -36,7 +35,7 @@ public class GMController {
 	private static final LehrerDao LEHRER_DAO = new LehrerJDBCDao();
 	private static final KlasseDao KLASSE_DAO = new KlasseJDBCDao();
 	
-	private GMController() {
+	public GMController() {
 	}
 
 	public static GMController getInstance() {
@@ -50,8 +49,18 @@ public class GMController {
 			KLASSE_DAO.addKlasse(klasse, Lehrer_ID);
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			new SQLError();
 		}
+	}
+	
+	public Vector klassenAnzeigen () {
+		try{
+			return(KLASSE_DAO.getKlasse());
+		}
+		catch (SQLException e) {
+			new SQLError();
+		}
+		return null;
 	}
 
 	public void insert(User currentUser) {
@@ -166,6 +175,8 @@ public class GMController {
 		}
 		return login;
 	}
+	
+	
 
 
 }
