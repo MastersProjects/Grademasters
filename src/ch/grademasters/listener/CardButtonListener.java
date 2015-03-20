@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
+import ch.grademasters.abfrage.Abfrage_User;
+import ch.grademasters.view.GradeMastersView;
+
 /**
  * @description Button Listener fuer wechseln der verschiedenen Cards
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
@@ -37,6 +40,8 @@ public class CardButtonListener implements ActionListener {
 			cardLayout.show(cards, "Add Note Card");
 		}
 		else if (e.getActionCommand().equals("Verlassen")) {
+			Abfrage_User.getGradeMastersView().dispose();			
+			Abfrage_User.creatQuizMastersView();
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
 			cardLayout.show(cards, "Start Card");
 		}
