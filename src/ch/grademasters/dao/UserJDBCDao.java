@@ -12,42 +12,37 @@ import ch.grademasters.model.User;
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin UserJDBCDao.java
  *         Copyright Berufsbildungscenter GradeMasters 2015
  */
-
 public class UserJDBCDao extends Database implements UserDao {
-	// Connection con auf null setzen
+	//Variable fuer Verbindung
 	private Connection con = null;
 
 	/**
-	 * User wird in DB eingefuegt
+	 * @description Eintragen eines neuen Users in DB
+	 * @param user
+	 * @throws SQLException
 	 */
-	@Override
 	public void insertUser(User user) throws SQLException {
-		// SQL Query
 		String sql = "INSERT INTO USER (Username, Passwort) VALUES (?, ?)";
-		// Connection
 		con = getCon();
 		ps = con.prepareStatement(sql);
 		ps.setString(1, user.getUsername());
 		ps.setString(2, user.getPasswort());
-		// Query ausfuehren
 		ps.executeUpdate();
-		// Connection schliessen (methode)
 		closeCon();
 	}
 
 	/**
-	 * Alle User aus der DB werden ausgelesen
+	 * @description Auslesen aller User aus der DB
+	 * @return Liste aller User
+	 * @throws SQLException
 	 */
-	@Override
 	public List<User> findAllUsers() throws SQLException {
-		// SQL Query
+
 		String sql = "SELECT * FROM USER";
-		// User p ArrayList
 		List<User> p = new ArrayList<User>();
-		// Connection con
+		
 		con = getCon();
 		ps = con.prepareStatement(sql);
-		// Query ausfuehren
 		rs = ps.executeQuery();
 
 		// Macht es solange Datensaetze vorhande
@@ -61,9 +56,7 @@ public class UserJDBCDao extends Database implements UserDao {
 			// User zu ArrayList hinzufuegen
 			p.add(user);
 		}
-		// Connection schliessen
 		closeCon();
-		// return p
 		return p;
 
 	}
