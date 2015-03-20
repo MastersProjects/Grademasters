@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Vector;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -206,7 +207,8 @@ public class GradeMastersView extends JFrame {
 	 * COMBOXES
 	 */
 	//addFachCard
-	protected JComboBox addFachKlasseListe = new JComboBox(gmController.klassenAnzeigen());
+	Vector model = gmController.klassenAnzeigen();
+	protected JComboBox addFachKlasseListe = new JComboBox(model);
 	
 	//addNoteCard
 	protected JComboBox<?> addNoteKlasseListe = new JComboBox<Object>();
