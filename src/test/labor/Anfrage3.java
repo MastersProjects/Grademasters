@@ -1,4 +1,4 @@
-package ch.grademasters.abfrage;
+package test.labor;
 
 import java.awt.*; 
 import java.awt.event.*; 
