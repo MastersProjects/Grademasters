@@ -24,43 +24,45 @@ import ch.grademasters.view.GradeMastersView;
 public class SQLError extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	
+
+	//JPanel
 	protected JPanel error = new JPanel(new CardLayout());
 	protected JPanel errorCard = new JPanel(new FlowLayout());
-	
-	/*
-	 * Button
-	 */
+
+	//Buttons
 	private final Icon errorImg = GradeMastersView.loadIcon("cancel.png");
 	protected final JLabel errorImgButton = new JLabel(errorImg);
 	protected final JButton ok = new JButton("Ok");
-	
-	/*
-	 * JLabel
-	 */
-	protected JLabel sqlErrorLabel = new JLabel("Keine Verbindung zur Datenbank");
-	
-	public SQLError(){
 
-		setSize(220,135);
+	//JLabel
+	protected JLabel sqlErrorLabel = new JLabel(
+			"Keine Verbindung zur Datenbank");
+
+	//SQL Error Field
+	public SQLError() {
+		//Eigenschaften definieren
+		setSize(220, 135);
 		setVisible(true);
 		setResizable(false);
 
+		//hinzufuegen
 		errorCard.add(errorImgButton, BorderLayout.NORTH);
 		errorCard.add(sqlErrorLabel, BorderLayout.CENTER);
 		errorCard.add(ok, BorderLayout.SOUTH);
-		
 		error.add(errorCard);
-		
+
 		this.add(error);
 		
+		//ActionListener hinzufuegen
 		ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//verstecken
 				setVisible(false);
+				//wegraumen
+				dispose();
 			}
 		});
 
 	}
 
-	
 }

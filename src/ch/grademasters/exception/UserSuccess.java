@@ -25,44 +25,44 @@ public class UserSuccess extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	
+	//JPanel 
 	protected JPanel error = new JPanel(new CardLayout());
 	protected JPanel errorCard = new JPanel(new FlowLayout());
-	
-	/*
-	 * Button
-	 */
+
+	//Buttons
 	private final Icon userAddImg = GradeMastersView.loadIcon("vcard_add.png");
 	protected final JLabel userAddImageButton = new JLabel(userAddImg);
 	protected final JButton ok = new JButton("Ok");
-	
-	/*
-	 * JLabel
-	 */
-	protected JLabel sucessText = new JLabel("Sie wurden erfolgreich registriert!");
-	
-	public UserSuccess(){
-	
-		setSize(240,150);
+
+	//JLabel
+	protected JLabel sucessText = new JLabel(
+			"Sie wurden erfolgreich registriert!");
+
+	//User Success Field
+	public UserSuccess() {
+
+		//Eigenschaften definieren
+		setSize(240, 150);
 		setVisible(true);
 		setResizable(false);
-
+		//hinzufuegen
 		errorCard.add(userAddImageButton, BorderLayout.NORTH);
 		errorCard.add(sucessText, BorderLayout.CENTER);
 		errorCard.add(ok, BorderLayout.SOUTH);
-		
 		error.add(errorCard);
-		
+
 		this.add(error);
-		
+
+		//ActionListener hinzufuegen
 		ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//verstecken
 				setVisible(false);
+				//wegraumen
+				dispose();
 			}
 		});
 
 	}
-	
-	
 
-	
 }

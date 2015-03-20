@@ -24,43 +24,45 @@ import ch.grademasters.view.GradeMastersView;
 public class PasswortError extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	
+
+	//JPanel erstellen
 	protected JPanel error = new JPanel(new CardLayout());
 	protected JPanel errorCard = new JPanel(new FlowLayout());
-	
-	/*
-	 * Button
-	 */
+
+	//Buttons
 	private final Icon errorImg = GradeMastersView.loadIcon("cancel.png");
 	protected final JLabel errorImgButton = new JLabel(errorImg);
 	protected final JButton ok = new JButton("Ok");
-	
-	/*
-	 * JLabel
-	 */
-	protected JLabel sqlErrorLabel = new JLabel("Bitte Passwort eingeben");
-	
-	public PasswortError(){
 
-		setSize(200,135);
+	//Jlabel
+	protected JLabel sqlErrorLabel = new JLabel("Bitte Passwort eingeben");
+
+	//Passwort error Field
+	public PasswortError() {
+
+		//Eigenschaften definieren
+		setSize(200, 135);
 		setVisible(true);
 		setResizable(false);
 
+		//hinzufuegen
 		errorCard.add(errorImgButton, BorderLayout.NORTH);
 		errorCard.add(sqlErrorLabel, BorderLayout.CENTER);
 		errorCard.add(ok, BorderLayout.SOUTH);
-		
 		error.add(errorCard);
-		
+
 		this.add(error);
-		
+
+		//ActionListener erstellen
 		ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//unsichtbar machen
 				setVisible(false);
+				//wegraumen
+				dispose();
 			}
 		});
 
 	}
 
-	
 }
