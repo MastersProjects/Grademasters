@@ -16,8 +16,7 @@ import ch.grademasters.view.GradeMastersView;
 
 /**
  * @description Exceptionklasse wenn keine VErbindung zur Datenbank besteht.
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * PasswortError.java
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin PasswortError.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
 

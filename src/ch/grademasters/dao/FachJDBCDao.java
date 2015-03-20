@@ -7,10 +7,10 @@ import ch.grademasters.model.Fach;
 
 /**
  * @description Implementierte Methoden des Interfaces FachDao
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * @file FachJDBCDao.java
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin FachJDBCDao.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
+
 public class FachJDBCDao extends Database implements FachDao {
 	//Variable fuer Verbindung
 	private Connection con = null;

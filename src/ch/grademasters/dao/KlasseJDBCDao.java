@@ -8,10 +8,10 @@ import ch.grademasters.model.Klasse;
 
 /**
  * @description Implementierte Methoden des Interfaces KlasseDao
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * @file KlasseJDBCDao.java
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin KlasseJDBCDao.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
+
 public class KlasseJDBCDao extends Database implements KlasseDao {
 	//Variable fuer Verbindung
 	private Connection con = null;

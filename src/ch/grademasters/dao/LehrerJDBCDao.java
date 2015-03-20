@@ -9,10 +9,10 @@ import ch.grademasters.model.Klasse;
 
 /**
  * @description Implementierte Methoden des Interfaces LehrerDao
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * @file LehrerJDBCDao.java
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin LehrerJDBCDao.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
+
 public class LehrerJDBCDao extends Database implements LehrerDao {
 	//Variable fuer Verbindung
 	private Connection con = null;

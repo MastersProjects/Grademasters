@@ -10,8 +10,7 @@ import java.sql.SQLException;
  * 
  * @description Ober Klasse für alle Datenbank Klassen, enthaelt Infos zu
  *              Verbindung wie Verbindung schliessen.
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * @file Database.java
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin Database.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
 

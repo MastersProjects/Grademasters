@@ -2,10 +2,10 @@ package ch.grademasters.dao;
 
 /**
  * @description Wird bennoetigt fuer die Map der Combobox
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * @file Item.java
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin Item.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
+
 public class Item {
 	//Instanzvariablen
 	private int id;

@@ -7,10 +7,10 @@ import ch.grademasters.model.Klasse;
 
 /**
  * @description Interface fuer die Tabelle Klasse
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * KlasseDao.java
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin KlasseDao.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
+
 public interface KlasseDao {
 	
 	/**
