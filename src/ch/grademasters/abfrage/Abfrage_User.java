@@ -21,6 +21,8 @@ import ch.grademasters.view.GradeMastersView;
 public class Abfrage_User extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
+	
+	private static GradeMastersView gradeMastersView;
 	//Label fuer GUI
 	Label LabelUsername = new Label("Username");
 	Label LabelPasswort = new Label("Passwort");
@@ -66,6 +68,11 @@ public class Abfrage_User extends JDialog implements ActionListener {
 			System.exit(0);
 		}
 	}
+	
+	public static void creatQuizMastersView() {
+		setGradeMastersView(new GradeMastersView());
+		getGradeMastersView().setLocationRelativeTo(null);
+	}
 
 	public static void main(String[] args) {
 		
@@ -92,9 +99,7 @@ public class Abfrage_User extends JDialog implements ActionListener {
 						//Login GUI nicht sichbar machen
 						gui.setVisible(false);
 						//Neue GradeMastersView()
-						GradeMastersView gradeMastersView = new GradeMastersView();
-						//GradeMastersView in die Mitte des Bildschirmes stellen
-						gradeMastersView.setLocationRelativeTo(null);
+						creatQuizMastersView();
 					}
 				}
 				//Exception auffange
@@ -124,4 +129,16 @@ public class Abfrage_User extends JDialog implements ActionListener {
 		// TODO Auto-generated method stub
 
 	}
+
+	public static GradeMastersView getGradeMastersView() {
+		return gradeMastersView;
+	}
+
+	public static void setGradeMastersView(GradeMastersView gradeMastersView) {
+		Abfrage_User.gradeMastersView = gradeMastersView;
+	}
+
+
+
+	
 }
