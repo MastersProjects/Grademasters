@@ -6,10 +6,10 @@ import ch.grademasters.model.Klasse;
 
 /**
  * @description Interface fuer die Tabelle Lehrer
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * @file LehrerDao.java
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin LehrerDao.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
+
 public interface LehrerDao {
 	
 	/**

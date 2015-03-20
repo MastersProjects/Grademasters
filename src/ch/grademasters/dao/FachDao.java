@@ -6,8 +6,7 @@ import ch.grademasters.model.Fach;
 
 /**
  * @description Interface fuer die Tabelle Fach
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * FachDao.java
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin FachDao.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
 

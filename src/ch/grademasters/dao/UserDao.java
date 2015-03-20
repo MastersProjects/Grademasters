@@ -8,8 +8,9 @@ import ch.grademasters.model.User;
 /**
  * @description Interface fuer die Tabelle User
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin UserDao.java
- *         Copyright Berufsbildungscenter GradeMasters 2015
+ * Copyright Berufsbildungscenter GradeMasters 2015
  */
+
 public interface UserDao {
 
 	/**
