@@ -56,7 +56,8 @@ public class GMController {
 
 	public void insert(User currentUser) {
 
-		String newUsername = currentUser.getUsername();
+		String newUsername = null;
+		newUsername = currentUser.getUsername();
 
 		boolean userAlreadyExists = false;
 

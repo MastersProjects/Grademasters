@@ -61,7 +61,7 @@ public class Registr extends JDialog implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 
-		final String username = TextUsername.getText();
+		String username = TextUsername.getText();
 		String passwort = new String(FieldPasswort.getPassword());
 
 		if (StringUtils.isBlank(username) || StringUtils.isBlank(passwort)) {
@@ -88,5 +88,7 @@ public class Registr extends JDialog implements ActionListener {
 			}
 
 		}
+		username = null;
+		passwort = null;
 	}
 }

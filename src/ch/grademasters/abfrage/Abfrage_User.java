@@ -25,7 +25,6 @@ public class Abfrage_User extends JDialog implements ActionListener {
 	Label LabelPasswort = new Label("Passwort");
 	static JTextField TextUsername = new JTextField(20); // Laenge angeben
 	static JPasswordField FieldPasswort = new JPasswordField(20); // Laenge
-																	// angeben
 	static Button ButtonLogin = new Button("Login");
 	Label LabelRegistration = new Label(
 			"Noch keinen Account? Hier Registrieren");
