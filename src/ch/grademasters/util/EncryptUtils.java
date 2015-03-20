@@ -6,6 +6,11 @@ import java.io.UnsupportedEncodingException;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
+/**
+ * @description Klasse um Passwort zu versschluesseln
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin EncryptUtils.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
 public class EncryptUtils {
 
 	//Variablen definieren
@@ -14,6 +19,7 @@ public class EncryptUtils {
 	static BASE64Decoder dec = new BASE64Decoder();
 
 	/**
+	 * @description Passwort wird Codiert
 	 * @param text
 	 * @return null
 	 */
@@ -30,7 +36,7 @@ public class EncryptUtils {
 	}// base64encode
 
 	/**
-	 * 
+	 * @description Passwort wird decodiert
 	 * @param text
 	 * @return null
 	 */

@@ -17,6 +17,13 @@ import ch.grademasters.exception.SQLError;
 import ch.grademasters.model.User;
 import ch.grademasters.view.GradeMastersView;
 
+/**
+ * @description Start Klasse, hier wird das Programm gestartet
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * Abfrage_User.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
+
 public class Abfrage_User extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
@@ -76,6 +83,9 @@ public class Abfrage_User extends JDialog implements ActionListener {
 		getGradeMastersView().setLocationRelativeTo(null);
 	}
 
+	/**
+	 * Main Methode fuer Programm
+	 */
 	public static void main(String[] args) {
 		
 		// Abfrage_User aufrufen

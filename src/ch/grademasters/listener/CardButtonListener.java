@@ -11,8 +11,7 @@ import ch.grademasters.view.GradeMastersView;
 
 /**
  * @description Button Listener fuer wechseln der verschiedenen Cards
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * ButtonListener.java
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin ButtonListener.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
  
@@ -25,7 +24,6 @@ public class CardButtonListener implements ActionListener {
 		this.setCard(cards);
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("Klasse hinzufügen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();

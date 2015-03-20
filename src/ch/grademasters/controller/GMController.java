@@ -29,10 +29,12 @@ import ch.grademasters.util.EncryptUtils;
 import ch.grademasters.view.GradeMastersView;
 
 /**
- * @author Luca Marti, ICT Berufsbildungscenter AG, luca.marti@bbcag.ch
- * @value GMController.java
- * @year 2015
+ * @description
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * GMController.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
  */
+
 public class GMController {
 	private static GMController instance = new GMController();
 	private static final UserDao USER_DAO = new UserJDBCDao();
