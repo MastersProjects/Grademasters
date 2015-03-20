@@ -11,6 +11,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import ch.grademasters.abfrage.Abfrage_User;
 import ch.grademasters.abfrage.Registr;
+import ch.grademasters.dao.FachDao;
+import ch.grademasters.dao.FachJDBCDao;
 import ch.grademasters.dao.KlasseDao;
 import ch.grademasters.dao.KlasseJDBCDao;
 import ch.grademasters.dao.LehrerDao;
@@ -36,6 +38,7 @@ public class GMController {
 	private static final UserDao USER_DAO = new UserJDBCDao();
 	private static final LehrerDao LEHRER_DAO = new LehrerJDBCDao();
 	private static final KlasseDao KLASSE_DAO = new KlasseJDBCDao();
+	private static final FachDao FACH_DAO = new FachJDBCDao();
 	
 	private GMController() {
 	}
@@ -65,6 +68,16 @@ public class GMController {
 		}
 		return klasse;
 		
+	}
+	
+	public void addFach(int ID_Klasse, String fachName){
+		try{
+			FACH_DAO.addFach(ID_Klasse, fachName);
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void insert(User currentUser) {

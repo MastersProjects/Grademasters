@@ -40,8 +40,6 @@ public class KlasseSpeichernListener implements ActionListener {
 		Klasse klasse = new Klasse(lehrer, klassenName, schule, semester);
 		GMController.getInstance().klasseSpeichern(klasse);
 		
-		System.out.println(klasse);
-		
 		//clear textfield
 		this.getLehrerVorname().setText("");
 		this.getLehrerNachname().setText("");

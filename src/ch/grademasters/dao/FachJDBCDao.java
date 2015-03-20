@@ -9,14 +9,14 @@ public class FachJDBCDao extends Database implements FachDao {
 	private Connection con = null;
 	
 	@Override
-	public void addFach(Fach fach) throws SQLException {
+	public void addFach(int ID_Klasse, String fachName) throws SQLException {
 		String sql ="INSERT INTO FACH (Fach, Klasse_ID) VALUES (?, ?)";
 		con = getCon();
 		ps = con.prepareStatement(sql);
-		ps.setString(1, fach.getFach());
-		ps.setLong(2, 1);
+		ps.setString(1, fachName);
+		ps.setLong(2, ID_Klasse);
 		
-		ps.executeUpdate(sql);
+		ps.executeUpdate();
 		closeCon();
 	}
 

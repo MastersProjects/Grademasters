@@ -26,6 +26,7 @@ import javax.swing.SpinnerDateModel;
 
 import ch.grademasters.controller.GMController;
 import ch.grademasters.listener.CardButtonListener;
+import ch.grademasters.listener.FachSpeichernListener;
 import ch.grademasters.listener.KlasseSpeichernListener;
 
 /**
@@ -428,10 +429,17 @@ public class GradeMastersView extends JFrame {
 		fachVerlassen.addActionListener(new CardButtonListener(cards));
 		noteVerlassen.addActionListener(new CardButtonListener(cards));
 		
-		//Speichern
-		klasseSpeichern.addActionListener (new KlasseSpeichernListener (klasseName, schuleName, 
+		/*
+		 * SPEICHERN
+		 */
+		//klasseSpeichern
+		klasseSpeichern.addActionListener(new KlasseSpeichernListener(klasseName, schuleName, 
 																semester, lehrerVorname, 
 																lehrerNachname, lehrerEmail));
+		
+		//fachSpeichern
+		fachSpeichern.addActionListener(new FachSpeichernListener(fachName, addFachKlasseListe));
+		
 		
 		
 	}
