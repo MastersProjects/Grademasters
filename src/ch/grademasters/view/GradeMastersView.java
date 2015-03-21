@@ -132,9 +132,9 @@ public class GradeMastersView extends JFrame {
 	 * BUTTONS
 	 */
 	//startToolbar	
-	protected final JButton addNote = new JButton("Note hinzufÃ¼gen",addNoteIconLarge);	
-	protected final JButton addKlasse = new JButton("Klasse hinzufÃ¼gen",addKlasseIconLarge);	
-	protected final JButton addFach = new JButton("Fach hinzufÃ¼gen",addFachIconLarge);	
+	protected final JButton addNote = new JButton("Note hinzufügen",addNoteIconLarge);	
+	protected final JButton addKlasse = new JButton("Klasse hinzufügen",addKlasseIconLarge);	
+	protected final JButton addFach = new JButton("Fach hinzufügen",addFachIconLarge);	
 	protected final JButton addZeugnis = new JButton("Zeugnis erstellen",addZeugnisIconLarge);	
 	protected final JButton addDiagramm = new JButton("Diagramm erstellen",addDiagrammIconLarge);
 
@@ -175,15 +175,15 @@ public class GradeMastersView extends JFrame {
 	 * JLABELS
 	 */
 	//startCard
-	protected JLabel scrollpaneFachLabel = new JLabel("Bitte wÃ¤hle dein Fach aus: ");
-	protected JLabel scrollpaneKlasseLabel = new JLabel("Bitte wÃ¤hle deine Klasse aus: ");
+	protected JLabel scrollpaneFachLabel = new JLabel("Bitte wähle dein Fach aus: ");
+	protected JLabel scrollpaneKlasseLabel = new JLabel("Bitte wähle deine Klasse aus: ");
 	protected JLabel klassenInfoLabel = new JLabel("Klassen-Information: ");
 	protected JLabel scrollpaneNoteLabel = new JLabel("Noten: ");
 	protected JLabel klassenInfo = new JLabel();
 
 	//addKlasseCard
-	protected JLabel klasseNameLabel = new JLabel("Klasse Name: ");
-	protected JLabel schuleNameLabel = new JLabel("Schul Name: ");
+	protected JLabel klasseNameLabel = new JLabel("Klasse: ");
+	protected JLabel schuleNameLabel = new JLabel("Schule: ");
 	protected JLabel semesterLabel = new JLabel("Semester: ");
 	protected JLabel lehrerVornameLabel = new JLabel("Lehrer Vorname: ");
 	protected JLabel lehrerNachnameLabel = new JLabel("Lehrer Nachname: ");
@@ -353,9 +353,11 @@ public class GradeMastersView extends JFrame {
 		
 		addFachklasseListePanel.add(addFachKlasseListeLabel);
 		addFachklasseListePanel.add(addFachKlasseListe);
+		addFachklasseListePanel.setPreferredSize(new Dimension(140,40));
 				
 		fachFormular.add(fachNamePanel);
 		fachFormular.add(addFachklasseListePanel);
+		
 		
 		//addFachCard
 		addFachCard.add(addFachToolBar, BorderLayout.NORTH);
