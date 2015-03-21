@@ -5,12 +5,13 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
+
+import javafx.event.ActionEvent;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -30,8 +31,9 @@ import ch.grademasters.controller.GMController;
 import ch.grademasters.dao.Item;
 import ch.grademasters.listener.CardButtonListener;
 import ch.grademasters.listener.FachSpeichernListener;
+
+
 import ch.grademasters.listener.KlasseModelListener;
-//import ch.grademasters.listener.KlasseModelListener;
 import ch.grademasters.listener.KlasseSpeichernListener;
 
 /**
@@ -219,7 +221,7 @@ public class GradeMastersView extends JFrame {
 	
 	//addNoteCard
 	protected JComboBox<?> addNoteKlasseListe = new JComboBox<>(klasseModel);
-	protected JComboBox<?> addNoteFachListe = new JComboBox<>(fachModel);
+	protected JComboBox<?> addNoteFachListe;
 	
 	
 	/*
@@ -388,6 +390,7 @@ public class GradeMastersView extends JFrame {
 		
 		//addFachListePanel
 		addNoteFachListePanel.add(addNoteFachListeLabel);
+		addNoteFachListe = new JComboBox<>(fachModel);
 		addNoteFachListePanel.add(addNoteFachListe);
 		addNoteFachListePanel.setPreferredSize(new Dimension(90,40));
 		
@@ -450,25 +453,12 @@ public class GradeMastersView extends JFrame {
 		
 		
 		//
-//		addNoteKlasseListe.addActionListener( (ActionListener) this );
-		addNoteKlasseListe.addActionListener(new KlasseModelListener(addNoteKlasseListe, fachModel, addNoteCard));
+		addNoteKlasseListe.addActionListener(new KlasseModelListener(addNoteKlasseListe, addNoteFachListePanel, addNoteFachListe, addNoteCard));
 		
 		
 	}
-//	public void actionPerformed(ActionEvent e) {
-//		JComboBox<?> comboBox = (JComboBox<?>)e.getSource();
-//        Item item = (Item)comboBox.getSelectedItem();
-//        int klasse_ID = item.getId();
-//        Vector<?> fachModel = GMController.getInstance().getFachByID(klasse_ID);
-//
-//       
-//        System.out.println(klasse_ID);
-//        System.out.println(fachModel);
-//        
-//        
-//		
-//	}
-		
+
+
 	
 	/**
 	 * Lädt das Bild
@@ -488,4 +478,5 @@ public class GradeMastersView extends JFrame {
 		}
 		return new ImageIcon(resource);
 	}
+	
 }

@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
@@ -14,48 +13,68 @@ import ch.grademasters.dao.Item;
 
 public class KlasseModelListener implements ActionListener {
 	
-	private Vector<?> fachModel;
-	private JComboBox<?> klasseModel;
+	private JComboBox<?> addNoteKlasseListe;
+	private JPanel addNoteFachListePanel;
+	private JComboBox<?> addNoteFachListe;
 	private JPanel addNoteCard;
+
 	
-	public KlasseModelListener(JComboBox<?> addNoteKlasseListe, Vector<?> fachModel, JPanel addNoteCard) {
-		this.setKlasseModel(addNoteKlasseListe);
-		this.setFachModel(fachModel);
-		this.setAddNoteCard(addNoteCard);
+	public KlasseModelListener(JComboBox<?> addNoteKlasseListe, JPanel addNoteFachListePanel, JComboBox<?> addNoteFachListe, JPanel addNoteCard) {
+			this.setAddNoteKlasseListe(addNoteKlasseListe);
+			this.setAddNoteFachListePanel(addNoteFachListePanel);
+			this.setAddNoteFachListe(addNoteFachListe);
+			this.setAddNoteCard(addNoteCard);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-        Item item = (Item)getKlasseModel().getSelectedItem();
+		getAddNoteFachListePanel().remove(getAddNoteFachListe());
+		addNoteCard.revalidate();
+		addNoteCard.repaint();		
+        Item item = (Item)getAddNoteKlasseListe().getSelectedItem();
         int klasse_ID = item.getId();
-        Vector<?> newFachModelVector = GMController.getInstance().getFachByID(klasse_ID);
+        Vector<?> fachModel = GMController.getInstance().getFachByID(klasse_ID);
 
-        setFachModel(newFachModelVector);
-        
-        getAddNoteCard().repaint();
+
+	
+        setAddNoteFachListe(new JComboBox<>(fachModel));
+        getAddNoteFachListePanel().add(getAddNoteFachListe());
+
+		
+
+ 
+		addNoteCard.revalidate();
+		addNoteCard.repaint();
+
 
         
         System.out.println(klasse_ID);
-        System.out.println(newFachModelVector);
-        
-        
+        System.out.println(fachModel);
 		
 	}
 
-	public Vector<?> getFachModel() {
-		return fachModel;
+	public JComboBox<?> getAddNoteKlasseListe() {
+		return addNoteKlasseListe;
 	}
 
-	public void setFachModel(Vector<?> fachModel) {
-		this.fachModel = fachModel;
+	public void setAddNoteKlasseListe(JComboBox<?> addNoteKlasseListe) {
+		this.addNoteKlasseListe = addNoteKlasseListe;
 	}
 
-	public JComboBox<?> getKlasseModel() {
-		return klasseModel;
+	public JPanel getAddNoteFachListePanel() {
+		return addNoteFachListePanel;
 	}
 
-	public void setKlasseModel(JComboBox<?> addNoteKlasseListe) {
-		this.klasseModel = addNoteKlasseListe;
+	public void setAddNoteFachListePanel(JPanel addNoteFachListePanel) {
+		this.addNoteFachListePanel = addNoteFachListePanel;
+	}
+
+	public JComboBox<?> getAddNoteFachListe() {
+		return addNoteFachListe;
+	}
+
+	public void setAddNoteFachListe(JComboBox<?> addNoteFachListe) {
+		this.addNoteFachListe = addNoteFachListe;
 	}
 
 	public JPanel getAddNoteCard() {
@@ -65,5 +84,11 @@ public class KlasseModelListener implements ActionListener {
 	public void setAddNoteCard(JPanel addNoteCard) {
 		this.addNoteCard = addNoteCard;
 	}
+
+
+        
+        
+		
+	
 
 }
