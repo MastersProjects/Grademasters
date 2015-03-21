@@ -1,6 +1,7 @@
 package ch.grademasters.dao;
 
 import java.sql.SQLException;
+import java.util.Vector;
 
 /**
  * @description Interface fuer die Tabelle Fach
@@ -16,4 +17,5 @@ public interface FachDao {
 	 * @throws SQLException
 	 */
 	public abstract void addFach(int ID_Klasse, String fachName) throws SQLException;
+	public abstract Vector<Item> getFachById(int klasse_ID) throws SQLException;
 }

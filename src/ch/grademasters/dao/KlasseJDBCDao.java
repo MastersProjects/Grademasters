@@ -59,7 +59,9 @@ public class KlasseJDBCDao extends Database implements KlasseDao {
 			//Added alles an die Map
 			klasseModel.addElement(new Item(klasse_ID, klasse));
 		}
+		closeCon();
 		return klasseModel;
+		
 	}
 
 }

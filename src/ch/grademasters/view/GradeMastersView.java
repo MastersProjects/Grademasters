@@ -5,6 +5,8 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
@@ -25,8 +27,11 @@ import javax.swing.JToolBar;
 import javax.swing.SpinnerDateModel;
 
 import ch.grademasters.controller.GMController;
+import ch.grademasters.dao.Item;
 import ch.grademasters.listener.CardButtonListener;
 import ch.grademasters.listener.FachSpeichernListener;
+import ch.grademasters.listener.KlasseModelListener;
+//import ch.grademasters.listener.KlasseModelListener;
 import ch.grademasters.listener.KlasseSpeichernListener;
 
 /**
@@ -41,6 +46,7 @@ public class GradeMastersView extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	Vector<?> klasseModel = GMController.getInstance().getKlasse();
+	Vector<?> fachModel = GMController.getInstance().getFachByID(1);
 
 	
 	/*
@@ -212,8 +218,8 @@ public class GradeMastersView extends JFrame {
 	protected JComboBox<?> addFachKlasseListe = new JComboBox<>(klasseModel);
 	
 	//addNoteCard
-	protected JComboBox<?> addNoteKlasseListe = new JComboBox<Object>();
-	protected JComboBox<?> addNoteFachListe = new JComboBox<Object>();
+	protected JComboBox<?> addNoteKlasseListe = new JComboBox<>(klasseModel);
+	protected JComboBox<?> addNoteFachListe = new JComboBox<>(fachModel);
 	
 	
 	/*
@@ -230,7 +236,7 @@ public class GradeMastersView extends JFrame {
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setName("GradeMasters");
-		setSize(760, 500);
+		setSize(800, 500);
 		setVisible(true);
 		
 		/*
@@ -375,10 +381,10 @@ public class GradeMastersView extends JFrame {
 		gewichtungPanel.add(gewichtung);
 		gewichtungPanel.setPreferredSize(new Dimension(90,40));
 				
-		//addNoteListePanel
+		//addKlasseListePanel
 		addNoteKlasseListePanel.add(addNoteKlasseListeLabel);
 		addNoteKlasseListePanel.add(addNoteKlasseListe);
-		addNoteKlasseListePanel.setPreferredSize(new Dimension(90,40));
+		addNoteKlasseListePanel.setPreferredSize(new Dimension(140,40));
 		
 		//addFachListePanel
 		addNoteFachListePanel.add(addNoteFachListeLabel);
@@ -440,9 +446,28 @@ public class GradeMastersView extends JFrame {
 		//fachSpeichern
 		fachSpeichern.addActionListener(new FachSpeichernListener(fachName, addFachKlasseListe));
 		
+		//noteSpeichern
+		
+		
+		//
+//		addNoteKlasseListe.addActionListener( (ActionListener) this );
+		addNoteKlasseListe.addActionListener(new KlasseModelListener(addNoteKlasseListe, fachModel, addNoteCard));
 		
 		
 	}
+//	public void actionPerformed(ActionEvent e) {
+//		JComboBox<?> comboBox = (JComboBox<?>)e.getSource();
+//        Item item = (Item)comboBox.getSelectedItem();
+//        int klasse_ID = item.getId();
+//        Vector<?> fachModel = GMController.getInstance().getFachByID(klasse_ID);
+//
+//       
+//        System.out.println(klasse_ID);
+//        System.out.println(fachModel);
+//        
+//        
+//		
+//	}
 		
 	
 	/**

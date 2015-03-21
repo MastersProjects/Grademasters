@@ -69,6 +69,18 @@ public class GMController {
 		
 	}
 	
+	public Vector<?> getFachByID(int klasse_ID) {
+		Vector<?> fach = null;
+		try {
+			fach = FACH_DAO.getFachById(klasse_ID);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return fach;
+		
+	}
+	
 	public void addFach(int ID_Klasse, String fachName){
 		try{
 			FACH_DAO.addFach(ID_Klasse, fachName);
