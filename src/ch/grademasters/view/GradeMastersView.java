@@ -35,6 +35,7 @@ import ch.grademasters.listener.FachSpeichernListener;
 
 import ch.grademasters.listener.KlasseModelListener;
 import ch.grademasters.listener.KlasseSpeichernListener;
+import ch.grademasters.listener.NoteSpeichernListener;
 
 /**
  * @description Das ganze GUI befindet sich in dieser Klasse
@@ -452,7 +453,7 @@ public class GradeMastersView extends JFrame {
 		fachSpeichern.addActionListener(new FachSpeichernListener(fachName, addFachKlasseListe));
 		
 		//noteSpeichern
-		
+		noteSpeichern.addActionListener(new NoteSpeichernListener(note, gewichtung, benennung, addNoteFachListe));
 		
 		//
 		addNoteKlasseListe.addActionListener(new KlasseModelListener(addNoteKlasseListe, addNoteFachListePanel, addNoteFachListe, addNoteCard));

@@ -28,28 +28,28 @@ public class KlasseModelListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		/*
+		 * lösche liste
+		 */
 		getAddNoteFachListePanel().remove(getAddNoteFachListe());
 		addNoteCard.revalidate();
-		addNoteCard.repaint();		
+		addNoteCard.repaint();	
+		
+		/*
+		 * neue liste erzeugen
+		 */
         Item item = (Item)getAddNoteKlasseListe().getSelectedItem();
         int klasse_ID = item.getId();
         Vector<?> fachModel = GMController.getInstance().getFachByID(klasse_ID);
-
-
-	
         setAddNoteFachListe(new JComboBox<>(fachModel));
-        getAddNoteFachListePanel().add(getAddNoteFachListe());
-
-		
-
- 
+        
+        /*
+         * neue liste hinzufügen
+         */
+        getAddNoteFachListePanel().add(getAddNoteFachListe());       		
 		addNoteCard.revalidate();
 		addNoteCard.repaint();
-
-
-        
-        System.out.println(klasse_ID);
-        System.out.println(fachModel);
 		
 	}
 

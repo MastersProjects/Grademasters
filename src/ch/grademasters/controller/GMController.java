@@ -15,6 +15,8 @@ import ch.grademasters.dao.KlasseDao;
 import ch.grademasters.dao.KlasseJDBCDao;
 import ch.grademasters.dao.LehrerDao;
 import ch.grademasters.dao.LehrerJDBCDao;
+import ch.grademasters.dao.NoteDao;
+import ch.grademasters.dao.NoteJDBCDao;
 import ch.grademasters.dao.UserDao;
 import ch.grademasters.dao.UserJDBCDao;
 import ch.grademasters.exception.LoginError;
@@ -38,6 +40,8 @@ public class GMController {
 	private static final LehrerDao LEHRER_DAO = new LehrerJDBCDao();
 	private static final KlasseDao KLASSE_DAO = new KlasseJDBCDao();
 	private static final FachDao FACH_DAO = new FachJDBCDao();
+	private static final NoteDao NOTE_DAO = new NoteJDBCDao();
+	
 	
 	private GMController() {
 	}
@@ -81,9 +85,19 @@ public class GMController {
 		
 	}
 	
-	public void addFach(int ID_Klasse, String fachName){
+	public void fachSpeichern(int ID_Klasse, String fachName){
 		try{
 			FACH_DAO.addFach(ID_Klasse, fachName);
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void noteSpeichern(int note, float gewichtung, int fach_ID, String benennung) {
+		try{
+			NOTE_DAO.addNote(note, gewichtung, fach_ID, benennung);
 		}
 		catch (SQLException e) {
 			// TODO Auto-generated catch block

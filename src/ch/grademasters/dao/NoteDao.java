@@ -1,6 +1,8 @@
 package ch.grademasters.dao;
 
-public interface NoteDao {
+import java.sql.SQLException;
 
+public interface NoteDao {
 	
+	public abstract void addNote(int note, float gewichtung, int fach_ID, String benennung) throws SQLException;
 }

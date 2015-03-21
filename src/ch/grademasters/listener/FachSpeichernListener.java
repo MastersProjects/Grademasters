@@ -24,7 +24,7 @@ public class FachSpeichernListener implements ActionListener {
 		int ID_Klasse = item.getId();
 
 		String fachName = this.getFach().getText();
-		GMController.getInstance().addFach(ID_Klasse, fachName);
+		GMController.getInstance().fachSpeichern(ID_Klasse, fachName);
 
 		// clear textfield
 		this.getFach().setText("");
