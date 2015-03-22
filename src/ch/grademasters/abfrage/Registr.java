@@ -19,6 +19,13 @@ import ch.grademasters.exception.UserSuccess;
 import ch.grademasters.model.User;
 import ch.grademasters.util.EncryptUtils;
 
+/**
+ * @description Klasse um sich in der DB zu registrieren
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * Registr.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
+
 public class Registr extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
@@ -32,6 +39,10 @@ public class Registr extends JDialog implements ActionListener {
 	
 	static Button ButtonRegistr = new Button("Registrieren");
 
+	/**
+	 * Konstruktor der Klasse Registr.
+	 * Hier wird ein neues Fenster erstellt
+	 */
 	public Registr() {
 		
 		setLocationRelativeTo(null);
@@ -46,29 +57,27 @@ public class Registr extends JDialog implements ActionListener {
 
 		setSize(275, 250);
 		setVisible(true);
-//		addWindowListener(new WindowListener());
 
 	}
 
-//	class WindowListener extends WindowAdapter {
-//		public void windowClosing(WindowEvent e) {
-//			System.exit(0);
-//		}
-//	}
-
-	@Override
+	/**
+	 * Actionlistener fuer die Registration
+	 */
 	public void actionPerformed(ActionEvent arg0) {
 
 		String username = TextUsername.getText();
 		String passwort = new String(FieldPasswort.getPassword());
 
+		// Ueberpreuft ob feld nicht leer ist
 		if (StringUtils.isBlank(username) || StringUtils.isBlank(passwort)) {
 			UserFail userFail = new UserFail();
 			userFail.setLocationRelativeTo(null);
 		}
+		//Verschlüsselt das Passwort
 		else {
 			passwort = EncryptUtils.base64encode(passwort);
 			
+			//Versucht neuen Benutzer anzulegen
 			try {
 				User currentUser = new User();
 				currentUser.setUsername(username);
@@ -86,6 +95,8 @@ public class Registr extends JDialog implements ActionListener {
 			}
 
 		}
+		
+		//Setzt Felder wieder auf 0
 		username = null;
 		passwort = null;
 	}
