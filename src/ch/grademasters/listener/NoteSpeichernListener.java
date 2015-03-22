@@ -14,21 +14,22 @@ public class NoteSpeichernListener implements ActionListener {
 	private JTextField note;
 	private JTextField gewichtung;
 	private JTextField benennung;
-	private JComboBox<?> fach;
+	private JComboBox<?> addNoteFachListe;
 	
-	public NoteSpeichernListener(JTextField note, JTextField gewichtung, JTextField benennung, JComboBox<?> fach) {
+	public NoteSpeichernListener(JTextField note, JTextField gewichtung, JTextField benennung, JComboBox<?> addNoteFachListe) {
 		this.setNote(note);
 		this.setGewichtung(gewichtung);
 		this.setBenennung(benennung);
-		this.setFach(fach);
+		this.setAddNoteFachListe(addNoteFachListe);
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Item item = (Item) getFach().getSelectedItem();
+		Item item = (Item) getAddNoteFachListe().getSelectedItem();
 		int ID_Fach = item.getId();
+		System.out.println(ID_Fach);
 		
-		int note = Integer.parseInt(this.getNote().getText());
+		float note = Float.parseFloat(this.getNote().getText());
 		float gewichtung = Float.parseFloat(this.getGewichtung().getText());
 		String benennung = this.getBenennung().getText();
 		GMController.getInstance().noteSpeichern(note, gewichtung, ID_Fach, benennung);
@@ -70,13 +71,13 @@ public class NoteSpeichernListener implements ActionListener {
 	}
 
 
-	public JComboBox<?> getFach() {
-		return this.fach;
+	public JComboBox<?> getAddNoteFachListe() {
+		return this.addNoteFachListe;
 	}
 
 
-	public void setFach(JComboBox<?> fach) {
-		this.fach = fach;
+	public void setAddNoteFachListe(JComboBox<?> fach) {
+		this.addNoteFachListe = fach;
 	}
 	
 	

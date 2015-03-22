@@ -15,5 +15,5 @@ public interface NoteDao {
 	 * @param note, gewichtung, fach_ID, benennung
 	 * @throws SQLException
 	 */
-	public abstract void addNote(int note, float gewichtung, int fach_ID, String benennung) throws SQLException;
+	public abstract void addNote(float note, float gewichtung, int fach_ID, String benennung) throws SQLException;
 }

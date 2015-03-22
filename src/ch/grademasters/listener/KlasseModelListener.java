@@ -41,8 +41,11 @@ public class KlasseModelListener implements ActionListener {
 		 */
         Item item = (Item)getAddNoteKlasseListe().getSelectedItem();
         int klasse_ID = item.getId();
+       
         Vector<?> fachModel = GMController.getInstance().getFachByID(klasse_ID);
-        setAddNoteFachListe(new JComboBox<>(fachModel));
+        JComboBox<?> addNoteFachListe = new JComboBox<>(fachModel);
+
+        setAddNoteFachListe(addNoteFachListe);
         
         /*
          * neue liste hinzufügen

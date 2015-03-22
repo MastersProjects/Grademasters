@@ -113,7 +113,7 @@ public class GMController {
 	 * Eine neue Note in die Db eintragen
 	 * @param note, gewichtung, fach_ID, benennung
 	 */
-	public void noteSpeichern(int note, float gewichtung, int fach_ID, String benennung) {
+	public void noteSpeichern(float note, float gewichtung, int fach_ID, String benennung) {
 		try{
 			NOTE_DAO.addNote(note, gewichtung, fach_ID, benennung);
 		}

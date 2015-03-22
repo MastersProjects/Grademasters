@@ -5,13 +5,10 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
-
-import javafx.event.ActionEvent;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -28,8 +25,8 @@ import javax.swing.JToolBar;
 import javax.swing.SpinnerDateModel;
 
 import ch.grademasters.controller.GMController;
-import ch.grademasters.dao.Item;
 import ch.grademasters.listener.CardButtonListener;
+import ch.grademasters.listener.FachModelListener;
 import ch.grademasters.listener.FachSpeichernListener;
 
 
@@ -457,6 +454,7 @@ public class GradeMastersView extends JFrame {
 		
 		//
 		addNoteKlasseListe.addActionListener(new KlasseModelListener(addNoteKlasseListe, addNoteFachListePanel, addNoteFachListe, addNoteCard));
+		addNoteFachListe.addActionListener(new FachModelListener(addNoteFachListe));
 		
 		
 	}
