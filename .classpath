@@ -19,5 +19,14 @@
 	<classpathentry kind="lib" path="lib/joda-time-2.3-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/joda-time-2.3.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.30.jar"/>
+	<classpathentry kind="lib" path="lib/itext-pdfa-5.5.5-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/itext-pdfa-5.5.5-sources.jar"/>
+	<classpathentry kind="lib" path="lib/itext-pdfa-5.5.5.jar"/>
+	<classpathentry kind="lib" path="lib/itext-xtra-5.5.5-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/itext-xtra-5.5.5-sources.jar"/>
+	<classpathentry kind="lib" path="lib/itext-xtra-5.5.5.jar"/>
+	<classpathentry kind="lib" path="lib/itextpdf-5.5.5-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/itextpdf-5.5.5-sources.jar"/>
+	<classpathentry kind="lib" path="lib/itextpdf-5.5.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
