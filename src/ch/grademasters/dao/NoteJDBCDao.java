@@ -1,10 +1,9 @@
 package ch.grademasters.dao;
 
-import java.awt.List;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Vector;
 
 import ch.grademasters.model.Fach;
 import ch.grademasters.model.Pruefung;
@@ -47,8 +46,6 @@ public class NoteJDBCDao extends Database implements NoteDao {
 		ps = con.prepareStatement(sql);
 		rs = ps.executeQuery();
 
-
-
 		Fach fach;
 		Pruefung pruefung;
 		while (rs.next()) {
@@ -69,4 +66,39 @@ public class NoteJDBCDao extends Database implements NoteDao {
 		}
 		return noten;
 	}
+
+	@Override
+	public Vector<Item> getNotenByID(int fach_ID) throws SQLException {
+		String sql = "SELECT * FROM PRUEFUNG WHERE ?";
+		con = getCon();
+		ps = con.prepareStatement(sql);
+		ps.setLong(1, fach_ID);
+		rs = ps.executeQuery();
+		Vector<Item> fachModel = new Vector<Item>();
+		
+		while (rs.next()) {
+			int ID_Pruefung = 0;
+			String pruefung = null;
+			float note = 0;
+			float gewichtung = 0;
+			String fach = null;
+					
+			//Fuegt alles zusammen
+			ID_Pruefung = rs.getInt("ID_Pruefung");
+			pruefung = rs.getString("Pruefung");
+			note = rs.getFloat("Note");
+			gewichtung = rs.getFloat("Gewichtung");
+			
+					
+			//Added alles an die Map
+			fachModel.addElement(new Item(fach_ID, fach));
+		}
+		closeCon();
+		return fachModel;
+		return null;
+
+		
+	}
+	
+	
 }

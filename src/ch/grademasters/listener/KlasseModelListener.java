@@ -15,16 +15,14 @@ import ch.grademasters.dao.Item;
 public class KlasseModelListener implements ActionListener {
 	
 	private JComboBox<?> addNoteKlasseListe;
-	private JPanel addNoteFachListePanel;
 	private JComboBox<?> addNoteFachListe;
-	private JPanel addNoteCard;
+	
 
 	
-	public KlasseModelListener(JComboBox<?> addNoteKlasseListe, JPanel addNoteFachListePanel, JComboBox<?> addNoteFachListe, JPanel addNoteCard) {
-			this.setAddNoteKlasseListe(addNoteKlasseListe);
-			this.setAddNoteFachListePanel(addNoteFachListePanel);
+	public KlasseModelListener(JComboBox<?> addNoteKlasseListe, JComboBox<?> addNoteFachListe) {
+			this.setAddNoteKlasseListe(addNoteKlasseListe);			
 			this.setAddNoteFachListe(addNoteFachListe);
-			this.setAddNoteCard(addNoteCard);
+			
 	}
 
 	@Override
@@ -35,7 +33,6 @@ public class KlasseModelListener implements ActionListener {
 		 */
         Item item = (Item)getAddNoteKlasseListe().getSelectedItem();
         int klasse_ID = item.getId();
-        System.out.println(klasse_ID);
 				     
         Vector<?> fachModel = GMController.getInstance().getFachByID(klasse_ID);
         
@@ -56,13 +53,7 @@ public class KlasseModelListener implements ActionListener {
 		this.addNoteKlasseListe = addNoteKlasseListe;
 	}
 
-	public JPanel getAddNoteFachListePanel() {
-		return addNoteFachListePanel;
-	}
 
-	public void setAddNoteFachListePanel(JPanel addNoteFachListePanel) {
-		this.addNoteFachListePanel = addNoteFachListePanel;
-	}
 
 	public JComboBox<?> getAddNoteFachListe() {
 		return addNoteFachListe;
@@ -72,13 +63,7 @@ public class KlasseModelListener implements ActionListener {
 		this.addNoteFachListe = addNoteFachListe;
 	}
 
-	public JPanel getAddNoteCard() {
-		return addNoteCard;
-	}
 
-	public void setAddNoteCard(JPanel addNoteCard) {
-		this.addNoteCard = addNoteCard;
-	}
 
 
         

@@ -1,9 +1,8 @@
 package ch.grademasters.dao;
 
-import java.awt.List;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Vector;
 
 import ch.grademasters.model.Fach;
 
@@ -23,10 +22,19 @@ public interface NoteDao {
 	public abstract void addNote(float note, float gewichtung, int fach_ID, String benennung) throws SQLException;
 	
 	/**
-	 * @description Auslesen aller Noten fuer das Diagramm
+	 * @description Auslesen aller Noten und Fach fuer das Diagramm
 	 * @param fach_ID
 	 * @return HasgMap mit allen Noten
 	 * @throws SQLException
 	 */
 	public abstract ArrayList<Fach> getNotenUndFach() throws SQLException;
+	
+	/**
+	 * @description Auslesen aller Noten 
+	 * @param fach_ID
+	 * @return Vector mit Note und 
+	 * @throws SQLException
+	 */
+	public abstract Vector<?> getNotenByID(int fach_ID) throws SQLException;
+	
 }

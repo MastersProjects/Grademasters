@@ -17,9 +17,11 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SpinnerDateModel;
@@ -32,6 +34,8 @@ import ch.grademasters.listener.FachSpeichernListener;
 import ch.grademasters.listener.KlasseModelListener;
 import ch.grademasters.listener.KlasseSpeichernListener;
 import ch.grademasters.listener.NoteSpeichernListener;
+import ch.grademasters.listener.StartCardFachListener;
+import ch.grademasters.listener.StartCardKlasseListener;
 
 /**
  * @description Das ganze GUI befindet sich in dieser Klasse
@@ -172,10 +176,10 @@ public class GradeMastersView extends JFrame {
 	 * JLABELS
 	 */
 	//startCard
-	protected JLabel scrollpaneFachLabel = new JLabel("Bitte w�hle dein Fach aus: ");
-	protected JLabel scrollpaneKlasseLabel = new JLabel("Bitte w�hle deine Klasse aus: ");
+	protected JLabel startFachListeLabel = new JLabel("Fächer: ");
+	protected JLabel startKlasseListeLabel = new JLabel("Bitte wähle deine Klasse aus: ");
 	protected JLabel klassenInfoLabel = new JLabel("Klassen-Information: ");
-	protected JLabel scrollpaneNoteLabel = new JLabel("Noten: ");
+	protected JLabel startNoteTableLabel = new JLabel("Noten: ");
 	protected JLabel klassenInfo = new JLabel();
 
 	//addKlasseCard
@@ -187,7 +191,7 @@ public class GradeMastersView extends JFrame {
 	protected JLabel lehrerEmailLabel = new JLabel("Lehrer E-mail: ");
 	
 	//addFachCard
-	protected JLabel fachNameLabel = new JLabel("Name: ");
+	protected JLabel fachNameLabel = new JLabel("Fach: ");
 	protected JLabel addFachKlasseListeLabel = new JLabel ("Schule: ");
 	
 	//addNoteCard
@@ -197,22 +201,28 @@ public class GradeMastersView extends JFrame {
 	protected JLabel addNoteFachListeLabel = new JLabel ("Fach: ");
 	protected JLabel benennungLabel = new JLabel ("Benennung: ");
 	protected JLabel datumSpinnerLabel = new JLabel ("Datum: ");
-
-	
 	
 	
 	/*
-	 * SCROLLPANES
+	 * LIST
+	 */
+	//startCard	
+	protected JList<Object> startFachListe = new JList<Object>(fachModel);
+	
+	
+	/*
+	 * TABLE
 	 */
 	//startCard
-	protected JScrollPane scrollpaneKlasse = new JScrollPane();
-	protected JScrollPane scrollpaneFach = new JScrollPane();
-	protected JScrollPane scrollpaneNote = new JScrollPane();
+	protected JTable startNoteTable = new JTable();
 	
 
 	/*
 	 * COMBOXES
 	 */
+	//startCard
+	protected JComboBox<?> startKlasseListe = new JComboBox<>(klasseModel);
+	
 	//addFachCard
 	protected JComboBox<?> addFachKlasseListe = new JComboBox<>(klasseModel);
 	
@@ -250,10 +260,10 @@ public class GradeMastersView extends JFrame {
 		startToolBar.add(addDiagramm);
 
 		//Left startCenter
-		startLeftTop.add(scrollpaneKlasseLabel, BorderLayout.NORTH);
-		startLeftTop.add(scrollpaneKlasse, BorderLayout.CENTER);
-		startLeftBottom.add(scrollpaneFachLabel, BorderLayout.NORTH);
-		startLeftBottom.add(scrollpaneFach, BorderLayout.CENTER);
+		startLeftTop.add(startKlasseListeLabel, BorderLayout.NORTH);
+		startLeftTop.add(startKlasseListe, BorderLayout.CENTER);
+		startLeftBottom.add(startFachListeLabel, BorderLayout.NORTH);
+		startLeftBottom.add(startFachListe, BorderLayout.CENTER);
 		
 		startLeft.add(startLeftTop, BorderLayout.NORTH);
 		startLeft.add(startLeftBottom, BorderLayout.CENTER);
@@ -263,8 +273,8 @@ public class GradeMastersView extends JFrame {
 		//Right startCenter
 		startRightTop.add(klassenInfoLabel, BorderLayout.NORTH);
 		startRightTop.add(klassenInfo, BorderLayout.CENTER);
-		startRightBottom.add(scrollpaneNoteLabel, BorderLayout.NORTH);
-		startRightBottom.add(scrollpaneNote, BorderLayout.CENTER);
+		startRightBottom.add(startNoteTableLabel, BorderLayout.NORTH);
+		startRightBottom.add(startNoteTable, BorderLayout.CENTER);
 				
 		startRight.add(startRightTop, BorderLayout.NORTH);
 		startRight.add(startRightBottom, BorderLayout.CENTER);
@@ -451,9 +461,16 @@ public class GradeMastersView extends JFrame {
 		//noteSpeichern
 		noteSpeichern.addActionListener(new NoteSpeichernListener(note, gewichtung, benennung, addNoteFachListe));
 		
-		//
-		addNoteKlasseListe.addActionListener(new KlasseModelListener(addNoteKlasseListe, addNoteFachListePanel, addNoteFachListe, addNoteCard));
+		/*
+		 * EVENTS
+		 */
+		//addNoteCard je nach klasse andere fächer
+		addNoteKlasseListe.addActionListener(new KlasseModelListener(addNoteKlasseListe, addNoteFachListe));
 		
+		//startCard je nach klasse andere fächer
+		startKlasseListe.addActionListener(new StartCardKlasseListener(startKlasseListe, startFachListe));		
+		//startCard je nach fach andere pruefungen anzeigen
+//		startFachListe.addListSelectionListener(new StartCardFachListener());
 		
 	}
 	
