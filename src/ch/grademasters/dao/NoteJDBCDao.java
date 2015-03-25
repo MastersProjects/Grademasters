@@ -3,11 +3,12 @@ package ch.grademasters.dao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-<<<<<<< HEAD
-import java.util.Vector;
-=======
->>>>>>> branch 'master' of https://github.com/zpengc-bbc/Grademasters.git
 
+import java.util.Vector;
+
+
+
+import ch.grademasters.item.Item;
 import ch.grademasters.model.Fach;
 import ch.grademasters.model.Pruefung;
 
@@ -98,7 +99,7 @@ public class NoteJDBCDao extends Database implements NoteDao {
 		}
 		closeCon();
 		return fachModel;
-		return null;
+
 
 		
 	}

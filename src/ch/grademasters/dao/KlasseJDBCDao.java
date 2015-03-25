@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Vector;
 
+import ch.grademasters.item.Item;
 import ch.grademasters.model.Klasse;
 
 /**

@@ -1,4 +1,4 @@
-package ch.grademasters.dao;
+package ch.grademasters.item;
 
 /**
  * @description Wird bennoetigt fuer die Map der Combobox

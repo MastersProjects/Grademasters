@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Vector;
 
+import ch.grademasters.item.Item;
+
 /**
  * @description Implementierte Methoden des Interfaces FachDao
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin FachJDBCDao.java

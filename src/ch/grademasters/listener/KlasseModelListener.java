@@ -9,7 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 import ch.grademasters.controller.GMController;
-import ch.grademasters.dao.Item;
+import ch.grademasters.item.Item;
 
 
 public class KlasseModelListener implements ActionListener {

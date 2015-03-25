@@ -7,7 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import ch.grademasters.controller.GMController;
-import ch.grademasters.dao.Item;
+import ch.grademasters.item.Item;
 
 public class NoteSpeichernListener implements ActionListener {
 
