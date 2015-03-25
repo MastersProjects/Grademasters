@@ -139,14 +139,11 @@ public class ZeugnisPdf {
 		}
 		image.setAbsolutePosition(465f, 720f);
 		// We add one empty line
-		
-		// Lets write a big header
-		
-		image.scaleAbsolute(90, 90);
-		
 
-		
-		
+		// Lets write a big header
+
+		image.scaleAbsolute(90, 90);
+
 		/* Layout */
 		addEmptyLine(preface, 1);
 		preface.add(new Paragraph("Zeugnis Nr. " + i, helvetica1));
@@ -161,13 +158,15 @@ public class ZeugnisPdf {
 				"Dein erstelltes Zeugnis ist nicht dein Endzeugnis. Hier fliessen keine Mündlichen Noten, etc. mit ein!",
 				helvetica3));
 		addEmptyLine(preface, 3);
-		preface.add(new Paragraph("Klassen-Informationen:"));
-		addEmptyLine(preface, 1);
-		preface.add(new Paragraph("Klasse: \t \t" + Klasse.getKlassenname()));
-		document.add(preface);
+		while () {
+			preface.add(new Paragraph("Klassen-Informationen:"));
+			addEmptyLine(preface, 1);
+			preface.add(new Paragraph("Klasse: \t \t" + Klasse.getKlassenname()));
+			document.add(preface);
 
-		// Neue Seite
-		document.newPage();
+			// Neue Seite
+			document.newPage();
+		}
 	}
 
 	private static void addContent(Document document) throws DocumentException {

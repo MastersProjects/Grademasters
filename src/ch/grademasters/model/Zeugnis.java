@@ -10,6 +10,8 @@ import java.util.Collection;
  */
 
 public class Zeugnis {
+	
+	int anzahlKlasse = 0;
 
 	private Collection<Fach> fach = new ArrayList<Fach>();
 
@@ -27,6 +29,8 @@ public class Zeugnis {
 	public void setFach(Collection<Fach> fach) {
 		this.fach = fach;
 	}
+	
+
 
 	// Methode
 	/**
@@ -68,12 +72,13 @@ public class Zeugnis {
 	}
 
 	/**
-	 * löscht eine Fach
+	 * löscht ein Fach
 	 * 
 	 * @param removeFach
 	 */
 	public void removeFach(Fach removeFach) {
 		this.getFach().remove(removeFach);
 	}
+
 
 }

@@ -36,7 +36,7 @@ public datumTest () {
   }
 
   public static void main(String args[]) {
-    ArrayList noten = GMController.getInstance().getNoten();
-    System.out.println(noten); 
+    ArrayList<?> zeugnis = GMController.getInstance().getZeugnis();
+    System.out.println(zeugnis); 
   }
 }

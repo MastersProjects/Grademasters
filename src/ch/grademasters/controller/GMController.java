@@ -20,6 +20,8 @@ import ch.grademasters.dao.NoteDao;
 import ch.grademasters.dao.NoteJDBCDao;
 import ch.grademasters.dao.UserDao;
 import ch.grademasters.dao.UserJDBCDao;
+import ch.grademasters.dao.ZeugnisDao;
+import ch.grademasters.dao.ZeugnisJDBCDao;
 import ch.grademasters.exception.LoginError;
 import ch.grademasters.exception.PasswortError;
 import ch.grademasters.exception.UserError;
@@ -42,6 +44,7 @@ public class GMController {
 	private static final KlasseDao KLASSE_DAO = new KlasseJDBCDao();
 	private static final FachDao FACH_DAO = new FachJDBCDao();
 	private static final NoteDao NOTE_DAO = new NoteJDBCDao();
+	private static final ZeugnisDao ZEUGNIS_DAO = new ZeugnisJDBCDao();
 	
 	/**
 	 * Konstruktor der Klasse GMCController nur Privat
@@ -127,11 +130,21 @@ public class GMController {
 	 * Liest alle Noten aus der DB und erstellt die dazugehoerigen Facher
 	 * @return Faecher Objekte mit allen Noten
 	 */
-	public ArrayList getNoten(){
+	public ArrayList<?> getNoten(){
 		try{
 			return NOTE_DAO.getNoten(); 
 		}
 		catch (SQLException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public ArrayList<?> getZeugnis(){
+		try {
+			return ZEUGNIS_DAO.getZeugnis();
+		}
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
