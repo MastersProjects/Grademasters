@@ -39,7 +39,7 @@ public class NoteJDBCDao extends Database implements NoteDao {
 		closeCon();
 	}
 
-	public ArrayList getNoten() throws SQLException {
+	public ArrayList<Fach> getNoten() throws SQLException {
 		ArrayList<Fach> noten = new ArrayList<Fach>();
 
 		String sql = "Select * from Fach;";
@@ -47,7 +47,7 @@ public class NoteJDBCDao extends Database implements NoteDao {
 		ps = con.prepareStatement(sql);
 		rs = ps.executeQuery();
 
-		ArrayList anzahlPruefungen = new ArrayList();
+
 
 		Fach fach;
 		Pruefung pruefung;

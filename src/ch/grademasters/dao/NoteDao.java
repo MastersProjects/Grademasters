@@ -1,8 +1,11 @@
 package ch.grademasters.dao;
 
+import java.awt.List;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import ch.grademasters.model.Fach;
 
 /**
  * @description Interface fuer die Tabelle Note
@@ -25,5 +28,5 @@ public interface NoteDao {
 	 * @return HasgMap mit allen Noten
 	 * @throws SQLException
 	 */
-	public abstract ArrayList getNoten() throws SQLException;
+	public abstract ArrayList<Fach> getNoten() throws SQLException;
 }

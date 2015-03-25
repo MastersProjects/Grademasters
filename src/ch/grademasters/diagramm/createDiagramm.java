@@ -1,7 +1,8 @@
 package ch.grademasters.diagramm;
 
-
 import java.awt.Dimension;
+import java.awt.List;
+import java.util.ArrayList;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -12,104 +13,105 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
+import sun.security.jca.GetInstance;
+import ch.grademasters.controller.GMController;
+import ch.grademasters.model.Fach;
+
 public class createDiagramm extends ApplicationFrame {
 	private static final long serialVersionUID = 1L;
-	
-	
 
 	/**
-    * Neue Instanz
-    *
-    * @param Name des Frames
-    */
-   public createDiagramm(final String title) {
+	 * Neue Instanz
+	 *
+	 * @param Name
+	 *            des Frames
+	 */
+	public createDiagramm(final String title) {
 
-       super(title);
+		super(title);
 
-       final CategoryDataset dataset = createDataset();
-       final JFreeChart chart = createChart(dataset);
-       final ChartPanel chartPanel = new ChartPanel(chart);
-       chartPanel.setPreferredSize(new Dimension(500, 270));
-       setContentPane(chartPanel);
-   }
+		final CategoryDataset dataset = createDataset();
+		final JFreeChart chart = createChart(dataset);
+		final ChartPanel chartPanel = new ChartPanel(chart);
+		chartPanel.setPreferredSize(new Dimension(500, 270));
+		setContentPane(chartPanel);
+	}
 
-   /**
-    * Alle Daten
-    * @return gibt alle Daten zurueck
-    */
-   private CategoryDataset createDataset() {
-       
-//       Legende
-       final String series1 = "Rot";
+	/**
+	 * Alle Daten
+	 * 
+	 * @return gibt alle Daten zurueck
+	 */
+	private CategoryDataset createDataset() {
+		ArrayList<Fach> faecher = GMController.getInstance().getNoten();
 
-       // Spaltennamen
-       final String category1 = "Hund";
-       final String category2 = "Maus";
-       final String category3 = "Löwe";
-       final String category4 = "Tiger";
-       final String category5 = "Katze";
+		// Legende
+		final String series = "Rot";
 
-       // Erstellt die das Dataset
-       final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+		// Spaltennamen Array
+		ArrayList<String> category = new ArrayList<String>();
 
-       //Alle Daten
-       dataset.addValue(1.0, series1, category1);
-       dataset.addValue(4.0, series1, category2);
-       dataset.addValue(3.0, series1, category3);
-       dataset.addValue(5.0, series1, category4);
-       dataset.addValue(5.0, series1, category5);
+		int i = 0;
+		for (Fach fach : faecher) {
+			Fach fachObjekt = (Fach) faecher.get(i);
+			i++;
+			category.add(fachObjekt.getFach());
 
-       dataset.addValue(5.0, series1, category1);
-       dataset.addValue(7.0, series1, category2);
-       dataset.addValue(6.0, series1, category3);
-       dataset.addValue(8.0, series1, category4);
-       dataset.addValue(4.0, series1, category5);
+		}
 
-       dataset.addValue(6.0, series1, category1);
-       dataset.addValue(3.0, series1, category2);
-       dataset.addValue(2.0, series1, category3);
-       dataset.addValue(3.0, series1, category4);
-       dataset.addValue(6.0, series1, category5);
-       
-       //gibt alle Daten im Dataset zurueck
-       return dataset;
-       
-   }
-   
-   /**
-    * Erstellen des Diagrammes
-    * 
-    * @param Objekt vom Typ Dataset
-    * 
-    * @return Das Diagramm
-    */
-   private JFreeChart createChart(final CategoryDataset dataset) {
-       
-       // Erstellen des Diagramms
-       final JFreeChart chart = ChartFactory.createBarChart(
-           "Diagramm aller Fächer",      // Titel
-           "Fächer",               // Legende
-           "Noten",                  	// Y-Achse
-           dataset,                  	// Daten
-           PlotOrientation.VERTICAL, 	// Ausrichtung
-           false,                     	// Legende Ja/Nein
-           true,                     	// tooltips braucht es einfach
-           false                     	// URLs braucht es einfach
-       );
+		// Erstellt das Dataset
+		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-       return chart;
-       
-   }
-   /**
-    * Startet die Applikation
-    */
-   public static void main(final String[] args) {
+		int j = 0;
+		// Alle Daten
+		for (String categorys : category) {
+			dataset.addValue(1.0, series, category.get(j));
+			j++;
+		}
 
-       final createDiagramm diagramm = new createDiagramm("Diagramm für alle Fächer");
-       diagramm.pack();
-       RefineryUtilities.centerFrameOnScreen(diagramm);
-       diagramm.setVisible(true);
-       diagramm.setResizable(false);
-   }
+		// gibt alle Daten im Dataset zurueck
+		return dataset;
+
+	}
+
+	/**
+	 * Erstellen des Diagrammes
+	 * 
+	 * @param Objekt
+	 *            vom Typ Dataset
+	 * 
+	 * @return Das Diagramm
+	 */
+	private JFreeChart createChart(final CategoryDataset dataset) {
+
+		// Erstellen des Diagramms
+		final JFreeChart chart = ChartFactory.createBarChart(
+				"Diagramm aller Fächer", // Titel
+				"Fächer", // Legende
+				"Noten", // Y-Achse
+				dataset, // Daten
+				PlotOrientation.VERTICAL, // Ausrichtung
+				false, // Legende Ja/Nein
+				true, // tooltips braucht es einfach
+				false // URLs braucht es einfach
+				);
+
+		return chart;
+
+	}
+
+	/**
+	 * Startet die Applikation
+	 */
+	public static void main(final String[] args) {
+
+		final createDiagramm diagramm = new createDiagramm(
+				"Diagramm für alle Fächer");
+		diagramm.pack();
+		RefineryUtilities.centerFrameOnScreen(diagramm);
+		diagramm.setVisible(true);
+		diagramm.setResizable(false);
+
+	}
 
 }

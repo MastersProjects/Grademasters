@@ -26,6 +26,7 @@ import ch.grademasters.exception.LoginError;
 import ch.grademasters.exception.PasswortError;
 import ch.grademasters.exception.UserError;
 import ch.grademasters.exception.UserExist;
+import ch.grademasters.model.Fach;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.User;
 import ch.grademasters.util.EncryptUtils;
@@ -130,7 +131,7 @@ public class GMController {
 	 * Liest alle Noten aus der DB und erstellt die dazugehoerigen Facher
 	 * @return Faecher Objekte mit allen Noten
 	 */
-	public ArrayList<?> getNoten(){
+	public ArrayList<Fach> getNoten(){
 		try{
 			return NOTE_DAO.getNoten(); 
 		}
