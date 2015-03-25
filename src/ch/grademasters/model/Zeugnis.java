@@ -11,7 +11,7 @@ import java.util.Collection;
 
 public class Zeugnis {
 	
-	int anzahlKlasse = 0;
+	String alleNoten = "";
 
 	private Collection<Fach> fach = new ArrayList<Fach>();
 
@@ -30,6 +30,13 @@ public class Zeugnis {
 		this.fach = fach;
 	}
 	
+	private String getAlleNoten() {
+		return alleNoten;
+	}
+
+	private void setAlleNoten(String alleNoten) {
+		this.alleNoten = alleNoten;
+	}
 
 
 	// Methode
@@ -57,6 +64,9 @@ public class Zeugnis {
 		for (Fach fach : this.getFach()) {
 			s = s + fach.getFach() + ": "
 					+ this.noteRunden(fach.berechneZeugnisNote()) + "\n";
+			alleNoten = s;
+			setAlleNoten(alleNoten);
+			
 		}
 		return s;
 
@@ -79,6 +89,8 @@ public class Zeugnis {
 	public void removeFach(Fach removeFach) {
 		this.getFach().remove(removeFach);
 	}
+
+
 
 
 }

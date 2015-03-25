@@ -56,12 +56,11 @@ public class KlasseJDBCDao extends Database implements KlasseDao {
 			klasse = rs.getString("Klasse");
 			klasse = klasse + " Semester: " + rs.getString("semester");
 			
-			//Added alles an die Map
+			//Added alles in die Map
 			klasseModel.addElement(new Item(klasse_ID, klasse));
 		}
 		closeCon();
 		return klasseModel;
 		
 	}
-
 }

@@ -39,7 +39,8 @@ public class UserJDBCDao extends Database implements UserDao {
 	 */
 	public List<User> findAllUsers() throws SQLException {
 
-		String sql = "SELECT * FROM USER";
+		String 
+		sql = "SELECT * FROM USER";
 		List<User> p = new ArrayList<User>();
 		
 		con = getCon();

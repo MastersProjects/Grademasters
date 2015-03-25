@@ -12,7 +12,9 @@ import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import ch.grademasters.dao.ZeugnisJDBCDao;
 import ch.grademasters.model.Klasse;
+import ch.grademasters.model.Zeugnis;
 import ch.grademasters.view.GradeMastersView;
 
 import com.itextpdf.text.Anchor;
@@ -130,19 +132,16 @@ public class ZeugnisPdf {
 			image = Image.getInstance((logo));
 		}
 		catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		image.setAbsolutePosition(465f, 720f);
-		// We add one empty line
-
-		// Lets write a big header
-
 		image.scaleAbsolute(90, 90);
+		
+		String noten = Zeugnis.class.toString();
+		System.out.println(noten);
 
 		/* Layout */
 		addEmptyLine(preface, 1);
@@ -158,15 +157,15 @@ public class ZeugnisPdf {
 				"Dein erstelltes Zeugnis ist nicht dein Endzeugnis. Hier fliessen keine Mündlichen Noten, etc. mit ein!",
 				helvetica3));
 		addEmptyLine(preface, 3);
-		while () {
-			preface.add(new Paragraph("Klassen-Informationen:"));
-			addEmptyLine(preface, 1);
-			preface.add(new Paragraph("Klasse: \t \t" + Klasse.getKlassenname()));
-			document.add(preface);
+		preface.add(new Paragraph("Klassen-Informationen:"));
+		addEmptyLine(preface, 1);
+		preface.add(new Paragraph("Klasse: \t \t" + Klasse.getKlassenname()));
+		preface.add(new Paragraph("Test:"));
+		preface.add(noten);
 
-			// Neue Seite
-			document.newPage();
-		}
+		document.add(preface);
+		// Neue Seite
+		document.newPage();
 	}
 
 	private static void addContent(Document document) throws DocumentException {
