@@ -14,8 +14,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import ch.grademasters.controller.GMController;
-import ch.grademasters.dao.ZeugnisJDBCDao;
-import ch.grademasters.model.Fach;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.Zeugnis;
 import ch.grademasters.view.GradeMastersView;
@@ -158,6 +156,7 @@ public class ZeugnisPdf {
 		preface.add(new Paragraph(
 				"Dein erstelltes Zeugnis ist nicht dein Endzeugnis. Hier fliessen keine Mündlichen Noten, etc. mit ein!",
 				helvetica3));
+		preface.add(new Paragraph("_______________________________________________"));
 		addEmptyLine(preface, 3);
 		preface.add(new Paragraph("Klassen-Informationen:"));
 		addEmptyLine(preface, 1);
