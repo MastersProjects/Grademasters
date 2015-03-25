@@ -27,7 +27,6 @@ public class NoteSpeichernListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Item item = (Item) getAddNoteFachListe().getSelectedItem();
 		int ID_Fach = item.getId();
-		System.out.println(ID_Fach);
 		
 		float note = Float.parseFloat(this.getNote().getText());
 		float gewichtung = Float.parseFloat(this.getGewichtung().getText());

@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
@@ -30,29 +31,20 @@ public class KlasseModelListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		/*
-		 * lösche liste
-		 */
-		getAddNoteFachListePanel().remove(getAddNoteFachListe());
-		addNoteCard.revalidate();
-		addNoteCard.repaint();	
-		
-		/*
 		 * neue liste erzeugen
 		 */
         Item item = (Item)getAddNoteKlasseListe().getSelectedItem();
         int klasse_ID = item.getId();
-       
+        System.out.println(klasse_ID);
+				     
         Vector<?> fachModel = GMController.getInstance().getFachByID(klasse_ID);
-        JComboBox<?> addNoteFachListe = new JComboBox<>(fachModel);
-
-        setAddNoteFachListe(addNoteFachListe);
+        
         
         /*
-         * neue liste hinzufügen
+         * neue liste hinzufï¿½gen
          */
-        getAddNoteFachListePanel().add(getAddNoteFachListe());       		
-		addNoteCard.revalidate();
-		addNoteCard.repaint();
+        getAddNoteFachListe().setModel(new DefaultComboBoxModel(fachModel));
+
 		
 	}
 
