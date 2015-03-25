@@ -49,37 +49,21 @@ public class createDiagramm extends ApplicationFrame {
 		final String series = "Rot";
 
 		// Spaltennamen Array
-		ArrayList<String> category = new ArrayList<String>();
-
-		int i = 0;
-		for (Fach fach : faecher) {
-			Fach fachObjekt = (Fach) faecher.get(i);
-			i++;
-			category.add(fachObjekt.getFach());
-
-		}
-
-		// Erstellt das Dataset
 		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+		for (Fach fach : faecher) {
 
-		int j = 0;
-		// Alle Daten
-		for (String categorys : category) {
-			dataset.addValue(1.0, series, category.get(j));
-			j++;
+			// Alle Daten
+			dataset.addValue(fach.berechneZeugnisNote(), series, fach.getFach());
+
 		}
-
-		// gibt alle Daten im Dataset zurueck
 		return dataset;
 
 	}
 
 	/**
 	 * Erstellen des Diagrammes
-	 * 
 	 * @param Objekt
-	 *            vom Typ Dataset
-	 * 
+	 *            vom Typ Dataset  
 	 * @return Das Diagramm
 	 */
 	private JFreeChart createChart(final CategoryDataset dataset) {
