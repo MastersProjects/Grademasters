@@ -5,8 +5,6 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
@@ -27,7 +25,6 @@ import javax.swing.JToolBar;
 import javax.swing.SpinnerDateModel;
 
 import ch.grademasters.controller.GMController;
-import ch.grademasters.dao.Item;
 import ch.grademasters.listener.CardButtonListener;
 import ch.grademasters.listener.FachSpeichernListener;
 
