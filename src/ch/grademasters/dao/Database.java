@@ -18,7 +18,8 @@ public class Database {
 	private Connection con = null;
 	protected PreparedStatement ps = null;
 	protected ResultSet rs = null;
-
+	protected PreparedStatement ps2 = null;
+	protected ResultSet rs2 = null;
 	/**
 	 * Verbindungsinforamtionen fuer die DB
 	 * @return Datenbank verbindung

@@ -1,6 +1,8 @@
 package ch.grademasters.dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @description Interface fuer die Tabelle Note
@@ -16,4 +18,12 @@ public interface NoteDao {
 	 * @throws SQLException
 	 */
 	public abstract void addNote(float note, float gewichtung, int fach_ID, String benennung) throws SQLException;
+	
+	/**
+	 * @description Auslesen aller Noten fuer das Diagramm
+	 * @param fach_ID
+	 * @return HasgMap mit allen Noten
+	 * @throws SQLException
+	 */
+	public abstract ArrayList getNoten() throws SQLException;
 }

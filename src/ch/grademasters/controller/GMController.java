@@ -4,6 +4,7 @@
 package ch.grademasters.controller;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -120,6 +121,20 @@ public class GMController {
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Liest alle Noten aus der DB und erstellt die dazugehoerigen Facher
+	 * @return Faecher Objekte mit allen Noten
+	 */
+	public ArrayList getNoten(){
+		try{
+			return NOTE_DAO.getNoten(); 
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/**

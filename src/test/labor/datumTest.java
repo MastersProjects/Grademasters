@@ -1,6 +1,7 @@
 package test.labor;
 
 import java.awt.FlowLayout;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -8,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
+
+import ch.grademasters.controller.GMController;
 
 public class datumTest extends JFrame {
 
@@ -33,6 +36,7 @@ public datumTest () {
   }
 
   public static void main(String args[]) {
-    new datumTest();
+    ArrayList noten = GMController.getInstance().getNoten();
+    System.out.println(noten); 
   }
 }
