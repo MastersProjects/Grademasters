@@ -40,18 +40,12 @@ public class NoteJDBCDao extends Database implements NoteDao {
 	}
 
 	public ArrayList getNoten() throws SQLException {
-//		HashMap<int, Fach> noten = new HashMap<int, Fach>();
-		
 		ArrayList<Fach> noten = new ArrayList<Fach>();
 
-		// String sql =
-		// "Select Note, Fach from Pruefung Join Fach on Pruefung.Fach_ID=Fach.ID_Fach;";
 		String sql = "Select * from Fach;";
 		con = getCon();
 		ps = con.prepareStatement(sql);
 		rs = ps.executeQuery();
-
-		// String sql2 = "select count(Note) from pruefung group by Fach_ID;";
 
 		ArrayList anzahlPruefungen = new ArrayList();
 
@@ -71,11 +65,8 @@ public class NoteJDBCDao extends Database implements NoteDao {
 						rs2.getFloat("Gewichtung"));
 				fach.addPruefung(pruefung);
 			}
-
 			noten.add(fach);
-
 		}
 		return noten;
 	}
-
 }
