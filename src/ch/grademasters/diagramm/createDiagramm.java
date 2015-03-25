@@ -1,7 +1,6 @@
 package ch.grademasters.diagramm;
 
 import java.awt.Dimension;
-import java.awt.List;
 import java.util.ArrayList;
 
 import org.jfree.chart.ChartFactory;
@@ -13,7 +12,6 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
-import sun.security.jca.GetInstance;
 import ch.grademasters.controller.GMController;
 import ch.grademasters.model.Fach;
 

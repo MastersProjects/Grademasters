@@ -30,15 +30,6 @@ public class Zeugnis {
 		this.fach = fach;
 	}
 	
-	private String getAlleNoten() {
-		return alleNoten;
-	}
-
-	private void setAlleNoten(String alleNoten) {
-		this.alleNoten = alleNoten;
-	}
-
-
 	// Methode
 	/**
 	 * Diese Methode rundet die Note in eine Zeugnisnote also auf 0.5 genau
@@ -64,9 +55,6 @@ public class Zeugnis {
 		for (Fach fach : this.getFach()) {
 			s = s + fach.getFach() + ": "
 				+ this.noteRunden(fach.berechneZeugnisNote()) + "\n";
-			alleNoten = s;
-			setAlleNoten(alleNoten);
-			
 		}
 		return s;
 

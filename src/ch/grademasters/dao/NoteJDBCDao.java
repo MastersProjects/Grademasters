@@ -1,10 +1,8 @@
 package ch.grademasters.dao;
 
-import java.awt.List;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import ch.grademasters.model.Fach;
 import ch.grademasters.model.Pruefung;
