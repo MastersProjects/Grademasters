@@ -3,7 +3,10 @@ package ch.grademasters.dao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Vector;
+=======
+>>>>>>> branch 'master' of https://github.com/zpengc-bbc/Grademasters.git
 
 import ch.grademasters.model.Fach;
 import ch.grademasters.model.Pruefung;
