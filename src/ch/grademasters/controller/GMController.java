@@ -9,14 +9,14 @@ import java.util.Vector;
 
 import org.apache.commons.lang3.StringUtils;
 
-import ch.grademasters.abfrage.Abfrage_User;
-import ch.grademasters.abfrage.Registr;
 import ch.grademasters.dao.FachDao;
 import ch.grademasters.dao.FachJDBCDao;
 import ch.grademasters.dao.KlasseDao;
 import ch.grademasters.dao.KlasseJDBCDao;
 import ch.grademasters.dao.LehrerDao;
 import ch.grademasters.dao.LehrerJDBCDao;
+import ch.grademasters.dao.NoteDao;
+import ch.grademasters.dao.NoteJDBCDao;
 import ch.grademasters.dao.UserDao;
 import ch.grademasters.dao.UserJDBCDao;
 import ch.grademasters.exception.LoginError;
@@ -26,7 +26,6 @@ import ch.grademasters.exception.UserExist;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.User;
 import ch.grademasters.util.EncryptUtils;
-import ch.grademasters.view.GradeMastersView;
 
 /**
  * @description
@@ -41,7 +40,11 @@ public class GMController {
 	private static final LehrerDao LEHRER_DAO = new LehrerJDBCDao();
 	private static final KlasseDao KLASSE_DAO = new KlasseJDBCDao();
 	private static final FachDao FACH_DAO = new FachJDBCDao();
+	private static final NoteDao NOTE_DAO = new NoteJDBCDao();
 	
+	/**
+	 * Konstruktor der Klasse GMCController nur Privat
+	 */
 	private GMController() {
 	}
 
@@ -49,8 +52,11 @@ public class GMController {
 		return GMController.instance;
 	}
 	
+	/**
+	 * Lehrer hizufuegen in die DB
+	 * @param klasse
+	 */
 	public void klasseSpeichern(Klasse klasse) {
-		
 		try {
 			int Lehrer_ID = LEHRER_DAO.addLehrer(klasse);
 			KLASSE_DAO.addKlasse(klasse, Lehrer_ID);
@@ -60,28 +66,66 @@ public class GMController {
 		}
 	}
 
-	public Vector getKlasse() {
-		Vector klasse = null;
+	/**
+	 * Alle Klassen auslesen aus der DB fuer GUI
+	 * @return alle Klassen in Vector
+	 */
+	public Vector<?> getKlasse() {
+		Vector<?> klasse = null;
 		try {
 			klasse = KLASSE_DAO.getKlasse();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return klasse;
+	}
+	
+	/**
+	 * Alle Faecher auslesen aus DB fuer GUI
+	 * @param klasse_ID
+	 * @return Alle Faecher einer bestimmten Klasse in Vector
+	 */
+	public Vector<?> getFachByID(int klasse_ID) {
+		Vector<?> fach = null;
+		try {
+			fach = FACH_DAO.getFachById(klasse_ID);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return klasse;
-		
+		return fach;	
 	}
 	
-	public void addFach(int ID_Klasse, String fachName){
+	/**
+	 * Ein neues Fach in die DB speichern
+	 * @param ID_Klasse, fachName
+	 */
+	public void fachSpeichern(int ID_Klasse, String fachName){
 		try{
 			FACH_DAO.addFach(ID_Klasse, fachName);
 		}
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+	/**
+	 * Eine neue Note in die Db eintragen
+	 * @param note, gewichtung, fach_ID, benennung
+	 */
+	public void noteSpeichern(float note, float gewichtung, int fach_ID, String benennung) {
+		try{
+			NOTE_DAO.addNote(note, gewichtung, fach_ID, benennung);
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Methode um neuen User in die DB einzutragen.
+	 * @param currentUser
+	 */
 	public void insert(User currentUser) {
 
 		String newUsername = null;
@@ -107,7 +151,6 @@ public class GMController {
 				new UserExist();
 				break;
 			}
-
 		}
 
 		if (!userAlreadyExists) {
@@ -119,9 +162,13 @@ public class GMController {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
+	/**
+	 * Ueberprueft die eingaben des Users und preuft ob login korrekt
+	 * @param currentUser
+	 * @return  Boolean ob Login richtig oder falsch
+	 */
 	public boolean login(User currentUser) {
 		List<User> dbUsers = null;
 
@@ -182,7 +229,6 @@ public class GMController {
 				}
 				break;
 			}
-
 			if (!login) {
 				if (i < 2) {
 					LoginError loginError = new LoginError();
@@ -191,10 +237,8 @@ public class GMController {
 					login = false;
 				}
 			}
-
 		}
 		return login;
 	}
-
-
+	
 }

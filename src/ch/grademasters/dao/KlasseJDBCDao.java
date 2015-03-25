@@ -36,14 +36,15 @@ public class KlasseJDBCDao extends Database implements KlasseDao {
 	 * @description Auslesen aller Klassen
 	 * @return Map mit allen Klassen
 	 */
-	public Vector getKlasse() throws SQLException {
+
+	public Vector<Item> getKlasse() throws SQLException {
 		String sql = "SELECT * FROM KLASSE";
 		con = getCon();
 		ps = con.prepareStatement(sql);
 		rs = ps.executeQuery();
 		
 		//Map fuer alle Klassen
-		Vector klasseModel = new Vector();
+		Vector<Item> klasseModel = new Vector<Item>();
 		
 		//While lauft ueber alle Datensaezte
 		while (rs.next()) {
@@ -58,7 +59,9 @@ public class KlasseJDBCDao extends Database implements KlasseDao {
 			//Added alles an die Map
 			klasseModel.addElement(new Item(klasse_ID, klasse));
 		}
+		closeCon();
 		return klasseModel;
+		
 	}
 
 }

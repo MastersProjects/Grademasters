@@ -2,8 +2,7 @@ package ch.grademasters.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-
-import ch.grademasters.model.Fach;
+import java.util.Vector;
 
 /**
  * @description Implementierte Methoden des Interfaces FachDao
@@ -29,6 +28,34 @@ public class FachJDBCDao extends Database implements FachDao {
 		
 		ps.executeUpdate();
 		closeCon();
+	}
+
+	@Override
+	public Vector<Item> getFachById(int klasse_ID) throws SQLException {
+		String sql = "SELECT * FROM FACH WHERE Klasse_ID = ?";
+		con = getCon();
+		ps = con.prepareStatement(sql);
+		ps.setLong(1, klasse_ID);
+		rs = ps.executeQuery();
+		
+		//Map fuer alle Klassen
+		Vector<Item> fachModel = new Vector<Item>();
+		
+		//While lauft ueber alle Datensaezte
+		while (rs.next()) {
+			int fach_ID = 0;
+			String fach = null;
+					
+			//Fuegt alles zusammen
+			fach_ID = rs.getInt("ID_Fach");
+			fach = rs.getString("Fach");
+			
+					
+			//Added alles an die Map
+			fachModel.addElement(new Item(fach_ID, fach));
+		}
+		closeCon();
+		return fachModel;
 	}
 
 }

@@ -11,7 +11,12 @@ import javax.swing.SpinnerDateModel;
 
 public class datumTest extends JFrame {
 
-  public datumTest () {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public datumTest () {
     setSize(200, 100);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 

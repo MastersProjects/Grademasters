@@ -7,7 +7,11 @@ import javax.swing.*;  // Packages used in this program imported
 public class onlineGame extends JFrame implements ActionListener
 {
 
-    JPanel cards;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	JPanel cards;
     JButton button1, button2, button3;
 
     public onlineGame() //This is the CONSTRUCTOR method

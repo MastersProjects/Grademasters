@@ -26,8 +26,13 @@ import javax.swing.SpinnerDateModel;
 
 import ch.grademasters.controller.GMController;
 import ch.grademasters.listener.CardButtonListener;
+import ch.grademasters.listener.FachModelListener;
 import ch.grademasters.listener.FachSpeichernListener;
+
+
+import ch.grademasters.listener.KlasseModelListener;
 import ch.grademasters.listener.KlasseSpeichernListener;
+import ch.grademasters.listener.NoteSpeichernListener;
 
 /**
  * @description Das ganze GUI befindet sich in dieser Klasse
@@ -40,7 +45,8 @@ public class GradeMastersView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	
-	Vector klasseModel = GMController.getInstance().getKlasse();
+	Vector<?> klasseModel = GMController.getInstance().getKlasse();
+	Vector<?> fachModel = GMController.getInstance().getFachByID(1);
 
 	
 	/*
@@ -124,9 +130,9 @@ public class GradeMastersView extends JFrame {
 	 * BUTTONS
 	 */
 	//startToolbar	
-	protected final JButton addNote = new JButton("Note hinzufÃ¼gen",addNoteIconLarge);	
-	protected final JButton addKlasse = new JButton("Klasse hinzufÃ¼gen",addKlasseIconLarge);	
-	protected final JButton addFach = new JButton("Fach hinzufÃ¼gen",addFachIconLarge);	
+	protected final JButton addNote = new JButton("Note hinzufügen",addNoteIconLarge);	
+	protected final JButton addKlasse = new JButton("Klasse hinzufügen",addKlasseIconLarge);	
+	protected final JButton addFach = new JButton("Fach hinzufügen",addFachIconLarge);	
 	protected final JButton addZeugnis = new JButton("Zeugnis erstellen",addZeugnisIconLarge);	
 	protected final JButton addDiagramm = new JButton("Diagramm erstellen",addDiagrammIconLarge);
 
@@ -167,15 +173,15 @@ public class GradeMastersView extends JFrame {
 	 * JLABELS
 	 */
 	//startCard
-	protected JLabel scrollpaneFachLabel = new JLabel("Bitte wÃ¤hle dein Fach aus: ");
-	protected JLabel scrollpaneKlasseLabel = new JLabel("Bitte wÃ¤hle deine Klasse aus: ");
+	protected JLabel scrollpaneFachLabel = new JLabel("Bitte wähle dein Fach aus: ");
+	protected JLabel scrollpaneKlasseLabel = new JLabel("Bitte wähle deine Klasse aus: ");
 	protected JLabel klassenInfoLabel = new JLabel("Klassen-Information: ");
 	protected JLabel scrollpaneNoteLabel = new JLabel("Noten: ");
 	protected JLabel klassenInfo = new JLabel();
 
 	//addKlasseCard
-	protected JLabel klasseNameLabel = new JLabel("Klasse Name: ");
-	protected JLabel schuleNameLabel = new JLabel("Schul Name: ");
+	protected JLabel klasseNameLabel = new JLabel("Klasse: ");
+	protected JLabel schuleNameLabel = new JLabel("Schule: ");
 	protected JLabel semesterLabel = new JLabel("Semester: ");
 	protected JLabel lehrerVornameLabel = new JLabel("Lehrer Vorname: ");
 	protected JLabel lehrerNachnameLabel = new JLabel("Lehrer Nachname: ");
@@ -209,11 +215,11 @@ public class GradeMastersView extends JFrame {
 	 * COMBOXES
 	 */
 	//addFachCard
-	protected JComboBox addFachKlasseListe = new JComboBox(klasseModel);
+	protected JComboBox<?> addFachKlasseListe = new JComboBox<>(klasseModel);
 	
 	//addNoteCard
-	protected JComboBox<?> addNoteKlasseListe = new JComboBox<Object>();
-	protected JComboBox<?> addNoteFachListe = new JComboBox<Object>();
+	protected JComboBox<?> addNoteKlasseListe = new JComboBox<>(klasseModel);
+	protected JComboBox<?> addNoteFachListe;
 	
 	
 	/*
@@ -230,7 +236,7 @@ public class GradeMastersView extends JFrame {
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setName("GradeMasters");
-		setSize(760, 500);
+		setSize(800, 500);
 		setVisible(true);
 		
 		/*
@@ -345,9 +351,11 @@ public class GradeMastersView extends JFrame {
 		
 		addFachklasseListePanel.add(addFachKlasseListeLabel);
 		addFachklasseListePanel.add(addFachKlasseListe);
+		addFachklasseListePanel.setPreferredSize(new Dimension(140,40));
 				
 		fachFormular.add(fachNamePanel);
 		fachFormular.add(addFachklasseListePanel);
+		
 		
 		//addFachCard
 		addFachCard.add(addFachToolBar, BorderLayout.NORTH);
@@ -375,13 +383,14 @@ public class GradeMastersView extends JFrame {
 		gewichtungPanel.add(gewichtung);
 		gewichtungPanel.setPreferredSize(new Dimension(90,40));
 				
-		//addNoteListePanel
+		//addKlasseListePanel
 		addNoteKlasseListePanel.add(addNoteKlasseListeLabel);
 		addNoteKlasseListePanel.add(addNoteKlasseListe);
-		addNoteKlasseListePanel.setPreferredSize(new Dimension(90,40));
+		addNoteKlasseListePanel.setPreferredSize(new Dimension(140,40));
 		
 		//addFachListePanel
 		addNoteFachListePanel.add(addNoteFachListeLabel);
+		addNoteFachListe = new JComboBox<>(fachModel);
 		addNoteFachListePanel.add(addNoteFachListe);
 		addNoteFachListePanel.setPreferredSize(new Dimension(90,40));
 		
@@ -440,10 +449,17 @@ public class GradeMastersView extends JFrame {
 		//fachSpeichern
 		fachSpeichern.addActionListener(new FachSpeichernListener(fachName, addFachKlasseListe));
 		
+		//noteSpeichern
+		noteSpeichern.addActionListener(new NoteSpeichernListener(note, gewichtung, benennung, addNoteFachListe));
+		
+		//
+		addNoteKlasseListe.addActionListener(new KlasseModelListener(addNoteKlasseListe, addNoteFachListePanel, addNoteFachListe, addNoteCard));
+		addNoteFachListe.addActionListener(new FachModelListener(addNoteFachListe));
 		
 		
 	}
-		
+
+
 	
 	/**
 	 * LÃ¤dt das Bild
@@ -463,4 +479,5 @@ public class GradeMastersView extends JFrame {
 		}
 		return new ImageIcon(resource);
 	}
+	
 }

@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import ch.grademasters.abfrage.Abfrage_User;
-import ch.grademasters.view.GradeMastersView;
 
 /**
  * @description Button Listener fuer wechseln der verschiedenen Cards
@@ -25,21 +24,21 @@ public class CardButtonListener implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand().equals("Klasse hinzufÃ¼gen")) {
+		if (e.getActionCommand().equals("Klasse hinzufügen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
 			cardLayout.show(cards, "Add Klasse Card");
 		}
-		else if (e.getActionCommand().equals("Fach hinzufÃ¼gen")) {
+		else if (e.getActionCommand().equals("Fach hinzufügen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
 			cardLayout.show(cards, "Add Fach Card");
 		}
-		else if (e.getActionCommand().equals("Note hinzufÃ¼gen")) {
+		else if (e.getActionCommand().equals("Note hinzufügen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
 			cardLayout.show(cards, "Add Note Card");
 		}
 		else if (e.getActionCommand().equals("Verlassen")) {
 			Abfrage_User.getGradeMastersView().dispose();			
-			Abfrage_User.creatQuizMastersView();
+			Abfrage_User.creatGradeMastersView();
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
 			cardLayout.show(cards, "Start Card");
 		}
