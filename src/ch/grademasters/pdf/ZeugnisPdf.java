@@ -7,12 +7,15 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import ch.grademasters.controller.GMController;
 import ch.grademasters.dao.ZeugnisJDBCDao;
+import ch.grademasters.model.Fach;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.Zeugnis;
 import ch.grademasters.view.GradeMastersView;
@@ -122,8 +125,7 @@ public class ZeugnisPdf {
 		document.addCreator("GradeMasters");
 	}
 
-	private static void addTitlePage(Document document)
-			throws DocumentException {
+	private static void addTitlePage(Document document)throws DocumentException {
 		Paragraph preface = new Paragraph();
 
 		String logo = "T:/_Team/zmartl/workspace/Backup/1312 - 20032015/Grademasters/src/images/logo.png";
@@ -140,8 +142,8 @@ public class ZeugnisPdf {
 		image.setAbsolutePosition(465f, 720f);
 		image.scaleAbsolute(90, 90);
 		
-		String noten = Zeugnis.class.toString();
-		System.out.println(noten);
+		ArrayList<Zeugnis> zeugnis = (ArrayList<Zeugnis>) GMController.getInstance().getZeugnis();
+		System.out.println(zeugnis);
 
 		/* Layout */
 		addEmptyLine(preface, 1);
@@ -161,7 +163,11 @@ public class ZeugnisPdf {
 		addEmptyLine(preface, 1);
 		preface.add(new Paragraph("Klasse: \t \t" + Klasse.getKlassenname()));
 		preface.add(new Paragraph("Test:"));
-		preface.add(noten);
+		for (Zeugnis zeugnisGross : zeugnis) {
+			preface.add(zeugnisGross.toString());
+			System.out.println(zeugnisGross.toString());
+			break;
+		}
 
 		document.add(preface);
 		// Neue Seite

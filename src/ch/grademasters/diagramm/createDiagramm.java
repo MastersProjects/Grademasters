@@ -43,7 +43,7 @@ public class createDiagramm extends ApplicationFrame {
 	 * @return gibt alle Daten zurueck
 	 */
 	private CategoryDataset createDataset() {
-		ArrayList<Fach> faecher = GMController.getInstance().getNoten();
+		ArrayList<Fach> faecher = GMController.getInstance().getNotenUndFach();
 
 		// Legende
 		final String series = "Rot";

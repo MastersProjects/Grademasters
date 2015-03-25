@@ -131,9 +131,9 @@ public class GMController {
 	 * Liest alle Noten aus der DB und erstellt die dazugehoerigen Facher
 	 * @return Faecher Objekte mit allen Noten
 	 */
-	public ArrayList<Fach> getNoten(){
+	public ArrayList<Fach> getNotenUndFach(){
 		try{
-			return NOTE_DAO.getNoten(); 
+			return NOTE_DAO.getNotenUndFach(); 
 		}
 		catch (SQLException e){
 			e.printStackTrace();

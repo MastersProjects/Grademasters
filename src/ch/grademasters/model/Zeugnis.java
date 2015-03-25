@@ -59,11 +59,11 @@ public class Zeugnis {
 	 * @return toString
 	 */
 	public String toString() {
-		String s = null;
-		s = "Zeugnis\n\n";
+		String s = "";
+		
 		for (Fach fach : this.getFach()) {
 			s = s + fach.getFach() + ": "
-					+ this.noteRunden(fach.berechneZeugnisNote()) + "\n";
+				+ this.noteRunden(fach.berechneZeugnisNote()) + "\n";
 			alleNoten = s;
 			setAlleNoten(alleNoten);
 			

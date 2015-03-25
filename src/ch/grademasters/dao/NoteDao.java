@@ -28,5 +28,5 @@ public interface NoteDao {
 	 * @return HasgMap mit allen Noten
 	 * @throws SQLException
 	 */
-	public abstract ArrayList<Fach> getNoten() throws SQLException;
+	public abstract ArrayList<Fach> getNotenUndFach() throws SQLException;
 }
