@@ -156,7 +156,7 @@ public class ZeugnisPdf {
 		preface.add(new Paragraph(
 				"Dein erstelltes Zeugnis ist nicht dein Endzeugnis. Hier fliessen keine Mündlichen Noten, etc. mit ein!",
 				helvetica3));
-		preface.add(new Paragraph("_______________________________________________"));
+		preface.add(new Paragraph("_____________________________________________________________________________"));
 		addEmptyLine(preface, 3);
 		preface.add(new Paragraph("Klassen-Informationen:"));
 		addEmptyLine(preface, 1);
