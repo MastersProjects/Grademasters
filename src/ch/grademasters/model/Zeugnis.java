@@ -10,7 +10,7 @@ import java.util.Collection;
  */
 
 public class Zeugnis {
-	
+
 	String alleNoten = "";
 
 	private Klasse klasse;
@@ -23,6 +23,7 @@ public class Zeugnis {
 	public Collection<Fach> getFach() {
 		return fach;
 	}
+
 	/**
 	 * @return fach
 	 */
@@ -36,7 +37,7 @@ public class Zeugnis {
 	public void setFach(Collection<Fach> fach) {
 		this.fach = fach;
 	}
-	
+
 	// Methode
 	/**
 	 * Diese Methode rundet die Note in eine Zeugnisnote also auf 0.5 genau
@@ -60,11 +61,12 @@ public class Zeugnis {
 		String s = "";
 		s += "Klasse: " + this.getKlasse().getKlassenname();
 		s += "\nSemester: " + this.getKlasse().getSemester();
-		s += "\nSchule: " + this.getKlasse().getSchule() + "\n" + "___________________" + "\n";
-		s += "\nNoten: \n"; 
+		s += "\nSchule: " + this.getKlasse().getSchule() + "\n"
+				+ "___________________" + "\n";
+		s += "\nNoten: \n";
 		for (Fach fach : this.getFach()) {
 			s = s + fach.getFach() + ": "
-				+ this.noteRunden(fach.berechneZeugnisNote()) + "\n";
+					+ this.noteRunden(fach.berechneZeugnisNote()) + "\n";
 		}
 		return s;
 
@@ -78,7 +80,7 @@ public class Zeugnis {
 	public void addFach(Fach addFach) {
 		this.getFach().add(addFach);
 	}
-	
+
 	/**
 	 * Fuegt eine Fach hinzu
 	 * 
@@ -96,8 +98,5 @@ public class Zeugnis {
 	public void removeFach(Fach removeFach) {
 		this.getFach().remove(removeFach);
 	}
-
-
-
 
 }

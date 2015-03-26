@@ -21,58 +21,56 @@ import ch.grademasters.view.GradeMastersView;
 
 /**
  * @description Exceptionklasse wenn keine VErbindung zur Datenbank besteht.
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * UserError.java
- * Copyright Berufsbildungscenter GradeMasters 2015
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin UserError.java
+ *         Copyright Berufsbildungscenter GradeMasters 2015
  */
 
 public class CreateZeugnis extends JDialog {
-	
+
 	Vector<?> klasseModel = GMController.getInstance().getKlasse();
 	protected JComboBox<?> startKlasseListe = new JComboBox<>(klasseModel);
-	
-	
 
 	private static final long serialVersionUID = 1L;
-	
-	//JPanel 
+
+	// JPanel
 	protected JPanel createZeugnis = new JPanel(new CardLayout());
 	protected JPanel createZeugnisCard = new JPanel(new FlowLayout());
 
-	//Buttons
+	// Buttons
 	protected final Icon exportImg = GradeMastersView.loadIcon("pdf.png");
 	protected final JLabel exportPdf = new JLabel(exportImg);
 	protected final JButton exportButton = new JButton("Exportieren");
 
-	//JLabel
-	protected JLabel sucessText = new JLabel(
-			"Bitte wählen Sie die Klasse aus:");
+	// JLabel
+	protected JLabel sucessText = new JLabel("Bitte wählen Sie die Klasse aus:");
 
-	//User Success Field
+	// User Success Field
 	public CreateZeugnis() {
 
-		//Eigenschaften definieren
+		// Eigenschaften definieren
 		setSize(240, 150);
 		setVisible(true);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		//hinzufuegen
+		// hinzufuegen
 		createZeugnisCard.add(exportPdf, BorderLayout.NORTH);
 		createZeugnisCard.add(sucessText, BorderLayout.CENTER);
 		createZeugnisCard.add(startKlasseListe, BorderLayout.CENTER);
 		createZeugnisCard.add(exportButton, BorderLayout.SOUTH);
 		createZeugnis.add(createZeugnisCard);
-		
 
 		this.add(createZeugnis);
 
-		//ActionListener hinzufuegen
+		// ActionListener hinzufuegen
 		exportButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 Item item = (Item)startKlasseListe.getSelectedItem();
-			      int klasse_ID = item.getId();
-			      new ZeugnisPdf(klasse_ID);
-			      
+				Item item = (Item) startKlasseListe.getSelectedItem();
+				int klasse_ID = item.getId();
+				new ZeugnisPdf(klasse_ID);
+				setVisible(false);
+				dispose();
+				new ZeugnisSuccess();
+
 			}
 		});
 

@@ -169,7 +169,8 @@ public class ZeugnisPdf {
 			break;
 		}
 		addEmptyLine(preface, 6);
-		preface.add(new Paragraph("_____________________________________", helvetica3));
+		preface.add(new Paragraph("_____________________________________",
+				helvetica3));
 		preface.add(new Paragraph("Herzliche Gratulation zu Deinem Zeugnis!"));
 		preface.add(new Paragraph("Freundliche Grüsse"));
 		preface.add(new Paragraph("Dein GradeMasters Team"));
