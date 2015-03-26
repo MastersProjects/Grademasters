@@ -142,7 +142,7 @@ public class ZeugnisPdf {
 			throws DocumentException {
 		Paragraph preface = new Paragraph();
 
-		String logo = "T:/_Team/zmartl/workspace/Backup/1312 - 20032015/Grademasters/src/images/logo.png";
+		String logo = "src/images/logo.png";
 		Image image = null;
 		try {
 			image = Image.getInstance((logo));
