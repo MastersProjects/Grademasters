@@ -16,7 +16,6 @@ import javax.swing.JPanel;
 
 import ch.grademasters.controller.GMController;
 import ch.grademasters.item.Item;
-import ch.grademasters.listener.KlasseModelListener;
 import ch.grademasters.pdf.ZeugnisPdf;
 import ch.grademasters.view.GradeMastersView;
 
@@ -71,7 +70,6 @@ public class CreateZeugnis extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				 Item item = (Item)startKlasseListe.getSelectedItem();
 			      int klasse_ID = item.getId();
-			      System.out.println(klasse_ID);
 			      new ZeugnisPdf(klasse_ID);
 			      
 			}

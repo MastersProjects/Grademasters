@@ -6,7 +6,6 @@ import java.util.Vector;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
-import javax.swing.JPanel;
 
 import ch.grademasters.controller.GMController;
 import ch.grademasters.item.Item;
@@ -38,7 +37,7 @@ public class KlasseModelListener implements ActionListener {
         
         
         /*
-         * neue liste hinzuf�gen
+         * neue liste hinzufuegen
          */
         getAddNoteFachListe().setModel(new DefaultComboBoxModel(fachModel));
 

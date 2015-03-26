@@ -104,7 +104,7 @@ public class ZeugnisPdf {
 			document.close();
 
 			// Wenn alles gut geht, gibt es Okö aus.
-			System.out.println("Okö");
+			//System.out.println("Okö");
 			i = i + 1;
 			// Exception behandeln
 		}

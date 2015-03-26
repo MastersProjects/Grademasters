@@ -5,12 +5,9 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Vector;
 
 import javax.swing.Icon;
@@ -21,20 +18,15 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SpinnerDateModel;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 import ch.grademasters.controller.GMController;
 import ch.grademasters.listener.CardButtonListener;
 import ch.grademasters.listener.FachSpeichernListener;
-
-
 import ch.grademasters.listener.KlasseModelListener;
 import ch.grademasters.listener.KlasseSpeichernListener;
 import ch.grademasters.listener.NoteSpeichernListener;
