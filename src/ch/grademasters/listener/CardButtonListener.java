@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import ch.grademasters.abfrage.Abfrage_User;
+import ch.grademasters.messages.CreateZeugnis;
 
 /**
  * @description Button Listener fuer wechseln der verschiedenen Cards
@@ -24,15 +25,15 @@ public class CardButtonListener implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand().equals("Klasse hinzuf gen")) {
+		if (e.getActionCommand().equals("Klasse hinzufügen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
 			cardLayout.show(cards, "Add Klasse Card");
 		}
-		else if (e.getActionCommand().equals("Fach hinzuf gen")) {
+		else if (e.getActionCommand().equals("Fach hinzufügen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
 			cardLayout.show(cards, "Add Fach Card");
 		}
-		else if (e.getActionCommand().equals("Note hinzuf gen")) {
+		else if (e.getActionCommand().equals("Note hinzufügen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
 			cardLayout.show(cards, "Add Note Card");
 		}
@@ -41,8 +42,8 @@ public class CardButtonListener implements ActionListener {
 			cardLayout.show(cards, "Add Diagramm Card");
 		}
 		else if (e.getActionCommand().equals("Zeugnis erstellen")) {
-			CardLayout cardLayout = (CardLayout) getCard().getLayout();
-			cardLayout.show(cards, "Add Zeugnis Card");
+			CreateZeugnis zeugnis = new CreateZeugnis();
+			zeugnis.setLocationRelativeTo(null);
 		}
 		else if (e.getActionCommand().equals("Verlassen")) {
 			Abfrage_User.getGradeMastersView().dispose();			

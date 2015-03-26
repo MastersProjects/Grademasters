@@ -129,9 +129,9 @@ public class GradeMastersView extends JFrame {
 	 * BUTTONS
 	 */
 	//startToolbar	
-	protected final JButton addNote = new JButton("Note hinzuf�gen",addNoteIconLarge);	
-	protected final JButton addKlasse = new JButton("Klasse hinzuf�gen",addKlasseIconLarge);	
-	protected final JButton addFach = new JButton("Fach hinzuf�gen",addFachIconLarge);	
+	protected final JButton addNote = new JButton("Note hinzufügen",addNoteIconLarge);	
+	protected final JButton addKlasse = new JButton("Klasse hinzufügen",addKlasseIconLarge);	
+	protected final JButton addFach = new JButton("Fach hinzufügen",addFachIconLarge);	
 	protected final JButton addZeugnis = new JButton("Zeugnis erstellen",addZeugnisIconLarge);	
 	protected final JButton addDiagramm = new JButton("Diagramm erstellen",addDiagrammIconLarge);
 
