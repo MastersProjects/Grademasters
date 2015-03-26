@@ -61,8 +61,6 @@ public class GradeMastersView extends JFrame {
 	protected JPanel addKlasseCard = new JPanel(new BorderLayout());
 	protected JPanel addFachCard = new JPanel(new BorderLayout());
 	protected JPanel addNoteCard = new JPanel(new BorderLayout());
-	protected JPanel addZeugnisCard = new JPanel(new BorderLayout());
-	
 	
 	/*
 	 * PANELS
@@ -99,9 +97,7 @@ public class GradeMastersView extends JFrame {
 	protected JPanel addNoteFachListePanel = new JPanel(new GridLayout(2,1));
 	protected JPanel benennungPanel = new JPanel(new GridLayout(2,1));
 	protected JPanel datumPanel = new JPanel(new GridLayout(2,1));
-
-	
-	
+		
 	/*
 	 * TOOLBARS
 	 */
@@ -116,7 +112,6 @@ public class GradeMastersView extends JFrame {
 	
 	//addNoteCard
 	protected final JToolBar addNoteToolBar = new JToolBar();
-	
 	
 	/*
 	 * ICONS
@@ -151,13 +146,7 @@ public class GradeMastersView extends JFrame {
 	//addNoteToolBar
 	protected final JButton noteSpeichern = new JButton("Note speichern",speichernIconLarge);
 	protected final JButton noteVerlassen = new JButton("Verlassen",verlassenIconLarge);
-	
-	//addZeugnisToolBar
-	protected final JButton zeugnisSpeichern = new JButton("Zeugnis speichern",speichernIconLarge);
-	protected final JButton zeugnisVerlassen = new JButton("Verlassen",verlassenIconLarge);
-	
-	
-	
+		
 	/*
 	 * TEXTFIELDS
 	 */	
@@ -171,6 +160,9 @@ public class GradeMastersView extends JFrame {
 	
 	//addFachCard
 	protected JTextField fachName = new JTextField();
+	
+	//addFachCard
+		protected JTextField zeugnisName = new JTextField();
 	
 	//addNoteCard
 	protected JTextField note = new JTextField();
@@ -235,7 +227,6 @@ public class GradeMastersView extends JFrame {
 	//addNoteCard
 	protected JComboBox<?> addNoteKlasseListe = new JComboBox<>(klasseModel);
 	protected JComboBox<?> addNoteFachListe = new JComboBox<>(fachModel);
-	
 	
 	/*
 	 * JSPINNER
@@ -434,63 +425,7 @@ public class GradeMastersView extends JFrame {
 		
 		//Add in Card
 		cards.add(addNoteCard, "Add Note Card");
-		
-		/*
-		 * addZeugnisCard
-		 */
-		//Toolbar
-		addNoteToolBar.setFloatable(false);
-		addNoteToolBar.add(zeugnisVerlassen);
-		addNoteToolBar.add(zeugnisSpeichern);
-		
-		//notePanel
-		notePanel.add(noteLabel);
-		notePanel.add(note);		
-		notePanel.setPreferredSize(new Dimension(90,40));
-		
-		//gewichtungPanel
-		gewichtungPanel.add(gewichtungLabel);
-		gewichtungPanel.add(gewichtung);
-		gewichtungPanel.setPreferredSize(new Dimension(90,40));
 				
-		//addKlasseListePanel
-		addNoteKlasseListePanel.add(addNoteKlasseListeLabel);
-		addNoteKlasseListePanel.add(addNoteKlasseListe);
-		addNoteKlasseListePanel.setPreferredSize(new Dimension(140,40));
-		
-		//addFachListePanel
-		addNoteFachListePanel.add(addNoteFachListeLabel);
-//		addNoteFachListe = new JComboBox<>(fachModel);
-		addNoteFachListePanel.add(addNoteFachListe);
-		addNoteFachListePanel.setPreferredSize(new Dimension(90,40));
-		
-		//benennungPanel
-		benennungPanel.add(benennungLabel);
-		benennungPanel.add(benennung);
-		benennungPanel.setPreferredSize(new Dimension(90,40));
-		
-		//datumPanel
-		datumSpinner.setEditor(datumformatiert);
-		datumPanel.add(datumSpinnerLabel);
-		datumPanel.add(datumSpinner);
-		datumPanel.setPreferredSize(new Dimension(90,40));
-		
-		//addNoteFormular
-		addNoteFormular.add(notePanel);
-		addNoteFormular.add(gewichtungPanel);		
-		addNoteFormular.add(addNoteKlasseListePanel);
-		addNoteFormular.add(addNoteFachListePanel);
-		addNoteFormular.add(benennungPanel);
-		addNoteFormular.add(datumPanel);
-	
-		//addNoteCard
-		addNoteCard.add(addNoteToolBar, BorderLayout.NORTH);
-		addNoteCard.add(addNoteFormular, BorderLayout.CENTER);
-		
-		//Add in Card
-		cards.add(addNoteCard, "Add Note Card");
-		
-		
 		/*
 		 * CardLayout zu Frame adden
 		 */
@@ -533,7 +468,7 @@ public class GradeMastersView extends JFrame {
 		//startCard je nach klasse andere fächer
 		startKlasseListe.addActionListener(new StartCardKlasseListener(startKlasseListe, startFachListe));		
 		//startCard je nach fach andere pruefungen anzeigen
-		startFachListe.addListSelectionListener(new StartCardFachListener());
+		startFachListe.addListSelectionListener(new StartCardFachListener(startFachListe, fachModel));
 		
 	}
 	
