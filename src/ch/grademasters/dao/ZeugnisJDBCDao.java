@@ -13,7 +13,7 @@ public class ZeugnisJDBCDao extends Database implements ZeugnisDao {
 
 	public ArrayList<?> getZeugnis() throws SQLException {
 		ArrayList<Zeugnis> zeugnisse = new ArrayList<Zeugnis>();
-
+	
 		String sql = "Select * from FACH;";
 		con = getCon();
 		ps = con.prepareStatement(sql);
@@ -25,12 +25,18 @@ public class ZeugnisJDBCDao extends Database implements ZeugnisDao {
 		while (rs.next()) {
 			fach = new Fach(rs.getString("Fach"));
 			int fach_ID = rs.getInt("ID_Fach");
+			int klasse_ID = rs.getInt("Klasse_ID");
 			zeugnis.addFach(fach);
 
 			String sql2 = "Select * from Pruefung WHERE FACH_ID = ?;";
 			ps2 = con.prepareStatement(sql2);
 			ps2.setInt(1, fach_ID);
 			rs2 = ps2.executeQuery();
+			
+			String sql3 = "Select * from Klasse WHERE ID_Klasse = ?;";
+			ps3 = con.prepareStatement(sql3);
+			ps3.setInt(1, klasse_ID);
+			rs3 = ps3.executeQuery();
 
 			while (rs2.next()) {
 				pruefung = new Pruefung(null, rs2.getFloat("Note"),

@@ -61,6 +61,7 @@ public class GradeMastersView extends JFrame {
 	protected JPanel addKlasseCard = new JPanel(new BorderLayout());
 	protected JPanel addFachCard = new JPanel(new BorderLayout());
 	protected JPanel addNoteCard = new JPanel(new BorderLayout());
+	protected JPanel addZeugnisCard = new JPanel(new BorderLayout());
 	
 	
 	/*
@@ -125,7 +126,7 @@ public class GradeMastersView extends JFrame {
 	private static final Icon addFachIconLarge = loadIcon("fach.png");
 	private static final Icon addZeugnisIconLarge = loadIcon("zeugnis.png");
 	private static final Icon addDiagrammIconLarge = loadIcon("diagramm.png");
-	private static final Icon speichernIconLarge = loadIcon("speichern.png");
+	private static final Icon speichernIconLarge = loadIcon("zeugnis.png");
 	private static final Icon verlassenIconLarge = loadIcon("verlassen.png");
 	
 	
@@ -150,6 +151,11 @@ public class GradeMastersView extends JFrame {
 	//addNoteToolBar
 	protected final JButton noteSpeichern = new JButton("Note speichern",speichernIconLarge);
 	protected final JButton noteVerlassen = new JButton("Verlassen",verlassenIconLarge);
+	
+	//addZeugnisToolBar
+	protected final JButton zeugnisSpeichern = new JButton("Zeugnis speichern",speichernIconLarge);
+	protected final JButton zeugnisVerlassen = new JButton("Verlassen",verlassenIconLarge);
+	
 	
 	
 	/*
@@ -429,6 +435,61 @@ public class GradeMastersView extends JFrame {
 		//Add in Card
 		cards.add(addNoteCard, "Add Note Card");
 		
+		/*
+		 * addZeugnisCard
+		 */
+		//Toolbar
+		addNoteToolBar.setFloatable(false);
+		addNoteToolBar.add(zeugnisVerlassen);
+		addNoteToolBar.add(zeugnisSpeichern);
+		
+		//notePanel
+		notePanel.add(noteLabel);
+		notePanel.add(note);		
+		notePanel.setPreferredSize(new Dimension(90,40));
+		
+		//gewichtungPanel
+		gewichtungPanel.add(gewichtungLabel);
+		gewichtungPanel.add(gewichtung);
+		gewichtungPanel.setPreferredSize(new Dimension(90,40));
+				
+		//addKlasseListePanel
+		addNoteKlasseListePanel.add(addNoteKlasseListeLabel);
+		addNoteKlasseListePanel.add(addNoteKlasseListe);
+		addNoteKlasseListePanel.setPreferredSize(new Dimension(140,40));
+		
+		//addFachListePanel
+		addNoteFachListePanel.add(addNoteFachListeLabel);
+//		addNoteFachListe = new JComboBox<>(fachModel);
+		addNoteFachListePanel.add(addNoteFachListe);
+		addNoteFachListePanel.setPreferredSize(new Dimension(90,40));
+		
+		//benennungPanel
+		benennungPanel.add(benennungLabel);
+		benennungPanel.add(benennung);
+		benennungPanel.setPreferredSize(new Dimension(90,40));
+		
+		//datumPanel
+		datumSpinner.setEditor(datumformatiert);
+		datumPanel.add(datumSpinnerLabel);
+		datumPanel.add(datumSpinner);
+		datumPanel.setPreferredSize(new Dimension(90,40));
+		
+		//addNoteFormular
+		addNoteFormular.add(notePanel);
+		addNoteFormular.add(gewichtungPanel);		
+		addNoteFormular.add(addNoteKlasseListePanel);
+		addNoteFormular.add(addNoteFachListePanel);
+		addNoteFormular.add(benennungPanel);
+		addNoteFormular.add(datumPanel);
+	
+		//addNoteCard
+		addNoteCard.add(addNoteToolBar, BorderLayout.NORTH);
+		addNoteCard.add(addNoteFormular, BorderLayout.CENTER);
+		
+		//Add in Card
+		cards.add(addNoteCard, "Add Note Card");
+		
 		
 		/*
 		 * CardLayout zu Frame adden
@@ -446,6 +507,8 @@ public class GradeMastersView extends JFrame {
 		klasseVerlassen.addActionListener(new CardButtonListener(cards));
 		fachVerlassen.addActionListener(new CardButtonListener(cards));
 		noteVerlassen.addActionListener(new CardButtonListener(cards));
+		addDiagramm.addActionListener(new CardButtonListener(cards));
+		addZeugnis.addActionListener(new CardButtonListener(cards));
 		
 		/*
 		 * SPEICHERN
