@@ -15,7 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import ch.grademasters.controller.GMController;
 import ch.grademasters.exception.SQLError;
 import ch.grademasters.exception.UserFail;
-import ch.grademasters.exception.UserSuccess;
+import ch.grademasters.messages.UserSuccess;
 import ch.grademasters.model.User;
 import ch.grademasters.util.EncryptUtils;
 

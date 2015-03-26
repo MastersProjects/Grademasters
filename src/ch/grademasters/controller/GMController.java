@@ -24,8 +24,10 @@ import ch.grademasters.dao.ZeugnisDao;
 import ch.grademasters.dao.ZeugnisJDBCDao;
 import ch.grademasters.exception.LoginError;
 import ch.grademasters.exception.PasswortError;
+import ch.grademasters.exception.SQLError;
 import ch.grademasters.exception.UserError;
 import ch.grademasters.exception.UserExist;
+import ch.grademasters.messages.addInDb;
 import ch.grademasters.model.Fach;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.User;
@@ -65,9 +67,10 @@ public class GMController {
 		try {
 			int Lehrer_ID = LEHRER_DAO.addLehrer(klasse);
 			KLASSE_DAO.addKlasse(klasse, Lehrer_ID);
+			new addInDb();
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			new SQLError();
 		}
 	}
 
@@ -80,7 +83,7 @@ public class GMController {
 		try {
 			klasse = KLASSE_DAO.getKlasse();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			new SQLError();
 		}
 		return klasse;
 	}
@@ -95,8 +98,7 @@ public class GMController {
 		try {
 			fach = FACH_DAO.getFachById(klasse_ID);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			new SQLError();
 		}
 		return fach;	
 	}
@@ -108,9 +110,10 @@ public class GMController {
 	public void fachSpeichern(int ID_Klasse, String fachName){
 		try{
 			FACH_DAO.addFach(ID_Klasse, fachName);
+			new addInDb();
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			new SQLError();
 		}
 	}
 	
@@ -121,9 +124,10 @@ public class GMController {
 	public void noteSpeichern(float note, float gewichtung, int fach_ID, String benennung) {
 		try{
 			NOTE_DAO.addNote(note, gewichtung, fach_ID, benennung);
+			new addInDb();
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			new SQLError();
 		}
 	}
 	
@@ -136,17 +140,21 @@ public class GMController {
 			return NOTE_DAO.getNotenUndFach(); 
 		}
 		catch (SQLException e){
-			e.printStackTrace();
+			new SQLError();
 		}
 		return null;
 	}
 	
+	/**
+	 * Holt alle Informationen aus DB um ein Zeugnis zuerstellen
+	 * @return
+	 */
 	public ArrayList<?> getZeugnis(){
 		try {
 			return ZEUGNIS_DAO.getZeugnis();
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			new SQLError();
 		}
 		return null;
 	}
@@ -169,7 +177,7 @@ public class GMController {
 			dbUsers = USER_DAO.findAllUsers();
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			new SQLError();
 		}
 
 		for (User dbUser : dbUsers) {
@@ -187,8 +195,7 @@ public class GMController {
 				USER_DAO.insertUser(currentUser);
 			}
 			catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				new SQLError();
 			}
 		}
 	}
@@ -205,7 +212,7 @@ public class GMController {
 			dbUsers = USER_DAO.findAllUsers();
 		}
 		catch (SQLException e) {
-			e.printStackTrace();
+			new SQLError();
 		}
 
 		String usernameLocal = currentUser.getUsername();

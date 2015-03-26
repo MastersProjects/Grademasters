@@ -1,4 +1,4 @@
-package ch.grademasters.exception;
+package ch.grademasters.messages;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -30,7 +30,7 @@ public class UserSuccess extends JDialog {
 	protected JPanel errorCard = new JPanel(new FlowLayout());
 
 	//Buttons
-	private final Icon userAddImg = GradeMastersView.loadIcon("vcard_add.png");
+	protected final Icon userAddImg = GradeMastersView.loadIcon("vcard_add.png");
 	protected final JLabel userAddImageButton = new JLabel(userAddImg);
 	protected final JButton ok = new JButton("Ok");
 

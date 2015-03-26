@@ -24,17 +24,21 @@ public class CardButtonListener implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand().equals("Klasse hinzufügen")) {
+		if (e.getActionCommand().equals("Klasse hinzufï¿½gen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
 			cardLayout.show(cards, "Add Klasse Card");
 		}
-		else if (e.getActionCommand().equals("Fach hinzufügen")) {
+		else if (e.getActionCommand().equals("Fach hinzufï¿½gen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
 			cardLayout.show(cards, "Add Fach Card");
 		}
-		else if (e.getActionCommand().equals("Note hinzufügen")) {
+		else if (e.getActionCommand().equals("Note hinzufï¿½gen")) {
 			CardLayout cardLayout = (CardLayout) getCard().getLayout();
 			cardLayout.show(cards, "Add Note Card");
+		}
+		else if (e.getActionCommand().equals("Diagramm erstellen")) {
+			CardLayout cardLayout = (CardLayout) getCard().getLayout();
+			cardLayout.show(cards, "Add Diagramm Card");
 		}
 		else if (e.getActionCommand().equals("Verlassen")) {
 			Abfrage_User.getGradeMastersView().dispose();			

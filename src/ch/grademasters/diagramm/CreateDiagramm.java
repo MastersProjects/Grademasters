@@ -15,7 +15,7 @@ import org.jfree.ui.RefineryUtilities;
 import ch.grademasters.controller.GMController;
 import ch.grademasters.model.Fach;
 
-public class createDiagramm extends ApplicationFrame {
+public class CreateDiagramm extends ApplicationFrame {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -24,7 +24,7 @@ public class createDiagramm extends ApplicationFrame {
 	 * @param Name
 	 *            des Frames
 	 */
-	public createDiagramm(final String title) {
+	public CreateDiagramm(final String title) {
 
 		super(title);
 
@@ -33,6 +33,13 @@ public class createDiagramm extends ApplicationFrame {
 		final ChartPanel chartPanel = new ChartPanel(chart);
 		chartPanel.setPreferredSize(new Dimension(500, 270));
 		setContentPane(chartPanel);
+		
+		final CreateDiagramm diagramm = new CreateDiagramm(
+				"Diagramm für alle Fächer");
+		diagramm.pack();
+		RefineryUtilities.centerFrameOnScreen(diagramm);
+		diagramm.setVisible(true);
+
 	}
 
 	/**
@@ -79,20 +86,6 @@ public class createDiagramm extends ApplicationFrame {
 				);
 
 		return chart;
-
-	}
-
-	/**
-	 * Startet die Applikation
-	 */
-	public static void main(final String[] args) {
-
-		final createDiagramm diagramm = new createDiagramm(
-				"Diagramm für alle Fächer");
-		diagramm.pack();
-		RefineryUtilities.centerFrameOnScreen(diagramm);
-		diagramm.setVisible(true);
-		diagramm.setResizable(false);
 
 	}
 
