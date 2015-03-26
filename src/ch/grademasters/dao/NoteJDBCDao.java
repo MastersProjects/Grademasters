@@ -62,6 +62,7 @@ public class NoteJDBCDao extends Database implements NoteDao {
 			}
 			noten.add(fach);
 		}
+		closeCon();
 		return noten;
 	}
 

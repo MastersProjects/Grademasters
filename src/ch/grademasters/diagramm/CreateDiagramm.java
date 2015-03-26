@@ -33,12 +33,15 @@ public class CreateDiagramm extends ApplicationFrame {
 		final ChartPanel chartPanel = new ChartPanel(chart);
 		chartPanel.setPreferredSize(new Dimension(500, 270));
 		setContentPane(chartPanel);
+		setVisible(true);
+		pack();
 		
-		final CreateDiagramm diagramm = new CreateDiagramm(
-				"Diagramm für alle Fächer");
-		diagramm.pack();
-		RefineryUtilities.centerFrameOnScreen(diagramm);
-		diagramm.setVisible(true);
+		
+//		final CreateDiagramm diagramm = new CreateDiagramm(
+//				"Diagramm für alle Fächer");
+//		diagramm.pack();
+//		RefineryUtilities.centerFrameOnScreen(diagramm);
+//		diagramm.setVisible(true);
 
 	}
 
