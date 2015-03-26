@@ -5,6 +5,7 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,7 +18,6 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
@@ -205,7 +205,7 @@ public class GradeMastersView extends JFrame {
 	 * LIST
 	 */
 	//startCard	
-	protected JList<Object> startFachListe = new JList<Object>(fachModel);
+	
 	
 	
 	/*
@@ -220,6 +220,7 @@ public class GradeMastersView extends JFrame {
 	 */
 	//startCard
 	protected JComboBox<?> startKlasseListe = new JComboBox<>(klasseModel);
+	protected JComboBox<?> startFachListe = new JComboBox<>(fachModel);
 	
 	//addFachCard
 	protected JComboBox<?> addFachKlasseListe = new JComboBox<>(klasseModel);
@@ -468,7 +469,7 @@ public class GradeMastersView extends JFrame {
 		//startCard je nach klasse andere fächer
 		startKlasseListe.addActionListener(new StartCardKlasseListener(startKlasseListe, startFachListe));		
 		//startCard je nach fach andere pruefungen anzeigen
-		startFachListe.addListSelectionListener(new StartCardFachListener(startFachListe, fachModel));
+		startFachListe.addActionListener(new StartCardFachListener(startFachListe));
 		
 	}
 	

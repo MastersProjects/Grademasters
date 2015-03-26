@@ -14,9 +14,9 @@ import ch.grademasters.item.Item;
 public class StartCardKlasseListener implements ActionListener  {
 	
 	private JComboBox<?> startKlasseListe;
-	private JList<?> startFachListe;
+	private JComboBox<?> startFachListe;
 	
-	public StartCardKlasseListener (JComboBox<?> startKlasseListe, JList<?> startFachListe) {
+	public StartCardKlasseListener (JComboBox<?> startKlasseListe, JComboBox<?> startFachListe) {
 		setStartKlasseListe(startKlasseListe);
 		setStartFachListe(startFachListe);
 	}
@@ -43,7 +43,7 @@ public class StartCardKlasseListener implements ActionListener  {
 		return startKlasseListe;
 	}
 
-	public JList<?> getStartFachListe() {
+	public JComboBox<?> getStartFachListe() {
 		return startFachListe;
 	}
 
@@ -51,7 +51,7 @@ public class StartCardKlasseListener implements ActionListener  {
 		this.startKlasseListe = startKlasseListe;
 	}
 
-	public void setStartFachListe(JList<?> startFachListe) {
+	public void setStartFachListe(JComboBox<?> startFachListe) {
 		this.startFachListe = startFachListe;
 	}
 

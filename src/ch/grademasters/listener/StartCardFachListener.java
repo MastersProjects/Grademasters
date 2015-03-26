@@ -4,55 +4,49 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
+import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import ch.grademasters.controller.GMController;
 import ch.grademasters.item.Item;
 
-public class StartCardFachListener implements ListSelectionListener {
+public class StartCardFachListener implements ActionListener {
 
-	private JList startFachListe;
-	private Vector<?> fachModel;
+	private JComboBox<?> startFachListe;
+
 	
-	public StartCardFachListener(JList startFachListe, Vector<?> fachModel) {
+	public StartCardFachListener(JComboBox<?> startFachListe) {
 		this.setStartFachListe(startFachListe);
-		this.setFachModel(fachModel);
+
 	}
 	
 
 	@Override
-	public void valueChanged(ListSelectionEvent e) {
-		int sel = getStartFachListe().getSelectedIndex();
-		System.out.println(getFachModel().get(sel));
-		
-		
-
-      
-		
-		
+	public void actionPerformed(ActionEvent e) {
+		Item item = (Item)getStartFachListe().getSelectedItem();
+		int fach_ID = item.getId();
+		System.out.println(fach_ID);
+		System.out.println(GMController.getInstance().getNotenByID(fach_ID));
 	}
 
-
-	public Vector<?> getFachModel() {
-		return fachModel;
-	}
+		
+	
 
 
-	public void setFachModel(Vector<?> fachModel) {
-		this.fachModel = fachModel;
-	}
 
-
-	public JList getStartFachListe() {
+	public JComboBox<?> getStartFachListe() {
 		return startFachListe;
 	}
 
 
-	public void setStartFachListe(JList startFachListe) {
+	public void setStartFachListe(JComboBox<?> startFachListe) {
 		this.startFachListe = startFachListe;
 	}
+
+
 
 
 }

@@ -67,10 +67,9 @@ public class NoteJDBCDao extends Database implements NoteDao {
 	}
 
 	@Override
-	public Fach getNotenByID(int fach_ID) throws SQLException {
-		con = getCon();
-		
+	public Fach getNotenByID(int fach_ID) throws SQLException {		
 		String sql2 = "SELECT Fach FROM FACH WHERE ID_Fach = ?";
+		con = getCon();
 		ps2 = con.prepareStatement(sql2);
 		ps2.setLong(1, fach_ID);
 		rs2 = ps2.executeQuery();
