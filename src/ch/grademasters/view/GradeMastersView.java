@@ -7,8 +7,10 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.Icon;
@@ -25,6 +27,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SpinnerDateModel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import ch.grademasters.controller.GMController;
 import ch.grademasters.listener.CardButtonListener;
@@ -206,13 +210,32 @@ public class GradeMastersView extends JFrame {
 	 */
 	//startCard	
 	
+	String[] columnNames = {"First Name",
+            "Last Name",
+            "Sport",
+            "# of Years",
+            "Vegetarian"};
 	
+	Object[][] data = {
+		    {"Kathy", "Smith",
+		     "Snowboarding", new Integer(5), new Boolean(false)},
+		    {"John", "Doe",
+		     "Rowing", new Integer(3), new Boolean(true)},
+		    {"Sue", "Black",
+		     "Knitting", new Integer(2), new Boolean(false)},
+		    {"Jane", "White",
+		     "Speed reading", new Integer(20), new Boolean(true)},
+		    {"Joe", "Brown",
+		     "Pool", new Integer(10), new Boolean(false)}
+		};
+	
+	TableModel model = new DefaultTableModel(data, columnNames);
 	
 	/*
 	 * TABLE
 	 */
 	//startCard
-	protected JTable startNoteTable = new JTable();
+	protected JTable startNoteTable = new JTable(model);
 	
 
 	/*
@@ -469,7 +492,7 @@ public class GradeMastersView extends JFrame {
 		//startCard je nach klasse andere fächer
 		startKlasseListe.addActionListener(new StartCardKlasseListener(startKlasseListe, startFachListe));		
 		//startCard je nach fach andere pruefungen anzeigen
-		startFachListe.addActionListener(new StartCardFachListener(startFachListe));
+		startFachListe.addActionListener(new StartCardFachListener(startFachListe, startNoteTable));
 		
 	}
 	
