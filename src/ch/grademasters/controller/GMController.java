@@ -104,6 +104,18 @@ public class GMController {
 	}
 	
 	/**
+	 * 
+	 */
+	public Fach getNotenByID(int fach_ID){
+		try {
+			return NOTE_DAO.getNotenByID(fach_ID);
+		} catch (SQLException e) {
+			new SQLError();
+		}
+		return null;		
+	}
+	
+	/**
 	 * Ein neues Fach in die DB speichern
 	 * @param ID_Klasse, fachName
 	 */

@@ -2,8 +2,6 @@ package ch.grademasters.dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Vector;
-
 import ch.grademasters.model.Fach;
 
 /**
@@ -35,6 +33,6 @@ public interface NoteDao {
 	 * @return Vector mit Note und 
 	 * @throws SQLException
 	 */
-	public abstract Vector<?> getNotenByID(int fach_ID) throws SQLException;
+	public abstract Fach getNotenByID(int fach_ID) throws SQLException;
 	
 }

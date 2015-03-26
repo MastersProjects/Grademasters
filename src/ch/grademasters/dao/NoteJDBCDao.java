@@ -3,12 +3,6 @@ package ch.grademasters.dao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import java.util.Vector;
-
-
-
-import ch.grademasters.item.Item;
 import ch.grademasters.model.Fach;
 import ch.grademasters.model.Pruefung;
 
@@ -72,33 +66,29 @@ public class NoteJDBCDao extends Database implements NoteDao {
 	}
 
 	@Override
-	public Vector<Item> getNotenByID(int fach_ID) throws SQLException {
-		String sql = "SELECT * FROM PRUEFUNG WHERE ?";
+	public Fach getNotenByID(int fach_ID) throws SQLException {
 		con = getCon();
+		
+		String sql2 = "SELECT Fach FROM FACH WHERE ID_Fach = ?";
+		ps2 = con.prepareStatement(sql2);
+		ps2.setLong(1, fach_ID);
+		rs2 = ps2.executeQuery();
+		
+		String sql = "SELECT * FROM PRUEFUNG WHERE Fach_ID = ?";		
 		ps = con.prepareStatement(sql);
 		ps.setLong(1, fach_ID);
 		rs = ps.executeQuery();
-		Vector<Item> fachModel = new Vector<Item>();
+		
+		Fach fach = new Fach(rs2.getString("Fach"));
 		
 		while (rs.next()) {
-			int ID_Pruefung = 0;
-			String pruefung = null;
-			float note = 0;
-			float gewichtung = 0;
-			String fach = null;
-					
-			//Fuegt alles zusammen
-			ID_Pruefung = rs.getInt("ID_Pruefung");
-			pruefung = rs.getString("Pruefung");
-			note = rs.getFloat("Note");
-			gewichtung = rs.getFloat("Gewichtung");
+								
+			Pruefung pruefung = new Pruefung(rs.getString("Pruefung"), rs.getFloat("Note"), rs.getFloat("Gewichtung"));
+			fach.addPruefung(pruefung);
 			
-					
-			//Added alles an die Map
-			fachModel.addElement(new Item(fach_ID, fach));
 		}
 		closeCon();
-		return fachModel;
+		return fach;
 
 
 		

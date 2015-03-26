@@ -470,7 +470,7 @@ public class GradeMastersView extends JFrame {
 		//startCard je nach klasse andere fächer
 		startKlasseListe.addActionListener(new StartCardKlasseListener(startKlasseListe, startFachListe));		
 		//startCard je nach fach andere pruefungen anzeigen
-//		startFachListe.addListSelectionListener(new StartCardFachListener());
+		startFachListe.addListSelectionListener(new StartCardFachListener());
 		
 	}
 	
