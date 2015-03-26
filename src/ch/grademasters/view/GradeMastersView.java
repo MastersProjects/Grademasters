@@ -63,13 +63,17 @@ public class GradeMastersView extends JFrame {
 	 * PANELS
 	 */
 	//startCard
-	protected JPanel startCenter = new JPanel(new BorderLayout());
-	protected JPanel startLeft = new JPanel(new BorderLayout());
-	protected JPanel startRight = new JPanel(new BorderLayout());
-	protected JPanel startLeftTop = new JPanel(new BorderLayout());
-	protected JPanel startLeftBottom = new JPanel(new BorderLayout());
-	protected JPanel startRightTop = new JPanel(new BorderLayout());
-	protected JPanel startRightBottom = new JPanel(new BorderLayout());
+//	protected JPanel startTop = new JPanel(new BorderLayout());
+//	protected JPanel startBottom = new JPanel(new BorderLayout());
+//	protected JPanel startTopLeft = new JPanel(new BorderLayout());
+//	protected JPanel startTopRight = new JPanel(new BorderLayout());
+//	protected JPanel startBottomLeft = new JPanel(new BorderLayout());
+//	protected JPanel startBottomRight = new JPanel(new BorderLayout());
+	protected JPanel startCenter = new JPanel(new GridLayout(2,2));
+	protected JPanel klassePanel = new JPanel(new BorderLayout());
+	protected JPanel klasseInfoPanel = new JPanel(new BorderLayout());
+	protected JPanel fachPanel = new JPanel(new BorderLayout());
+	protected JPanel startNotePanel = new JPanel(new BorderLayout());
 	
 	//addKlasseCard
 	protected JPanel klasseFormular = new JPanel(new FlowLayout());
@@ -147,6 +151,9 @@ public class GradeMastersView extends JFrame {
 	/*
 	 * TEXTFIELDS
 	 */	
+	//startCard
+	protected JTextField klassenInfo = new JTextField("uabgfjkabfkabkfbhakfhnkasbfkasenfkeasnbkfnakdflnalk");
+	
 	//addKlasseCard
 	protected JTextField klasseName = new JTextField();
 	protected JTextField schuleName = new JTextField();
@@ -159,7 +166,7 @@ public class GradeMastersView extends JFrame {
 	protected JTextField fachName = new JTextField();
 	
 	//addFachCard
-		protected JTextField zeugnisName = new JTextField();
+	protected JTextField zeugnisName = new JTextField();
 	
 	//addNoteCard
 	protected JTextField note = new JTextField();
@@ -175,7 +182,7 @@ public class GradeMastersView extends JFrame {
 	protected JLabel startKlasseListeLabel = new JLabel("Bitte wähle deine Klasse aus: ");
 	protected JLabel klassenInfoLabel = new JLabel("Klassen-Information: ");
 	protected JLabel startNoteTableLabel = new JLabel("Noten: ");
-	protected JLabel klassenInfo = new JLabel("uabgfjkabfkabkfbhakfhnkasbfkasenfkeasnbkfnakdflnalk");
+	
 
 	//addKlasseCard
 	protected JLabel klasseNameLabel = new JLabel("Klasse: ");
@@ -249,43 +256,65 @@ public class GradeMastersView extends JFrame {
 		startToolBar.add(addZeugnis);
 		startToolBar.add(addDiagramm);
 
-		//Left startCenter
-		startLeftTop.add(startKlasseListeLabel, BorderLayout.NORTH);
-		startLeftTop.add(startKlasseListe, BorderLayout.CENTER);
-		startLeftBottom.add(startFachListeLabel, BorderLayout.NORTH);
-		startLeftBottom.add(startFachListe, BorderLayout.CENTER);
+		//startTop
+//		startTopLeft.add(startKlasseListeLabel, BorderLayout.NORTH);
+//		startTopLeft.add(startKlasseListe, BorderLayout.CENTER);
+//		
+//		startTopRight.add(klassenInfoLabel, BorderLayout.NORTH);
+//		startTopRight.add(klassenInfo, BorderLayout.CENTER);
+//		startTopRight.setPreferredSize(new Dimension(500, 200));
+//		
+//		
+//		startTop.add(startTopLeft, BorderLayout.WEST);
+//		startTop.add(startTopRight, BorderLayout.CENTER);
+//		startTop.setPreferredSize(new Dimension(800, 200));
+//		
+//		//startBottom
+//		startBottomLeft.add(startFachListeLabel, BorderLayout.NORTH);
+//		startBottomLeft.add(startFachListe, BorderLayout.CENTER);
+//		
+//		startBottomRight.add(startNoteTableLabel, BorderLayout.NORTH);
+//		startBottomRight.add(startNoteTable, BorderLayout.CENTER);
+//		startBottomRight.setPreferredSize(new Dimension(500, 200));
+//		
+//		startBottom.add(startBottomLeft, BorderLayout.WEST);
+//		startBottom.add(startBottomRight, BorderLayout.CENTER);
+//		startBottom.setPreferredSize(new Dimension(800, 200));
+//		
+//		//startCard
+//		startCard.add(startToolBar, BorderLayout.NORTH);
+//		startCard.add(startTop, BorderLayout.CENTER);
+//		startCard.add(startBottom, BorderLayout.SOUTH);
+		
+		klassePanel.add(startKlasseListeLabel, BorderLayout.NORTH);
+		klassePanel.add(startKlasseListe, BorderLayout.CENTER);
+		
+		klasseInfoPanel.add(klassenInfoLabel, BorderLayout.NORTH);
+		klasseInfoPanel.add(klassenInfo, BorderLayout.CENTER);
+		
+		fachPanel.add(startFachListeLabel, BorderLayout.NORTH);
+		fachPanel.add(startFachListe, BorderLayout.CENTER);
+		
+		startNotePanel.add(startNoteTableLabel, BorderLayout.NORTH);
+		startNotePanel.add(startNoteTable, BorderLayout.CENTER);
+		
+		startCenter.add(klassePanel);
+		startCenter.add(klasseInfoPanel);
+		startCenter.add(fachPanel);
+		startCenter.add(startNotePanel);
 
-		
-		startLeft.add(startLeftTop, BorderLayout.NORTH);
-		startLeft.add(startLeftBottom, BorderLayout.CENTER);
-
-		
-		startCenter.add(startLeft, BorderLayout.WEST);
-		
-		//Right startCenter
-		startRightTop.add(klassenInfoLabel, BorderLayout.NORTH);
-		startRightTop.add(klassenInfo, BorderLayout.CENTER);
-		startRightBottom.add(startNoteTableLabel, BorderLayout.NORTH);
-		startNoteTable.setEnabled(false); //make table not editable
-		startRightBottom.add(startNoteTable, BorderLayout.CENTER);
-				
-		startRight.add(startRightTop, BorderLayout.NORTH);
-		startRight.add(startRightBottom, BorderLayout.CENTER);
-		
-		startCenter.add(startRight, BorderLayout.CENTER);
-				
-		//Alle Layout an stardCard
 		startCard.add(startToolBar, BorderLayout.NORTH);
 		startCard.add(startCenter, BorderLayout.CENTER);
+		
 		
 		//Add in Cards
 		cards.add(startCard, "Start Card");
 				
 //		//Colors for Test
-//		startLeftTop.setBackground(Color.yellow);
-//		startLeftBottom.setBackground(Color.red);
-//		startRightTop.setBackground(Color.green);
-//		startRightBottom.setBackground(Color.blue);
+//		startTopLeft.setBackground(Color.yellow);
+//		startTopRight.setBackground(Color.red);
+//		startBottomLeft.setBackground(Color.green);
+//		startBottomRight.setBackground(Color.blue);
 		
 		
 		/*
@@ -340,10 +369,10 @@ public class GradeMastersView extends JFrame {
 		//Add in Cards
 		cards.add(addKlasseCard, "Add Klasse Card");
 		
-//		//Colors for Test
-//		addKlasseToolBar.setBackground(Color.yellow);
-//		klasseFormular.setBackground(Color.blue);
-//		lehrerFormular.setBackground(Color.red);
+		//Colors for Test
+		addKlasseToolBar.setBackground(Color.yellow);
+		klasseFormular.setBackground(Color.blue);
+		lehrerFormular.setBackground(Color.red);
 		
 		
 		/*
