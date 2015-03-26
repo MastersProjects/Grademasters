@@ -11,6 +11,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 
 import ch.grademasters.controller.GMController;
+import ch.grademasters.diagramm.CreateDiagramm;
 
 public class datumTest extends JFrame {
 
@@ -36,7 +37,8 @@ public datumTest () {
   }
 
   public static void main(String args[]) {
-    ArrayList<?> zeugnis = GMController.getInstance().getZeugnis();
+    ArrayList<?> zeugnis = GMController.getInstance().getNotenUndFach();
     System.out.println(zeugnis); 
+    new CreateDiagramm("Test");
   }
 }
