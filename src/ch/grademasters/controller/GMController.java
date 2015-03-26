@@ -215,8 +215,9 @@ public class GMController {
 
 	/**
 	 * Ueberprueft die eingaben des Users und preuft ob login korrekt
+	 * 
 	 * @param currentUser
-	 * @return  Boolean ob Login richtig oder falsch
+	 * @return Boolean ob Login richtig oder falsch
 	 */
 	public boolean login(User currentUser) {
 		List<User> dbUsers = null;
@@ -232,6 +233,7 @@ public class GMController {
 		String passwortLocal = currentUser.getPasswort();
 
 		boolean login = false;
+		boolean blank = false;
 		int i = 1;
 
 		for (User dbUser : dbUsers) {
@@ -248,16 +250,10 @@ public class GMController {
 						&& StringUtils.isNotBlank(passwortDb)
 						&& passwortLocal.equals(passwortDb)) {
 					login = true;
-					
 
 				}
 				else if (!passwortLocal.equals(passwortDb)) {
-					if (i < 2) {
-						LoginError loginError = new LoginError();
-						loginError.setLocationRelativeTo(null);
-						i = i + 1;
-						login = false;
-					}
+					login = false;
 				}
 				else if (StringUtils.isBlank(passwortLocal)) {
 					if (i < 2) {
@@ -275,19 +271,17 @@ public class GMController {
 					userError.setLocationRelativeTo(null);
 					i = i + 1;
 					login = false;
+					blank = true;
 				}
 				break;
 			}
-			if (!login) {
-				if (i < 2) {
-					LoginError loginError = new LoginError();
-					loginError.setLocationRelativeTo(null);
-					i = i + 1;
-					login = false;
-				}
-			}
+		}
+		if (login == false && blank == false) {
+			LoginError loginError = new LoginError();
+			loginError.setLocationRelativeTo(null);
 		}
 		return login;
 	}
+
 	
 }
