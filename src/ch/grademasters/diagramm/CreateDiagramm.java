@@ -3,6 +3,8 @@ package ch.grademasters.diagramm;
 import java.awt.Dimension;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -14,7 +16,7 @@ import org.jfree.ui.ApplicationFrame;
 import ch.grademasters.controller.GMController;
 import ch.grademasters.model.Fach;
 
-public class CreateDiagramm extends ApplicationFrame {
+public class CreateDiagramm extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -68,7 +70,7 @@ public class CreateDiagramm extends ApplicationFrame {
 	 */
 	private JFreeChart createChart(final CategoryDataset dataset) {
 
-		// Erstellen des Diagramms
+			// Erstellen des Diagramms
 		final JFreeChart chart = ChartFactory.createBarChart(
 				"Diagramm aller Fächer", // Titel
 				"Fächer", // Legende
@@ -78,7 +80,7 @@ public class CreateDiagramm extends ApplicationFrame {
 				false, // Legende Ja/Nein
 				true, // tooltips braucht es einfach
 				false // URLs braucht es einfach
-				);
+		);
 
 		return chart;
 
