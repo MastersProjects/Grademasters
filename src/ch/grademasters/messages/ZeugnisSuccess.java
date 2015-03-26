@@ -44,7 +44,7 @@ public class ZeugnisSuccess extends JDialog {
 	public ZeugnisSuccess() {
 
 		// Eigenschaften definieren
-		setSize(240, 150);
+		setSize(240, 115);
 		setVisible(true);
 		setResizable(false);
 		setLocationRelativeTo(null);

@@ -48,7 +48,7 @@ public class CreateZeugnis extends JDialog {
 	public CreateZeugnis() {
 
 		// Eigenschaften definieren
-		setSize(240, 150);
+		setSize(240, 140);
 		setVisible(true);
 		setResizable(false);
 		setLocationRelativeTo(null);

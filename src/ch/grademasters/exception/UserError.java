@@ -28,6 +28,7 @@ public class UserError extends JDialog {
 	//JPanel
 	protected JPanel error = new JPanel(new CardLayout());
 	protected JPanel errorCard = new JPanel(new FlowLayout());
+	
 
 	//Buttons
 	private final Icon errorImg = GradeMastersView.loadIcon("cancel.png");
@@ -39,6 +40,7 @@ public class UserError extends JDialog {
 
 	//User Error Field
 	public UserError() {
+
 
 		//Eigenschaften definieren
 		setSize(200, 115);
@@ -65,5 +67,6 @@ public class UserError extends JDialog {
 		});
 
 	}
+	
 
 }
