@@ -32,7 +32,7 @@ public class CreateDiagramm extends JFrame {
 		final CategoryDataset dataset = createDataset();
 		final JFreeChart chart = createChart(dataset);
 		final ChartPanel chartPanel = new ChartPanel(chart);
-		chartPanel.setPreferredSize(new Dimension(500, 270));
+		chartPanel.setPreferredSize(new Dimension(750, 440));
 		setContentPane(chartPanel);
 		setVisible(true);
 		pack();
