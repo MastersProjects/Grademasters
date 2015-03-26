@@ -20,7 +20,7 @@ public class CardButtonListener implements ActionListener {
 
 	private JPanel cards;
 
-	public CardButtonListener(JPanel cards) {
+	public CardButtonListener(JPanel cards) { 
 
 		this.setCard(cards);
 	}

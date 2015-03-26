@@ -1,9 +1,10 @@
 package ch.grademasters.messages;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
+import java.awt.CardLayout;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 
 import javax.swing.Icon;
@@ -12,71 +13,69 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JToolBar;
 
 import ch.grademasters.controller.GMController;
+import ch.grademasters.item.Item;
+import ch.grademasters.listener.KlasseModelListener;
+import ch.grademasters.pdf.ZeugnisPdf;
 import ch.grademasters.view.GradeMastersView;
 
+/**
+ * @description Exceptionklasse wenn keine VErbindung zur Datenbank besteht.
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * UserError.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
+
 public class CreateZeugnis extends JDialog {
-
-	// Vektor
+	
 	Vector<?> klasseModel = GMController.getInstance().getKlasse();
-
-	// JPanel
-	protected JPanel addZeugnisCard = new JPanel(new BorderLayout());
-	protected JPanel addZeugnisKlasseListePanel = new JPanel(new GridLayout(2,
-			1));
-	protected JPanel addZeugnisFormular = new JPanel(new FlowLayout());
-
-	// JLabel
-	protected JLabel addZeugnisKlasseListeLabel = new JLabel("Klasse: ");
-
-	// Toolbar
-	protected final JToolBar addZeugnisToolBar = new JToolBar();
-
-	// Icons
-	private static final Icon speichernIconLarge = GradeMastersView
-			.loadIcon("zeugnis.png");
-	private static final Icon verlassenIconLarge = GradeMastersView
-			.loadIcon("verlassen.png");
-
-	// JComboBox
-	protected JComboBox<?> addZeugnisKlasseListe = new JComboBox<>(klasseModel);
-
-	// JButton
-	protected final JButton zeugnisSpeichern = new JButton("Zeugnis speichern",
-			speichernIconLarge);
-	protected final JButton zeugnisVerlassen = new JButton("Verlassen",
-			verlassenIconLarge);
+	protected JComboBox<?> startKlasseListe = new JComboBox<>(klasseModel);
+	
+	
 
 	private static final long serialVersionUID = 1L;
+	
+	//JPanel 
+	protected JPanel createZeugnis = new JPanel(new CardLayout());
+	protected JPanel createZeugnisCard = new JPanel(new FlowLayout());
 
-	public void CreatZeugnis() {
-		/*
-		 * addZeugnisCard
-		 */
-		// Eigenschaften definieren
-		setSize(500, 350);
+	//Buttons
+	protected final Icon exportImg = GradeMastersView.loadIcon("pdf.png");
+	protected final JLabel exportPdf = new JLabel(exportImg);
+	protected final JButton exportButton = new JButton("Exportieren");
+
+	//JLabel
+	protected JLabel sucessText = new JLabel(
+			"Bitte wählen Sie die Klasse aus:");
+
+	//User Success Field
+	public CreateZeugnis() {
+
+		//Eigenschaften definieren
+		setSize(240, 150);
 		setVisible(true);
 		setResizable(false);
+		//hinzufuegen
+		createZeugnisCard.add(exportPdf, BorderLayout.NORTH);
+		createZeugnisCard.add(sucessText, BorderLayout.CENTER);
+		createZeugnisCard.add(startKlasseListe, BorderLayout.CENTER);
+		createZeugnisCard.add(exportButton, BorderLayout.SOUTH);
+		createZeugnis.add(createZeugnisCard);
+		
 
-		// Toolbar
-		addZeugnisToolBar.setFloatable(false);
-		addZeugnisToolBar.add(zeugnisVerlassen);
-		addZeugnisToolBar.add(zeugnisSpeichern);
+		this.add(createZeugnis);
 
-		// addKlasseListePanel
-		addZeugnisKlasseListePanel.add(addZeugnisKlasseListeLabel);
-		addZeugnisKlasseListePanel.add(addZeugnisKlasseListe);
-		addZeugnisKlasseListePanel.setPreferredSize(new Dimension(140, 40));
-
-		// addZeugnisFormular
-		addZeugnisFormular.add(addZeugnisKlasseListePanel);
-
-		// addZeugnisCard
-		addZeugnisCard.add(addZeugnisToolBar, BorderLayout.NORTH);
-		addZeugnisCard.add(addZeugnisFormular, BorderLayout.CENTER);
-		this.add(addZeugnisCard);
+		//ActionListener hinzufuegen
+		exportButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 Item item = (Item)startKlasseListe.getSelectedItem();
+			      int klasse_ID = item.getId();
+			      System.out.println(klasse_ID);
+			      new ZeugnisPdf(klasse_ID);
+			      
+			}
+		});
 
 	}
 

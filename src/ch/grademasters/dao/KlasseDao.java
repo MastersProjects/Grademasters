@@ -26,5 +26,5 @@ public interface KlasseDao {
 	 * @throws SQLException
 	 */
 	public abstract Vector<?> getKlasse() throws SQLException;
-	
+		
 }

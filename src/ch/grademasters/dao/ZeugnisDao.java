@@ -16,6 +16,6 @@ public interface ZeugnisDao {
 	 * @return Liste mit allen Klassen
 	 * @throws SQLException
 	 */
-	public abstract ArrayList<?> getZeugnis() throws SQLException; 
+	public abstract ArrayList<?> getZeugnis(int klassen_ID) throws SQLException; 
 
 }

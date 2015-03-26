@@ -162,9 +162,9 @@ public class GMController {
 	 * Holt alle Informationen aus DB um ein Zeugnis zuerstellen
 	 * @return
 	 */
-	public ArrayList<?> getZeugnis(){
+	public ArrayList<?> getZeugnis(int klassen_ID){
 		try {
-			return ZEUGNIS_DAO.getZeugnis();
+			return ZEUGNIS_DAO.getZeugnis(klassen_ID);
 		}
 		catch (SQLException e) {
 			new SQLError();

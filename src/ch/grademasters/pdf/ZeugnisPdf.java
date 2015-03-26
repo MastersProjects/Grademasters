@@ -53,14 +53,23 @@ public class ZeugnisPdf {
 	static SimpleDateFormat aktuellesDatum = new SimpleDateFormat("dd.MM.yyyy");
 	// Aktuelle Zeit
 	static SimpleDateFormat aktuelleZeit = new SimpleDateFormat("HH:mm:ss");
+	
+	private static int klasse_ID;
 
 	// Output Ordner
+	
+	private static int getKlasse_ID() {
+		return klasse_ID;
+	}
 
-	/**
-	 * @description Stellt das PDF zusammen
-	 * @param args
-	 */
-	public static void main(String[] args) {
+	private void setKlasse_ID(int klasse_ID) {
+		this.klasse_ID = klasse_ID;
+	}
+
+	public ZeugnisPdf (int klasse_ID){
+		this.setKlasse_ID(klasse_ID);
+		System.out.println("R");
+		
 		try {
 			boolean exist = true;
 			// Neues Dokument anlegen
@@ -112,8 +121,16 @@ public class ZeugnisPdf {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
+
+	/**
+	 * @description Stellt das PDF zusammen
+	 * @param args
+	 */
+//	public static void main(String[] args) {
+//		
+//
+//	}
 
 	private static void addMetaData(Document document) {
 		document.addTitle("Zegnis Nr." + i);
@@ -140,8 +157,8 @@ public class ZeugnisPdf {
 		image.setAbsolutePosition(465f, 720f);
 		image.scaleAbsolute(90, 90);
 		
-		ArrayList<Zeugnis> zeugnis = (ArrayList<Zeugnis>) GMController.getInstance().getZeugnis();
-		System.out.println(zeugnis);
+		ArrayList<Zeugnis> zeugnis = (ArrayList<Zeugnis>) GMController.getInstance().getZeugnis(getKlasse_ID());
+		System.out.println("zeugnis: " + zeugnis);
 
 		/* Layout */
 		addEmptyLine(preface, 1);
