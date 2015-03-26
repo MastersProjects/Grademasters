@@ -232,6 +232,7 @@ public class GradeMastersView extends JFrame {
 	
 	public GradeMastersView() {	
 		
+		setIconImage(new ImageIcon("src/images/icon.png").getImage());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setName("GradeMasters");
 		setSize(800, 500);

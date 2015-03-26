@@ -56,7 +56,8 @@ public class UserSuccess extends JDialog {
 		//ActionListener hinzufuegen
 		ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				setVisible(false);
+				dispose();
 			}
 		});
 
