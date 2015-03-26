@@ -14,7 +14,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import ch.grademasters.controller.GMController;
-import ch.grademasters.model.Klasse;
 import ch.grademasters.model.Zeugnis;
 import ch.grademasters.view.GradeMastersView;
 
@@ -53,23 +52,22 @@ public class ZeugnisPdf {
 	static SimpleDateFormat aktuellesDatum = new SimpleDateFormat("dd.MM.yyyy");
 	// Aktuelle Zeit
 	static SimpleDateFormat aktuelleZeit = new SimpleDateFormat("HH:mm:ss");
-	
+
 	private static int klasse_ID;
 
 	// Output Ordner
-	
+
 	private static int getKlasse_ID() {
 		return klasse_ID;
 	}
 
 	private void setKlasse_ID(int klasse_ID) {
-		this.klasse_ID = klasse_ID;
+		ZeugnisPdf.klasse_ID = klasse_ID;
 	}
 
-	public ZeugnisPdf (int klasse_ID){
+	public ZeugnisPdf(int klasse_ID) {
 		this.setKlasse_ID(klasse_ID);
-		System.out.println("R");
-		
+
 		try {
 			boolean exist = true;
 			// Neues Dokument anlegen
@@ -127,10 +125,10 @@ public class ZeugnisPdf {
 	 * @description Stellt das PDF zusammen
 	 * @param args
 	 */
-//	public static void main(String[] args) {
-//		
-//
-//	}
+	// public static void main(String[] args) {
+	//
+	//
+	// }
 
 	private static void addMetaData(Document document) {
 		document.addTitle("Zegnis Nr." + i);
@@ -140,7 +138,8 @@ public class ZeugnisPdf {
 		document.addCreator("GradeMasters");
 	}
 
-	private static void addTitlePage(Document document)throws DocumentException {
+	private static void addTitlePage(Document document)
+			throws DocumentException {
 		Paragraph preface = new Paragraph();
 
 		String logo = "T:/_Team/zmartl/workspace/Backup/1312 - 20032015/Grademasters/src/images/logo.png";
@@ -156,9 +155,9 @@ public class ZeugnisPdf {
 		}
 		image.setAbsolutePosition(465f, 720f);
 		image.scaleAbsolute(90, 90);
-		
-		ArrayList<Zeugnis> zeugnis = (ArrayList<Zeugnis>) GMController.getInstance().getZeugnis(getKlasse_ID());
-		System.out.println("zeugnis: " + zeugnis);
+
+		ArrayList<Zeugnis> zeugnis = GMController.getInstance().getZeugnis(
+				getKlasse_ID());
 
 		/* Layout */
 		addEmptyLine(preface, 1);
@@ -173,15 +172,15 @@ public class ZeugnisPdf {
 		preface.add(new Paragraph(
 				"Dein erstelltes Zeugnis ist nicht dein Endzeugnis. Hier fliessen keine Mündlichen Noten, etc. mit ein!",
 				helvetica3));
-		preface.add(new Paragraph("_____________________________________________________________________________"));
+		preface.add(new Paragraph(
+				"_____________________________________________________________________________"));
 		addEmptyLine(preface, 3);
 		preface.add(new Paragraph("Klassen-Informationen:"));
 		addEmptyLine(preface, 1);
-		preface.add(new Paragraph("Klasse: \t \t" + Klasse.getKlassenname()));
-		preface.add(new Paragraph("Test:"));
+//		preface.add(new Paragraph("Klasse: \t \t"));
+//		preface.add(new Paragraph("Test:"));
 		for (Zeugnis zeugnisGross : zeugnis) {
 			preface.add(zeugnisGross.toString());
-			System.out.println(zeugnisGross.toString());
 			break;
 		}
 

@@ -10,7 +10,7 @@ package ch.grademasters.model;
 public class Klasse {
 
 	// Instanzvariablen
-	private static String klassenName;
+	private String klassenName;
 	private String schule;
 	private int semester;
 	private KlassenLehrer klassenLehrer;
@@ -35,7 +35,7 @@ public class Klasse {
 	/**
 	 * @return klassenname
 	 */
-	public static String getKlassenname() {
+	public String getKlassenname() {
 		return klassenName;
 	}
 
@@ -112,7 +112,7 @@ public class Klasse {
 		l = "Klasse: " + this.getKlassenname() + "\n";
 		l = l + "Semester: " + this.getSemester() + "\n";
 		l = l + "Schule: " + this.getSchule() + "\n";
-		l = l + "Lehrer: \n" + this.getKlassenLehrer().toString() + "\n\n";
+//		l = l + "Lehrer: \n" + this.getKlassenLehrer().toString() + "\n\n";
 //		for (Fach fach : this.getZeugnis().getFach()) {
 //			l = l + fach;
 //		}

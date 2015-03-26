@@ -13,6 +13,7 @@ public class Zeugnis {
 	
 	String alleNoten = "";
 
+	private Klasse klasse;
 	private Collection<Fach> fach = new ArrayList<Fach>();
 
 	// Getter und Setter
@@ -21,6 +22,12 @@ public class Zeugnis {
 	 */
 	public Collection<Fach> getFach() {
 		return fach;
+	}
+	/**
+	 * @return fach
+	 */
+	public Klasse getKlasse() {
+		return klasse;
 	}
 
 	/**
@@ -51,7 +58,9 @@ public class Zeugnis {
 	 */
 	public String toString() {
 		String s = "";
-		
+		s += "Klasse: " + this.getKlasse().getKlassenname();
+		s += "\nSemester: " + this.getKlasse().getSemester();
+		s += "\nSchule: " + this.getKlasse().getSchule();
 		for (Fach fach : this.getFach()) {
 			s = s + fach.getFach() + ": "
 				+ this.noteRunden(fach.berechneZeugnisNote()) + "\n";
@@ -67,6 +76,15 @@ public class Zeugnis {
 	 */
 	public void addFach(Fach addFach) {
 		this.getFach().add(addFach);
+	}
+	
+	/**
+	 * Fuegt eine Fach hinzu
+	 * 
+	 * @param addFach
+	 */
+	public void setKlasse(Klasse addKlasse) {
+		this.klasse = addKlasse;
 	}
 
 	/**

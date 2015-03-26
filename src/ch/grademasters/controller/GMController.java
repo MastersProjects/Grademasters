@@ -31,6 +31,7 @@ import ch.grademasters.messages.addInDb;
 import ch.grademasters.model.Fach;
 import ch.grademasters.model.Klasse;
 import ch.grademasters.model.User;
+import ch.grademasters.model.Zeugnis;
 import ch.grademasters.util.EncryptUtils;
 
 /**
@@ -162,7 +163,7 @@ public class GMController {
 	 * Holt alle Informationen aus DB um ein Zeugnis zuerstellen
 	 * @return
 	 */
-	public ArrayList<?> getZeugnis(int klassen_ID){
+	public ArrayList<Zeugnis> getZeugnis(int klassen_ID){
 		try {
 			return ZEUGNIS_DAO.getZeugnis(klassen_ID);
 		}

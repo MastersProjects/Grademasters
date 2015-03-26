@@ -22,6 +22,8 @@ public class Database {
 	protected ResultSet rs2 = null;
 	protected PreparedStatement ps3 = null;
 	protected ResultSet rs3 = null;
+	protected PreparedStatement ps4 = null;
+	protected ResultSet rs4 = null;
 	/**
 	 * Verbindungsinforamtionen fuer die DB
 	 * @return Datenbank verbindung
