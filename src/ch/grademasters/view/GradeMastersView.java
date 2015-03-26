@@ -2,6 +2,7 @@ package ch.grademasters.view;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -252,9 +253,11 @@ public class GradeMastersView extends JFrame {
 		startLeftTop.add(startKlasseListe, BorderLayout.CENTER);
 		startLeftBottom.add(startFachListeLabel, BorderLayout.NORTH);
 		startLeftBottom.add(startFachListe, BorderLayout.CENTER);
+
 		
 		startLeft.add(startLeftTop, BorderLayout.NORTH);
 		startLeft.add(startLeftBottom, BorderLayout.CENTER);
+
 		
 		startCenter.add(startLeft, BorderLayout.WEST);
 		
@@ -295,12 +298,15 @@ public class GradeMastersView extends JFrame {
 		//klassenFormular				
 		klasseNamePanel.add(klasseNameLabel);
 		klasseNamePanel.add(klasseName);
+		klasseNamePanel.setPreferredSize(new Dimension(140,40));
 		
 		schuleNamePanel.add(schuleNameLabel);
 		schuleNamePanel.add(schuleName);
+		schuleNamePanel.setPreferredSize(new Dimension(140,40));
 		
 		semesterPanel.add(semesterLabel);
 		semesterPanel.add(semester);
+		semesterPanel.setPreferredSize(new Dimension(140,40));
 		
 		klasseFormular.add(klasseNamePanel);
 		klasseFormular.add(schuleNamePanel);
@@ -309,16 +315,20 @@ public class GradeMastersView extends JFrame {
 		//lehrerFormular
 		lehrerVornamePanel.add(lehrerVornameLabel);
 		lehrerVornamePanel.add(lehrerVorname);
+		lehrerVornamePanel.setPreferredSize(new Dimension(140,40));
 		
 		lehrerNachnamePanel.add(lehrerNachnameLabel);
 		lehrerNachnamePanel.add(lehrerNachname);
+		lehrerNachnamePanel.setPreferredSize(new Dimension(140,40));
 		
 		lehrerEmailPanel.add(lehrerEmailLabel);
 		lehrerEmailPanel.add(lehrerEmail);	
+		lehrerEmailPanel.setPreferredSize(new Dimension(140,40));
 		
 		lehrerFormular.add(lehrerVornamePanel);
 		lehrerFormular.add(lehrerNachnamePanel);
 		lehrerFormular.add(lehrerEmailPanel);
+		lehrerFormular.setPreferredSize(new Dimension(800, 200));
 		
 		//Alle ins addKlasseCard
 		addKlasseCard.add(addKlasseToolBar, BorderLayout.NORTH);
@@ -346,6 +356,7 @@ public class GradeMastersView extends JFrame {
 		//fachFormular
 		fachNamePanel.add(fachNameLabel);
 		fachNamePanel.add(fachName);
+		fachNamePanel.setPreferredSize(new Dimension(140,40));
 		
 		addFachklasseListePanel.add(addFachKlasseListeLabel);
 		addFachklasseListePanel.add(addFachKlasseListe);
