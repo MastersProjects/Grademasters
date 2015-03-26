@@ -34,7 +34,6 @@ public class StartCardFachListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Item item = (Item)getStartFachListe().getSelectedItem();
 		int fach_ID = item.getId();
-		System.out.println(fach_ID);
 		Fach fach = GMController.getInstance().getNotenByID(fach_ID);
 		
 

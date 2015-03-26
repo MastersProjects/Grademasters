@@ -182,7 +182,7 @@ public class GradeMastersView extends JFrame {
 	protected JLabel startKlasseListeLabel = new JLabel("Bitte wähle deine Klasse aus: ");
 	protected JLabel klassenInfoLabel = new JLabel("Klassen-Information: ");
 	protected JLabel startNoteTableLabel = new JLabel("Noten: ");
-	protected JLabel klassenInfo = new JLabel();
+	protected JLabel klassenInfo = new JLabel("uabgfjkabfkabkfbhakfhnkasbfkasenfkeasnbkfnakdflnalk");
 
 	//addKlasseCard
 	protected JLabel klasseNameLabel = new JLabel("Klasse: ");
@@ -206,36 +206,10 @@ public class GradeMastersView extends JFrame {
 	
 	
 	/*
-	 * LIST
-	 */
-	//startCard	
-	
-	String[] columnNames = {"First Name",
-            "Last Name",
-            "Sport",
-            "# of Years",
-            "Vegetarian"};
-	
-	Object[][] data = {
-		    {"Kathy", "Smith",
-		     "Snowboarding", new Integer(5), new Boolean(false)},
-		    {"John", "Doe",
-		     "Rowing", new Integer(3), new Boolean(true)},
-		    {"Sue", "Black",
-		     "Knitting", new Integer(2), new Boolean(false)},
-		    {"Jane", "White",
-		     "Speed reading", new Integer(20), new Boolean(true)},
-		    {"Joe", "Brown",
-		     "Pool", new Integer(10), new Boolean(false)}
-		};
-	
-	TableModel model = new DefaultTableModel(data, columnNames);
-	
-	/*
 	 * TABLE
 	 */
 	//startCard
-	protected JTable startNoteTable = new JTable(model);
+	protected JTable startNoteTable = new JTable();
 	
 	
 
