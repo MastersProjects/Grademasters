@@ -43,6 +43,7 @@ public class CardButtonListener implements ActionListener {
 		}
 		else if (e.getActionCommand().equals("Zeugnis erstellen")) {
 			new CreateZeugnis();
+			System.out.println("erstellt");
 		}
 		else if (e.getActionCommand().equals("Verlassen")) {
 			Abfrage_User.getGradeMastersView().dispose();			

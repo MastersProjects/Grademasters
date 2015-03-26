@@ -76,6 +76,7 @@ public class CreateZeugnis extends JDialog {
 		// addZeugnisCard
 		addZeugnisCard.add(addZeugnisToolBar, BorderLayout.NORTH);
 		addZeugnisCard.add(addZeugnisFormular, BorderLayout.CENTER);
+		this.add(addZeugnisCard);
 
 	}
 
