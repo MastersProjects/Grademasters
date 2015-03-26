@@ -96,8 +96,6 @@ public class Registr extends JDialog implements ActionListener {
 
 		}
 		
-		//Setzt Felder wieder auf 0
-		username = null;
-		passwort = null;
+
 	}
 }
