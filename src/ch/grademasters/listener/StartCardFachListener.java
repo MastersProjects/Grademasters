@@ -12,6 +12,7 @@ import javax.swing.event.ListSelectionListener;
 
 import ch.grademasters.controller.GMController;
 import ch.grademasters.item.Item;
+import ch.grademasters.model.Fach;
 
 public class StartCardFachListener implements ActionListener {
 
@@ -29,7 +30,9 @@ public class StartCardFachListener implements ActionListener {
 		Item item = (Item)getStartFachListe().getSelectedItem();
 		int fach_ID = item.getId();
 		System.out.println(fach_ID);
-		System.out.println(GMController.getInstance().getNotenByID(fach_ID));
+		Fach fach = GMController.getInstance().getNotenByID(fach_ID);
+		
+		System.out.println(fach);
 	}
 
 		

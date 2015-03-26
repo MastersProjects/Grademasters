@@ -66,20 +66,28 @@ public class NoteJDBCDao extends Database implements NoteDao {
 		return noten;
 	}
 
-	@Override
-	public Fach getNotenByID(int fach_ID) throws SQLException {		
-		String sql2 = "SELECT Fach FROM FACH WHERE ID_Fach = ?";
+	public Fach getNotenByID(int fach_ID) throws SQLException {	
+		
+		String sql2 = "SELECT * FROM FACH WHERE ID_Fach = ?";
+		
 		con = getCon();
+		
 		ps2 = con.prepareStatement(sql2);
-		ps2.setLong(1, fach_ID);
+		
+		ps2.setInt(1, fach_ID);
 		rs2 = ps2.executeQuery();
 		
-		String sql = "SELECT * FROM PRUEFUNG WHERE Fach_ID = ?";		
-		ps = con.prepareStatement(sql);
-		ps.setLong(1, fach_ID);
-		rs = ps.executeQuery();
+		String sql = "SELECT * FROM PRUEFUNG WHERE Fach_ID = ?";	
 		
-		Fach fach = new Fach(rs2.getString("Fach"));
+		ps = con.prepareStatement(sql);
+		
+		ps.setInt(1, fach_ID);
+		
+		rs = ps.executeQuery();
+		String fachName = rs2.getString("Fach");
+		System.out.println(fachName);
+		Fach fach = new Fach(fachName);
+		System.out.println("qr");
 		
 		while (rs.next()) {
 								
@@ -88,6 +96,7 @@ public class NoteJDBCDao extends Database implements NoteDao {
 			
 		}
 		closeCon();
+		
 		return fach;
 
 
