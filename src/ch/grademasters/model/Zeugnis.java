@@ -60,7 +60,8 @@ public class Zeugnis {
 		String s = "";
 		s += "Klasse: " + this.getKlasse().getKlassenname();
 		s += "\nSemester: " + this.getKlasse().getSemester();
-		s += "\nSchule: " + this.getKlasse().getSchule();
+		s += "\nSchule: " + this.getKlasse().getSchule() + "\n" + "___________________" + "\n";
+		s += "\nNoten: \n"; 
 		for (Fach fach : this.getFach()) {
 			s = s + fach.getFach() + ": "
 				+ this.noteRunden(fach.berechneZeugnisNote()) + "\n";

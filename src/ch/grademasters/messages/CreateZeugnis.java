@@ -55,6 +55,7 @@ public class CreateZeugnis extends JDialog {
 		setSize(240, 150);
 		setVisible(true);
 		setResizable(false);
+		setLocationRelativeTo(null);
 		//hinzufuegen
 		createZeugnisCard.add(exportPdf, BorderLayout.NORTH);
 		createZeugnisCard.add(sucessText, BorderLayout.CENTER);
