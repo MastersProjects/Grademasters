@@ -187,7 +187,7 @@ public class GradeMastersView extends JFrame {
 	
 	//addFachCard
 	protected JLabel fachNameLabel = new JLabel("Fach: ");
-	protected JLabel addFachKlasseListeLabel = new JLabel ("Schule: ");
+	protected JLabel addFachKlasseListeLabel = new JLabel ("Klasse: ");
 	
 	//addNoteCard
 	protected JLabel noteLabel = new JLabel ("Note: ");
