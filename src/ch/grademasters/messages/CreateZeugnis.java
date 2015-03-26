@@ -15,25 +15,24 @@ import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
 import ch.grademasters.controller.GMController;
-import ch.grademasters.listener.KlasseModelListener;
 import ch.grademasters.view.GradeMastersView;
 
 public class CreateZeugnis extends JDialog {
-	
-	//Vektor
+
+	// Vektor
 	Vector<?> klasseModel = GMController.getInstance().getKlasse();
 
-	// Card
+	// JPanel
 	protected JPanel addZeugnisCard = new JPanel(new BorderLayout());
-
-	// Toolbar
-	// addZeugnisCard
-	protected final JToolBar addZeugnisToolBar = new JToolBar();
-
-	// addZeugnisCard
 	protected JPanel addZeugnisKlasseListePanel = new JPanel(new GridLayout(2,
 			1));
 	protected JPanel addZeugnisFormular = new JPanel(new FlowLayout());
+
+	// JLabel
+	protected JLabel addZeugnisKlasseListeLabel = new JLabel("Klasse: ");
+
+	// Toolbar
+	protected final JToolBar addZeugnisToolBar = new JToolBar();
 
 	// Icons
 	private static final Icon speichernIconLarge = GradeMastersView
@@ -41,15 +40,10 @@ public class CreateZeugnis extends JDialog {
 	private static final Icon verlassenIconLarge = GradeMastersView
 			.loadIcon("verlassen.png");
 
-	// Label
-	protected JLabel addZeugnisKlasseListeLabel = new JLabel("Klasse: ");
-
-	// List
-	// addZeugnisCard
+	// JComboBox
 	protected JComboBox<?> addZeugnisKlasseListe = new JComboBox<>(klasseModel);
-	
-	
-	// addZeugnisToolBar
+
+	// JButton
 	protected final JButton zeugnisSpeichern = new JButton("Zeugnis speichern",
 			speichernIconLarge);
 	protected final JButton zeugnisVerlassen = new JButton("Verlassen",

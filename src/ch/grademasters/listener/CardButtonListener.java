@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import ch.grademasters.abfrage.Abfrage_User;
+import ch.grademasters.diagramm.CreateDiagramm;
 import ch.grademasters.messages.CreateZeugnis;
 
 /**
@@ -38,12 +39,10 @@ public class CardButtonListener implements ActionListener {
 			cardLayout.show(cards, "Add Note Card");
 		}
 		else if (e.getActionCommand().equals("Diagramm erstellen")) {
-			CardLayout cardLayout = (CardLayout) getCard().getLayout();
-			cardLayout.show(cards, "Add Diagramm Card");
+			new CreateDiagramm("Diagramm");
 		}
 		else if (e.getActionCommand().equals("Zeugnis erstellen")) {
-			CreateZeugnis zeugnis = new CreateZeugnis();
-			zeugnis.setLocationRelativeTo(null);
+			new CreateZeugnis();
 		}
 		else if (e.getActionCommand().equals("Verlassen")) {
 			Abfrage_User.getGradeMastersView().dispose();			
