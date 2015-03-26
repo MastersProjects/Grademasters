@@ -237,6 +237,7 @@ public class GradeMastersView extends JFrame {
 	//startCard
 	protected JTable startNoteTable = new JTable(model);
 	
+	
 
 	/*
 	 * COMBOXES
@@ -295,6 +296,7 @@ public class GradeMastersView extends JFrame {
 		startRightTop.add(klassenInfoLabel, BorderLayout.NORTH);
 		startRightTop.add(klassenInfo, BorderLayout.CENTER);
 		startRightBottom.add(startNoteTableLabel, BorderLayout.NORTH);
+		startNoteTable.setEnabled(false); //make table not editable
 		startRightBottom.add(startNoteTable, BorderLayout.CENTER);
 				
 		startRight.add(startRightTop, BorderLayout.NORTH);

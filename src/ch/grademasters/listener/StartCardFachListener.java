@@ -47,8 +47,6 @@ public class StartCardFachListener implements ActionListener {
 		
 		Vector<Vector> data = new Vector<Vector>();
 		
-		int i = 0;
-		
 		for(Pruefung pruefung : fach.getPruefung()){
 			
 			Vector<Object> row = new Vector<Object>();
@@ -60,16 +58,10 @@ public class StartCardFachListener implements ActionListener {
 			row.addElement(fach.getFach());
 			
 			data.addElement(row);
-							
-
-			
-			i = i + 1;
+						
 		}
 		TableModel model = new DefaultTableModel(data, columnNames);
 		getStartNoteTable().setModel(model);
-		JTable table = new JTable(model);
-		
-		System.out.println(data);
 		
 	}
 
