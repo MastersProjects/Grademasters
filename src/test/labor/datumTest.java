@@ -1,7 +1,6 @@
 package test.labor;
 
 import java.awt.FlowLayout;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -10,8 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 
-import ch.grademasters.controller.GMController;
-import ch.grademasters.diagramm.CreateDiagramm;
 import ch.grademasters.messages.CreateZeugnis;
 
 public class datumTest extends JFrame {

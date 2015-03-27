@@ -2,7 +2,6 @@ package ch.grademasters.abfrage;
 
 import java.awt.Button;
 import java.awt.FlowLayout;
-import java.awt.Image;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -94,7 +93,7 @@ public class Abfrage_User extends JDialog implements ActionListener {
 		Abfrage_User gui = new Abfrage_User();
 		gui.setLocationRelativeTo(null);
 
-		gui.setIconImage(new ImageIcon("src/images/icon.png").getImage());
+		gui.setIconImage(new ImageIcon("GradeMastersNew/src/images/icon.png").getImage());
 
 		// Action Listener erstellen
 		ButtonLogin.addActionListener(new ActionListener() {

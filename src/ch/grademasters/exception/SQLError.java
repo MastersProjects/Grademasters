@@ -44,6 +44,7 @@ public class SQLError extends JDialog {
 		setSize(220, 135);
 		setVisible(true);
 		setResizable(false);
+		setLocationRelativeTo(null);
 
 		//hinzufuegen
 		errorCard.add(errorImgButton, BorderLayout.NORTH);

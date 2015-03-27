@@ -5,17 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-
 import ch.grademasters.controller.GMController;
 import ch.grademasters.model.Zeugnis;
-import ch.grademasters.view.GradeMastersView;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -158,11 +153,11 @@ public class ZeugnisPdf {
 		Paragraph ganzesPdfFile = new Paragraph();
 
 		// Pfad des Logos
-		String logo = "src/images/logo.png";
+		String logo = "/images/logo.png";
 		Image image = null;
 		// Versuchen das Logo zu laden
 		try {
-			image = Image.getInstance(logo);
+			image = Image.getInstance(ZeugnisPdf.class.getResource(logo));
 		}
 		// Exception behandeln
 		catch (MalformedURLException e) {
