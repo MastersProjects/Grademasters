@@ -6,7 +6,7 @@ import java.util.Collection;
 /**
  * @description Diese lasse wird dazu bennötigt, ein Zeugniss zu berechnen
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin
- * @file Zeugnis.java Copyright Berufsbildungscenter GradeMasters 2015
+ * Zeugnis.java Copyright Berufsbildungscenter GradeMasters 2015
  */
 
 public class Zeugnis {
@@ -17,31 +17,32 @@ public class Zeugnis {
 	private Collection<Fach> fach = new ArrayList<Fach>();
 
 	// Getter und Setter
-	/**
-	 * @return fach
-	 */
 	public Collection<Fach> getFach() {
 		return fach;
 	}
 
-	/**
-	 * @return fach
-	 */
 	public Klasse getKlasse() {
 		return klasse;
 	}
 
-	/**
-	 * @param fach
-	 */
 	public void setFach(Collection<Fach> fach) {
 		this.fach = fach;
 	}
+	
+	public void addFach(Fach addFach) {
+		this.getFach().add(addFach);
+	}
 
-	// Methode
+	public void setKlasse(Klasse addKlasse) {
+		this.klasse = addKlasse;
+	}
+
+	public void removeFach(Fach removeFach) {
+		this.getFach().remove(removeFach);
+	}
+
 	/**
 	 * Diese Methode rundet die Note in eine Zeugnisnote also auf 0.5 genau
-	 * 
 	 * @param durchschnitt
 	 * @return gerundete Note auf 0.5
 	 */
@@ -54,8 +55,7 @@ public class Zeugnis {
 
 	/**
 	 * To String Methode
-	 * 
-	 * @return toString
+	 * @return String
 	 */
 	public String toString() {
 		String s = "";
@@ -70,33 +70,6 @@ public class Zeugnis {
 		}
 		return s;
 
-	}
-
-	/**
-	 * Fuegt eine Fach hinzu
-	 * 
-	 * @param addFach
-	 */
-	public void addFach(Fach addFach) {
-		this.getFach().add(addFach);
-	}
-
-	/**
-	 * Fuegt eine Fach hinzu
-	 * 
-	 * @param addFach
-	 */
-	public void setKlasse(Klasse addKlasse) {
-		this.klasse = addKlasse;
-	}
-
-	/**
-	 * löscht ein Fach
-	 * 
-	 * @param removeFach
-	 */
-	public void removeFach(Fach removeFach) {
-		this.getFach().remove(removeFach);
 	}
 
 }

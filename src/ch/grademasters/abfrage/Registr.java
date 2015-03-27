@@ -36,15 +36,14 @@ public class Registr extends JDialog implements ActionListener {
 	Label LabelPasswort = new Label("Passwort");
 	static JTextField TextUsername = new JTextField(20); // Laenge angeben
 	static JPasswordField FieldPasswort = new JPasswordField(20); // Laenge
-	
+
 	static Button ButtonRegistr = new Button("Registrieren");
 
 	/**
-	 * Konstruktor der Klasse Registr.
-	 * Hier wird ein neues Fenster erstellt
+	 * Konstruktor der Klasse Registr. Hier wird ein neues Fenster erstellt
 	 */
 	public Registr() {
-		
+
 		setLocationRelativeTo(null);
 		setLayout(new FlowLayout()); // Layout definieren
 		add(LabelBeschreibung);
@@ -73,11 +72,11 @@ public class Registr extends JDialog implements ActionListener {
 			UserFail userFail = new UserFail();
 			userFail.setLocationRelativeTo(null);
 		}
-		//Verschlüsselt das Passwort
+		// Verschlüsselt das Passwort
 		else {
 			passwort = EncryptUtils.base64encode(passwort);
-			
-			//Versucht neuen Benutzer anzulegen
+
+			// Versucht neuen Benutzer anzulegen
 			try {
 				User currentUser = new User();
 				currentUser.setUsername(username);
@@ -95,7 +94,6 @@ public class Registr extends JDialog implements ActionListener {
 			}
 
 		}
-		
 
 	}
 }

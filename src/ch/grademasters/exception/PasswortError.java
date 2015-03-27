@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import ch.grademasters.view.GradeMastersView;
 
 /**
- * @description Exceptionklasse wenn keine VErbindung zur Datenbank besteht.
+ * @description Exceptionklasse wenn bei registration kein Passwort eingegeben wurde
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin PasswortError.java
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
@@ -24,7 +24,7 @@ public class PasswortError extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 
-	//JPanel erstellen
+	//JPanel
 	protected JPanel error = new JPanel(new CardLayout());
 	protected JPanel errorCard = new JPanel(new FlowLayout());
 

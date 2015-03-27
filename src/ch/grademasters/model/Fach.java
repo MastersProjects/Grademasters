@@ -5,8 +5,8 @@ import java.util.Collection;
 
 /**
  * @description
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin Fach.java
- *         Copyright Berufsbildungscenter GradeMasters 2015
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * Fach.java Copyright Berufsbildungscenter GradeMasters 2015
  */
 
 public class Fach {
@@ -21,30 +21,20 @@ public class Fach {
 	}
 
 	// Getter und Setter
-	/**
-	 * @return fach
-	 */
 	public String getFach() {
 		return fach;
 	}
 
-	/**
-	 * @param fach
-	 */
 	public void setFach(String fach) {
 		this.fach = fach;
 	}
 
-	/**
-	 * @return pruefung
-	 */
+	
 	public Collection<Pruefung> getPruefung() {
 		return pruefung;
 	}
 
-	/**
-	 * @param pruefung
-	 */
+
 	public void setPruefung(Collection<Pruefung> pruefung) {
 		this.pruefung = pruefung;
 	}
@@ -52,7 +42,6 @@ public class Fach {
 	// Methode
 	/**
 	 * Rechnet Durchschnitts Note vom Fach
-	 * 
 	 * @return berechneZeugnisNote
 	 */
 	public float berechneZeugnisNote() {
@@ -72,7 +61,6 @@ public class Fach {
 
 	/**
 	 * Fuegt eine Pruefung hinzu
-	 * 
 	 * @param addPruefung
 	 */
 	public void addPruefung(Pruefung addPruefung) {
@@ -81,7 +69,6 @@ public class Fach {
 
 	/**
 	 * Loescht eine Prüfung
-	 * 
 	 * @param removePruefung
 	 */
 	public void removePruefung(Pruefung removePruefung) {
@@ -90,7 +77,6 @@ public class Fach {
 
 	/**
 	 * To String Methode
-	 * 
 	 * @return toString
 	 */
 	public String toString() {

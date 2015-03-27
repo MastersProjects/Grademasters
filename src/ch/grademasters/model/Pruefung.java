@@ -2,8 +2,8 @@ package ch.grademasters.model;
 
 /**
  * @description
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin Pruefung.java
- *         Copyright Berufsbildungscenter GradeMasters 2015
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * Pruefung.java Copyright Berufsbildungscenter GradeMasters 2015
  */
 
 public class Pruefung {
@@ -14,7 +14,10 @@ public class Pruefung {
 	private String bezeichnung;
 	private String datum;
 
-	// Konstruktor
+	/**
+	 * @description Konstruktor fuer die Klasse Pruefung
+	 * @param bezeichnung, note, gewichtung, datum
+	 */
 	public Pruefung(String bezeichnung, float note, float gewichtung, String datum) {
 		this.setNote(note);
 		this.setGewichtung(gewichtung);
@@ -23,52 +26,32 @@ public class Pruefung {
 	}
 
 	// Getter und Setter
-	/**
-	 * @return note
-	 */
 	public float getNote() {
 		return note;
 	}
 
-	/**
-	 * @param note
-	 */
 	public void setNote(float note) {
 		this.note = note;
 	}
 
-	/**
-	 * @return gewichtung
-	 */
 	public float getGewichtung() {
 		return gewichtung;
 	}
 
-	/**
-	 * @param gewichtung
-	 */
 	public void setGewichtung(float gewichtung) {
 		this.gewichtung = gewichtung;
 	}
 
-	/**
-	 * @return bezeichnung
-	 */
 	public String getBezeichnung() {
 		return bezeichnung;
 	}
 
-	/**
-	 * @param bezeichnung
-	 */
 	public void setBezeichnung(String bezeichnung) {
 		this.bezeichnung = bezeichnung;
 	}
 
-	// Methode
 	/**
-	 * To String Methode
-	 * 
+	 * @description To String Methode
 	 * @return toString
 	 */
 	public String toString() {

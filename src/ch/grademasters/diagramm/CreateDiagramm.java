@@ -16,16 +16,22 @@ import org.jfree.ui.ApplicationFrame;
 import ch.grademasters.controller.GMController;
 import ch.grademasters.model.Fach;
 
+/**
+ * 
+ * @description Hier wird das Diagramm erstellt
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin
+ * CreateDiagramm.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
+
 public class CreateDiagramm extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Neue Instanz
-	 *
-	 * @param Name
-	 *            des Frames
+	 * Konstruktor fuer das Diagramm
+	 * @param Name des Frames
 	 */
-	public CreateDiagramm(final String title){
+	public CreateDiagramm(final String title) {
 
 		super(title);
 
@@ -40,8 +46,7 @@ public class CreateDiagramm extends JFrame {
 	}
 
 	/**
-	 * Alle Daten
-	 * 
+	 * Alle Daten in Dataset
 	 * @return gibt alle Daten zurueck
 	 */
 	private CategoryDataset createDataset() {
@@ -64,13 +69,12 @@ public class CreateDiagramm extends JFrame {
 
 	/**
 	 * Erstellen des Diagrammes
-	 * @param Objekt
-	 *            vom Typ Dataset  
+	 * @param Objekt vom Typ Dataset
 	 * @return Das Diagramm
 	 */
 	private JFreeChart createChart(final CategoryDataset dataset) {
 
-			// Erstellen des Diagramms
+		// Erstellen des Diagramms
 		final JFreeChart chart = ChartFactory.createBarChart(
 				"Diagramm aller Fächer", // Titel
 				"Fächer", // Legende
@@ -80,7 +84,7 @@ public class CreateDiagramm extends JFrame {
 				false, // Legende Ja/Nein
 				true, // tooltips braucht es einfach
 				false // URLs braucht es einfach
-		);
+				);
 
 		return chart;
 

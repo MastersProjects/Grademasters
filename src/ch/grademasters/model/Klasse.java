@@ -3,8 +3,7 @@ package ch.grademasters.model;
 /**
  * @description
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin
- * @file Klasse.java 
- * Copyright Berufsbildungscenter GradeMasters 2015
+ * Klasse.java Copyright Berufsbildungscenter GradeMasters 2015
  */
 
 public class Klasse {
@@ -14,9 +13,12 @@ public class Klasse {
 	private String schule;
 	private int semester;
 	private KlassenLehrer klassenLehrer;
-	private Zeugnis zeugnis /*= new Zeugnis()*/;
+	private Zeugnis zeugnis;
 	
-
+/**
+ * Konstruktor fuer eine neue Klasse
+ * @param lehrer, klassenname, schule, semester
+ */
 	public Klasse(KlassenLehrer lehrer, String klassenname, String schule,
 			int semester) {
 		if (lehrer != null) {
@@ -31,59 +33,34 @@ public class Klasse {
 	}
 
 	// Getter und Setter
-
-	/**
-	 * @return klassenname
-	 */
 	public String getKlassenname() {
 		return klassenName;
 	}
 
-	/**
-	 * @param klassenname
-	 */
 	public void setKlassenname(String klassenName) {
 		this.klassenName = klassenName;
 	}
 
-	/**
-	 * @return schule
-	 */
 	public String getSchule() {
 		return schule;
 	}
 
-	/**
-	 * @param schule
-	 */
 	public void setSchule(String schule) {
 		this.schule = schule;
 	}
 
-	/**
-	 * @return klassenLehrer
-	 */
 	public KlassenLehrer getKlassenLehrer() {
 		return klassenLehrer;
 	}
 
-	/**
-	 * @param klassenLehrer
-	 */
 	public void setKlassenLehrer(KlassenLehrer klassenLehrer) {
 		this.klassenLehrer = klassenLehrer;
 	}
 
-	/**
-	 * @return semester
-	 */
 	public int getSemester() {
 		return semester;
 	}
 
-	/**
-	 * @param zeugnis
-	 */
 	public void setSemester(int semester) {
 		this.semester = semester;
 	}
@@ -91,21 +68,14 @@ public class Klasse {
 	public Zeugnis getZeugnis() {
 		return zeugnis;
 	}
-	
-	/**
-	 * @param zeugnis
-	 */
+
 	public void setZeugnis(Zeugnis zeugnis) {
 		this.zeugnis = zeugnis;
 	}
-
 	
-
-	// Methode
 	/**
 	 * To String Methode
-	 * 
-	 * @return toString
+	 * @return String
 	 */
 	public String toString() {
 		String l = "";
@@ -118,11 +88,5 @@ public class Klasse {
 //		}
 //		l = l + "\n" + this.getZeugnis();
 		return l;
-	}
-
-	
-
-	
-
-	
+	}	
 }

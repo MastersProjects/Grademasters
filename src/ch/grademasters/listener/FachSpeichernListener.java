@@ -9,16 +9,30 @@ import javax.swing.JTextField;
 import ch.grademasters.controller.GMController;
 import ch.grademasters.item.Item;
 
+/**
+ * @description Listener damit man eine Klasse speichern kann
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * FachSpeichernListener.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
+
 public class FachSpeichernListener implements ActionListener {
 	private JTextField fach;
 	private JComboBox<?> klasse;
 
+	/**
+	 * @description Konstruktor fuer FachSpeichernListener, wird bennoetigt um etwas in DB einzutragen
+	 * @param fach
+	 * @param klasse
+	 */
 	public FachSpeichernListener(JTextField fach, JComboBox<?> klasse) {
 		this.setFach(fach);
 		this.setKlasse(klasse);
-
 	}
 
+	/**
+	 * @description ActionListener
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Item item = (Item) getKlasse().getSelectedItem();
 		int ID_Klasse = item.getId();
@@ -30,6 +44,7 @@ public class FachSpeichernListener implements ActionListener {
 		this.getFach().setText("");
 	}
 
+	//Setter und Getter
 	public JTextField getFach() {
 		return fach;
 	}
