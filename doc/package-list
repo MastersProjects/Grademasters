@@ -1,0 +1,14 @@
+ch.grademasters.abfrage
+ch.grademasters.controller
+ch.grademasters.dao
+ch.grademasters.diagramm
+ch.grademasters.exception
+ch.grademasters.item
+ch.grademasters.listener
+ch.grademasters.messages
+ch.grademasters.model
+ch.grademasters.pdf
+ch.grademasters.tester
+ch.grademasters.util
+ch.grademasters.view
+test.labor
