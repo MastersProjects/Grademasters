@@ -79,9 +79,10 @@ public class Klasse {
 	 */
 	public String toString() {
 		String l = "";
-		l = "Klasse: " + this.getKlassenname() + "\n";
+		l = "Schule: " + this.getSchule() + "\n";
+		l =  l + "Klasse: " + this.getKlassenname() + "\n";
 		l = l + "Semester: " + this.getSemester() + "\n";
-		l = l + "Schule: " + this.getSchule() + "\n";
+		
 //		l = l + "Lehrer: \n" + this.getKlassenLehrer().toString() + "\n\n";
 //		for (Fach fach : this.getZeugnis().getFach()) {
 //			l = l + fach;

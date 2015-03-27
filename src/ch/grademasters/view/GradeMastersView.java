@@ -21,6 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SpinnerDateModel;
@@ -150,10 +151,7 @@ public class GradeMastersView extends JFrame {
 		
 	/*
 	 * TEXTFIELDS
-	 */	
-	//startCard
-	protected JTextField klassenInfo = new JTextField("uabgfjkabfkabkfbhakfhnkasbfkasenfkeasnbkfnakdflnalk");
-	
+	 */		
 	//addKlasseCard
 	protected JTextField klasseName = new JTextField();
 	protected JTextField schuleName = new JTextField();
@@ -172,7 +170,14 @@ public class GradeMastersView extends JFrame {
 	protected JTextField note = new JTextField();
 	protected JTextField gewichtung = new JTextField();
 	protected JTextField benennung = new JTextField(); 
-
+	
+	
+	/*
+	 * JTEXTFIELD
+	 */
+	//startCard
+	protected JTextArea klassenInfo = new JTextArea();
+	
 	
 	/*
 	 * JLABELS
@@ -290,12 +295,14 @@ public class GradeMastersView extends JFrame {
 		klassePanel.add(startKlasseListe, BorderLayout.CENTER);
 		
 		klasseInfoPanel.add(klassenInfoLabel, BorderLayout.NORTH);
+		klassenInfo.setEditable(false);
 		klasseInfoPanel.add(klassenInfo, BorderLayout.CENTER);
 		
 		fachPanel.add(startFachListeLabel, BorderLayout.NORTH);
 		fachPanel.add(startFachListe, BorderLayout.CENTER);
 		
 		startNotePanel.add(startNoteTableLabel, BorderLayout.NORTH);
+		startNoteTable.setEnabled(false);
 		startNotePanel.add(startNoteTable, BorderLayout.CENTER);
 		
 		startCenter.add(klassePanel);
@@ -497,8 +504,8 @@ public class GradeMastersView extends JFrame {
 		//addNoteCard je nach klasse andere fächer
 		addNoteKlasseListe.addActionListener(new KlasseModelListener(addNoteKlasseListe, addNoteFachListe));
 		
-		//startCard je nach klasse andere fächer
-		startKlasseListe.addActionListener(new StartCardKlasseListener(startKlasseListe, startFachListe));		
+		//startCard je nach klasse andere fächer und KlassenInformation
+		startKlasseListe.addActionListener(new StartCardKlasseListener(startKlasseListe, startFachListe, klassenInfo));		
 		//startCard je nach fach andere pruefungen anzeigen
 		startFachListe.addActionListener(new StartCardFachListener(startFachListe, startNoteTable));
 		
