@@ -61,7 +61,7 @@ public class ZeugnisSuccess extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					java.awt.Desktop.getDesktop().browse(
-							new File("Zeugnisse").toURI());
+							new File("C:/GradeMasters/Zeugnisse/").toURI());
 				}
 				catch (IOException e1) {
 					// TODO Auto-generated catch block

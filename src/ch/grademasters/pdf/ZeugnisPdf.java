@@ -70,9 +70,13 @@ public class ZeugnisPdf {
 			Document document = new Document();
 			// Neuer Output Stream
 			// Macht solange exist == true ist
+			File f = new File("C:/GradeMasters/Zeugnisse"); 
+			if (!f.exists()){
+				f.mkdirs();
+			}
 			while (exist == true) {
 				// Output Ordner + file Name
-				String file = "Zeugnisse/" + "Zeugnis" + i + "-"
+				String file = f + "/" + "Zeugnis" + i + "-"
 						+ aktuellesDatum.format(zeitStempel) + ".pdf";
 				// Wenn das File schon existiert, dann benenne es um, indem der
 				// Zaehler um 1 erhoeht wird
