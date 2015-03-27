@@ -12,7 +12,7 @@ import ch.grademasters.messages.CreateZeugnis;
 
 /**
  * @description Button Listener fuer wechseln der verschiedenen Cards
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin ButtonListener.java
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin
  * Copyright Berufsbildungscenter GradeMasters 2015
  */
  
@@ -20,15 +20,16 @@ public class CardButtonListener implements ActionListener {
 
 	private JPanel cards;
 
+	
 	/**
 	 * Konstruktor fuer die Klasse CardButtonListener
 	 * @param cards
 	 */
 	public CardButtonListener(JPanel cards) { 
-
 		this.setCard(cards);
 	}
 
+	
 	public void actionPerformed(ActionEvent e) {
 		//Setzt Klasse hinzufuegen auf visable wenn Button gedrueckt wird
 		if (e.getActionCommand().equals("Klasse hinzufügen")) {
@@ -63,6 +64,7 @@ public class CardButtonListener implements ActionListener {
 
 	}
 
+	
 	// Getter und Setter
 	public JPanel getCard() {
 		return cards;
