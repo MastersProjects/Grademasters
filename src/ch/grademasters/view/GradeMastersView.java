@@ -65,12 +65,6 @@ public class GradeMastersView extends JFrame {
 	 * PANELS
 	 */
 	//startCard
-//	protected JPanel startTop = new JPanel(new BorderLayout());
-//	protected JPanel startBottom = new JPanel(new BorderLayout());
-//	protected JPanel startTopLeft = new JPanel(new BorderLayout());
-//	protected JPanel startTopRight = new JPanel(new BorderLayout());
-//	protected JPanel startBottomLeft = new JPanel(new BorderLayout());
-//	protected JPanel startBottomRight = new JPanel(new BorderLayout());
 	protected JPanel startCenter = new JPanel(new GridLayout(2,2));
 	protected JPanel klassePanel = new JPanel(new BorderLayout());
 	protected JPanel klasseInfoPanel = new JPanel(new BorderLayout());
@@ -241,8 +235,7 @@ public class GradeMastersView extends JFrame {
     JSpinner datumSpinner = new JSpinner(new SpinnerDateModel(today, null, null, Calendar.MONTH));
     JSpinner.DateEditor datumformatiert = new JSpinner.DateEditor(datumSpinner, "dd/MM/yyyy");
 
-	
-	
+    
 	public GradeMastersView() {	
 
 		
@@ -263,36 +256,7 @@ public class GradeMastersView extends JFrame {
 		startToolBar.add(addZeugnis);
 		startToolBar.add(addDiagramm);
 
-		//startTop
-//		startTopLeft.add(startKlasseListeLabel, BorderLayout.NORTH);
-//		startTopLeft.add(startKlasseListe, BorderLayout.CENTER);
-//		
-//		startTopRight.add(klassenInfoLabel, BorderLayout.NORTH);
-//		startTopRight.add(klassenInfo, BorderLayout.CENTER);
-//		startTopRight.setPreferredSize(new Dimension(500, 200));
-//		
-//		
-//		startTop.add(startTopLeft, BorderLayout.WEST);
-//		startTop.add(startTopRight, BorderLayout.CENTER);
-//		startTop.setPreferredSize(new Dimension(800, 200));
-//		
-//		//startBottom
-//		startBottomLeft.add(startFachListeLabel, BorderLayout.NORTH);
-//		startBottomLeft.add(startFachListe, BorderLayout.CENTER);
-//		
-//		startBottomRight.add(startNoteTableLabel, BorderLayout.NORTH);
-//		startBottomRight.add(startNoteTable, BorderLayout.CENTER);
-//		startBottomRight.setPreferredSize(new Dimension(500, 200));
-//		
-//		startBottom.add(startBottomLeft, BorderLayout.WEST);
-//		startBottom.add(startBottomRight, BorderLayout.CENTER);
-//		startBottom.setPreferredSize(new Dimension(800, 200));
-//		
-//		//startCard
-//		startCard.add(startToolBar, BorderLayout.NORTH);
-//		startCard.add(startTop, BorderLayout.CENTER);
-//		startCard.add(startBottom, BorderLayout.SOUTH);
-		
+		//startTop		
 		klassePanel.add(startKlasseListeLabel, BorderLayout.NORTH);
 		klassePanel.add(startKlasseListe, BorderLayout.CENTER);
 		
@@ -318,12 +282,6 @@ public class GradeMastersView extends JFrame {
 		
 		//Add in Cards
 		cards.add(startCard, "Start Card");
-				
-//		//Colors for Test
-//		startTopLeft.setBackground(Color.yellow);
-//		startTopRight.setBackground(Color.red);
-//		startBottomLeft.setBackground(Color.green);
-//		startBottomRight.setBackground(Color.blue);
 		
 		
 		/*
@@ -377,12 +335,7 @@ public class GradeMastersView extends JFrame {
 		
 		//Add in Cards
 		cards.add(addKlasseCard, "Add Klasse Card");
-		
-		//Colors for Test
-//		addKlasseToolBar.setBackground(Color.yellow);
-//		klasseFormular.setBackground(Color.blue);
-//		lehrerFormular.setBackground(Color.red);
-		
+			
 		
 		/*
 		 * addFachCard
