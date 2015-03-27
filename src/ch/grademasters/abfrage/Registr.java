@@ -78,14 +78,18 @@ public class Registr extends JDialog implements ActionListener {
 
 			// Versucht neuen Benutzer anzulegen
 			try {
+
 				User currentUser = new User();
 				currentUser.setUsername(username);
 				currentUser.setPasswort(passwort);
 				GMController.getInstance().insert(currentUser);
 				setVisible(false);
 				setAlwaysOnTop(true);
-				UserSuccess userSuccess = new UserSuccess();
-				userSuccess.setLocationRelativeTo(null);
+				
+				if (GMController.userAlreadyExists == false) {
+					UserSuccess userSuccess = new UserSuccess();
+					userSuccess.setLocationRelativeTo(null);
+				}
 
 			}
 			catch (Exception e1) {

@@ -36,9 +36,8 @@ import ch.grademasters.util.EncryptUtils;
 
 /**
  * @description
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
- * GMController.java
- * Copyright Berufsbildungscenter GradeMasters 2015
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin GMController.java
+ *         Copyright Berufsbildungscenter GradeMasters 2015
  */
 
 public class GMController {
@@ -49,7 +48,7 @@ public class GMController {
 	private static final FachDao FACH_DAO = new FachJDBCDao();
 	private static final NoteDao NOTE_DAO = new NoteJDBCDao();
 	private static final ZeugnisDao ZEUGNIS_DAO = new ZeugnisJDBCDao();
-	
+
 	/**
 	 * Konstruktor der Klasse GMCController nur Privat
 	 */
@@ -59,9 +58,10 @@ public class GMController {
 	public static GMController getInstance() {
 		return GMController.instance;
 	}
-	
+
 	/**
 	 * Lehrer hizufuegen in die DB
+	 * 
 	 * @param klasse
 	 */
 	public void klasseSpeichern(Klasse klasse) {
@@ -77,20 +77,23 @@ public class GMController {
 
 	/**
 	 * Alle Klassen auslesen aus der DB fuer GUI
+	 * 
 	 * @return alle Klassen in Vector
 	 */
 	public Vector<?> getKlasse() {
 		Vector<?> klasse = null;
 		try {
 			klasse = KLASSE_DAO.getKlasse();
-		} catch (SQLException e) {
+		}
+		catch (SQLException e) {
 			new SQLError();
 		}
 		return klasse;
 	}
-	
+
 	/**
 	 * Alle Faecher auslesen aus DB fuer GUI
+	 * 
 	 * @param klasse_ID
 	 * @return Alle Faecher einer bestimmten Klasse in Vector
 	 */
@@ -98,31 +101,35 @@ public class GMController {
 		Vector<?> fach = null;
 		try {
 			fach = FACH_DAO.getFachById(klasse_ID);
-		} catch (SQLException e) {
+		}
+		catch (SQLException e) {
 			new SQLError();
 		}
-		return fach;	
+		return fach;
 	}
-	
+
 	/**
 	 * 
 	 */
-	public Fach getNotenByID(int fach_ID){
+	public Fach getNotenByID(int fach_ID) {
 		Fach fach = null;
 		try {
 			fach = NOTE_DAO.getNotenByID(fach_ID);
-		} catch (SQLException e) {
+		}
+		catch (SQLException e) {
 			new SQLError();
 		}
-		return fach;		
+		return fach;
 	}
-	
+
 	/**
 	 * Ein neues Fach in die DB speichern
-	 * @param ID_Klasse, fachName
+	 * 
+	 * @param ID_Klasse
+	 *            , fachName
 	 */
-	public void fachSpeichern(int ID_Klasse, String fachName){
-		try{
+	public void fachSpeichern(int ID_Klasse, String fachName) {
+		try {
 			FACH_DAO.addFach(ID_Klasse, fachName);
 			new addInDb();
 		}
@@ -130,13 +137,16 @@ public class GMController {
 			new SQLError();
 		}
 	}
-	
+
 	/**
 	 * Eine neue Note in die Db eintragen
-	 * @param note, gewichtung, fach_ID, benennung
+	 * 
+	 * @param note
+	 *            , gewichtung, fach_ID, benennung
 	 */
-	public void noteSpeichern(float note, float gewichtung, int fach_ID, String benennung, String datum) {
-		try{
+	public void noteSpeichern(float note, float gewichtung, int fach_ID,
+			String benennung, String datum) {
+		try {
 			NOTE_DAO.addNote(note, gewichtung, fach_ID, benennung, datum);
 			new addInDb();
 		}
@@ -144,26 +154,28 @@ public class GMController {
 			new SQLError();
 		}
 	}
-	
+
 	/**
 	 * Liest alle Noten aus der DB und erstellt die dazugehoerigen Facher
+	 * 
 	 * @return Faecher Objekte mit allen Noten
 	 */
-	public ArrayList<Fach> getNotenUndFach(){
-		try{
-			return NOTE_DAO.getNotenUndFach(); 
+	public ArrayList<Fach> getNotenUndFach() {
+		try {
+			return NOTE_DAO.getNotenUndFach();
 		}
-		catch (SQLException e){
+		catch (SQLException e) {
 			new SQLError();
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Holt alle Informationen aus DB um ein Zeugnis zuerstellen
+	 * 
 	 * @return
 	 */
-	public ArrayList<Zeugnis> getZeugnis(int klassen_ID){
+	public ArrayList<Zeugnis> getZeugnis(int klassen_ID) {
 		try {
 			return ZEUGNIS_DAO.getZeugnis(klassen_ID);
 		}
@@ -172,17 +184,18 @@ public class GMController {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Methode um neuen User in die DB einzutragen.
+	 * 
 	 * @param currentUser
 	 */
+	public static boolean userAlreadyExists;
+
 	public void insert(User currentUser) {
 
 		String newUsername = null;
 		newUsername = currentUser.getUsername();
-
-		boolean userAlreadyExists = false;
 
 		// User ueberpruefung
 		List<User> dbUsers = null;
@@ -199,12 +212,16 @@ public class GMController {
 
 			if (newUsername.equals(usernameDb)) {
 				userAlreadyExists = true;
-				new UserExist();
 				break;
+			} else {
+				userAlreadyExists = false;
 			}
 		}
-
-		if (!userAlreadyExists) {
+		if (userAlreadyExists == true) {
+			new UserExist();
+		}
+		
+		if (userAlreadyExists == false) {
 			try {
 				USER_DAO.insertUser(currentUser);
 			}
@@ -284,5 +301,4 @@ public class GMController {
 		return login;
 	}
 
-	
 }
