@@ -61,7 +61,7 @@ public class ZeugnisJDBCDao extends Database implements ZeugnisDao {
 
 			while (rs2.next()) {
 				pruefung = new Pruefung(null, rs2.getFloat("Note"),
-						rs2.getFloat("Gewichtung"));
+						rs2.getFloat("Gewichtung"), null);
 				fach.addPruefung(pruefung);
 			}
 			zeugnisse.add(zeugnis);

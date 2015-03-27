@@ -20,8 +20,8 @@ public class ZeugnisTester {
 		Fach mathe = new Fach("Mathe");
 		
 		zeugnis.addFach(mathe);
-		Pruefung pruefung1 = new Pruefung("Gleichungen", 6f, 1f);
-		Pruefung pruefung2 = new Pruefung("Eins mal Eins", 5.76f, 0.5f);		
+		Pruefung pruefung1 = new Pruefung("Gleichungen", 6f, 1f, null);
+		Pruefung pruefung2 = new Pruefung("Eins mal Eins", 5.76f, 0.5f, null);		
 		mathe.addPruefung(pruefung1);
 		mathe.addPruefung(pruefung2);
 		
@@ -29,9 +29,9 @@ public class ZeugnisTester {
 		Fach deutsch = new Fach("Deutsch");
 		
 		zeugnis.addFach(deutsch);
-		Pruefung pruefung3 = new Pruefung("Gramatik", 4.25f, 1f);
-		Pruefung pruefung4 = new Pruefung("Nomen", 5.25f, 0.5f);
-		Pruefung pruefung5 = new Pruefung("Verben", 4.8f, 0.5f);		
+		Pruefung pruefung3 = new Pruefung("Gramatik", 4.25f, 1f, null);
+		Pruefung pruefung4 = new Pruefung("Nomen", 5.25f, 0.5f, null);
+		Pruefung pruefung5 = new Pruefung("Verben", 4.8f, 0.5f, null);		
 		deutsch.addPruefung(pruefung3);
 		deutsch.addPruefung(pruefung4);
 		deutsch.addPruefung(pruefung5);

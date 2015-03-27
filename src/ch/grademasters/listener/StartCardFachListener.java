@@ -53,7 +53,7 @@ public class StartCardFachListener implements ActionListener {
 			row.addElement(pruefung.getBezeichnung());	
 			row.addElement(pruefung.getNote());
 			row.addElement(pruefung.getGewichtung());
-			// datum
+			row.addElement(pruefung.getDatum());
 			row.addElement(fach.getFach());
 			
 			data.addElement(row);

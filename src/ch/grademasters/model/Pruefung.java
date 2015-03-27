@@ -12,12 +12,14 @@ public class Pruefung {
 	private float note;
 	private float gewichtung;
 	private String bezeichnung;
+	private String datum;
 
 	// Konstruktor
-	public Pruefung(String bezeichnung, float note, float gewichtung) {
+	public Pruefung(String bezeichnung, float note, float gewichtung, String datum) {
 		this.setNote(note);
 		this.setGewichtung(gewichtung);
 		this.setBezeichnung(bezeichnung);
+		this.setDatum(datum);
 	}
 
 	// Getter und Setter
@@ -74,6 +76,14 @@ public class Pruefung {
 		s = "\n" + this.getBezeichnung() + "\nNote: " + this.getNote()
 				+ "\nGewichtung: " + this.getGewichtung() + "\n";
 		return s;
+	}
+
+	public String getDatum() {
+		return datum;
+	}
+
+	public void setDatum(String datum) {
+		this.datum = datum;
 	}
 
 }

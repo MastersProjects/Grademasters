@@ -370,9 +370,9 @@ public class GradeMastersView extends JFrame {
 		cards.add(addKlasseCard, "Add Klasse Card");
 		
 		//Colors for Test
-		addKlasseToolBar.setBackground(Color.yellow);
-		klasseFormular.setBackground(Color.blue);
-		lehrerFormular.setBackground(Color.red);
+//		addKlasseToolBar.setBackground(Color.yellow);
+//		klasseFormular.setBackground(Color.blue);
+//		lehrerFormular.setBackground(Color.red);
 		
 		
 		/*

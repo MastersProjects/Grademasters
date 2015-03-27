@@ -2,6 +2,7 @@ package ch.grademasters.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JComboBox;
 import javax.swing.JSpinner;
@@ -34,12 +35,10 @@ public class NoteSpeichernListener implements ActionListener {
 		float note = Float.parseFloat(this.getNote().getText());
 		float gewichtung = Float.parseFloat(this.getGewichtung().getText());
 		String benennung = this.getBenennung().getText();
-		JSpinner.DateEditor datumformatiert = new JSpinner.DateEditor(getDatumSpinner(), "dd/MM/yyyy");
-		getDatumSpinner().setEditor(datumformatiert);
+		SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+		String datum = formater.format(getDatumSpinner().getValue());
 		
-		System.out.println(getDatumSpinner().getValue());
-		
-		GMController.getInstance().noteSpeichern(note, gewichtung, ID_Fach, benennung);
+		GMController.getInstance().noteSpeichern(note, gewichtung, ID_Fach, benennung, datum);
 		
 		//clear textfield
 		this.getNote().setText("");

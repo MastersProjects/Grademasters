@@ -23,14 +23,15 @@ public class NoteJDBCDao extends Database implements NoteDao {
 	 * @throws SQLException
 	 */
 	public void addNote(float note, float gewichtung, int fach_ID,
-			String benennung) throws SQLException {
-		String sql = "INSERT INTO PRUEFUNG (Pruefung, Note, Gewichtung, Fach_ID) VALUES (?, ?, ?, ?)";
+			String benennung, String datum) throws SQLException {
+		String sql = "INSERT INTO PRUEFUNG (Pruefung, Note, Gewichtung, Fach_ID, Datum) VALUES (?, ?, ?, ?, ?)";
 		con = getCon();
 		ps = con.prepareStatement(sql);
 		ps.setString(1, benennung);
 		ps.setFloat(2, note);
 		ps.setFloat(3, gewichtung);
 		ps.setLong(4, fach_ID);
+		ps.setString(5, datum);
 
 		ps.executeUpdate();
 		closeCon();
@@ -56,8 +57,7 @@ public class NoteJDBCDao extends Database implements NoteDao {
 			rs2 = ps2.executeQuery();
 
 			while (rs2.next()) {
-				pruefung = new Pruefung(null, rs2.getFloat("Note"),
-						rs2.getFloat("Gewichtung"));
+				pruefung = new Pruefung(null, rs2.getFloat("Note"), rs2.getFloat("Gewichtung"), rs2.getString("Datum"));
 				fach.addPruefung(pruefung);
 			}
 			noten.add(fach);
@@ -85,7 +85,7 @@ public class NoteJDBCDao extends Database implements NoteDao {
 			rs = ps.executeQuery();
 		
 			while (rs.next()) {									
-				Pruefung pruefung = new Pruefung(rs.getString("Pruefung"), rs.getFloat("Note"), rs.getFloat("Gewichtung"));
+				Pruefung pruefung = new Pruefung(rs.getString("Pruefung"), rs.getFloat("Note"), rs.getFloat("Gewichtung"), rs.getString("Datum"));
 				fach.addPruefung(pruefung);
 				
 			}

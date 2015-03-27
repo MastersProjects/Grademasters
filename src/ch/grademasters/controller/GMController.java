@@ -135,9 +135,9 @@ public class GMController {
 	 * Eine neue Note in die Db eintragen
 	 * @param note, gewichtung, fach_ID, benennung
 	 */
-	public void noteSpeichern(float note, float gewichtung, int fach_ID, String benennung) {
+	public void noteSpeichern(float note, float gewichtung, int fach_ID, String benennung, String datum) {
 		try{
-			NOTE_DAO.addNote(note, gewichtung, fach_ID, benennung);
+			NOTE_DAO.addNote(note, gewichtung, fach_ID, benennung, datum);
 			new addInDb();
 		}
 		catch (SQLException e) {
