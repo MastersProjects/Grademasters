@@ -1,9 +1,10 @@
 package ch.grademasters.model;
 
 /**
- * @description Klasse Lehrer enthaelt alle Informationen ueber eine Lehrer einer Klasse
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin
- * KlassenLehrer.java Copyright Berufsbildungscenter GradeMasters 2015
+ * @description Klasse Lehrer enthaelt alle Informationen ueber eine Lehrer
+ *              einer Klasse
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin KlassenLehrer.java
+ *         Copyright Berufsbildungscenter GradeMasters 2015
  */
 
 public class KlassenLehrer {
@@ -15,7 +16,8 @@ public class KlassenLehrer {
 
 	/**
 	 * @description Konstruktor fuer einen KlassenLeherer
-	 * @param name, vorname, email
+	 * @param name
+	 *            , vorname, email
 	 */
 	public KlassenLehrer(String name, String vorname, String email) {
 		this.setName(name);
@@ -53,10 +55,10 @@ public class KlassenLehrer {
 	 * @return String mit Vorname, Nachname, Email
 	 */
 	public String toString() {
-		String s = null;
-		s = this.getVorname() + " " + this.getName() + "\n";
-		s = s + this.getEmail();
-		return s;
+		String kl = "";
+		kl = "Klassenlehrperson: " + this.getVorname() + " " + this.getName()
+				+ "\n";
+		kl = kl + "E-Mail: " + this.getEmail() + "\n";
+		return kl;
 	}
-
 }

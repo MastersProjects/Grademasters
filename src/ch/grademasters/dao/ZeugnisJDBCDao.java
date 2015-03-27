@@ -42,6 +42,7 @@ public class ZeugnisJDBCDao extends Database implements ZeugnisDao {
 						rs4.getString("Vorname"), rs4.getString("Email"));
 				klasse = new Klasse(klassenLehrer, rs3.getString("Klasse"),
 						rs3.getString("Schule"), rs3.getInt("Semester"));
+				zeugnis.setKlassenLehrer(klassenLehrer);
 				zeugnis.setKlasse(klasse);
 				break;
 			}

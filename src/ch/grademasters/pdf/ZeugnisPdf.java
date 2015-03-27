@@ -128,7 +128,7 @@ public class ZeugnisPdf {
 
 	private static void addTitlePage(Document document)
 			throws DocumentException {
-		Paragraph preface = new Paragraph();
+		Paragraph ganzesPdfFile = new Paragraph();
 
 		String logo = "src/images/logo.png";
 		Image image = null;
@@ -148,34 +148,34 @@ public class ZeugnisPdf {
 				getKlasse_ID());
 
 		/* Layout */
-		addEmptyLine(preface, 1);
-		preface.add(new Paragraph("Zeugnis Nr. " + i, helvetica1));
-		preface.add(image);
-		addEmptyLine(preface, 2);
-		preface.add(new Paragraph("Zeugnis erstellt von: "
+		addEmptyLine(ganzesPdfFile, 1);
+		ganzesPdfFile.add(new Paragraph("Zeugnis Nr. " + i, helvetica1));
+		ganzesPdfFile.add(image);
+		addEmptyLine(ganzesPdfFile, 2);
+		ganzesPdfFile.add(new Paragraph("Zeugnis erstellt von: "
 				+ System.getProperty("user.name") + ", "
 				+ aktuellesDatum.format(zeitStempel) + " - "
 				+ aktuelleZeit.format(zeitStempel), helvetica2));
-		addEmptyLine(preface, 1);
-		preface.add(new Paragraph(
+		addEmptyLine(ganzesPdfFile, 1);
+		ganzesPdfFile.add(new Paragraph(
 				"Dein erstelltes Zeugnis ist nicht dein Endzeugnis. Hier fliessen keine Mündlichen Noten, etc. mit ein!",
 				helvetica3));
-		preface.add(new Paragraph(
+		ganzesPdfFile.add(new Paragraph(
 				"_____________________________________________________________________________"));
-		addEmptyLine(preface, 2);
-		preface.add(new Paragraph("Klassen-Informationen:"));
+		addEmptyLine(ganzesPdfFile, 2);
+		ganzesPdfFile.add(new Paragraph("Klassen-Informationen:"));
 		for (Zeugnis zeugnisGross : zeugnis) {
-			preface.add(zeugnisGross.toString());
+			ganzesPdfFile.add(zeugnisGross.toString());
 			break;
 		}
-		addEmptyLine(preface, 6);
-		preface.add(new Paragraph("_____________________________________",
+		addEmptyLine(ganzesPdfFile, 3);
+		ganzesPdfFile.add(new Paragraph("_____________________________________",
 				helvetica3));
-		preface.add(new Paragraph("Herzliche Gratulation zu Deinem Zeugnis!"));
-		preface.add(new Paragraph("Freundliche Grüsse"));
-		preface.add(new Paragraph("Dein GradeMasters Team"));
+		ganzesPdfFile.add(new Paragraph("Herzliche Gratulation zu Deinem Zeugnis!"));
+		ganzesPdfFile.add(new Paragraph("Freundliche Grüsse"));
+		ganzesPdfFile.add(new Paragraph("Dein GradeMasters Team"));
 
-		document.add(preface);
+		document.add(ganzesPdfFile);
 		// Neue Seite
 		document.newPage();
 	}
