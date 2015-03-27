@@ -5,6 +5,8 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
@@ -242,8 +244,9 @@ public class GradeMastersView extends JFrame {
 	
 	
 	public GradeMastersView() {	
+
 		
-		setIconImage(new ImageIcon("src/images/icon_little.png").getImage());
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/icon_little.png")));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setName("GradeMasters");
 		setSize(800, 500);

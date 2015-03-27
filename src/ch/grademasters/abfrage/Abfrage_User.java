@@ -3,19 +3,26 @@ package ch.grademasters.abfrage;
 import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.Label;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.net.MalformedURLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.Image;
+
 import ch.grademasters.controller.GMController;
 import ch.grademasters.exception.SQLError;
 import ch.grademasters.model.User;
+import ch.grademasters.pdf.ZeugnisPdf;
 import ch.grademasters.view.GradeMastersView;
 
 /**
@@ -92,8 +99,7 @@ public class Abfrage_User extends JDialog implements ActionListener {
 		// Abfrage_User aufrufen
 		Abfrage_User gui = new Abfrage_User();
 		gui.setLocationRelativeTo(null);
-
-		gui.setIconImage(new ImageIcon("GradeMastersNew/src/images/icon.png").getImage());
+		gui.setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/icon_little.png")));
 
 		// Action Listener erstellen
 		ButtonLogin.addActionListener(new ActionListener() {
