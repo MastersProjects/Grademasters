@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import ch.grademasters.view.GradeMastersView;
 
 /**
- * @description Exceptionklasse wenn keine Verbindung zur Datenbank besteht.
+ * @description Exceptionklasse wenn User und Passwort nicht uebereinstimmen
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
  * @file LoginError.java
  * Copyright Berufsbildungscenter GradeMasters 2015
@@ -25,6 +25,7 @@ public class LoginError extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 
+	//JPanel
 	protected JPanel error = new JPanel(new CardLayout());
 	protected JPanel errorCard = new JPanel(new FlowLayout());
 

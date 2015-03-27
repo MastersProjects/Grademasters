@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import ch.grademasters.view.GradeMastersView;
 
 /**
- * @description Exceptionklasse wenn keine VErbindung zur Datenbank besteht.
+ * @description Exceptionklasse wenn keine Verbindung zur Datenbank besteht.
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
  * SQLException.java
  * Copyright Berufsbildungscenter GradeMasters 2015

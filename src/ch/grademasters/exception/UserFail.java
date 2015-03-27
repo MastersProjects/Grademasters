@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import ch.grademasters.view.GradeMastersView;
 
 /**
- * @description Exceptionklasse wenn keine VErbindung zur Datenbank besteht.
+ * @description Exceptionklasse wenn bei Login keine Username oder Passwort eingegeben wurde
  * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
  * UserError.java
  * Copyright Berufsbildungscenter GradeMasters 2015

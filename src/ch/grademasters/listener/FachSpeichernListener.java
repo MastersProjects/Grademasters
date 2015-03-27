@@ -9,6 +9,13 @@ import javax.swing.JTextField;
 import ch.grademasters.controller.GMController;
 import ch.grademasters.item.Item;
 
+/**
+ * @description Listener dammit man eine Klasse speichern kann
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * FachSpeichernListener.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
+ */
+
 public class FachSpeichernListener implements ActionListener {
 	private JTextField fach;
 	private JComboBox<?> klasse;

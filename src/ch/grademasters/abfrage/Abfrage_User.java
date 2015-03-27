@@ -21,8 +21,9 @@ import ch.grademasters.view.GradeMastersView;
 
 /**
  * @description Start Klasse, hier wird das Programm gestartet
- * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin Abfrage_User.java
- *         Copyright Berufsbildungscenter GradeMasters 2015
+ * @author Luca Marti, Chiramet Phong Penglerd, Elia Perenzin 
+ * Abfrage_User.java
+ * Copyright Berufsbildungscenter GradeMasters 2015
  */
 
 public class Abfrage_User extends JDialog implements ActionListener {
@@ -92,9 +93,8 @@ public class Abfrage_User extends JDialog implements ActionListener {
 		// Abfrage_User aufrufen
 		Abfrage_User gui = new Abfrage_User();
 		gui.setLocationRelativeTo(null);
-		
+
 		gui.setIconImage(new ImageIcon("src/images/icon.png").getImage());
-		
 
 		// Action Listener erstellen
 		ButtonLogin.addActionListener(new ActionListener() {
@@ -118,6 +118,7 @@ public class Abfrage_User extends JDialog implements ActionListener {
 						creatGradeMastersView();
 					}
 				}
+
 				// Exception auffange
 				catch (Exception e1) {
 					// Neuer SQLError aufrufen
@@ -137,12 +138,10 @@ public class Abfrage_User extends JDialog implements ActionListener {
 				registr.setLocationRelativeTo(null);
 			}
 		});
-		
+
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -153,5 +152,4 @@ public class Abfrage_User extends JDialog implements ActionListener {
 	public static void setGradeMastersView(GradeMastersView gradeMastersView) {
 		Abfrage_User.gradeMastersView = gradeMastersView;
 	}
-
 }
