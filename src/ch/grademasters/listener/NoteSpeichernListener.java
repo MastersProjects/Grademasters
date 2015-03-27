@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
 import ch.grademasters.controller.GMController;
@@ -15,12 +16,14 @@ public class NoteSpeichernListener implements ActionListener {
 	private JTextField gewichtung;
 	private JTextField benennung;
 	private JComboBox<?> addNoteFachListe;
+	private JSpinner datumSpinner;
 	
-	public NoteSpeichernListener(JTextField note, JTextField gewichtung, JTextField benennung, JComboBox<?> addNoteFachListe) {
+	public NoteSpeichernListener(JTextField note, JTextField gewichtung, JTextField benennung, JComboBox<?> addNoteFachListe, JSpinner datumSpinner) {
 		this.setNote(note);
 		this.setGewichtung(gewichtung);
 		this.setBenennung(benennung);
 		this.setAddNoteFachListe(addNoteFachListe);
+		this.setDatumSpinner(datumSpinner);
 	}
 	
 	@Override
@@ -31,6 +34,11 @@ public class NoteSpeichernListener implements ActionListener {
 		float note = Float.parseFloat(this.getNote().getText());
 		float gewichtung = Float.parseFloat(this.getGewichtung().getText());
 		String benennung = this.getBenennung().getText();
+		JSpinner.DateEditor datumformatiert = new JSpinner.DateEditor(getDatumSpinner(), "dd/MM/yyyy");
+		getDatumSpinner().setEditor(datumformatiert);
+		
+		System.out.println(getDatumSpinner().getValue());
+		
 		GMController.getInstance().noteSpeichern(note, gewichtung, ID_Fach, benennung);
 		
 		//clear textfield
@@ -77,6 +85,14 @@ public class NoteSpeichernListener implements ActionListener {
 
 	public void setAddNoteFachListe(JComboBox<?> fach) {
 		this.addNoteFachListe = fach;
+	}
+
+	public JSpinner getDatumSpinner() {
+		return datumSpinner;
+	}
+
+	public void setDatumSpinner(JSpinner datumSpinner) {
+		this.datumSpinner = datumSpinner;
 	}
 	
 	

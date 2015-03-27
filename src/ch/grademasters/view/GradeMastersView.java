@@ -239,7 +239,7 @@ public class GradeMastersView extends JFrame {
 	
 	public GradeMastersView() {	
 		
-		setIconImage(new ImageIcon("src/images/icon.png").getImage());
+		setIconImage(new ImageIcon("src/images/icon_little.png").getImage());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setName("GradeMasters");
 		setSize(800, 500);
@@ -429,7 +429,6 @@ public class GradeMastersView extends JFrame {
 		
 		//addFachListePanel
 		addNoteFachListePanel.add(addNoteFachListeLabel);
-//		addNoteFachListe = new JComboBox<>(fachModel);
 		addNoteFachListePanel.add(addNoteFachListe);
 		addNoteFachListePanel.setPreferredSize(new Dimension(90,40));
 		
@@ -490,7 +489,7 @@ public class GradeMastersView extends JFrame {
 		fachSpeichern.addActionListener(new FachSpeichernListener(fachName, addFachKlasseListe));
 		
 		//noteSpeichern
-		noteSpeichern.addActionListener(new NoteSpeichernListener(note, gewichtung, benennung, addNoteFachListe));
+		noteSpeichern.addActionListener(new NoteSpeichernListener(note, gewichtung, benennung, addNoteFachListe, datumSpinner));
 		
 		/*
 		 * EVENTS
