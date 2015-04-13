@@ -240,7 +240,7 @@ public class GradeMastersView extends JFrame {
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/icon_little.png")));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setName("GradeMasters");
+		setTitle("GradeMasters");
 		setSize(800, 500);
 		setVisible(true);
 		
