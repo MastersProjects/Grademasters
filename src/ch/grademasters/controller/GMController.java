@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ch.grademasters.controller;
 
 import java.sql.SQLException;

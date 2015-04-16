@@ -45,6 +45,7 @@ public class StartCardKlasseListener implements ActionListener  {
 		//die klasse_ID des ausgewaehlten Item in der ComboBox rausfinden
         Item item = (Item)getStartKlasseListe().getSelectedItem();
         int klasse_ID = item.getId();
+        System.out.println();
         
         getKlassenInfo().removeAll();
         ArrayList<Zeugnis> zeugnis = GMController.getInstance().getZeugnis(klasse_ID);
